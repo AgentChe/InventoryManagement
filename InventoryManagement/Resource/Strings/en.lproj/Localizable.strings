@@ -67,3 +67,11 @@
 "Main.Transactions" = "Transactions";
 "Main.Search" = "Search";
 "Main.Settings" = "Settings";
+
+// MARK: Settings
+"Settings.Title" = "Settings";
+"Settings.UnlockAccess.Title" = "Enjoy unlimited\nmeasurements";
+"Settings.UnlockAccess.Button" = "Try for free";
+"Settings.Links.ContactUs" = "Contact us";
+"Settings.Links.TermsOfUse" = "Terms of Use";
+"Settings.Links.PrivacyPolicy" = "Privacy Policy";

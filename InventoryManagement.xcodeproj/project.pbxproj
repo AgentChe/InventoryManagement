@@ -96,6 +96,14 @@
 		DE0AA8932DA50D01005DFC44 /* Onstruction2View.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0AA8922DA50D01005DFC44 /* Onstruction2View.swift */; };
 		DE0AA8952DA50D62005DFC44 /* OAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0AA8942DA50D62005DFC44 /* OAccountView.swift */; };
 		DE0AA8992DA50DF1005DFC44 /* OAccountButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0AA8982DA50DF1005DFC44 /* OAccountButton.swift */; };
+		DE0AA89C2DA53527005DFC44 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0AA89B2DA53527005DFC44 /* SettingsViewController.swift */; };
+		DE0AA89E2DA53534005DFC44 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0AA89D2DA53534005DFC44 /* SettingsViewModel.swift */; };
+		DE0AA8A02DA53537005DFC44 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0AA89F2DA53537005DFC44 /* SettingsView.swift */; };
+		DE0AA8A42DA536A3005DFC44 /* SettingsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0AA8A32DA536A3005DFC44 /* SettingsTableView.swift */; };
+		DE0AA8A62DA536AE005DFC44 /* SettingsTableElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0AA8A52DA536AE005DFC44 /* SettingsTableElement.swift */; };
+		DE0AA8A92DA536BC005DFC44 /* STUnlockAccessCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0AA8A82DA536BC005DFC44 /* STUnlockAccessCell.swift */; };
+		DE0AA8AB2DA536C2005DFC44 /* STLinksCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0AA8AA2DA536C2005DFC44 /* STLinksCell.swift */; };
+		DE0AA8AF2DA53784005DFC44 /* STLinkButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0AA8AE2DA53784005DFC44 /* STLinkButton.swift */; };
 		F7956860648D8CDD840F20E4 /* Pods_InventoryManagement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBD9DD49DCE1C130B530F076 /* Pods_InventoryManagement.framework */; };
 /* End PBXBuildFile section */
 
@@ -194,6 +202,14 @@
 		DE0AA8922DA50D01005DFC44 /* Onstruction2View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onstruction2View.swift; sourceTree = "<group>"; };
 		DE0AA8942DA50D62005DFC44 /* OAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAccountView.swift; sourceTree = "<group>"; };
 		DE0AA8982DA50DF1005DFC44 /* OAccountButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAccountButton.swift; sourceTree = "<group>"; };
+		DE0AA89B2DA53527005DFC44 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		DE0AA89D2DA53534005DFC44 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
+		DE0AA89F2DA53537005DFC44 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		DE0AA8A32DA536A3005DFC44 /* SettingsTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableView.swift; sourceTree = "<group>"; };
+		DE0AA8A52DA536AE005DFC44 /* SettingsTableElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableElement.swift; sourceTree = "<group>"; };
+		DE0AA8A82DA536BC005DFC44 /* STUnlockAccessCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STUnlockAccessCell.swift; sourceTree = "<group>"; };
+		DE0AA8AA2DA536C2005DFC44 /* STLinksCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STLinksCell.swift; sourceTree = "<group>"; };
+		DE0AA8AE2DA53784005DFC44 /* STLinkButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STLinkButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -422,6 +438,7 @@
 		DE0AA6602DA4F318005DFC44 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				DE0AA89A2DA53519005DFC44 /* Settings */,
 				DE0AA65F2DA4F318005DFC44 /* Main */,
 			);
 			path = Main;
@@ -652,6 +669,61 @@
 			path = Atoms;
 			sourceTree = "<group>";
 		};
+		DE0AA89A2DA53519005DFC44 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				DE0AA8A12DA53697005DFC44 /* Views */,
+				DE0AA89B2DA53527005DFC44 /* SettingsViewController.swift */,
+				DE0AA89D2DA53534005DFC44 /* SettingsViewModel.swift */,
+				DE0AA89F2DA53537005DFC44 /* SettingsView.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		DE0AA8A12DA53697005DFC44 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				DE0AA8A22DA5369B005DFC44 /* TableView */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		DE0AA8A22DA5369B005DFC44 /* TableView */ = {
+			isa = PBXGroup;
+			children = (
+				DE0AA8A72DA536B1005DFC44 /* Cells */,
+				DE0AA8A32DA536A3005DFC44 /* SettingsTableView.swift */,
+				DE0AA8A52DA536AE005DFC44 /* SettingsTableElement.swift */,
+			);
+			path = TableView;
+			sourceTree = "<group>";
+		};
+		DE0AA8A72DA536B1005DFC44 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				DE0AA8AC2DA5374D005DFC44 /* Links */,
+				DE0AA8A82DA536BC005DFC44 /* STUnlockAccessCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		DE0AA8AC2DA5374D005DFC44 /* Links */ = {
+			isa = PBXGroup;
+			children = (
+				DE0AA8AD2DA53754005DFC44 /* Atoms */,
+				DE0AA8AA2DA536C2005DFC44 /* STLinksCell.swift */,
+			);
+			path = Links;
+			sourceTree = "<group>";
+		};
+		DE0AA8AD2DA53754005DFC44 /* Atoms */ = {
+			isa = PBXGroup;
+			children = (
+				DE0AA8AE2DA53784005DFC44 /* STLinkButton.swift */,
+			);
+			path = Atoms;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -776,12 +848,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				DE0AA7472DA4F318005DFC44 /* IAPActionResult.swift in Sources */,
+				DE0AA8A42DA536A3005DFC44 /* SettingsTableView.swift in Sources */,
 				DE0AA7482DA4F318005DFC44 /* NavigationControllerSettings.swift in Sources */,
 				DE0AA74B2DA4F318005DFC44 /* OnboardingView.swift in Sources */,
 				DE0AA75C2DA4F318005DFC44 /* TabView.swift in Sources */,
 				DE0AA7612DA4F318005DFC44 /* UIEdgeInsets+Extension.swift in Sources */,
+				DE0AA8A02DA53537005DFC44 /* SettingsView.swift in Sources */,
 				DE0AA7642DA4F318005DFC44 /* APIRequestBody.swift in Sources */,
 				DE0AA7692DA4F318005DFC44 /* AppDelegate.swift in Sources */,
+				DE0AA89C2DA53527005DFC44 /* SettingsViewController.swift in Sources */,
 				DE0AA76E2DA4F318005DFC44 /* PaygateInteractor.swift in Sources */,
 				DE0AA7722DA4F318005DFC44 /* ContentError.swift in Sources */,
 				DE0AA7732DA4F318005DFC44 /* UIDevice+Extension.swift in Sources */,
@@ -792,18 +867,22 @@
 				DE0AA7802DA4F318005DFC44 /* SessionManager.swift in Sources */,
 				DE0AA7812DA4F318005DFC44 /* ObservableAndSingle+Extension.swift in Sources */,
 				DE0AA7822DA4F318005DFC44 /* GlobalDefinitions.swift in Sources */,
+				DE0AA8A62DA536AE005DFC44 /* SettingsTableElement.swift in Sources */,
 				DE0AA7862DA4F318005DFC44 /* String+Extension.swift in Sources */,
 				DE0AA88F2DA5059C005DFC44 /* OWelcomeView.swift in Sources */,
 				DE0AA7882DA4F318005DFC44 /* IAPProduct.swift in Sources */,
+				DE0AA8AB2DA536C2005DFC44 /* STLinksCell.swift in Sources */,
 				DE0AA78B2DA4F318005DFC44 /* PaddingLabel.swift in Sources */,
 				DE0AA78E2DA4F318005DFC44 /* PaygateViewModel.swift in Sources */,
 				DE0AA7922DA4F318005DFC44 /* Currency.swift in Sources */,
 				DE0AA7942DA4F318005DFC44 /* NavigationController.swift in Sources */,
 				DE0AA7952DA4F318005DFC44 /* LeftAlignedCollectionViewFlowLayout.swift in Sources */,
+				DE0AA89E2DA53534005DFC44 /* SettingsViewModel.swift in Sources */,
 				DE0AA7A22DA4F318005DFC44 /* TextAttributes.swift in Sources */,
 				DE0AA7A32DA4F318005DFC44 /* ScreenSize.swift in Sources */,
 				DE0AA7A72DA4F318005DFC44 /* SignError.swift in Sources */,
 				DE0AA7AB2DA4F318005DFC44 /* ObservableRetrySingle.swift in Sources */,
+				DE0AA8AF2DA53784005DFC44 /* STLinkButton.swift in Sources */,
 				DE0AA7AC2DA4F318005DFC44 /* SplashView.swift in Sources */,
 				DE0AA88C2DA50418005DFC44 /* RequestResult.swift in Sources */,
 				DE0AA7AF2DA4F318005DFC44 /* NetworkError.swift in Sources */,
@@ -834,6 +913,7 @@
 				DE0AA8202DA4F318005DFC44 /* TryAgainView.swift in Sources */,
 				DE0AA8242DA4F318005DFC44 /* XOREncryption.swift in Sources */,
 				DE0AA8262DA4F318005DFC44 /* PaygateBestOfferView.swift in Sources */,
+				DE0AA8A92DA536BC005DFC44 /* STUnlockAccessCell.swift in Sources */,
 				DE0AA8272DA4F318005DFC44 /* SplashReceiptValidationObserver.swift in Sources */,
 				DE0AA8292DA4F318005DFC44 /* Fonts.swift in Sources */,
 				DE0AA8302DA4F318005DFC44 /* MainView.swift in Sources */,

@@ -11,7 +11,7 @@ final class MainCoordinator {
     private lazy var itemsVC = UIViewController()
     private lazy var transactionsVC = UIViewController()
     private lazy var searchVC = UIViewController()
-    private lazy var settingsVC = UIViewController()
+    private lazy var settingsVC = SettingsViewController.make()
     
     private weak var parentVC: UIViewController?
     private weak var container: UIView?
@@ -27,8 +27,6 @@ final class MainCoordinator {
 // MARK: Public
 extension MainCoordinator {
     func change(tab: TabView.Tab) {
-//        parentVC?.mainView.tabView.selectedTab = tab
-        
         switch tab {
         case .items:
             changeVC(on: itemsVC)
