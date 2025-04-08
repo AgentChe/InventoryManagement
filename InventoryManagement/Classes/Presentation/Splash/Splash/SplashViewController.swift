@@ -78,9 +78,7 @@ private extension SplashViewController {
             }
             present(vc, animated: true)
         case .main:
-            let vc = MainViewController.make(requestReview: false)
-            let nc = NavigationController(rootViewController: vc)
-            window.rootViewController = nc
+            window.rootViewController = MainViewController.make(requestReview: false)
         }
     }
     

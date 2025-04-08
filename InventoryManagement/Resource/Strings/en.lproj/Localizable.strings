@@ -61,3 +61,9 @@
 "Onboarding.Account.Personal.SubTitle" = "I want to organise my stuff in my home";
 "Onboarding.Account.Business.Title" = "Business";
 "Onboarding.Account.Business.SubTitle" = "I want to do workplace inventory";
+
+// MARK: Main
+"Main.Items" = "Items";
+"Main.Transactions" = "Transactions";
+"Main.Search" = "Search";
+"Main.Settings" = "Settings";

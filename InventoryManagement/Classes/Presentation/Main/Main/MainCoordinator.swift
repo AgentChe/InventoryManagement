@@ -8,27 +8,38 @@
 import UIKit
 
 final class MainCoordinator {
-    weak var parentVC: MainViewController?
+    private lazy var itemsVC = UIViewController()
+    private lazy var transactionsVC = UIViewController()
+    private lazy var searchVC = UIViewController()
+    private lazy var settingsVC = UIViewController()
     
-    lazy var exploreVC = UIViewController()
-    lazy var chatVC = UIViewController()
+    private weak var parentVC: UIViewController?
+    private weak var container: UIView?
     
     private var previousVC: UIViewController?
     
-    init(parentVC: MainViewController) {
+    init(parentVC: UIViewController, container: UIView) {
         self.parentVC = parentVC
+        self.container = container
     }
-    
+}
+
+// MARK: Public
+extension MainCoordinator {
     func change(tab: TabView.Tab) {
-        parentVC?.mainView.tabView.selectedTab = tab
+//        parentVC?.mainView.tabView.selectedTab = tab
         
         switch tab {
-        case .explore:
-            changeVC(on: exploreVC)
-        case .scan:
+        case .items:
+            changeVC(on: itemsVC)
+        case .transactions:
+            changeVC(on: transactionsVC)
+        case .add:
             return
-        case .chat:
-            changeVC(on: chatVC)
+        case .search:
+            changeVC(on: searchVC)
+        case .settings:
+            changeVC(on: settingsVC)
         }
     }
 }
@@ -44,13 +55,13 @@ private extension MainCoordinator {
     
         self.previousVC = vc
         
-        guard let parentVC = self.parentVC else {
+        guard let parentVC, let container else {
             return
         }
     
         parentVC.addChild(vc)
-        vc.view.frame = parentVC.mainView.container.bounds
-        parentVC.mainView.container.addSubview(vc.view)
+        vc.view.frame = container.bounds
+        container.addSubview(vc.view)
         vc.willMove(toParent: parentVC)
     }
 }

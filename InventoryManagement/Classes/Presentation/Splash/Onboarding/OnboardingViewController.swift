@@ -45,14 +45,10 @@ private extension OnboardingViewController {
         }
         
         if SessionManager().hasActiveSubscriptions() {
-            let vc = MainViewController.make(requestReview: true)
-            let nc = NavigationController(rootViewController: vc)
-            window.rootViewController = nc
+            window.rootViewController = MainViewController.make(requestReview: true)
         } else {
             let vc = PaygateViewController.make {
-                let vc = MainViewController.make(requestReview: true)
-                let nc = NavigationController(rootViewController: vc)
-                window.rootViewController = nc
+                window.rootViewController = MainViewController.make(requestReview: true)
             }
             present(vc, animated: true)
         }

@@ -26,7 +26,7 @@ final class MainView: UIView {
 // MARK: Private
 private extension MainView {
     func initialize() {
-        backgroundColor = Appearance.main100
+        backgroundColor = Appearance.custom245_246_250
     }
 }
 
@@ -44,7 +44,7 @@ private extension MainView {
             tabView.leadingAnchor.constraint(equalTo: leadingAnchor),
             tabView.trailingAnchor.constraint(equalTo: trailingAnchor),
             tabView.bottomAnchor.constraint(equalTo: bottomAnchor),
-            tabView.heightAnchor.constraint(equalToConstant: 102.scale)
+            tabView.heightAnchor.constraint(equalToConstant: 83.scale)
         ])
     }
 }

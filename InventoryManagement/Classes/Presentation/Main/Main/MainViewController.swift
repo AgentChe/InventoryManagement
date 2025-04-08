@@ -9,11 +9,14 @@ import UIKit
 import RxSwift
 
 final class MainViewController: UIViewController {
-    lazy var mainView = MainView()
+    private lazy var mainView = MainView()
+    
+    private lazy var coordinator = MainCoordinator(
+        parentVC: self,
+        container: mainView.container
+    )
     
     private lazy var disposeBag = DisposeBag()
-    
-    private lazy var coordinator = MainCoordinator(parentVC: self)
     
     private let requestReview: Bool
     
@@ -37,19 +40,25 @@ final class MainViewController: UIViewController {
         rx.methodInvoked(#selector(UIViewController.viewDidLayoutSubviews))
             .take(1)
             .bind(to: Binder(self) { base, _ in
-                base.coordinator.change(tab: .explore)
+                base.coordinator.change(tab: .items)
+                base.mainView.tabView.selectedTab = .items
             })
             .disposed(by: disposeBag)
         
         Observable
             .merge([
-                mainView.tabView.exploreButton
-                    .rx.tap.map { TabView.Tab.explore },
-                mainView.tabView.chatButton
-                    .rx.tap.map { TabView.Tab.chat }
+                mainView.tabView.itemsButton
+                    .rx.tap.map { TabView.Tab.items },
+                mainView.tabView.transactionsButton
+                    .rx.tap.map { TabView.Tab.transactions },
+                mainView.tabView.searchButton
+                    .rx.tap.map { TabView.Tab.search },
+                mainView.tabView.settingsButton
+                    .rx.tap.map { TabView.Tab.settings }
             ])
             .bind(to: Binder(self) { base, tab in
                 base.coordinator.change(tab: tab)
+                base.mainView.tabView.selectedTab = tab
             })
             .disposed(by: disposeBag)
         
@@ -61,9 +70,9 @@ final class MainViewController: UIViewController {
 
 // MARK: Public
 extension MainViewController {
-    static func make(requestReview: Bool) -> MainViewController {
+    static func make(requestReview: Bool) -> NavigationController {
         let vc = MainViewController(requestReview: requestReview)
         vc.navigationItem.backButtonTitle = " "
-        return vc
+        return NavigationController(rootViewController: vc)
     }
 }

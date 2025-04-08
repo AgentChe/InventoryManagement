@@ -9,15 +9,16 @@ import UIKit
 
 final class TabView: UIView {
     enum Tab {
-        case explore, scan, chat
+        case items, transactions, add, search, settings
     }
     
-    lazy var container = makeContainer()
-    lazy var exploreButton = makeButton(imageDomain: "Main.Explore")
-    lazy var scanButton = makeScanButton()
-    lazy var chatButton = makeButton(imageDomain: "Main.Chat")
+    lazy var itemsButton = makeItemButton(domain: "Main.Items")
+    lazy var transactionsButton = makeItemButton(domain: "Main.Transactions")
+    lazy var addButton = makeAddButton()
+    lazy var searchButton = makeItemButton(domain: "Main.Search")
+    lazy var settingsButton = makeItemButton(domain: "Main.Settings")
     
-    var selectedTab = Tab.explore {
+    var selectedTab = Tab.items {
         didSet {
             update()
         }
@@ -27,6 +28,7 @@ final class TabView: UIView {
         super.init(frame: frame)
         
         makeConstraints()
+        initialize()
         update()
     }
     
@@ -37,9 +39,15 @@ final class TabView: UIView {
 
 // MARK: Private
 private extension TabView {
+    func initialize() {
+        backgroundColor = UIColor.clear
+    }
+    
     func update() {
-        exploreButton.marked = selectedTab == .explore
-        chatButton.marked = selectedTab == .chat
+        itemsButton.marked = selectedTab == .items
+        transactionsButton.marked = selectedTab == .transactions
+        searchButton.marked = selectedTab == .search
+        settingsButton.marked = selectedTab == .settings
     }
 }
 
@@ -47,63 +55,56 @@ private extension TabView {
 private extension TabView {
     func makeConstraints() {
         NSLayoutConstraint.activate([
-            container.leadingAnchor.constraint(equalTo: leadingAnchor),
-            container.trailingAnchor.constraint(equalTo: trailingAnchor),
-            container.topAnchor.constraint(equalTo: topAnchor, constant: 12.scale),
-            container.heightAnchor.constraint(equalToConstant: 90.scale)
+            itemsButton.widthAnchor.constraint(equalToConstant: 78.scale),
+            itemsButton.heightAnchor.constraint(equalToConstant: 40.scale),
+            itemsButton.leadingAnchor.constraint(equalTo: leadingAnchor),
+            itemsButton.topAnchor.constraint(equalTo: topAnchor, constant: 7.scale)
         ])
         
         NSLayoutConstraint.activate([
-            exploreButton.widthAnchor.constraint(equalToConstant: 24.scale),
-            exploreButton.heightAnchor.constraint(equalToConstant: 24.scale),
-            exploreButton.topAnchor.constraint(equalTo: container.topAnchor, constant: 23.scale),
-            exploreButton.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: 66.scale)
+            transactionsButton.widthAnchor.constraint(equalToConstant: 78.scale),
+            transactionsButton.heightAnchor.constraint(equalToConstant: 40.scale),
+            transactionsButton.leadingAnchor.constraint(equalTo: itemsButton.trailingAnchor),
+            transactionsButton.topAnchor.constraint(equalTo: topAnchor, constant: 7.scale)
         ])
         
         NSLayoutConstraint.activate([
-            scanButton.widthAnchor.constraint(equalToConstant: 68.scale),
-            scanButton.heightAnchor.constraint(equalToConstant: 68.scale),
-            scanButton.centerXAnchor.constraint(equalTo: centerXAnchor),
-            scanButton.topAnchor.constraint(equalTo: topAnchor)
+            addButton.widthAnchor.constraint(equalToConstant: 48.scale),
+            addButton.heightAnchor.constraint(equalToConstant: 48.scale),
+            addButton.centerXAnchor.constraint(equalTo: centerXAnchor),
+            addButton.topAnchor.constraint(equalTo: topAnchor, constant: 3.scale)
         ])
         
         NSLayoutConstraint.activate([
-            chatButton.widthAnchor.constraint(equalToConstant: 24.scale),
-            chatButton.heightAnchor.constraint(equalToConstant: 24.scale),
-            chatButton.topAnchor.constraint(equalTo: container.topAnchor, constant: 23.scale),
-            chatButton.trailingAnchor.constraint(equalTo: container.trailingAnchor, constant: -66.scale)
+            searchButton.widthAnchor.constraint(equalToConstant: 78.scale),
+            searchButton.heightAnchor.constraint(equalToConstant: 40.scale),
+            searchButton.trailingAnchor.constraint(equalTo: settingsButton.leadingAnchor),
+            searchButton.topAnchor.constraint(equalTo: topAnchor, constant: 7.scale)
+        ])
+        
+        NSLayoutConstraint.activate([
+            settingsButton.widthAnchor.constraint(equalToConstant: 78.scale),
+            settingsButton.heightAnchor.constraint(equalToConstant: 40.scale),
+            settingsButton.trailingAnchor.constraint(equalTo: trailingAnchor),
+            settingsButton.topAnchor.constraint(equalTo: topAnchor, constant: 7.scale)
         ])
     }
 }
 
 // MARK: Lazy initialization
 private extension TabView {
-    func makeContainer() -> UIView {
-        let view = UIView()
-        view.layer.shadowColor = Appearance.mono200.withAlphaComponent(0.4).cgColor
-        view.layer.shadowOpacity = 0.1
-        view.layer.shadowOffset = .zero
-        view.layer.shadowRadius = 4.scale
-        view.backgroundColor = Appearance.mono100
+    func makeItemButton(domain: String) -> TabItemButton {
+        let view = TabItemButton(domain: domain)
         view.translatesAutoresizingMaskIntoConstraints = false
         addSubview(view)
         return view
     }
     
-    func makeScanButton() -> TapAreaButton {
+    func makeAddButton() -> TapAreaButton {
         let view = TapAreaButton()
-        view.setImage(UIImage(named: "Main.Scan"), for: .normal)
+        view.setImage(UIImage(named: "Main.Add"), for: .normal)
         view.translatesAutoresizingMaskIntoConstraints = false
         addSubview(view)
-        return view
-    }
-    
-    func makeButton(imageDomain: String) -> TabItemButton {
-        let view = TabItemButton(imageDomain: imageDomain)
-        view.dx = -15.scale
-        view.dy = -15.scale
-        view.translatesAutoresizingMaskIntoConstraints = false
-        container.addSubview(view)
         return view
     }
 }

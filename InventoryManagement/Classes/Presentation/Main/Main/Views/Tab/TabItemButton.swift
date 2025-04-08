@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class TabItemButton: TapAreaButton {
+final class TabItemButton: UIButton {
     lazy var marked: Bool = false {
         didSet {
             update()
@@ -15,11 +15,23 @@ final class TabItemButton: TapAreaButton {
     }
     
     lazy var iconView = makeImageView()
+    lazy var label = makeLabel()
     
-    private let imageDomain: String
+    private lazy var selectedAttrs = TextAttributes()
+        .textColor(Appearance.main200)
+        .font(Fonts.SFPro.medium(size: 10.scale))
+        .lineHeight(12.scale)
+        .textAlignment(.center)
+    private lazy var normalAttrs = TextAttributes()
+        .textColor(Appearance.mono200)
+        .font(Fonts.SFPro.medium(size: 10.scale))
+        .lineHeight(12.scale)
+        .textAlignment(.center)
     
-    init(imageDomain: String) {
-        self.imageDomain = imageDomain
+    private let domain: String
+    
+    init(domain: String) {
+        self.domain = domain
         
         super.init(frame: .zero)
         
@@ -40,8 +52,13 @@ private extension TabItemButton {
     }
     
     func update() {
-        let iconName = imageDomain + (marked ? ".S" : ".D")
+        alpha = marked ? 1 : 0.3
+        
+        let iconName = domain + (marked ? ".S" : ".D")
         iconView.image = UIImage(named: iconName)
+        
+        let attrs = marked ? selectedAttrs : normalAttrs
+        label.attributedText = domain.localized.attributed(with: attrs)
     }
 }
 
@@ -51,10 +68,13 @@ private extension TabItemButton {
         NSLayoutConstraint.activate([
             iconView.widthAnchor.constraint(equalToConstant: 24.scale),
             iconView.heightAnchor.constraint(equalToConstant: 24.scale),
-            iconView.topAnchor.constraint(equalTo: topAnchor),
-            iconView.bottomAnchor.constraint(equalTo: bottomAnchor),
-            iconView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            iconView.trailingAnchor.constraint(equalTo: trailingAnchor)
+            iconView.centerXAnchor.constraint(equalTo: centerXAnchor),
+            iconView.topAnchor.constraint(equalTo: topAnchor)
+        ])
+        
+        NSLayoutConstraint.activate([
+            label.centerXAnchor.constraint(equalTo: centerXAnchor),
+            label.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -1.scale)
         ])
     }
 }
@@ -64,6 +84,13 @@ private extension TabItemButton {
     func makeImageView() -> UIImageView {
         let view = UIImageView()
         view.contentMode = .scaleAspectFit
+        view.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(view)
+        return view
+    }
+    
+    func makeLabel() -> UILabel {
+        let view = UILabel()
         view.translatesAutoresizingMaskIntoConstraints = false
         addSubview(view)
         return view
