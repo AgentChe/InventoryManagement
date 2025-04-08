@@ -21,6 +21,9 @@
 "TryAgain.Button" = "Try again";
 "TryAgain.Contact" = "Contact support";
 
+// MARK: Splash
+"Splash.Preloader" = "‍Loading...";
+
 // MARK: Paygate
 "Paygate.Error.Title" = "Error";
 "Paygate.Error.Text" = "An error occurred during execution. Try later.";
@@ -44,9 +47,6 @@
 "Paygate.PrivacyPolicy" = "Privacy Policy";
 "Paygate.RestorePurchases" = "Restore Purchases";
 "Paygate.BestOffer" = "⭐ Best Offer";
-
-// MARK: Splash
-"Splash.Title" = "‍Skincare\nProduct Scanner.";
 
 // MARK: Onboarding
 "Onboarding.DisclaimerInfo" = "Disclaimer info";

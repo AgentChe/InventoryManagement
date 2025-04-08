@@ -7,6 +7,7 @@
 
 import UIKit
 
+// TODO: дизайн
 final class TryAgainView: UIView {
     lazy var backgroundView = makeBackgroundView()
     lazy var closeButton = makeCloseButton()
@@ -35,7 +36,7 @@ final class TryAgainView: UIView {
 // MARK: Private
 private extension TryAgainView {
     func initialize() {
-        backgroundColor = Appearance.main500
+        backgroundColor = Appearance.main100
     }
     
     func errorMessage() -> String {
@@ -134,8 +135,8 @@ private extension TryAgainView {
     
     func makeTitleLabel() -> UILabel {
         let attrs = TextAttributes()
-            .textColor(Appearance.custom32_30_30)
-            .font(Fonts.Outfit.bold(size: 22.scale))
+            .textColor(Appearance.main100)
+            .font(Fonts.Quicksand.bold(size: 22.scale))
             .lineHeight(30.scale)
             .textAlignment(.center)
         
@@ -149,8 +150,8 @@ private extension TryAgainView {
     
     func makeSubTitleLabel() -> UILabel {
         let attrs = TextAttributes()
-            .textColor(Appearance.custom32_30_30)
-            .font(Fonts.Outfit.regular(size: 16.scale))
+            .textColor(Appearance.main100)
+            .font(Fonts.Quicksand.regular(size: 16.scale))
             .lineHeight(22.scale)
             .textAlignment(.center)
         
@@ -165,7 +166,7 @@ private extension TryAgainView {
     func makeTryAgainButton() -> UIButton {
         let attrs = TextAttributes()
             .textColor(Appearance.mono100)
-            .font(Fonts.Outfit.medium(size: 18.scale))
+            .font(Fonts.Quicksand.medium(size: 18.scale))
         
         let view = UIButton()
         view.setAttributedTitle("TryAgain.Button".localized.attributed(with: attrs), for: .normal)
@@ -179,11 +180,11 @@ private extension TryAgainView {
     func makeContactButton() -> UIButton {
         let attrs = TextAttributes()
             .textColor(Appearance.mono200)
-            .font(Fonts.Outfit.medium(size: 18.scale))
+            .font(Fonts.Quicksand.medium(size: 18.scale))
         
         let view = UIButton()
         view.setAttributedTitle("TryAgain.Contact".localized.attributed(with: attrs), for: .normal)
-        view.backgroundColor = Appearance.main700
+        view.backgroundColor = Appearance.main100
         view.layer.cornerRadius = 16.scale
         view.translatesAutoresizingMaskIntoConstraints = false
         addSubview(view)

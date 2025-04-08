@@ -26,7 +26,7 @@ final class PaygateView: UIView {
     
     private lazy var buyAttrs = TextAttributes()
         .textColor(Appearance.mono100)
-        .font(Fonts.Outfit.medium(size: 18.scale))
+        .font(Fonts.Quicksand.medium(size: 18.scale))
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -50,7 +50,7 @@ extension PaygateView {
 // MARK: Private
 private extension PaygateView {
     func initialize() {
-        backgroundColor = Appearance.main500
+        backgroundColor = Appearance.main100
     }
 }
 
@@ -185,7 +185,7 @@ private extension PaygateView {
     func makeTitleLabel() -> UILabel {
         let attrs = TextAttributes()
             .textColor(Appearance.mono200)
-            .font(Fonts.Outfit.bold(size: ScreenSize.isIphoneXFamily ? 22.scale : 20.scale))
+            .font(Fonts.Quicksand.bold(size: ScreenSize.isIphoneXFamily ? 22.scale : 20.scale))
             .lineHeight(ScreenSize.isIphoneXFamily ? 30.scale : 23.scale)
             .textAlignment(.center)
         

@@ -9,12 +9,13 @@ import UIKit
 
 final class SplashView: UIView {
     lazy var imageView = makeImageView()
-    lazy var titleLabel = makeTitleLabel()
+    lazy var preloaderLabel = makePreloaderLabel()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         
         makeConstraints()
+        initialize()
     }
     
     required init?(coder: NSCoder) {
@@ -25,7 +26,7 @@ final class SplashView: UIView {
 // MARK: Private
 private extension SplashView {
     func initialize() {
-        backgroundColor = Appearance.main100
+        backgroundColor = Appearance.main200
     }
 }
 
@@ -40,15 +41,16 @@ private extension SplashView {
         ])
         
         NSLayoutConstraint.activate([
-            titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16.scale),
-            titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16.scale),
-            titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 164.scale)
+            preloaderLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16.scale),
+            preloaderLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16.scale),
+            preloaderLabel.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -29.scale)
         ])
     }
 }
 
 // MARK: Lazy initialization
 private extension SplashView {
+    // TODO: image
     func makeImageView() -> UIImageView {
         let view = UIImageView()
         view.contentMode = .scaleAspectFill
@@ -59,16 +61,15 @@ private extension SplashView {
         return view
     }
     
-    func makeTitleLabel() -> UILabel {
+    func makePreloaderLabel() -> UILabel {
         let attrs = TextAttributes()
-            .textColor(Appearance.mono200)
-            .font(Fonts.Outfit.bold(size: 38.scale))
-            .lineHeight(48.scale)
-            .textAlignment(.left)
+            .textColor(Appearance.mono100)
+            .font(Fonts.Quicksand.regular(size: 17.scale))
+            .lineHeight(23.scale)
+            .textAlignment(.center)
         
         let view = UILabel()
-        view.numberOfLines = 0
-        view.attributedText = "Splash.Title".localized.attributed(with: attrs)
+        view.attributedText = "Splash.Preloader".localized.attributed(with: attrs)
         view.translatesAutoresizingMaskIntoConstraints = false
         addSubview(view)
         return view

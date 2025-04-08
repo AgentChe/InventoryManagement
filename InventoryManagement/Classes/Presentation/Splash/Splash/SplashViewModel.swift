@@ -65,7 +65,15 @@ private extension SplashViewModel {
                     let anonymousId = sessionManager.anonymousId
                     let internalId = sessionManager.internalId
                     
-                    return (anonymousId == internalId) ? profileManager.create() : profileManager.binding()
+                    let result = (anonymousId == internalId) ? profileManager.create() : profileManager.binding()
+                    return result
+                        .map { result -> Void in
+                            guard result.success else {
+                                throw ContentError(.notContent)
+                            }
+                            
+                            return Void()
+                        }
                 }
                 
                 func trigger(error: Error) -> Observable<Void> {

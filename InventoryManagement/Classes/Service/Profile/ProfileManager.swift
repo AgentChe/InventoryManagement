@@ -9,8 +9,8 @@ import RxSwift
 import RxCocoa
 
 protocol ProfileManagerProtocol: AnyObject {
-    func create() -> Single<Void>
-    func binding() -> Single<Void>
+    func create() -> Single<RequestResult>
+    func binding() -> Single<RequestResult>
 }
 
 final class ProfileManager {
@@ -21,7 +21,7 @@ final class ProfileManager {
 
 // MARK: ProfileManagerProtocol
 extension ProfileManager: ProfileManagerProtocol {
-    func create() -> Single<Void> {
+    func create() -> Single<RequestResult> {
         let request = ProfileCreateRequest(
             anonymousId: sessionManager.anonymousId,
             internalId: sessionManager.internalId
@@ -29,10 +29,10 @@ extension ProfileManager: ProfileManagerProtocol {
         
         return restApiTransport
             .callServerApi(requestBody: request)
-            .mapToVoid()
+            .map { RequestResult.map(response: $0) }
     }
     
-    func binding() -> Single<Void> {
+    func binding() -> Single<RequestResult> {
         let request = ProfileBindingRequest(
             anonymousId: sessionManager.anonymousId,
             internalId: sessionManager.internalId
@@ -40,6 +40,6 @@ extension ProfileManager: ProfileManagerProtocol {
         
         return restApiTransport
             .callServerApi(requestBody: request)
-            .mapToVoid()
+            .map { RequestResult.map(response: $0) }
     }
 }

@@ -8,26 +8,61 @@
 import UIKit
 
 struct Fonts {
-    // MARK: Outfit
-    struct Outfit {
+    // MARK: Quicksand
+    struct Quicksand {
         static func semiBold(size: CGFloat) -> UIFont {
-            UIFont(name: "Outfit-SemiBold", size: size)!
+            UIFont(name: "Quicksand-SemiBold", size: size)!
         }
         
         static func regular(size: CGFloat) -> UIFont {
-            UIFont(name: "Outfit-Regular", size: size)!
+            UIFont(name: "Quicksand-Regular", size: size)!
         }
         
         static func medium(size: CGFloat) -> UIFont {
-            UIFont(name: "Outfit-Medium", size: size)!
-        }
-        
-        static func extraBold(size: CGFloat) -> UIFont {
-            UIFont(name: "Outfit-ExtraBold", size: size)!
+            UIFont(name: "Quicksand-Medium", size: size)!
         }
         
         static func bold(size: CGFloat) -> UIFont {
-            UIFont(name: "Outfit-Bold", size: size)!
+            UIFont(name: "Quicksand-Bold", size: size)!
+        }
+    }
+    
+    // MARK: SFPro
+    struct SFPro {
+        static func bold(size: CGFloat) -> UIFont {
+            UIFont(name: "SFProText-Bold", size: size)!
+        }
+        
+        static func semiBold(size: CGFloat) -> UIFont {
+            UIFont(name: "SFProText-Semibold", size: size)!
+        }
+        
+        static func regular(size: CGFloat) -> UIFont {
+            UIFont(name: "SFProText-Regular", size: size)!
+        }
+        
+        static func light(size: CGFloat) -> UIFont {
+            UIFont.systemFont(ofSize: size, weight: .light)
+        }
+        
+        static func medium(size: CGFloat) -> UIFont {
+            UIFont.systemFont(ofSize: size, weight: .medium)
+        }
+        
+        static func thin(size: CGFloat) -> UIFont {
+            UIFont.systemFont(ofSize: size, weight: .thin)
+        }
+        
+        static func heavy(size: CGFloat) -> UIFont {
+            UIFont.systemFont(ofSize: size, weight: .heavy)
+        }
+        
+        static func black(size: CGFloat) -> UIFont {
+            UIFont.systemFont(ofSize: size, weight: .black)
+        }
+        
+        static func ultraLight(size: CGFloat) -> UIFont {
+            UIFont.systemFont(ofSize: size, weight: .ultraLight)
         }
     }
 }

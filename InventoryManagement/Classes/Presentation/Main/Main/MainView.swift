@@ -26,7 +26,7 @@ final class MainView: UIView {
 // MARK: Private
 private extension MainView {
     func initialize() {
-        backgroundColor = Appearance.main500
+        backgroundColor = Appearance.main100
     }
 }
 

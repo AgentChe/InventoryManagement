@@ -24,7 +24,7 @@ extension NavigationControllerSettings {
                                      tintColor: Appearance.mono200,
                                      titleTextAttrributes: TextAttributes()
                                         .textColor(Appearance.mono200)
-                                        .font(Fonts.Outfit.bold(size: 22.scale))
+                                        .font(Fonts.Quicksand.bold(size: 32.scale))
                                         .textAlignment(.center)
                                         .dictionary)
     }

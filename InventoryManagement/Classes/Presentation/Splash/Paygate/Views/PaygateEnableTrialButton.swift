@@ -19,7 +19,7 @@ final class PaygateEnableTrialButton: UIButton {
     
     private lazy var attrs = TextAttributes()
         .textColor(Appearance.mono200)
-        .font(Fonts.Outfit.bold(size: 16.scale))
+        .font(Fonts.Quicksand.bold(size: 16.scale))
         .lineHeight(22.scale)
         .textAlignment(.left)
     
@@ -42,7 +42,7 @@ private extension PaygateEnableTrialButton {
         backgroundColor = Appearance.mono100
         layer.cornerRadius = 10.scale
         layer.borderWidth = 1.scale
-        layer.borderColor = Appearance.main700.cgColor
+        layer.borderColor = Appearance.main100.cgColor
     }
     
     func update() {
