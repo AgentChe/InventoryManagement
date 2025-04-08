@@ -49,9 +49,15 @@
 "Paygate.BestOffer" = "⭐ Best Offer";
 
 // MARK: Onboarding
-"Onboarding.DisclaimerInfo" = "Disclaimer info";
-"Onboarding.ScanInfo.Title" = "Scan any product to access all the essential information about it.";
-"Onboarding.CuratedLists.Title" = "View curated lists or categories of skincare products.";
-"Onboarding.SkinTypes.Title" = "What is your skin type?";
-"Onboarding.Goals.Title" = "What are your skincare goals?";
-"Onboarding.Preferences.Title" = "Do you have any ingredient preferences or restrictions?";
+"Onboarding.Welcome.Title" = "Simplifying Inventory Management";
+"Onboarding.Welcome.SubTitle" = "Effortlessly oversee your inventory with a smart and efficient system built for seamless tracking and organization.";
+"Onboarding.Instruction1.Title" = "Seamlessly Scan and Link Barcodes";
+"Onboarding.Instruction1.SubTitle" = "Use your mobile device to quickly scan barcodes and instantly add, update, or access inventory details in real time.";
+"Onboarding.Instruction2.Title" = "Find, Refine, and Export with Ease";
+"Onboarding.Instruction2.SubTitle" = "Quickly locate what you need with advanced search and filter features, and easily export data for improved insights and reporting.";
+"Onboarding.Account.Title" = "What will you use for?";
+"Onboarding.Account.SubTitle" = "Help us enhance your experience by providing some key insights.";
+"Onboarding.Account.Personal.Title" = "Personal";
+"Onboarding.Account.Personal.SubTitle" = "I want to organise my stuff in my home";
+"Onboarding.Account.Business.Title" = "Business";
+"Onboarding.Account.Business.SubTitle" = "I want to do workplace inventory";

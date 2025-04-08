@@ -10,9 +10,25 @@ import UIKit
 final class OnboardingView: UIView {
     enum Slide: Hashable {
         case welcome
+        case instruction1
+        case instruction2
+        case account
     }
     
-    private lazy var slidesViews: [Slide: UIView] = [:]
+    private lazy var slidesViews: [Slide: UIView] = [
+        .welcome: OWelcomeView { [weak self] in 
+            self?.scroll(from: .welcome, to: .instruction1)
+        },
+        .instruction1: Onstruction1View { [weak self] in
+            self?.scroll(from: .instruction1, to: .instruction2)
+        },
+        .instruction2: Onstruction2View { [weak self] in
+            self?.scroll(from: .instruction2, to: .account)
+        },
+        .account: OAccountView { [weak self] in
+            self?.finish()
+        }
+    ]
     
     private let finish: () -> Void
     
@@ -58,7 +74,7 @@ private extension OnboardingView {
         UIView.animate(withDuration: 0.3, animations: { [weak self] in
             guard let self else { return }
             
-            currentView.frame.origin = CGPoint(x: bounds.size.width, y: 0)
+            currentView.frame.origin = CGPoint(x: -bounds.size.width, y: 0)
             scrollToView.frame.origin = CGPoint(x: 0, y: 0)
         }, completion: { result in
             currentView.removeFromSuperview()

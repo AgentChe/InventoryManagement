@@ -92,6 +92,11 @@
 		DE0AA8882DA5006F005DFC44 /* SF-Pro-Text-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = DE0AA8852DA5006F005DFC44 /* SF-Pro-Text-Semibold.otf */; };
 		DE0AA8892DA5006F005DFC44 /* SF-Pro-Text-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = DE0AA8842DA5006F005DFC44 /* SF-Pro-Text-Regular.otf */; };
 		DE0AA88C2DA50418005DFC44 /* RequestResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0AA88B2DA50418005DFC44 /* RequestResult.swift */; };
+		DE0AA88F2DA5059C005DFC44 /* OWelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0AA88E2DA5059C005DFC44 /* OWelcomeView.swift */; };
+		DE0AA8912DA50C95005DFC44 /* Onstruction1View.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0AA8902DA50C95005DFC44 /* Onstruction1View.swift */; };
+		DE0AA8932DA50D01005DFC44 /* Onstruction2View.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0AA8922DA50D01005DFC44 /* Onstruction2View.swift */; };
+		DE0AA8952DA50D62005DFC44 /* OAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0AA8942DA50D62005DFC44 /* OAccountView.swift */; };
+		DE0AA8992DA50DF1005DFC44 /* OAccountButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0AA8982DA50DF1005DFC44 /* OAccountButton.swift */; };
 		F7956860648D8CDD840F20E4 /* Pods_InventoryManagement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBD9DD49DCE1C130B530F076 /* Pods_InventoryManagement.framework */; };
 /* End PBXBuildFile section */
 
@@ -186,6 +191,11 @@
 		DE0AA8842DA5006F005DFC44 /* SF-Pro-Text-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Text-Regular.otf"; sourceTree = "<group>"; };
 		DE0AA8852DA5006F005DFC44 /* SF-Pro-Text-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Text-Semibold.otf"; sourceTree = "<group>"; };
 		DE0AA88B2DA50418005DFC44 /* RequestResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestResult.swift; sourceTree = "<group>"; };
+		DE0AA88E2DA5059C005DFC44 /* OWelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OWelcomeView.swift; sourceTree = "<group>"; };
+		DE0AA8902DA50C95005DFC44 /* Onstruction1View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onstruction1View.swift; sourceTree = "<group>"; };
+		DE0AA8922DA50D01005DFC44 /* Onstruction2View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onstruction2View.swift; sourceTree = "<group>"; };
+		DE0AA8942DA50D62005DFC44 /* OAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAccountView.swift; sourceTree = "<group>"; };
+		DE0AA8982DA50DF1005DFC44 /* OAccountButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAccountButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -422,6 +432,7 @@
 		DE0AA6D22DA4F318005DFC44 /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
+				DE0AA88D2DA50593005DFC44 /* Views */,
 				DE0AA6D02DA4F318005DFC44 /* OnboardingViewController.swift */,
 				DE0AA6CF2DA4F318005DFC44 /* OnboardingView.swift */,
 			);
@@ -616,6 +627,34 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		DE0AA88D2DA50593005DFC44 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				DE0AA8962DA50DE1005DFC44 /* Account */,
+				DE0AA88E2DA5059C005DFC44 /* OWelcomeView.swift */,
+				DE0AA8902DA50C95005DFC44 /* Onstruction1View.swift */,
+				DE0AA8922DA50D01005DFC44 /* Onstruction2View.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		DE0AA8962DA50DE1005DFC44 /* Account */ = {
+			isa = PBXGroup;
+			children = (
+				DE0AA8972DA50DE8005DFC44 /* Atoms */,
+				DE0AA8942DA50D62005DFC44 /* OAccountView.swift */,
+			);
+			path = Account;
+			sourceTree = "<group>";
+		};
+		DE0AA8972DA50DE8005DFC44 /* Atoms */ = {
+			isa = PBXGroup;
+			children = (
+				DE0AA8982DA50DF1005DFC44 /* OAccountButton.swift */,
+			);
+			path = Atoms;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -758,6 +797,7 @@
 				DE0AA7812DA4F318005DFC44 /* ObservableAndSingle+Extension.swift in Sources */,
 				DE0AA7822DA4F318005DFC44 /* GlobalDefinitions.swift in Sources */,
 				DE0AA7862DA4F318005DFC44 /* String+Extension.swift in Sources */,
+				DE0AA88F2DA5059C005DFC44 /* OWelcomeView.swift in Sources */,
 				DE0AA7882DA4F318005DFC44 /* IAPProduct.swift in Sources */,
 				DE0AA78B2DA4F318005DFC44 /* PaddingLabel.swift in Sources */,
 				DE0AA78E2DA4F318005DFC44 /* PaygateViewModel.swift in Sources */,
@@ -781,6 +821,7 @@
 				DE0AA7D02DA4F318005DFC44 /* PaygateActionsView.swift in Sources */,
 				DE0AA7D32DA4F318005DFC44 /* PaygateEnableTrialButton.swift in Sources */,
 				DE0AA8792DA4FBCA005DFC44 /* UIApplication+Extension.swift in Sources */,
+				DE0AA8912DA50C95005DFC44 /* Onstruction1View.swift in Sources */,
 				DE0AA7E12DA4F318005DFC44 /* UITapGestureRecognizer+Extension.swift in Sources */,
 				DE0AA7E32DA4F318005DFC44 /* NumberLaunches.swift in Sources */,
 				DE0AA7E42DA4F318005DFC44 /* UIColor+Extension.swift in Sources */,
@@ -801,15 +842,18 @@
 				DE0AA8292DA4F318005DFC44 /* Fonts.swift in Sources */,
 				DE0AA8302DA4F318005DFC44 /* MainView.swift in Sources */,
 				DE0AA84D2DA4F318005DFC44 /* ProfileBindingRequest.swift in Sources */,
+				DE0AA8932DA50D01005DFC44 /* Onstruction2View.swift in Sources */,
 				DE0AA84E2DA4F318005DFC44 /* ChoosePhotoFromGallery.swift in Sources */,
 				DE0AA8552DA4F318005DFC44 /* TapAreaButton.swift in Sources */,
 				DE0AA85A2DA4F318005DFC44 /* MainCoordinator.swift in Sources */,
 				DE0AA85E2DA4F318005DFC44 /* TryAgainViewController.swift in Sources */,
 				DE0AA85F2DA4F318005DFC44 /* SplashViewModel.swift in Sources */,
 				DE0AA8632DA4F318005DFC44 /* Appearance.swift in Sources */,
+				DE0AA8992DA50DF1005DFC44 /* OAccountButton.swift in Sources */,
 				DE0AA8642DA4F318005DFC44 /* IAPManager.swift in Sources */,
 				DE0AA8662DA4F318005DFC44 /* ProfileCreateRequest.swift in Sources */,
 				DE0AA86A2DA4F318005DFC44 /* PaygateView.swift in Sources */,
+				DE0AA8952DA50D62005DFC44 /* OAccountView.swift in Sources */,
 				DE0AA86C2DA4F318005DFC44 /* OnboardingViewController.swift in Sources */,
 				DE0AA86D2DA4F318005DFC44 /* IAPError.swift in Sources */,
 				DE0AA86F2DA4F318005DFC44 /* SplashViewController.swift in Sources */,
