@@ -15,7 +15,7 @@ final class PaygateProductButton: UIButton {
         }
     }
     
-    var product: ProductPrice? {
+    var product: IAPProduct? {
         didSet {
             update()
         }
@@ -42,7 +42,7 @@ final class PaygateProductButton: UIButton {
 private extension PaygateProductButton {
     func initialize() {
         backgroundColor = Appearance.mono100
-        layer.cornerRadius = 10.scale
+        layer.cornerRadius = 20.scale
     }
     
     func update() {
@@ -62,22 +62,22 @@ private extension PaygateProductButton {
         case true:
             let nameAttrs = TextAttributes()
                 .textColor(Appearance.mono200)
-                .font(Fonts.Quicksand.medium(size: 14.scale))
+                .font(Fonts.SFPro.regular(size: 14.scale))
                 .lineHeight(20.scale)
             let name = "Paygate.Yearly".localized + "\n"
             result.append(name.attributed(with: nameAttrs))
             
             let bottomAttrs = TextAttributes()
                 .textColor(Appearance.mono200)
-                .font(Fonts.Quicksand.bold(size: 16.scale))
+                .font(Fonts.SFPro.semiBold(size: 16.scale))
                 .lineHeight(22.scale)
-            let price = Currency(productPrice: product).formatted() ?? ""
+            let price = Currency(iapProduct: product).formatted() ?? ""
             let bottom = String(format: "Paygate.Yearly.Bottom".localized, price)
             result.append(bottom.attributed(with: bottomAttrs))
         case false:
             let attrs = TextAttributes()
                 .textColor(Appearance.mono200)
-                .font(Fonts.Quicksand.bold(size: 16.scale))
+                .font(Fonts.SFPro.semiBold(size: 16.scale))
                 .lineHeight(22.scale)
             result.append("Paygate.FreeTrialDays".localized.uppercased().attributed(with: attrs))
         }
@@ -86,9 +86,7 @@ private extension PaygateProductButton {
     }
     
     func updateRight() {
-        guard let product else {
-            return
-        }
+        guard let product else { return }
         
         let isYearly = isYearly()
         
@@ -98,27 +96,27 @@ private extension PaygateProductButton {
         case true:
             let priceAttrs = TextAttributes()
                 .textColor(Appearance.mono200)
-                .font(Fonts.Quicksand.regular(size: 16.scale))
+                .font(Fonts.SFPro.regular(size: 16.scale))
                 .lineHeight(22.scale)
-            let price = Currency(productPrice: product, div: 52).formatted() ?? ""
+            let price = Currency(iapProduct: product, div: 52).formatted() ?? ""
             result.append((price + "\n").attributed(with: priceAttrs))
             
             let periodAttrs = TextAttributes()
                 .textColor(Appearance.mono200)
-                .font(Fonts.Quicksand.medium(size: 14.scale))
+                .font(Fonts.SFPro.regular(size: 14.scale))
                 .lineHeight(20.scale)
             result.append("Paygate.PerWeek".localized.attributed(with: periodAttrs))
         case false:
             let priceAttrs = TextAttributes()
                 .textColor(Appearance.mono200)
-                .font(Fonts.Quicksand.bold(size: 16.scale))
+                .font(Fonts.SFPro.semiBold(size: 16.scale))
                 .lineHeight(22.scale)
-            let price = Currency(productPrice: product).formatted() ?? ""
+            let price = Currency(iapProduct: product).formatted() ?? ""
             result.append(String(format: "Paygate.Then".localized, price).attributed(with: priceAttrs))
             
             let periodAttrs = TextAttributes()
                 .textColor(Appearance.mono200)
-                .font(Fonts.Quicksand.regular(size: 14.scale))
+                .font(Fonts.SFPro.regular(size: 14.scale))
                 .lineHeight(20.scale)
             result.append("Paygate.PerWeek".localized.attributed(with: periodAttrs))
         }
@@ -134,8 +132,13 @@ private extension PaygateProductButton {
         let imageName = marked ? "Paygate.Marker.S" : "Paygate.Marker.D"
         markerView.image = UIImage(named: imageName)
         
-        layer.borderWidth = marked ? 2.scale : 1.scale
-        layer.borderColor = marked ? Appearance.main100.cgColor : Appearance.main100.cgColor
+        layer.borderWidth = marked ? 2.scale : 0
+        layer.borderColor = marked ? Appearance.mono200.cgColor : UIColor.clear.cgColor
+        
+        layer.shadowColor = marked ? UIColor.clear.cgColor : Appearance.mono200.withAlphaComponent(0.4).cgColor
+        layer.shadowOpacity = marked ? 0 : 0.1
+        layer.shadowOffset = .zero
+        layer.shadowRadius = marked ? 0 : 4.scale
     }
 }
 

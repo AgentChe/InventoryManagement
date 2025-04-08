@@ -40,20 +40,6 @@ extension IAPManager {
         }
     }
     
-    func obtainPrices(for ids: [String]) -> Single<[ProductPrice]> {
-        Single<[ProductPrice]>.create { event in
-            SwiftyStoreKit.retrieveProductsInfo(Set(ids)) { results in
-                let prices = results.retrievedProducts.map { product -> ProductPrice in
-                    ProductPrice(product: product)
-                }
-                
-                event(.success(prices))
-            }
-            
-            return Disposables.create()
-        }
-    }
-    
     func buyProduct(with id: String) -> Single<IAPActionResult> {
         guard SwiftyStoreKit.canMakePayments else {
             return .error(IAPError(.paymentsDisabled))

@@ -16,7 +16,6 @@
 		DE0AA75C2DA4F318005DFC44 /* TabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0AA6592DA4F318005DFC44 /* TabView.swift */; };
 		DE0AA7612DA4F318005DFC44 /* UIEdgeInsets+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0AA5AB2DA4F318005DFC44 /* UIEdgeInsets+Extension.swift */; };
 		DE0AA7642DA4F318005DFC44 /* APIRequestBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0AA5B02DA4F318005DFC44 /* APIRequestBody.swift */; };
-		DE0AA7672DA4F318005DFC44 /* ProductPrice.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0AA73E2DA4F318005DFC44 /* ProductPrice.swift */; };
 		DE0AA7692DA4F318005DFC44 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0AA5C52DA4F318005DFC44 /* AppDelegate.swift */; };
 		DE0AA76E2DA4F318005DFC44 /* PaygateInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0AA6D42DA4F318005DFC44 /* PaygateInteractor.swift */; };
 		DE0AA7722DA4F318005DFC44 /* ContentError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0AA5B82DA4F318005DFC44 /* ContentError.swift */; };
@@ -178,7 +177,6 @@
 		DE0AA73A2DA4F318005DFC44 /* IAPErrorHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPErrorHelper.swift; sourceTree = "<group>"; };
 		DE0AA73C2DA4F318005DFC44 /* IAPActionResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPActionResult.swift; sourceTree = "<group>"; };
 		DE0AA73D2DA4F318005DFC44 /* IAPProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPProduct.swift; sourceTree = "<group>"; };
-		DE0AA73E2DA4F318005DFC44 /* ProductPrice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductPrice.swift; sourceTree = "<group>"; };
 		DE0AA7402DA4F318005DFC44 /* IAPManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPManager.swift; sourceTree = "<group>"; };
 		DE0AA7412DA4F318005DFC44 /* PurchaseValidationObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseValidationObserver.swift; sourceTree = "<group>"; };
 		DE0AA7432DA4F318005DFC44 /* SessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
@@ -554,7 +552,6 @@
 			children = (
 				DE0AA73C2DA4F318005DFC44 /* IAPActionResult.swift */,
 				DE0AA73D2DA4F318005DFC44 /* IAPProduct.swift */,
-				DE0AA73E2DA4F318005DFC44 /* ProductPrice.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -784,7 +781,6 @@
 				DE0AA75C2DA4F318005DFC44 /* TabView.swift in Sources */,
 				DE0AA7612DA4F318005DFC44 /* UIEdgeInsets+Extension.swift in Sources */,
 				DE0AA7642DA4F318005DFC44 /* APIRequestBody.swift in Sources */,
-				DE0AA7672DA4F318005DFC44 /* ProductPrice.swift in Sources */,
 				DE0AA7692DA4F318005DFC44 /* AppDelegate.swift in Sources */,
 				DE0AA76E2DA4F318005DFC44 /* PaygateInteractor.swift in Sources */,
 				DE0AA7722DA4F318005DFC44 /* ContentError.swift in Sources */,
@@ -889,8 +885,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = InventoryManagement/Info.plist;
@@ -904,8 +901,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = akosnt17.aienglish2.dev.InventoryManagement;
+				PRODUCT_BUNDLE_IDENTIFIER = sj.smartcloset;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -922,8 +920,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = InventoryManagement/Info.plist;
@@ -937,8 +936,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = akosnt17.aienglish2.dev.InventoryManagement;
+				PRODUCT_BUNDLE_IDENTIFIER = sj.smartcloset;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;

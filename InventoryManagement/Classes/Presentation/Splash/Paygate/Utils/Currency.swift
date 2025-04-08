@@ -12,37 +12,45 @@ struct Currency {
         case USD = "USD"
     }
     
-    private let productPrice: ProductPrice
+    private let iapProduct: IAPProduct
     private let div: Double
     
-    init(productPrice: ProductPrice, div: Double = 1) {
-        self.productPrice = productPrice
+    init(iapProduct: IAPProduct, div: Double = 1) {
+        self.iapProduct = iapProduct
         self.div = div
     }
     
     func formatted() -> String? {
+        let currency = iapProduct.original.priceLocale.currency?.identifier ?? ""
+        let priceLocale = iapProduct.original.priceLocale
+        let priceValue = NSDecimalNumber(decimal: iapProduct.original.price.decimalValue)
+        
+        let priceDiv = priceValue.dividing(by: NSDecimalNumber(value: div))
+        
         let formatter = NumberFormatter()
         formatter.numberStyle = .currency
-        formatter.locale = productPrice.priceLocale
-        formatter.maximumFractionDigits = 2
-        formatter.roundingMode = .down
-        formatter.currencyCode = productPrice.currency
+        formatter.locale = priceLocale
+        formatter.maximumFractionDigits = priceDiv.doubleValue.truncatingRemainder(dividingBy: 1) > 0 ? 2 : 0
+        formatter.roundingMode = .halfUp
+        formatter.currencyCode = currency
         
-        let currencySymbol = formatter.currencySymbol ?? productPrice.currency
+        let currencySymbol = formatter.currencySymbol ?? currency
         
         formatter.currencyCode = ""
         formatter.currencySymbol = ""
         
-        guard let resultPrice = formatter.string(from: NSNumber(value: productPrice.priceValue / div)) else {
+        guard let resultPrice = formatter.string(from: priceDiv) else {
             return nil
         }
         
+        let cleanedPrice = resultPrice.trimmingCharacters(in: .whitespacesAndNewlines)
+        
         let ltrCurrencies = LTRCurrency.allCases.map { $0.rawValue }
         
-        if ltrCurrencies.contains(productPrice.currency) {
-            return String(format: "%@%@", currencySymbol, resultPrice)
+        if ltrCurrencies.contains(currency) {
+            return String(format: "%@%@", currencySymbol, cleanedPrice)
         } else {
-            return String(format: "%@%@", resultPrice, currencySymbol)
+            return String(format: "%@%@", cleanedPrice, currencySymbol)
         }
     }
 }

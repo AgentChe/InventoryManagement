@@ -9,7 +9,7 @@ import RxSwift
 import RxCocoa
 
 final class PaygateViewModel {
-    typealias Products = (yearly: ProductPrice, weekly: ProductPrice)
+    typealias Products = (yearly: IAPProduct, weekly: IAPProduct)
     
     enum Route {
         case dismiss
@@ -58,7 +58,7 @@ extension PaygateViewModel {
 private extension PaygateViewModel {
     func makeProducts() -> Driver<Products> {
         iapManager
-            .obtainPrices(for: [
+            .obtainProducts(ids: [
                 GlobalDefinitions.Paygate.yearly,
                 GlobalDefinitions.Paygate.weekly
             ])

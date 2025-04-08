@@ -9,4 +9,8 @@ import StoreKit
 
 struct IAPProduct {
     let original: SKProduct
+    
+    var id: String {
+        original.productIdentifier
+    }
 }
