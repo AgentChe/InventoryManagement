@@ -104,6 +104,28 @@
 		DE0AA8A92DA536BC005DFC44 /* STUnlockAccessCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0AA8A82DA536BC005DFC44 /* STUnlockAccessCell.swift */; };
 		DE0AA8AB2DA536C2005DFC44 /* STLinksCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0AA8AA2DA536C2005DFC44 /* STLinksCell.swift */; };
 		DE0AA8AF2DA53784005DFC44 /* STLinkButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0AA8AE2DA53784005DFC44 /* STLinkButton.swift */; };
+		DE1E60C72DA64EDF006CF764 /* ProductsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1E60C62DA64EDF006CF764 /* ProductsManager.swift */; };
+		DE1E60C92DA64EF5006CF764 /* PageInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1E60C82DA64EF5006CF764 /* PageInfo.swift */; };
+		DE1E60CD2DA64F69006CF764 /* Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1E60CC2DA64F69006CF764 /* Page.swift */; };
+		DE1E60CF2DA65811006CF764 /* ScanBarcodeRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1E60CE2DA65811006CF764 /* ScanBarcodeRequest.swift */; };
+		DE1E60D12DA659DC006CF764 /* ProductScanBarcodeResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1E60D02DA659DC006CF764 /* ProductScanBarcodeResult.swift */; };
+		DE1E60D32DA65A33006CF764 /* Price.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1E60D22DA65A33006CF764 /* Price.swift */; };
+		DE1E60D52DA65E3B006CF764 /* CreateProductRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1E60D42DA65E3B006CF764 /* CreateProductRequest.swift */; };
+		DE1E60D72DA6603F006CF764 /* ObtainProductDetailsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1E60D62DA6603F006CF764 /* ObtainProductDetailsRequest.swift */; };
+		DE1E60D92DA66061006CF764 /* ProductDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1E60D82DA66061006CF764 /* ProductDetails.swift */; };
+		DE1E60DB2DA662AE006CF764 /* UploadImageRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1E60DA2DA662AE006CF764 /* UploadImageRequest.swift */; };
+		DE1E60DD2DA66341006CF764 /* UploadImageResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1E60DC2DA66341006CF764 /* UploadImageResult.swift */; };
+		DE1E60DF2DA66407006CF764 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1E60DE2DA66407006CF764 /* Product.swift */; };
+		DE1E60E12DA66566006CF764 /* ObtainProductsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1E60E02DA66566006CF764 /* ObtainProductsRequest.swift */; };
+		DE1E60E42DA66702006CF764 /* ProductsMediator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1E60E32DA66702006CF764 /* ProductsMediator.swift */; };
+		DE1E60E82DA6686F006CF764 /* FoldersManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1E60E72DA6686F006CF764 /* FoldersManager.swift */; };
+		DE1E60EA2DA66876006CF764 /* FoldersMediator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1E60E92DA66876006CF764 /* FoldersMediator.swift */; };
+		DE1E60EC2DA66A7A006CF764 /* CreateFolderRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1E60EB2DA66A7A006CF764 /* CreateFolderRequest.swift */; };
+		DE1E60EE2DA66AF3006CF764 /* Folder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1E60ED2DA66AF3006CF764 /* Folder.swift */; };
+		DE1E60F02DA66C66006CF764 /* ObtainFoldersRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1E60EF2DA66C66006CF764 /* ObtainFoldersRequest.swift */; };
+		DE1E60F22DA66D98006CF764 /* ManageFolderRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1E60F12DA66D98006CF764 /* ManageFolderRequest.swift */; };
+		DE1E60F42DA66EAA006CF764 /* RenameFolderRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1E60F32DA66EAA006CF764 /* RenameFolderRequest.swift */; };
+		DE1E60F62DA67030006CF764 /* DeleteFolderRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1E60F52DA67030006CF764 /* DeleteFolderRequest.swift */; };
 		F7956860648D8CDD840F20E4 /* Pods_InventoryManagement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBD9DD49DCE1C130B530F076 /* Pods_InventoryManagement.framework */; };
 /* End PBXBuildFile section */
 
@@ -210,6 +232,28 @@
 		DE0AA8A82DA536BC005DFC44 /* STUnlockAccessCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STUnlockAccessCell.swift; sourceTree = "<group>"; };
 		DE0AA8AA2DA536C2005DFC44 /* STLinksCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STLinksCell.swift; sourceTree = "<group>"; };
 		DE0AA8AE2DA53784005DFC44 /* STLinkButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STLinkButton.swift; sourceTree = "<group>"; };
+		DE1E60C62DA64EDF006CF764 /* ProductsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsManager.swift; sourceTree = "<group>"; };
+		DE1E60C82DA64EF5006CF764 /* PageInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageInfo.swift; sourceTree = "<group>"; };
+		DE1E60CC2DA64F69006CF764 /* Page.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Page.swift; sourceTree = "<group>"; };
+		DE1E60CE2DA65811006CF764 /* ScanBarcodeRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanBarcodeRequest.swift; sourceTree = "<group>"; };
+		DE1E60D02DA659DC006CF764 /* ProductScanBarcodeResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductScanBarcodeResult.swift; sourceTree = "<group>"; };
+		DE1E60D22DA65A33006CF764 /* Price.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Price.swift; sourceTree = "<group>"; };
+		DE1E60D42DA65E3B006CF764 /* CreateProductRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateProductRequest.swift; sourceTree = "<group>"; };
+		DE1E60D62DA6603F006CF764 /* ObtainProductDetailsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObtainProductDetailsRequest.swift; sourceTree = "<group>"; };
+		DE1E60D82DA66061006CF764 /* ProductDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetails.swift; sourceTree = "<group>"; };
+		DE1E60DA2DA662AE006CF764 /* UploadImageRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadImageRequest.swift; sourceTree = "<group>"; };
+		DE1E60DC2DA66341006CF764 /* UploadImageResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadImageResult.swift; sourceTree = "<group>"; };
+		DE1E60DE2DA66407006CF764 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
+		DE1E60E02DA66566006CF764 /* ObtainProductsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObtainProductsRequest.swift; sourceTree = "<group>"; };
+		DE1E60E32DA66702006CF764 /* ProductsMediator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsMediator.swift; sourceTree = "<group>"; };
+		DE1E60E72DA6686F006CF764 /* FoldersManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoldersManager.swift; sourceTree = "<group>"; };
+		DE1E60E92DA66876006CF764 /* FoldersMediator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoldersMediator.swift; sourceTree = "<group>"; };
+		DE1E60EB2DA66A7A006CF764 /* CreateFolderRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateFolderRequest.swift; sourceTree = "<group>"; };
+		DE1E60ED2DA66AF3006CF764 /* Folder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Folder.swift; sourceTree = "<group>"; };
+		DE1E60EF2DA66C66006CF764 /* ObtainFoldersRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObtainFoldersRequest.swift; sourceTree = "<group>"; };
+		DE1E60F12DA66D98006CF764 /* ManageFolderRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageFolderRequest.swift; sourceTree = "<group>"; };
+		DE1E60F32DA66EAA006CF764 /* RenameFolderRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenameFolderRequest.swift; sourceTree = "<group>"; };
+		DE1E60F52DA67030006CF764 /* DeleteFolderRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteFolderRequest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -595,6 +639,8 @@
 		DE0AA7452DA4F318005DFC44 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				DE1E60E22DA66658006CF764 /* Folders */,
+				DE1E60C32DA64ECA006CF764 /* Products */,
 				DE0AA7382DA4F318005DFC44 /* Profile */,
 				DE0AA7422DA4F318005DFC44 /* Purchase */,
 				DE0AA7442DA4F318005DFC44 /* Session */,
@@ -722,6 +768,74 @@
 				DE0AA8AE2DA53784005DFC44 /* STLinkButton.swift */,
 			);
 			path = Atoms;
+			sourceTree = "<group>";
+		};
+		DE1E60C32DA64ECA006CF764 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DE1E60C52DA64ED6006CF764 /* Request */,
+				DE1E60C42DA64ED1006CF764 /* Model */,
+				DE1E60C62DA64EDF006CF764 /* ProductsManager.swift */,
+				DE1E60E32DA66702006CF764 /* ProductsMediator.swift */,
+			);
+			path = Products;
+			sourceTree = "<group>";
+		};
+		DE1E60C42DA64ED1006CF764 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DE1E60C82DA64EF5006CF764 /* PageInfo.swift */,
+				DE1E60CC2DA64F69006CF764 /* Page.swift */,
+				DE1E60D02DA659DC006CF764 /* ProductScanBarcodeResult.swift */,
+				DE1E60D22DA65A33006CF764 /* Price.swift */,
+				DE1E60D82DA66061006CF764 /* ProductDetails.swift */,
+				DE1E60DC2DA66341006CF764 /* UploadImageResult.swift */,
+				DE1E60DE2DA66407006CF764 /* Product.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DE1E60C52DA64ED6006CF764 /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				DE1E60CE2DA65811006CF764 /* ScanBarcodeRequest.swift */,
+				DE1E60D42DA65E3B006CF764 /* CreateProductRequest.swift */,
+				DE1E60D62DA6603F006CF764 /* ObtainProductDetailsRequest.swift */,
+				DE1E60DA2DA662AE006CF764 /* UploadImageRequest.swift */,
+				DE1E60E02DA66566006CF764 /* ObtainProductsRequest.swift */,
+			);
+			path = Request;
+			sourceTree = "<group>";
+		};
+		DE1E60E22DA66658006CF764 /* Folders */ = {
+			isa = PBXGroup;
+			children = (
+				DE1E60E62DA66863006CF764 /* Request */,
+				DE1E60E52DA6685F006CF764 /* Model */,
+				DE1E60E72DA6686F006CF764 /* FoldersManager.swift */,
+				DE1E60E92DA66876006CF764 /* FoldersMediator.swift */,
+			);
+			path = Folders;
+			sourceTree = "<group>";
+		};
+		DE1E60E52DA6685F006CF764 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DE1E60ED2DA66AF3006CF764 /* Folder.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DE1E60E62DA66863006CF764 /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				DE1E60EB2DA66A7A006CF764 /* CreateFolderRequest.swift */,
+				DE1E60EF2DA66C66006CF764 /* ObtainFoldersRequest.swift */,
+				DE1E60F12DA66D98006CF764 /* ManageFolderRequest.swift */,
+				DE1E60F32DA66EAA006CF764 /* RenameFolderRequest.swift */,
+				DE1E60F52DA67030006CF764 /* DeleteFolderRequest.swift */,
+			);
+			path = Request;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -853,23 +967,34 @@
 				DE0AA74B2DA4F318005DFC44 /* OnboardingView.swift in Sources */,
 				DE0AA75C2DA4F318005DFC44 /* TabView.swift in Sources */,
 				DE0AA7612DA4F318005DFC44 /* UIEdgeInsets+Extension.swift in Sources */,
+				DE1E60F02DA66C66006CF764 /* ObtainFoldersRequest.swift in Sources */,
+				DE1E60F22DA66D98006CF764 /* ManageFolderRequest.swift in Sources */,
 				DE0AA8A02DA53537005DFC44 /* SettingsView.swift in Sources */,
 				DE0AA7642DA4F318005DFC44 /* APIRequestBody.swift in Sources */,
+				DE1E60D32DA65A33006CF764 /* Price.swift in Sources */,
 				DE0AA7692DA4F318005DFC44 /* AppDelegate.swift in Sources */,
+				DE1E60E42DA66702006CF764 /* ProductsMediator.swift in Sources */,
+				DE1E60D72DA6603F006CF764 /* ObtainProductDetailsRequest.swift in Sources */,
 				DE0AA89C2DA53527005DFC44 /* SettingsViewController.swift in Sources */,
 				DE0AA76E2DA4F318005DFC44 /* PaygateInteractor.swift in Sources */,
 				DE0AA7722DA4F318005DFC44 /* ContentError.swift in Sources */,
+				DE1E60F42DA66EAA006CF764 /* RenameFolderRequest.swift in Sources */,
 				DE0AA7732DA4F318005DFC44 /* UIDevice+Extension.swift in Sources */,
 				DE0AA7752DA4F318005DFC44 /* ProfileManager.swift in Sources */,
+				DE1E60CD2DA64F69006CF764 /* Page.swift in Sources */,
 				DE0AA77A2DA4F318005DFC44 /* TabItemButton.swift in Sources */,
 				DE0AA77C2DA4F318005DFC44 /* PaygateViewController.swift in Sources */,
 				DE0AA77E2DA4F318005DFC44 /* RxActivityIndicator.swift in Sources */,
 				DE0AA7802DA4F318005DFC44 /* SessionManager.swift in Sources */,
 				DE0AA7812DA4F318005DFC44 /* ObservableAndSingle+Extension.swift in Sources */,
+				DE1E60F62DA67030006CF764 /* DeleteFolderRequest.swift in Sources */,
+				DE1E60D92DA66061006CF764 /* ProductDetails.swift in Sources */,
 				DE0AA7822DA4F318005DFC44 /* GlobalDefinitions.swift in Sources */,
 				DE0AA8A62DA536AE005DFC44 /* SettingsTableElement.swift in Sources */,
 				DE0AA7862DA4F318005DFC44 /* String+Extension.swift in Sources */,
+				DE1E60C92DA64EF5006CF764 /* PageInfo.swift in Sources */,
 				DE0AA88F2DA5059C005DFC44 /* OWelcomeView.swift in Sources */,
+				DE1E60C72DA64EDF006CF764 /* ProductsManager.swift in Sources */,
 				DE0AA7882DA4F318005DFC44 /* IAPProduct.swift in Sources */,
 				DE0AA8AB2DA536C2005DFC44 /* STLinksCell.swift in Sources */,
 				DE0AA78B2DA4F318005DFC44 /* PaddingLabel.swift in Sources */,
@@ -877,17 +1002,23 @@
 				DE0AA7922DA4F318005DFC44 /* Currency.swift in Sources */,
 				DE0AA7942DA4F318005DFC44 /* NavigationController.swift in Sources */,
 				DE0AA7952DA4F318005DFC44 /* LeftAlignedCollectionViewFlowLayout.swift in Sources */,
+				DE1E60E12DA66566006CF764 /* ObtainProductsRequest.swift in Sources */,
 				DE0AA89E2DA53534005DFC44 /* SettingsViewModel.swift in Sources */,
+				DE1E60EA2DA66876006CF764 /* FoldersMediator.swift in Sources */,
 				DE0AA7A22DA4F318005DFC44 /* TextAttributes.swift in Sources */,
+				DE1E60EE2DA66AF3006CF764 /* Folder.swift in Sources */,
+				DE1E60DF2DA66407006CF764 /* Product.swift in Sources */,
 				DE0AA7A32DA4F318005DFC44 /* ScreenSize.swift in Sources */,
 				DE0AA7A72DA4F318005DFC44 /* SignError.swift in Sources */,
 				DE0AA7AB2DA4F318005DFC44 /* ObservableRetrySingle.swift in Sources */,
+				DE1E60EC2DA66A7A006CF764 /* CreateFolderRequest.swift in Sources */,
 				DE0AA8AF2DA53784005DFC44 /* STLinkButton.swift in Sources */,
 				DE0AA7AC2DA4F318005DFC44 /* SplashView.swift in Sources */,
 				DE0AA88C2DA50418005DFC44 /* RequestResult.swift in Sources */,
 				DE0AA7AF2DA4F318005DFC44 /* NetworkError.swift in Sources */,
 				DE0AA7B22DA4F318005DFC44 /* IAPErrorHelper.swift in Sources */,
 				DE0AA7B52DA4F318005DFC44 /* APIFormDataRequestBody.swift in Sources */,
+				DE1E60CF2DA65811006CF764 /* ScanBarcodeRequest.swift in Sources */,
 				DE0AA7B72DA4F318005DFC44 /* RequestReview.swift in Sources */,
 				DE0AA7B82DA4F318005DFC44 /* PurchaseValidationObserver.swift in Sources */,
 				DE0AA7C22DA4F318005DFC44 /* GradientView.swift in Sources */,
@@ -897,9 +1028,11 @@
 				DE0AA7D32DA4F318005DFC44 /* PaygateEnableTrialButton.swift in Sources */,
 				DE0AA8792DA4FBCA005DFC44 /* UIApplication+Extension.swift in Sources */,
 				DE0AA8912DA50C95005DFC44 /* Onstruction1View.swift in Sources */,
+				DE1E60D12DA659DC006CF764 /* ProductScanBarcodeResult.swift in Sources */,
 				DE0AA7E12DA4F318005DFC44 /* UITapGestureRecognizer+Extension.swift in Sources */,
 				DE0AA7E32DA4F318005DFC44 /* NumberLaunches.swift in Sources */,
 				DE0AA7E42DA4F318005DFC44 /* UIColor+Extension.swift in Sources */,
+				DE1E60DB2DA662AE006CF764 /* UploadImageRequest.swift in Sources */,
 				DE0AA7E82DA4F318005DFC44 /* RestAPITransport.swift in Sources */,
 				DE0AA7F02DA4F318005DFC44 /* TakePhoto.swift in Sources */,
 				DE0AA7F22DA4F318005DFC44 /* UIView+RxExtension.swift in Sources */,
@@ -910,6 +1043,7 @@
 				DE0AA8062DA4F318005DFC44 /* SceneDelegate.swift in Sources */,
 				DE0AA8092DA4F318005DFC44 /* PaygateInfoView.swift in Sources */,
 				DE0AA81A2DA4F318005DFC44 /* PaygateProductButton.swift in Sources */,
+				DE1E60E82DA6686F006CF764 /* FoldersManager.swift in Sources */,
 				DE0AA8202DA4F318005DFC44 /* TryAgainView.swift in Sources */,
 				DE0AA8242DA4F318005DFC44 /* XOREncryption.swift in Sources */,
 				DE0AA8262DA4F318005DFC44 /* PaygateBestOfferView.swift in Sources */,
@@ -922,12 +1056,14 @@
 				DE0AA84E2DA4F318005DFC44 /* ChoosePhotoFromGallery.swift in Sources */,
 				DE0AA8552DA4F318005DFC44 /* TapAreaButton.swift in Sources */,
 				DE0AA85A2DA4F318005DFC44 /* MainCoordinator.swift in Sources */,
+				DE1E60D52DA65E3B006CF764 /* CreateProductRequest.swift in Sources */,
 				DE0AA85E2DA4F318005DFC44 /* TryAgainViewController.swift in Sources */,
 				DE0AA85F2DA4F318005DFC44 /* SplashViewModel.swift in Sources */,
 				DE0AA8632DA4F318005DFC44 /* Appearance.swift in Sources */,
 				DE0AA8992DA50DF1005DFC44 /* OAccountButton.swift in Sources */,
 				DE0AA8642DA4F318005DFC44 /* IAPManager.swift in Sources */,
 				DE0AA8662DA4F318005DFC44 /* ProfileCreateRequest.swift in Sources */,
+				DE1E60DD2DA66341006CF764 /* UploadImageResult.swift in Sources */,
 				DE0AA86A2DA4F318005DFC44 /* PaygateView.swift in Sources */,
 				DE0AA8952DA50D62005DFC44 /* OAccountView.swift in Sources */,
 				DE0AA86C2DA4F318005DFC44 /* OnboardingViewController.swift in Sources */,
