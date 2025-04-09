@@ -10,7 +10,7 @@ import UIKit
 final class MainCoordinator {
     private lazy var itemsVC = UIViewController()
     private lazy var transactionsVC = UIViewController()
-    private lazy var searchVC = UIViewController()
+    private lazy var searchVC = SearchViewController.make()
     private lazy var settingsVC = SettingsViewController.make()
     
     private weak var parentVC: UIViewController?

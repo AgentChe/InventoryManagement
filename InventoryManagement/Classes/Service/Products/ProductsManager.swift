@@ -105,21 +105,54 @@ extension ProductsManager: ProductsManagerProtocol {
             .map { UploadImageResult.map(response: $0) }
     }
     
+    // TODO
     func obtainProducts(
         search: String? = nil,
         folderId: String? = nil,
         page: Int
     ) -> Single<Page<[Product]>?> {
-        let request = ObtainProductsRequest(
-            anonymousId: sessionManager.anonymousId,
-            internalId: sessionManager.internalId,
-            search: search,
-            folderId: folderId,
-            page: page
-        )
+//        let request = ObtainProductsRequest(
+//            anonymousId: sessionManager.anonymousId,
+//            internalId: sessionManager.internalId,
+//            search: search,
+//            folderId: folderId,
+//            page: page
+//        )
+//        
+//        return restAPITransport
+//            .callServerApi(requestBody: request)
+//            .map { Product.map(response: $0) }
         
-        return restAPITransport
-            .callServerApi(requestBody: request)
-            .map { Product.map(response: $0) }
+        Single<Page<[Product]>?>.create { single in
+            let products = productsMock(count: [0, 10].randomElement()!)
+            let pageInfo = PageInfo(current: page, next: page + 1, total: 5)
+            let page = Page(info: pageInfo, elements: products)
+            
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.5, execute: {
+                single(.success(page))
+            })
+            
+            return Disposables.create()
+        }
+    }
+}
+
+// TODO: remove
+func productsMock(count: Int = 10) -> [Product] {
+    guard count > 0 else { return [] }
+    
+    let letters = "abcdefghijklmnopqrstuvwxyz"
+    let barcodeLetters = "abcdefghijklmnopqrstuvwxyz0123456789"
+    
+    return Array(0...count).map { i -> Product in
+        let nameCount = Int.random(in: 5...15)
+        
+        return Product(
+            id: String(i),
+            title: String((0..<nameCount).map{ _ in letters.randomElement()! }),
+            image: URL(string: "https://i.postimg.cc/htfyMgQL/temp-Imagewsizoa.avif")!,
+            countLocalized: "\(Int.random(in: 1...5)) unit",
+            barcode: String((0..<nameCount).map{ _ in barcodeLetters.randomElement()! }).uppercased()
+        )
     }
 }

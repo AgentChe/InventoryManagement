@@ -75,3 +75,10 @@
 "Settings.Links.ContactUs" = "Contact us";
 "Settings.Links.TermsOfUse" = "Terms of Use";
 "Settings.Links.PrivacyPolicy" = "Privacy Policy";
+
+// MARK: Search
+"Search.Title" = "Search";
+"Search.SearchField.Placeholder" = "Search";
+"Search.Empty.Title" = "Nothing found";
+"Search.Empty.SubTitle" = "Scan barcode or add new item\nmanually";
+"Search.Empty.Button" = "Add new";

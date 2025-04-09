@@ -126,6 +126,13 @@
 		DE1E60F22DA66D98006CF764 /* ManageFolderRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1E60F12DA66D98006CF764 /* ManageFolderRequest.swift */; };
 		DE1E60F42DA66EAA006CF764 /* RenameFolderRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1E60F32DA66EAA006CF764 /* RenameFolderRequest.swift */; };
 		DE1E60F62DA67030006CF764 /* DeleteFolderRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1E60F52DA67030006CF764 /* DeleteFolderRequest.swift */; };
+		DE1E60FA2DA68031006CF764 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1E60F92DA68031006CF764 /* SearchViewController.swift */; };
+		DE1E60FC2DA68036006CF764 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1E60FB2DA68036006CF764 /* SearchViewModel.swift */; };
+		DE1E60FE2DA6803C006CF764 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1E60FD2DA6803C006CF764 /* SearchView.swift */; };
+		DE1E61012DA68ABD006CF764 /* SearchField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1E61002DA68ABD006CF764 /* SearchField.swift */; };
+		DE1E61042DA68D3B006CF764 /* SearchTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1E61032DA68D3B006CF764 /* SearchTableView.swift */; };
+		DE1E61062DA68D42006CF764 /* SearchTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1E61052DA68D42006CF764 /* SearchTableCell.swift */; };
+		DE1E61082DA69CB4006CF764 /* SearchEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1E61072DA69CB4006CF764 /* SearchEmptyView.swift */; };
 		F7956860648D8CDD840F20E4 /* Pods_InventoryManagement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBD9DD49DCE1C130B530F076 /* Pods_InventoryManagement.framework */; };
 /* End PBXBuildFile section */
 
@@ -254,6 +261,13 @@
 		DE1E60F12DA66D98006CF764 /* ManageFolderRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageFolderRequest.swift; sourceTree = "<group>"; };
 		DE1E60F32DA66EAA006CF764 /* RenameFolderRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenameFolderRequest.swift; sourceTree = "<group>"; };
 		DE1E60F52DA67030006CF764 /* DeleteFolderRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteFolderRequest.swift; sourceTree = "<group>"; };
+		DE1E60F92DA68031006CF764 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		DE1E60FB2DA68036006CF764 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
+		DE1E60FD2DA6803C006CF764 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		DE1E61002DA68ABD006CF764 /* SearchField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchField.swift; sourceTree = "<group>"; };
+		DE1E61032DA68D3B006CF764 /* SearchTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableView.swift; sourceTree = "<group>"; };
+		DE1E61052DA68D42006CF764 /* SearchTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableCell.swift; sourceTree = "<group>"; };
+		DE1E61072DA69CB4006CF764 /* SearchEmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchEmptyView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -574,6 +588,7 @@
 		DE0AA6EB2DA4F318005DFC44 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				DE1E60F72DA68025006CF764 /* Products */,
 				DE0AA6602DA4F318005DFC44 /* Main */,
 				DE0AA6E72DA4F318005DFC44 /* Splash */,
 			);
@@ -838,6 +853,44 @@
 			path = Request;
 			sourceTree = "<group>";
 		};
+		DE1E60F72DA68025006CF764 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DE1E60F82DA68029006CF764 /* Search */,
+			);
+			path = Products;
+			sourceTree = "<group>";
+		};
+		DE1E60F82DA68029006CF764 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				DE1E60FF2DA68AB2006CF764 /* Views */,
+				DE1E60F92DA68031006CF764 /* SearchViewController.swift */,
+				DE1E60FB2DA68036006CF764 /* SearchViewModel.swift */,
+				DE1E60FD2DA6803C006CF764 /* SearchView.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		DE1E60FF2DA68AB2006CF764 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				DE1E61022DA68D2F006CF764 /* TableView */,
+				DE1E61002DA68ABD006CF764 /* SearchField.swift */,
+				DE1E61072DA69CB4006CF764 /* SearchEmptyView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		DE1E61022DA68D2F006CF764 /* TableView */ = {
+			isa = PBXGroup;
+			children = (
+				DE1E61032DA68D3B006CF764 /* SearchTableView.swift */,
+				DE1E61052DA68D42006CF764 /* SearchTableCell.swift */,
+			);
+			path = TableView;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -977,6 +1030,7 @@
 				DE1E60D72DA6603F006CF764 /* ObtainProductDetailsRequest.swift in Sources */,
 				DE0AA89C2DA53527005DFC44 /* SettingsViewController.swift in Sources */,
 				DE0AA76E2DA4F318005DFC44 /* PaygateInteractor.swift in Sources */,
+				DE1E61082DA69CB4006CF764 /* SearchEmptyView.swift in Sources */,
 				DE0AA7722DA4F318005DFC44 /* ContentError.swift in Sources */,
 				DE1E60F42DA66EAA006CF764 /* RenameFolderRequest.swift in Sources */,
 				DE0AA7732DA4F318005DFC44 /* UIDevice+Extension.swift in Sources */,
@@ -1028,6 +1082,7 @@
 				DE0AA7D32DA4F318005DFC44 /* PaygateEnableTrialButton.swift in Sources */,
 				DE0AA8792DA4FBCA005DFC44 /* UIApplication+Extension.swift in Sources */,
 				DE0AA8912DA50C95005DFC44 /* Onstruction1View.swift in Sources */,
+				DE1E61062DA68D42006CF764 /* SearchTableCell.swift in Sources */,
 				DE1E60D12DA659DC006CF764 /* ProductScanBarcodeResult.swift in Sources */,
 				DE0AA7E12DA4F318005DFC44 /* UITapGestureRecognizer+Extension.swift in Sources */,
 				DE0AA7E32DA4F318005DFC44 /* NumberLaunches.swift in Sources */,
@@ -1039,6 +1094,7 @@
 				DE0AA7F72DA4F318005DFC44 /* Scalable.swift in Sources */,
 				DE0AA7FB2DA4F318005DFC44 /* MainViewController.swift in Sources */,
 				DE0AA7FC2DA4F318005DFC44 /* AmplitudeManager.swift in Sources */,
+				DE1E60FC2DA68036006CF764 /* SearchViewModel.swift in Sources */,
 				DE0AA7FD2DA4F318005DFC44 /* Weak.swift in Sources */,
 				DE0AA8062DA4F318005DFC44 /* SceneDelegate.swift in Sources */,
 				DE0AA8092DA4F318005DFC44 /* PaygateInfoView.swift in Sources */,
@@ -1046,6 +1102,7 @@
 				DE1E60E82DA6686F006CF764 /* FoldersManager.swift in Sources */,
 				DE0AA8202DA4F318005DFC44 /* TryAgainView.swift in Sources */,
 				DE0AA8242DA4F318005DFC44 /* XOREncryption.swift in Sources */,
+				DE1E61012DA68ABD006CF764 /* SearchField.swift in Sources */,
 				DE0AA8262DA4F318005DFC44 /* PaygateBestOfferView.swift in Sources */,
 				DE0AA8A92DA536BC005DFC44 /* STUnlockAccessCell.swift in Sources */,
 				DE0AA8272DA4F318005DFC44 /* SplashReceiptValidationObserver.swift in Sources */,
@@ -1060,13 +1117,16 @@
 				DE0AA85E2DA4F318005DFC44 /* TryAgainViewController.swift in Sources */,
 				DE0AA85F2DA4F318005DFC44 /* SplashViewModel.swift in Sources */,
 				DE0AA8632DA4F318005DFC44 /* Appearance.swift in Sources */,
+				DE1E61042DA68D3B006CF764 /* SearchTableView.swift in Sources */,
 				DE0AA8992DA50DF1005DFC44 /* OAccountButton.swift in Sources */,
+				DE1E60FA2DA68031006CF764 /* SearchViewController.swift in Sources */,
 				DE0AA8642DA4F318005DFC44 /* IAPManager.swift in Sources */,
 				DE0AA8662DA4F318005DFC44 /* ProfileCreateRequest.swift in Sources */,
 				DE1E60DD2DA66341006CF764 /* UploadImageResult.swift in Sources */,
 				DE0AA86A2DA4F318005DFC44 /* PaygateView.swift in Sources */,
 				DE0AA8952DA50D62005DFC44 /* OAccountView.swift in Sources */,
 				DE0AA86C2DA4F318005DFC44 /* OnboardingViewController.swift in Sources */,
+				DE1E60FE2DA6803C006CF764 /* SearchView.swift in Sources */,
 				DE0AA86D2DA4F318005DFC44 /* IAPError.swift in Sources */,
 				DE0AA86F2DA4F318005DFC44 /* SplashViewController.swift in Sources */,
 				DE0AA8732DA4F318005DFC44 /* PaddingTextField.swift in Sources */,
