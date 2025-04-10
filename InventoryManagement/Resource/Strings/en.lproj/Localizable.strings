@@ -82,3 +82,7 @@
 "Search.Empty.Title" = "Nothing found";
 "Search.Empty.SubTitle" = "Scan barcode or add new item\nmanually";
 "Search.Empty.Button" = "Add new";
+
+// MARK: Scanner
+"Scanner.Title" = "Scan";
+"Scanner.ErrorDetectBarcode" = "Failed to get barcode from image";

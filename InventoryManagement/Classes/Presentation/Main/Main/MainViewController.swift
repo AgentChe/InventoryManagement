@@ -62,6 +62,12 @@ final class MainViewController: UIViewController {
             })
             .disposed(by: disposeBag)
         
+        // TODO: remove
+        mainView.tabView.addButton.rx.tap
+            .bind(to: Binder(self) { base, void in
+                CreateProductAssembly().scan(from: base)
+            })
+        
         if requestReview {
             RequestReview.request()
         }

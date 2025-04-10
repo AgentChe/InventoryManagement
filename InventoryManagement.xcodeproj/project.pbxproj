@@ -133,6 +133,17 @@
 		DE1E61042DA68D3B006CF764 /* SearchTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1E61032DA68D3B006CF764 /* SearchTableView.swift */; };
 		DE1E61062DA68D42006CF764 /* SearchTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1E61052DA68D42006CF764 /* SearchTableCell.swift */; };
 		DE1E61082DA69CB4006CF764 /* SearchEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1E61072DA69CB4006CF764 /* SearchEmptyView.swift */; };
+		DEE48BBD2DA79A22002CD05A /* ScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE48BBC2DA79A22002CD05A /* ScannerViewController.swift */; };
+		DEE48BC02DA79BF5002CD05A /* ScannerOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE48BBF2DA79BF5002CD05A /* ScannerOverlayView.swift */; };
+		DEE48BC22DA79ED7002CD05A /* ScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE48BC12DA79ED7002CD05A /* ScannerView.swift */; };
+		DEE48BC42DA7A07E002CD05A /* ScannerControlsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE48BC32DA7A07E002CD05A /* ScannerControlsView.swift */; };
+		DEE48BC62DA7A437002CD05A /* CreateProductAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE48BC52DA7A437002CD05A /* CreateProductAssembly.swift */; };
+		DEE48BC82DA7A55D002CD05A /* ScannerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE48BC72DA7A55D002CD05A /* ScannerViewModel.swift */; };
+		DEE48BCB2DA7ADAA002CD05A /* ScannerAVCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE48BCA2DA7ADAA002CD05A /* ScannerAVCapture.swift */; };
+		DEE48BCD2DA7B6B9002CD05A /* ScannerCameraPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE48BCC2DA7B6B9002CD05A /* ScannerCameraPreviewView.swift */; };
+		DEE48BCF2DA7DB37002CD05A /* DetectBarcodeImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE48BCE2DA7DB37002CD05A /* DetectBarcodeImage.swift */; };
+		DEE48BD12DA7E0A6002CD05A /* Barcode.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE48BD02DA7E0A6002CD05A /* Barcode.swift */; };
+		DEE48BD52DA7F3B2002CD05A /* BarcodeImageGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE48BD42DA7F3B2002CD05A /* BarcodeImageGenerator.swift */; };
 		F7956860648D8CDD840F20E4 /* Pods_InventoryManagement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBD9DD49DCE1C130B530F076 /* Pods_InventoryManagement.framework */; };
 /* End PBXBuildFile section */
 
@@ -268,6 +279,17 @@
 		DE1E61032DA68D3B006CF764 /* SearchTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableView.swift; sourceTree = "<group>"; };
 		DE1E61052DA68D42006CF764 /* SearchTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableCell.swift; sourceTree = "<group>"; };
 		DE1E61072DA69CB4006CF764 /* SearchEmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchEmptyView.swift; sourceTree = "<group>"; };
+		DEE48BBC2DA79A22002CD05A /* ScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerViewController.swift; sourceTree = "<group>"; };
+		DEE48BBF2DA79BF5002CD05A /* ScannerOverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerOverlayView.swift; sourceTree = "<group>"; };
+		DEE48BC12DA79ED7002CD05A /* ScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerView.swift; sourceTree = "<group>"; };
+		DEE48BC32DA7A07E002CD05A /* ScannerControlsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerControlsView.swift; sourceTree = "<group>"; };
+		DEE48BC52DA7A437002CD05A /* CreateProductAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateProductAssembly.swift; sourceTree = "<group>"; };
+		DEE48BC72DA7A55D002CD05A /* ScannerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerViewModel.swift; sourceTree = "<group>"; };
+		DEE48BCA2DA7ADAA002CD05A /* ScannerAVCapture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerAVCapture.swift; sourceTree = "<group>"; };
+		DEE48BCC2DA7B6B9002CD05A /* ScannerCameraPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerCameraPreviewView.swift; sourceTree = "<group>"; };
+		DEE48BCE2DA7DB37002CD05A /* DetectBarcodeImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetectBarcodeImage.swift; sourceTree = "<group>"; };
+		DEE48BD02DA7E0A6002CD05A /* Barcode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Barcode.swift; sourceTree = "<group>"; };
+		DEE48BD42DA7F3B2002CD05A /* BarcodeImageGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeImageGenerator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -856,6 +878,7 @@
 		DE1E60F72DA68025006CF764 /* Products */ = {
 			isa = PBXGroup;
 			children = (
+				DEE48BBA2DA79A07002CD05A /* Create */,
 				DE1E60F82DA68029006CF764 /* Search */,
 			);
 			path = Products;
@@ -889,6 +912,48 @@
 				DE1E61052DA68D42006CF764 /* SearchTableCell.swift */,
 			);
 			path = TableView;
+			sourceTree = "<group>";
+		};
+		DEE48BBA2DA79A07002CD05A /* Create */ = {
+			isa = PBXGroup;
+			children = (
+				DEE48BBB2DA79A0C002CD05A /* Scanner */,
+				DEE48BC52DA7A437002CD05A /* CreateProductAssembly.swift */,
+			);
+			path = Create;
+			sourceTree = "<group>";
+		};
+		DEE48BBB2DA79A0C002CD05A /* Scanner */ = {
+			isa = PBXGroup;
+			children = (
+				DEE48BC92DA7AD98002CD05A /* Utils */,
+				DEE48BBE2DA79BEB002CD05A /* Views */,
+				DEE48BBC2DA79A22002CD05A /* ScannerViewController.swift */,
+				DEE48BC72DA7A55D002CD05A /* ScannerViewModel.swift */,
+				DEE48BC12DA79ED7002CD05A /* ScannerView.swift */,
+			);
+			path = Scanner;
+			sourceTree = "<group>";
+		};
+		DEE48BBE2DA79BEB002CD05A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				DEE48BBF2DA79BF5002CD05A /* ScannerOverlayView.swift */,
+				DEE48BC32DA7A07E002CD05A /* ScannerControlsView.swift */,
+				DEE48BCC2DA7B6B9002CD05A /* ScannerCameraPreviewView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		DEE48BC92DA7AD98002CD05A /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				DEE48BCA2DA7ADAA002CD05A /* ScannerAVCapture.swift */,
+				DEE48BCE2DA7DB37002CD05A /* DetectBarcodeImage.swift */,
+				DEE48BD02DA7E0A6002CD05A /* Barcode.swift */,
+				DEE48BD42DA7F3B2002CD05A /* BarcodeImageGenerator.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1038,6 +1103,7 @@
 				DE1E60CD2DA64F69006CF764 /* Page.swift in Sources */,
 				DE0AA77A2DA4F318005DFC44 /* TabItemButton.swift in Sources */,
 				DE0AA77C2DA4F318005DFC44 /* PaygateViewController.swift in Sources */,
+				DEE48BC62DA7A437002CD05A /* CreateProductAssembly.swift in Sources */,
 				DE0AA77E2DA4F318005DFC44 /* RxActivityIndicator.swift in Sources */,
 				DE0AA7802DA4F318005DFC44 /* SessionManager.swift in Sources */,
 				DE0AA7812DA4F318005DFC44 /* ObservableAndSingle+Extension.swift in Sources */,
@@ -1047,18 +1113,21 @@
 				DE0AA8A62DA536AE005DFC44 /* SettingsTableElement.swift in Sources */,
 				DE0AA7862DA4F318005DFC44 /* String+Extension.swift in Sources */,
 				DE1E60C92DA64EF5006CF764 /* PageInfo.swift in Sources */,
+				DEE48BCF2DA7DB37002CD05A /* DetectBarcodeImage.swift in Sources */,
 				DE0AA88F2DA5059C005DFC44 /* OWelcomeView.swift in Sources */,
 				DE1E60C72DA64EDF006CF764 /* ProductsManager.swift in Sources */,
 				DE0AA7882DA4F318005DFC44 /* IAPProduct.swift in Sources */,
 				DE0AA8AB2DA536C2005DFC44 /* STLinksCell.swift in Sources */,
 				DE0AA78B2DA4F318005DFC44 /* PaddingLabel.swift in Sources */,
 				DE0AA78E2DA4F318005DFC44 /* PaygateViewModel.swift in Sources */,
+				DEE48BBD2DA79A22002CD05A /* ScannerViewController.swift in Sources */,
 				DE0AA7922DA4F318005DFC44 /* Currency.swift in Sources */,
 				DE0AA7942DA4F318005DFC44 /* NavigationController.swift in Sources */,
 				DE0AA7952DA4F318005DFC44 /* LeftAlignedCollectionViewFlowLayout.swift in Sources */,
 				DE1E60E12DA66566006CF764 /* ObtainProductsRequest.swift in Sources */,
 				DE0AA89E2DA53534005DFC44 /* SettingsViewModel.swift in Sources */,
 				DE1E60EA2DA66876006CF764 /* FoldersMediator.swift in Sources */,
+				DEE48BD52DA7F3B2002CD05A /* BarcodeImageGenerator.swift in Sources */,
 				DE0AA7A22DA4F318005DFC44 /* TextAttributes.swift in Sources */,
 				DE1E60EE2DA66AF3006CF764 /* Folder.swift in Sources */,
 				DE1E60DF2DA66407006CF764 /* Product.swift in Sources */,
@@ -1067,6 +1136,7 @@
 				DE0AA7AB2DA4F318005DFC44 /* ObservableRetrySingle.swift in Sources */,
 				DE1E60EC2DA66A7A006CF764 /* CreateFolderRequest.swift in Sources */,
 				DE0AA8AF2DA53784005DFC44 /* STLinkButton.swift in Sources */,
+				DEE48BC22DA79ED7002CD05A /* ScannerView.swift in Sources */,
 				DE0AA7AC2DA4F318005DFC44 /* SplashView.swift in Sources */,
 				DE0AA88C2DA50418005DFC44 /* RequestResult.swift in Sources */,
 				DE0AA7AF2DA4F318005DFC44 /* NetworkError.swift in Sources */,
@@ -1088,7 +1158,9 @@
 				DE0AA7E32DA4F318005DFC44 /* NumberLaunches.swift in Sources */,
 				DE0AA7E42DA4F318005DFC44 /* UIColor+Extension.swift in Sources */,
 				DE1E60DB2DA662AE006CF764 /* UploadImageRequest.swift in Sources */,
+				DEE48BCD2DA7B6B9002CD05A /* ScannerCameraPreviewView.swift in Sources */,
 				DE0AA7E82DA4F318005DFC44 /* RestAPITransport.swift in Sources */,
+				DEE48BC42DA7A07E002CD05A /* ScannerControlsView.swift in Sources */,
 				DE0AA7F02DA4F318005DFC44 /* TakePhoto.swift in Sources */,
 				DE0AA7F22DA4F318005DFC44 /* UIView+RxExtension.swift in Sources */,
 				DE0AA7F72DA4F318005DFC44 /* Scalable.swift in Sources */,
@@ -1103,17 +1175,21 @@
 				DE0AA8202DA4F318005DFC44 /* TryAgainView.swift in Sources */,
 				DE0AA8242DA4F318005DFC44 /* XOREncryption.swift in Sources */,
 				DE1E61012DA68ABD006CF764 /* SearchField.swift in Sources */,
+				DEE48BC82DA7A55D002CD05A /* ScannerViewModel.swift in Sources */,
 				DE0AA8262DA4F318005DFC44 /* PaygateBestOfferView.swift in Sources */,
 				DE0AA8A92DA536BC005DFC44 /* STUnlockAccessCell.swift in Sources */,
+				DEE48BD12DA7E0A6002CD05A /* Barcode.swift in Sources */,
 				DE0AA8272DA4F318005DFC44 /* SplashReceiptValidationObserver.swift in Sources */,
 				DE0AA8292DA4F318005DFC44 /* Fonts.swift in Sources */,
 				DE0AA8302DA4F318005DFC44 /* MainView.swift in Sources */,
 				DE0AA84D2DA4F318005DFC44 /* ProfileBindingRequest.swift in Sources */,
+				DEE48BC02DA79BF5002CD05A /* ScannerOverlayView.swift in Sources */,
 				DE0AA8932DA50D01005DFC44 /* Onstruction2View.swift in Sources */,
 				DE0AA84E2DA4F318005DFC44 /* ChoosePhotoFromGallery.swift in Sources */,
 				DE0AA8552DA4F318005DFC44 /* TapAreaButton.swift in Sources */,
 				DE0AA85A2DA4F318005DFC44 /* MainCoordinator.swift in Sources */,
 				DE1E60D52DA65E3B006CF764 /* CreateProductRequest.swift in Sources */,
+				DEE48BCB2DA7ADAA002CD05A /* ScannerAVCapture.swift in Sources */,
 				DE0AA85E2DA4F318005DFC44 /* TryAgainViewController.swift in Sources */,
 				DE0AA85F2DA4F318005DFC44 /* SplashViewModel.swift in Sources */,
 				DE0AA8632DA4F318005DFC44 /* Appearance.swift in Sources */,
@@ -1161,12 +1237,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 2GY8CB289H;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = InventoryManagement/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "It will allow scanning a barcode to add a product.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "It will allow uploading a barcode to add a product.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -1177,7 +1256,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = sj.smartcloset;
+				PRODUCT_BUNDLE_IDENTIFIER = inventory.dev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -1196,12 +1275,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 2GY8CB289H;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = InventoryManagement/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "It will allow scanning a barcode to add a product.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "It will allow uploading a barcode to add a product.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -1212,7 +1294,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = sj.smartcloset;
+				PRODUCT_BUNDLE_IDENTIFIER = inventory.dev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
