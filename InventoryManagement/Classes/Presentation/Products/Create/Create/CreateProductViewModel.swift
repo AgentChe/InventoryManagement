@@ -12,6 +12,8 @@ final class CreateProductViewModel {
     enum Action {
         case close
         case addPhoto
+        case addFields
+        case addBarcode
     }
     
     var tryAgain: ((Error) -> (Observable<Void>))?
@@ -41,6 +43,9 @@ extension CreateProductViewModel {
         let didChangedCount: Signal<Int>
         let didChangedPriceValue: Signal<Double>
         let didChangedPriceCurrency: Signal<PriceCurrency>
+        let didTapAddFields: Signal<Void>
+        let didTapAddBarcode: Signal<Void>
+        let didCreateNewBarcode: Signal<Barcode>
     }
     
     struct Output {
@@ -87,13 +92,22 @@ extension CreateProductViewModel {
             priceValue: priceValue,
             priceCurrency: priceCurrency
         )
+        let barcodeElement = makeBarcodeElement(
+            initialDetails: initialDetailsData,
+            didCreateNewBarcode: input.didCreateNewBarcode
+        )
         
         return Output(
             action: makeAction(
                 didTapClose: input.didTapClose,
-                didTapAddNewPhoto: input.didTapAddNewPhoto
+                didTapAddNewPhoto: input.didTapAddNewPhoto,
+                didTapAddFields: input.didTapAddFields,
+                didTapAddBarcode: input.didTapAddBarcode
             ),
-            elements: makeElements(generalElement: generalElement)
+            elements: makeElements(
+                generalElement: generalElement,
+                barcodeElement: barcodeElement
+            )
         )
     }
 }
@@ -113,7 +127,9 @@ private extension CreateProductViewModel {
     
     func makeAction(
         didTapClose: Signal<Void>,
-        didTapAddNewPhoto: Signal<Void>
+        didTapAddNewPhoto: Signal<Void>,
+        didTapAddFields: Signal<Void>,
+        didTapAddBarcode: Signal<Void>
     ) -> Driver<Action> {
         let close = didTapClose
             .map { Action.close }
@@ -123,16 +139,31 @@ private extension CreateProductViewModel {
             .map { Action.addPhoto }
             .asDriver(onErrorDriveWith: .never())
         
+        let addFields = didTapAddFields
+            .map { Action.addFields }
+            .asDriver(onErrorDriveWith: .never())
+        
+        let addBarcode = didTapAddBarcode
+            .map { Action.addBarcode }
+            .asDriver(onErrorDriveWith: .never())
+        
         return Driver
-            .merge(close, addNewPhoto)
+            .merge(close, addNewPhoto, addFields, addBarcode)
     }
     
     func makeElements(
-        generalElement: Driver<CPTableGeneralElement>
+        generalElement: Driver<CPTableGeneralElement>,
+        barcodeElement: Driver<CreateProductTableElement>
     ) -> Driver<[CreateProductTableElement]> {
-        generalElement
-            .map { [.general($0)] }
-            .startWith([])
+        Driver
+            .combineLatest(generalElement, barcodeElement)
+            .map { generalElement, barcodeElement -> [CreateProductTableElement] in
+                [
+                    .general(generalElement),
+                    .addFields,
+                    barcodeElement
+                ]
+            }
     }
     
     func makeGeneralElement(
@@ -305,6 +336,28 @@ private extension CreateProductViewModel {
                     }
                     .startWith(initialImages)
             }
+    }
+    
+    func makeBarcodeElement(
+        initialDetails: Driver<DetailsData>,
+        didCreateNewBarcode: Signal<Barcode>
+    ) -> Driver<CreateProductTableElement> {
+        let initial = initialDetails
+            .map { initialDetails -> CreateProductTableElement in
+                guard let barcodeValue = initialDetails.barcode else {
+                    return .addBarcode
+                }
+                
+                let barcode = Barcode(value: barcodeValue, type: .code128)
+                return .barcode(barcode)
+            }
+    
+        let createNew = didCreateNewBarcode
+            .map { CreateProductTableElement.barcode($0) }
+            .asDriver(onErrorDriveWith: .never())
+        
+        return Driver
+            .merge(initial, createNew)
     }
     
     func makeInitialDetailsData(source: Driver<CreateProductViewController.Source>) -> Driver<DetailsData> {

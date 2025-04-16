@@ -148,6 +148,9 @@
 		DEDD65402DAD692200867482 /* CPGeneralTitleField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDD653F2DAD692200867482 /* CPGeneralTitleField.swift */; };
 		DEDD65422DAD727000867482 /* CPGeneralCountField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDD65412DAD727000867482 /* CPGeneralCountField.swift */; };
 		DEDD65442DAD793300867482 /* CPGeneralPriceField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDD65432DAD793300867482 /* CPGeneralPriceField.swift */; };
+		DEE230B72DAF9572008DD773 /* CPTableAddFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE230B62DAF9572008DD773 /* CPTableAddFieldCell.swift */; };
+		DEE230B92DAF98D4008DD773 /* CPTableBarcodeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE230B82DAF98D4008DD773 /* CPTableBarcodeCell.swift */; };
+		DEE230BB2DAF9DD0008DD773 /* CPTableAddBarcodeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE230BA2DAF9DD0008DD773 /* CPTableAddBarcodeCell.swift */; };
 		DEE48BBD2DA79A22002CD05A /* ScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE48BBC2DA79A22002CD05A /* ScannerViewController.swift */; };
 		DEE48BC02DA79BF5002CD05A /* ScannerOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE48BBF2DA79BF5002CD05A /* ScannerOverlayView.swift */; };
 		DEE48BC22DA79ED7002CD05A /* ScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE48BC12DA79ED7002CD05A /* ScannerView.swift */; };
@@ -309,6 +312,9 @@
 		DEDD653F2DAD692200867482 /* CPGeneralTitleField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPGeneralTitleField.swift; sourceTree = "<group>"; };
 		DEDD65412DAD727000867482 /* CPGeneralCountField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPGeneralCountField.swift; sourceTree = "<group>"; };
 		DEDD65432DAD793300867482 /* CPGeneralPriceField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPGeneralPriceField.swift; sourceTree = "<group>"; };
+		DEE230B62DAF9572008DD773 /* CPTableAddFieldCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPTableAddFieldCell.swift; sourceTree = "<group>"; };
+		DEE230B82DAF98D4008DD773 /* CPTableBarcodeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPTableBarcodeCell.swift; sourceTree = "<group>"; };
+		DEE230BA2DAF9DD0008DD773 /* CPTableAddBarcodeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPTableAddBarcodeCell.swift; sourceTree = "<group>"; };
 		DEE48BBC2DA79A22002CD05A /* ScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerViewController.swift; sourceTree = "<group>"; };
 		DEE48BBF2DA79BF5002CD05A /* ScannerOverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerOverlayView.swift; sourceTree = "<group>"; };
 		DEE48BC12DA79ED7002CD05A /* ScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerView.swift; sourceTree = "<group>"; };
@@ -977,6 +983,9 @@
 			isa = PBXGroup;
 			children = (
 				DEDD652C2DAD05A700867482 /* General */,
+				DEE230B62DAF9572008DD773 /* CPTableAddFieldCell.swift */,
+				DEE230B82DAF98D4008DD773 /* CPTableBarcodeCell.swift */,
+				DEE230BA2DAF9DD0008DD773 /* CPTableAddBarcodeCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -1253,6 +1262,7 @@
 				DE1E60E12DA66566006CF764 /* ObtainProductsRequest.swift in Sources */,
 				DE0AA89E2DA53534005DFC44 /* SettingsViewModel.swift in Sources */,
 				DE1E60EA2DA66876006CF764 /* FoldersMediator.swift in Sources */,
+				DEE230BB2DAF9DD0008DD773 /* CPTableAddBarcodeCell.swift in Sources */,
 				DEE48BD52DA7F3B2002CD05A /* BarcodeImageGenerator.swift in Sources */,
 				DE0AA7A22DA4F318005DFC44 /* TextAttributes.swift in Sources */,
 				DE1E60EE2DA66AF3006CF764 /* Folder.swift in Sources */,
@@ -1274,6 +1284,7 @@
 				DE0AA7C22DA4F318005DFC44 /* GradientView.swift in Sources */,
 				DE0AA7C32DA4F318005DFC44 /* Collection+Extension.swift in Sources */,
 				DEDD65312DAD05CB00867482 /* CPPhotosCollectionElement.swift in Sources */,
+				DEE230B92DAF98D4008DD773 /* CPTableBarcodeCell.swift in Sources */,
 				DE0AA7C62DA4F318005DFC44 /* PaygateInfoCell.swift in Sources */,
 				DE0AA7D02DA4F318005DFC44 /* PaygateActionsView.swift in Sources */,
 				DE0AA7D32DA4F318005DFC44 /* PaygateEnableTrialButton.swift in Sources */,
@@ -1297,6 +1308,7 @@
 				DE0AA7FC2DA4F318005DFC44 /* AmplitudeManager.swift in Sources */,
 				DE1E60FC2DA68036006CF764 /* SearchViewModel.swift in Sources */,
 				DE0AA7FD2DA4F318005DFC44 /* Weak.swift in Sources */,
+				DEE230B72DAF9572008DD773 /* CPTableAddFieldCell.swift in Sources */,
 				DE0AA8062DA4F318005DFC44 /* SceneDelegate.swift in Sources */,
 				DE0AA8092DA4F318005DFC44 /* PaygateInfoView.swift in Sources */,
 				DE0AA81A2DA4F318005DFC44 /* PaygateProductButton.swift in Sources */,

@@ -69,7 +69,7 @@ private extension CPPCollectionAddCell {
     func makeIconView() -> UIImageView {
         let view = UIImageView()
         view.contentMode = .scaleAspectFit
-        view.image = UIImage(named: "CreateProduct.AddPhoto")
+        view.image = UIImage(named: "CreateProduct.Add")
         view.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(view)
         return view

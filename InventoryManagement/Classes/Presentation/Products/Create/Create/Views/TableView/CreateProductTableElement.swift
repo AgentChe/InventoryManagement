@@ -9,6 +9,9 @@ import Foundation
 
 enum CreateProductTableElement {
     case general(CPTableGeneralElement)
+    case addFields
+    case barcode(Barcode)
+    case addBarcode
 }
 
 struct CPTableGeneralElement {

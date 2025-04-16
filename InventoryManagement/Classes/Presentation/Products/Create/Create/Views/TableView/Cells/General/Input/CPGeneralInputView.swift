@@ -30,6 +30,10 @@ private extension CPGeneralInputView {
         backgroundColor = Appearance.mono100
         layer.cornerRadius = 20.scale
         layer.masksToBounds = true
+        layer.shadowColor = Appearance.mono200.withAlphaComponent(0.4).cgColor
+        layer.shadowOpacity = 0.1
+        layer.shadowOffset = .zero
+        layer.shadowRadius = 4.scale
     }
 }
 

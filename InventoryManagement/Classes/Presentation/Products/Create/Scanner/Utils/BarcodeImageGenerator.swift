@@ -9,8 +9,11 @@ import UIKit
 import CoreImage
 
 final class BarcodeImageGenerator {
-    private let context = CIContext()
+    private lazy var context = CIContext()
+}
 
+// MARK: Public
+extension BarcodeImageGenerator {
     func generate(from barcode: Barcode, scale: CGFloat = 5) -> UIImage? {
         guard let filter = makeFilter(for: barcode) else { return nil }
         guard let outputImage = filter.outputImage else { return nil }
@@ -18,8 +21,11 @@ final class BarcodeImageGenerator {
         let transformed = outputImage.transformed(by: CGAffineTransform(scaleX: scale, y: scale))
         return UIImage(ciImage: transformed)
     }
+}
 
-    private func makeFilter(for barcode: Barcode) -> CIFilter? {
+// MARK: Private
+private extension BarcodeImageGenerator {
+    func makeFilter(for barcode: Barcode) -> CIFilter? {
         guard let data = barcode.value.data(using: .ascii) else { return nil }
 
         switch barcode.type {

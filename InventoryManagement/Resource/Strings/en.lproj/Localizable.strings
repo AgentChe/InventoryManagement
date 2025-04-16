@@ -95,3 +95,5 @@
 "CreateProduct.General.Input.Price.Placeholder" = "Price";
 "CreateProduct.General.Input.Price.Dollar" = "American dollar";
 "CreateProduct.General.Input.Price.Euro" = "Euro";
+"CreateProduct.AddFields.Title" = "Add more fields";
+"CreateProduct.AddBarcode.Title" = "Add barcode";

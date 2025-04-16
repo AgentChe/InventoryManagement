@@ -25,6 +25,7 @@ final class CreateProductViewController: UIViewController {
     private lazy var closeButton = TapAreaButton()
     
     private lazy var didAddedNewPhotoTrigger = PublishRelay<UIImage>()
+    private lazy var didCreateNewBarcodeTrigger = PublishRelay<Barcode>()
     
     private var takePhoto: TakePhoto?
     
@@ -65,7 +66,10 @@ final class CreateProductViewController: UIViewController {
             didChangedTitle: mainView.tableView.changedTitle,
             didChangedCount: mainView.tableView.changedCount,
             didChangedPriceValue: mainView.tableView.changedPrice,
-            didChangedPriceCurrency: mainView.tableView.changedPriceCurrency
+            didChangedPriceCurrency: mainView.tableView.changedPriceCurrency,
+            didTapAddFields: mainView.tableView.didTapAddFields,
+            didTapAddBarcode: mainView.tableView.didTapAddBarcode,
+            didCreateNewBarcode: didCreateNewBarcodeTrigger.asSignal()
         ))
         
         output.action
@@ -89,7 +93,14 @@ extension CreateProductViewController {
     static func make(source: Source) -> CreateProductViewController {
         let vc = CreateProductViewController(source: source)
         vc.navigationItem.backButtonTitle = " "
-        vc.navigationItem.title = "CreateProduct.Title".localized
+        vc.navigationItem.title = {
+            switch source {
+            case .scan, .manually:
+                return "CreateProduct.Title".localized
+            case .details(let details):
+                return details.title
+            }
+        }()
         return vc
     }
 }
@@ -105,6 +116,20 @@ private extension CreateProductViewController {
                 self?.didAddedNewPhotoTrigger.accept(image)
             }
             takePhoto?.take(from: self)
+        case .addFields:
+            break // TODO
+        case .addBarcode:
+            let nc = NavigationController()
+            nc.modalPresentationStyle = .fullScreen
+            
+            let vc = ScannerViewController.make { [weak nc] barcode in
+                nc?.dismiss(animated: true) { [weak self] in
+                    self?.didCreateNewBarcodeTrigger.accept(barcode)
+                }
+            }
+            nc.setViewControllers([vc], animated: false)
+            
+            present(nc, animated: true)
         }
     }
     

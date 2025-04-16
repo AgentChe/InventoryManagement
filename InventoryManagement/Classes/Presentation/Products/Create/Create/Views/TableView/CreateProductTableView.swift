@@ -21,6 +21,8 @@ final class CreateProductTableView: UITableView {
     private lazy var changedCountTrigger = PublishRelay<Int>()
     private lazy var changedPriceTrigger = PublishRelay<Double>()
     private lazy var changedPriceCurrencyTrigger = PublishRelay<PriceCurrency>()
+    private lazy var didTapAddFieldsTrigger = PublishRelay<Void>()
+    private lazy var didTapAddBarcodeTrigger = PublishRelay<Void>()
     
     override init(frame: CGRect, style: UITableView.Style) {
         super.init(frame: frame, style: style)
@@ -68,6 +70,14 @@ extension CreateProductTableView {
     var changedPriceCurrency: Signal<PriceCurrency> {
         changedPriceCurrencyTrigger.asSignal()
     }
+    
+    var didTapAddFields: Signal<Void> {
+        didTapAddFieldsTrigger.asSignal()
+    }
+    
+    var didTapAddBarcode: Signal<Void> {
+        didTapAddBarcodeTrigger.asSignal()
+    }
 }
 
 // MARK: UITableViewDataSource
@@ -107,6 +117,14 @@ extension CreateProductTableView: UITableViewDataSource {
                 self?.changedPriceCurrencyTrigger.accept(currency)
             }
             return cell
+        case .addFields:
+            return dequeueReusableCell(withIdentifier: String(describing: CPTableAddFieldCell.self), for: indexPath)
+        case .barcode(let barcode):
+            let cell = dequeueReusableCell(withIdentifier: String(describing: CPTableBarcodeCell.self), for: indexPath) as! CPTableBarcodeCell
+            cell.setup(barcode: barcode)
+            return cell
+        case .addBarcode:
+            return dequeueReusableCell(withIdentifier: String(describing: CPTableAddBarcodeCell.self), for: indexPath)
         }
     }
 }
@@ -116,12 +134,26 @@ extension CreateProductTableView: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         UITableView.automaticDimension
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch elements[indexPath.row] {
+        case .addFields:
+            didTapAddFieldsTrigger.accept(Void())
+        case .addBarcode:
+            didTapAddBarcodeTrigger.accept(Void())
+        default:
+            return
+        }
+    }
 }
 
 // MARK: Private
 private extension CreateProductTableView {
     func initialize() {
         register(CPTableGeneralCell.self, forCellReuseIdentifier: String(describing: CPTableGeneralCell.self))
+        register(CPTableAddFieldCell.self, forCellReuseIdentifier: String(describing: CPTableAddFieldCell.self))
+        register(CPTableBarcodeCell.self, forCellReuseIdentifier: String(describing: CPTableBarcodeCell.self))
+        register(CPTableAddBarcodeCell.self, forCellReuseIdentifier: String(describing: CPTableAddBarcodeCell.self))
         
         dataSource = self
         delegate = self
