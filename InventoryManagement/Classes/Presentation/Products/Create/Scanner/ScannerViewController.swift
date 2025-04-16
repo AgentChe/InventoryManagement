@@ -62,6 +62,7 @@ final class ScannerViewController: UIViewController {
         
         addCloseButton()
         configureScanner()
+        mainView.controlsView.setup(flashEnable: scanner.flashEnable)
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -114,6 +115,7 @@ private extension ScannerViewController {
             navigationController?.dismiss(animated: true)
         case .toggleFlash:
             scanner.toggleFlash()
+            mainView.controlsView.setup(flashEnable: scanner.flashEnable)
         case .detectBarcodeFromGallery:
             choosePhotoFromGallery = ChoosePhotoFromGallery { image in
                 DetectBarcodeImage().detectBarcode(from: image) { code in

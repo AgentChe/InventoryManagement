@@ -23,6 +23,14 @@ final class ScannerControlsView: UIView {
     }
 }
 
+// MARK: Public
+extension ScannerControlsView {
+    func setup(flashEnable: Bool) {
+        let iconName = flashEnable ? "Scanner.Flash.On" : "Scanner.Flash.Off"
+        flashButton.setImage(UIImage(named: iconName), for: .normal)
+    }
+}
+
 // MARK: Private
 private extension ScannerControlsView {
     func initialize() {
@@ -61,7 +69,6 @@ private extension ScannerControlsView {
     
     func makeFlashButton() -> TapAreaButton {
         let view = TapAreaButton()
-        view.setImage(UIImage(named: "Scanner.Flash"), for: .normal)
         view.translatesAutoresizingMaskIntoConstraints = false
         addSubview(view)
         return view
