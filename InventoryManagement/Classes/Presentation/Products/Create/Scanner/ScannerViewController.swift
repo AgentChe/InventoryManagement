@@ -68,12 +68,14 @@ final class ScannerViewController: UIViewController {
         super.viewWillAppear(animated)
         
         scanner.startRunning()
+        applyNavSettings(isDefault: false)
     }
 
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
         scanner.stopRunning()
+        applyNavSettings(isDefault: true)
     }
 
     override func viewDidLayoutSubviews() {
@@ -151,5 +153,25 @@ private extension ScannerViewController {
         item.customView?.heightAnchor.constraint(equalToConstant: 24.scale).isActive = true
         
         navigationItem.leftBarButtonItem = item
+    }
+    
+    func applyNavSettings(isDefault: Bool) {
+        let whiteSettings = NavigationControllerSettings(
+            backgroundImage: UIImage(),
+            shadowImage: UIImage(),
+            isTranslucent: true,
+            tintColor: Appearance.mono100,
+            titleTextAttrributes: TextAttributes()
+                .textColor(Appearance.mono100)
+                .font(Fonts.SFPro.bold(size: 17.scale))
+                .textAlignment(.center)
+                .dictionary
+        )
+        
+        let settings = isDefault ? NavigationControllerSettings.default() : whiteSettings
+        
+        guard let nc = navigationController as? NavigationController else { return }
+        
+        nc.apply(settings: settings)
     }
 }

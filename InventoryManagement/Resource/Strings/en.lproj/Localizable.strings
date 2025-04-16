@@ -86,3 +86,12 @@
 // MARK: Scanner
 "Scanner.Title" = "Scan";
 "Scanner.ErrorDetectBarcode" = "Failed to get barcode from image";
+
+// MARK: CreateProduct
+"CreateProduct.Title" = "New item";
+"CreateProduct.General.Input.Title.Placeholder" = "Name";
+"CreateProduct.General.Input.Count.Placeholder" = "Quantity";
+"CreateProduct.General.Input.Count.Unit" = "Unit";
+"CreateProduct.General.Input.Price.Placeholder" = "Price";
+"CreateProduct.General.Input.Price.Dollar" = "American dollar";
+"CreateProduct.General.Input.Price.Euro" = "Euro";

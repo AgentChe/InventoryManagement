@@ -93,16 +93,30 @@ extension ProductsManager: ProductsManagerProtocol {
             .map { ProductDetails.map(response: $0) }
     }
     
+    // TODO
     func upload(image: UIImage) -> Single<UploadImageResult?> {
-        let request = UploadImageRequest(
-            anonymousId: sessionManager.anonymousId,
-            internalId: sessionManager.internalId,
-            image: image
-        )
+//        let request = UploadImageRequest(
+//            anonymousId: sessionManager.anonymousId,
+//            internalId: sessionManager.internalId,
+//            image: image
+//        )
+//        
+//        return restAPITransport
+//            .callServerApi(formDataBody: request)
+//            .map { UploadImageResult.map(response: $0) }
         
-        return restAPITransport
-            .callServerApi(formDataBody: request)
-            .map { UploadImageResult.map(response: $0) }
+        Single<UploadImageResult?>.create { single in
+            
+            let urls = [
+                URL(string: "https://i.postimg.cc/1tPYX9xW/temp-Imagewn-Bj-RZ.avif")!,
+                URL(string: "https://i.postimg.cc/qRjJGsKy/temp-Imagey-O3-Md-Y.avif")!,
+                URL(string: "https://i.postimg.cc/52R8szBc/temp-Image9s-D4vo.avif")!
+            ]
+            let result = UploadImageResult(url: urls.randomElement()!)
+            single(.success(result))
+            
+            return Disposables.create()
+        }
     }
     
     // TODO

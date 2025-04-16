@@ -16,6 +16,7 @@ final class ScannerAVCapture: NSObject {
     private let result: (Barcode) -> Void
     
     private var isRunning = false
+    private var isHandlingResult = false
     
     init(result: @escaping (Barcode) -> Void) {
         self.result = result
@@ -33,6 +34,7 @@ extension ScannerAVCapture {
         
         DispatchQueue.global(qos: .userInitiated).async { [weak self] in
             self?.captureSession.startRunning()
+            self?.isHandlingResult = false
             self?.isRunning = true
         }
     }
@@ -73,11 +75,14 @@ extension ScannerAVCapture {
 // MARK: AVCaptureMetadataOutputObjectsDelegate
 extension ScannerAVCapture: AVCaptureMetadataOutputObjectsDelegate {
     func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
+        guard !isHandlingResult else { return }
+        
         guard
             let metadata = metadataObjects.first as? AVMetadataMachineReadableCodeObject,
             let code = metadata.stringValue
         else { return }
 
+        isHandlingResult = true
         stopRunning()
         
         let type = BarcodeType(from: metadata.type)
