@@ -15,6 +15,7 @@ final class CreateProductTableView: UITableView {
     private lazy var elements = [CreateProductTableElement]()
     
     private lazy var didSelectPhotoTrigger = PublishRelay<URL>()
+    private lazy var didDeletePhotoTrigger = PublishRelay<URL>()
     private lazy var didTapAddPhotoTrigger = PublishRelay<Void>()
     private lazy var changedTitleTrigger = PublishRelay<String>()
     private lazy var changedCountTrigger = PublishRelay<Int>()
@@ -42,6 +43,10 @@ extension CreateProductTableView {
     
     var didSelectPhoto: Signal<URL> {
         didSelectPhotoTrigger.asSignal()
+    }
+    
+    var didDeletePhoto: Signal<URL> {
+        didDeletePhotoTrigger.asSignal()
     }
     
     var didTapAddPhoto: Signal<Void> {
@@ -79,6 +84,9 @@ extension CreateProductTableView: UITableViewDataSource {
             cell.setup(element: element)
             cell.collectionView.didSelectPhoto = { [weak self] url in
                 self?.didSelectPhotoTrigger.accept(url)
+            }
+            cell.collectionView.didDeletePhoto = { [weak self] url in
+                self?.didDeletePhotoTrigger.accept(url)
             }
             cell.collectionView.didTapAdd = { [weak self] in
                 self?.didTapAddPhotoTrigger.accept(Void())

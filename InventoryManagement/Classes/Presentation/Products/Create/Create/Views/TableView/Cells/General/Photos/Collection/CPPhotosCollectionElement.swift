@@ -8,6 +8,11 @@
 import Foundation
 
 enum CPPhotosCollectionElement {
-    case photo(URL)
+    case photo(CPPCollectionPhotoElement)
     case add
+}
+
+struct CPPCollectionPhotoElement {
+    let url: URL
+    let selected: Bool
 }

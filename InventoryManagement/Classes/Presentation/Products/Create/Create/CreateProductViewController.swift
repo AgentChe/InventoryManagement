@@ -59,6 +59,7 @@ final class CreateProductViewController: UIViewController {
         let output = viewModel.configure(input: CreateProductViewModel.Input(
             didTapClose: closeButton.rx.tap.asSignal(),
             didSelectPhoto: mainView.tableView.didSelectPhoto,
+            didDeletePhoto: mainView.tableView.didDeletePhoto,
             didTapAddNewPhoto: mainView.tableView.didTapAddPhoto,
             didAddedNewPhoto: didAddedNewPhotoTrigger.asSignal(),
             didChangedTitle: mainView.tableView.changedTitle,

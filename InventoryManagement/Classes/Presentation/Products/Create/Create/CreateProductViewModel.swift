@@ -34,6 +34,7 @@ extension CreateProductViewModel {
     struct Input {
         let didTapClose: Signal<Void>
         let didSelectPhoto: Signal<URL>
+        let didDeletePhoto: Signal<URL>
         let didTapAddNewPhoto: Signal<Void>
         let didAddedNewPhoto: Signal<UIImage>
         let didChangedTitle: Signal<String>
@@ -51,7 +52,12 @@ extension CreateProductViewModel {
         let initialDetailsData = makeInitialDetailsData(source: source)
         let images = makeImages(
             initialDetails: initialDetailsData,
-            didAddedNewPhoto: input.didAddedNewPhoto
+            didAddedNewPhoto: input.didAddedNewPhoto,
+            didDeletePhoto: input.didDeletePhoto
+        )
+        let selectedImage = makeSelectedImage(
+            images: images,
+            didSelectPhoto: input.didSelectPhoto
         )
         let title = makeTitle(
             initialDetails: initialDetailsData,
@@ -74,8 +80,7 @@ extension CreateProductViewModel {
             priceCurrency: priceCurrency
         )
         let generalElement = makeGeneralElement(
-            initialDetails: initialDetailsData,
-            didSelectPhoto: input.didSelectPhoto,
+            selectedImage: selectedImage,
             images: images,
             title: title,
             count: count,
@@ -131,31 +136,38 @@ private extension CreateProductViewModel {
     }
     
     func makeGeneralElement(
-        initialDetails: Driver<DetailsData>,
-        didSelectPhoto: Signal<URL>,
+        selectedImage: Driver<URL?>,
         images: Driver<[URL]>,
         title: Driver<String?>,
         count: Driver<Int?>,
         priceValue: Driver<Double?>,
         priceCurrency: Driver<PriceCurrency>
     ) -> Driver<CPTableGeneralElement> {
-        let selectedPhoto = Driver<URL?>
-            .merge(
-                initialDetails.map { $0.images?.first },
-                didSelectPhoto
-                    .map { url -> URL? in url }
-                    .asDriver(onErrorDriveWith: .never())
-            )
-        
-        return Driver
-            .combineLatest(images, selectedPhoto, priceCurrency)
+        Driver
+            .combineLatest(images, selectedImage, priceCurrency)
             .withLatestFrom(title) { ($0.0, $0.1, $0.2, $1) }
             .withLatestFrom(count) { ($0.0, $0.1, $0.2, $0.3, $1) }
             .withLatestFrom(priceValue) { ($0.0, $0.1, $0.2, $0.3, $0.4, $1) }
             .map { images, selectedPhoto, priceCurrency, title, count, priceValue -> CPTableGeneralElement in
-                CPTableGeneralElement(
-                    photos: images.map { .photo($0) } + { images.isEmpty ? [] : [.add] }(),
-                    selectedPhoto: selectedPhoto ?? images.first,
+                let selectedPhoto = selectedPhoto ?? images.first
+                
+                let photos: [CPPhotosCollectionElement] = {
+                    guard !images.isEmpty else { return [] }
+                    
+                    let photos = images.map { url -> CPPhotosCollectionElement in
+                        let element = CPPCollectionPhotoElement(
+                            url: url,
+                            selected: url == selectedPhoto
+                        )
+                        return .photo(element)
+                    }
+                    
+                    return photos + [.add]
+                }()
+                
+                return CPTableGeneralElement(
+                    photos: photos,
+                    selectedPhoto: selectedPhoto,
                     title: title,
                     count: count,
                     priceValue: priceValue,
@@ -227,15 +239,40 @@ private extension CreateProductViewModel {
             )
     }
     
+    func makeSelectedImage(
+        images: Driver<[URL]>,
+        didSelectPhoto: Signal<URL>
+    ) -> Driver<URL?> {
+        let selected = didSelectPhoto
+            .map { image -> URL? in image }
+            .startWith(nil)
+            .asDriver(onErrorDriveWith: .never())
+        
+        let changeImages = images
+            .withLatestFrom(selected) { ($0, $1) }
+            .map { images, selected -> URL? in
+                guard let selected else {
+                    return images.first
+                }
+                
+                return images.contains(selected) ? selected : images.first
+            }
+        
+        return Driver
+            .merge(selected, changeImages)
+    }
+    
     func makeImages(
         initialDetails: Driver<DetailsData>,
-        didAddedNewPhoto: Signal<UIImage>
+        didAddedNewPhoto: Signal<UIImage>,
+        didDeletePhoto: Signal<URL>
     ) -> Driver<[URL]> {
         initialDetails
             .map { $0.images ?? [] }
             .flatMapLatest { initialImages -> Driver<[URL]> in
                 enum Action {
                     case newImage(URL)
+                    case deleteImage(URL)
                 }
                 
                 let newImage = didAddedNewPhoto
@@ -249,13 +286,21 @@ private extension CreateProductViewModel {
                     }
                     .map { Action.newImage($0) }
                 
-                let action = Driver.merge(newImage)
+                let deleteImage = didDeletePhoto
+                    .map { Action.deleteImage($0) }
+                    .asDriver(onErrorDriveWith: .never())
+                
+                let action = Driver.merge(newImage, deleteImage)
                 
                 return action
                     .scan(initialImages) { images, action -> [URL] in
                         switch action {
                         case .newImage(let url):
                             return images + [url]
+                        case .deleteImage(let url):
+                            var result = images
+                            result.removeAll(where: { $0 == url })
+                            return result
                         }
                     }
                     .startWith(initialImages)

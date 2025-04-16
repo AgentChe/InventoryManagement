@@ -36,16 +36,27 @@ final class ProductsManager {
 
 // MARK: ProductsManagerProtocol
 extension ProductsManager: ProductsManagerProtocol {
+    // TODO
     func scan(barcode: String) -> Single<ProductScanBarcodeResult?> {
-        let request = ScanBarcodeRequest(
-            anonymousId: sessionManager.anonymousId,
-            internalId: sessionManager.internalId,
-            barcode: barcode
-        )
+//        let request = ScanBarcodeRequest(
+//            anonymousId: sessionManager.anonymousId,
+//            internalId: sessionManager.internalId,
+//            barcode: barcode
+//        )
+//        
+//        return restAPITransport
+//            .callServerApi(requestBody: request)
+//            .map { ProductScanBarcodeResult.map(response: $0) }
         
-        return restAPITransport
-            .callServerApi(requestBody: request)
-            .map { ProductScanBarcodeResult.map(response: $0) }
+        Single<ProductScanBarcodeResult?>.create { single in
+            let result = scanMock()
+            
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.5, execute: {
+                single(.success(result))
+            })
+            
+            return Disposables.create()
+        }
     }
     
     func create(
@@ -169,4 +180,26 @@ func productsMock(count: Int = 10) -> [Product] {
             barcode: String((0..<nameCount).map{ _ in barcodeLetters.randomElement()! }).uppercased()
         )
     }
+}
+
+func scanMock() -> ProductScanBarcodeResult {
+    let letters = "abcdefghijklmnopqrstuvwxyz"
+    let barcodeLetters = "abcdefghijklmnopqrstuvwxyz0123456789"
+    
+    let urls = [
+        URL(string: "https://i.postimg.cc/1tPYX9xW/temp-Imagewn-Bj-RZ.avif")!,
+        URL(string: "https://i.postimg.cc/qRjJGsKy/temp-Imagey-O3-Md-Y.avif")!,
+        URL(string: "https://i.postimg.cc/52R8szBc/temp-Image9s-D4vo.avif")!
+    ]
+    
+    return ProductScanBarcodeResult(
+        title: String((0..<20).map{ _ in letters.randomElement()! }),
+        images: urls,
+        price: Price(
+            value: Double.random(in: 1...100),
+            currency: PriceCurrency.dollar
+        ),
+        barcode: "051111407592",
+        relate: nil
+    )
 }
