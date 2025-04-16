@@ -18,8 +18,8 @@ final class CreateProductTableView: UITableView {
     private lazy var didDeletePhotoTrigger = PublishRelay<URL>()
     private lazy var didTapAddPhotoTrigger = PublishRelay<Void>()
     private lazy var changedTitleTrigger = PublishRelay<String>()
-    private lazy var changedCountTrigger = PublishRelay<Int>()
-    private lazy var changedPriceTrigger = PublishRelay<Double>()
+    private lazy var changedCountTrigger = PublishRelay<Int?>()
+    private lazy var changedPriceTrigger = PublishRelay<Double?>()
     private lazy var changedPriceCurrencyTrigger = PublishRelay<PriceCurrency>()
     private lazy var didTapAddFieldsTrigger = PublishRelay<Void>()
     private lazy var didTapAddBarcodeTrigger = PublishRelay<Void>()
@@ -59,11 +59,11 @@ extension CreateProductTableView {
         changedTitleTrigger.asSignal()
     }
     
-    var changedCount: Signal<Int> {
+    var changedCount: Signal<Int?> {
         changedCountTrigger.asSignal()
     }
     
-    var changedPrice: Signal<Double> {
+    var changedPrice: Signal<Double?> {
         changedPriceTrigger.asSignal()
     }
     
@@ -125,6 +125,10 @@ extension CreateProductTableView: UITableViewDataSource {
             return cell
         case .addBarcode:
             return dequeueReusableCell(withIdentifier: String(describing: CPTableAddBarcodeCell.self), for: indexPath)
+        case .save(let enable):
+            let cell = dequeueReusableCell(withIdentifier: String(describing: CPTableSaveCell.self), for: indexPath) as! CPTableSaveCell
+            cell.setup(enable: enable)
+            return cell
         }
     }
 }
@@ -154,6 +158,7 @@ private extension CreateProductTableView {
         register(CPTableAddFieldCell.self, forCellReuseIdentifier: String(describing: CPTableAddFieldCell.self))
         register(CPTableBarcodeCell.self, forCellReuseIdentifier: String(describing: CPTableBarcodeCell.self))
         register(CPTableAddBarcodeCell.self, forCellReuseIdentifier: String(describing: CPTableAddBarcodeCell.self))
+        register(CPTableSaveCell.self, forCellReuseIdentifier: String(describing: CPTableSaveCell.self))
         
         dataSource = self
         delegate = self

@@ -10,7 +10,7 @@ import UIKit
 final class CPGeneralPriceField: UIView {
     weak var vc: UIViewController?
     
-    var changedPrice: ((Double) -> Void)?
+    var changedPrice: ((Double?) -> Void)?
     var changedCurrency: ((PriceCurrency) -> Void)?
     
     lazy var textField = makeTextField()
@@ -73,10 +73,10 @@ private extension CPGeneralPriceField {
     
     @objc
     func priceValueEditing() {
-        guard
-            let text = textField.text,
-            let value = formatter.number(from: text)?.doubleValue
-        else { return }
+        let value: Double? = {
+            guard let text = textField.text, let value = formatter.number(from: text)?.doubleValue else { return nil }
+            return value
+        }()
         
         changedPrice?(value)
     }

@@ -151,6 +151,7 @@
 		DEE230B72DAF9572008DD773 /* CPTableAddFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE230B62DAF9572008DD773 /* CPTableAddFieldCell.swift */; };
 		DEE230B92DAF98D4008DD773 /* CPTableBarcodeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE230B82DAF98D4008DD773 /* CPTableBarcodeCell.swift */; };
 		DEE230BB2DAF9DD0008DD773 /* CPTableAddBarcodeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE230BA2DAF9DD0008DD773 /* CPTableAddBarcodeCell.swift */; };
+		DEE230BD2DAFB9C7008DD773 /* CPTableSaveCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE230BC2DAFB9C7008DD773 /* CPTableSaveCell.swift */; };
 		DEE48BBD2DA79A22002CD05A /* ScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE48BBC2DA79A22002CD05A /* ScannerViewController.swift */; };
 		DEE48BC02DA79BF5002CD05A /* ScannerOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE48BBF2DA79BF5002CD05A /* ScannerOverlayView.swift */; };
 		DEE48BC22DA79ED7002CD05A /* ScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE48BC12DA79ED7002CD05A /* ScannerView.swift */; };
@@ -315,6 +316,7 @@
 		DEE230B62DAF9572008DD773 /* CPTableAddFieldCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPTableAddFieldCell.swift; sourceTree = "<group>"; };
 		DEE230B82DAF98D4008DD773 /* CPTableBarcodeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPTableBarcodeCell.swift; sourceTree = "<group>"; };
 		DEE230BA2DAF9DD0008DD773 /* CPTableAddBarcodeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPTableAddBarcodeCell.swift; sourceTree = "<group>"; };
+		DEE230BC2DAFB9C7008DD773 /* CPTableSaveCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPTableSaveCell.swift; sourceTree = "<group>"; };
 		DEE48BBC2DA79A22002CD05A /* ScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerViewController.swift; sourceTree = "<group>"; };
 		DEE48BBF2DA79BF5002CD05A /* ScannerOverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerOverlayView.swift; sourceTree = "<group>"; };
 		DEE48BC12DA79ED7002CD05A /* ScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerView.swift; sourceTree = "<group>"; };
@@ -986,6 +988,7 @@
 				DEE230B62DAF9572008DD773 /* CPTableAddFieldCell.swift */,
 				DEE230B82DAF98D4008DD773 /* CPTableBarcodeCell.swift */,
 				DEE230BA2DAF9DD0008DD773 /* CPTableAddBarcodeCell.swift */,
+				DEE230BC2DAFB9C7008DD773 /* CPTableSaveCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -1215,6 +1218,7 @@
 				DE0AA7612DA4F318005DFC44 /* UIEdgeInsets+Extension.swift in Sources */,
 				DE1E60F02DA66C66006CF764 /* ObtainFoldersRequest.swift in Sources */,
 				DE1E60F22DA66D98006CF764 /* ManageFolderRequest.swift in Sources */,
+				DEE230BD2DAFB9C7008DD773 /* CPTableSaveCell.swift in Sources */,
 				DEDD65362DAD062600867482 /* CPPCollectionAddCell.swift in Sources */,
 				DE0AA8A02DA53537005DFC44 /* SettingsView.swift in Sources */,
 				DEC48D772DA8F0E400AC1B3D /* CreateProductViewModel.swift in Sources */,

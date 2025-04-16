@@ -8,7 +8,7 @@
 import UIKit
 
 final class CPGeneralCountField: UIView {
-    var changedValue: ((Int) -> Void)?
+    var changedValue: ((Int?) -> Void)?
     
     lazy var textField = makeTextField()
     lazy var unitLabel = makeUnitLabel()
@@ -45,7 +45,10 @@ private extension CPGeneralCountField {
     
     @objc
     func countEditing() {
-        guard let text = textField.text, let count = Int(text) else { return }
+        let count: Int? = {
+            guard let text = textField.text, let count = Int(text) else { return nil }
+            return count
+        }()
         
         changedValue?(count)
     }

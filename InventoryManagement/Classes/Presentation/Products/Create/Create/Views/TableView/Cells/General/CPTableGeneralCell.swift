@@ -12,6 +12,8 @@ final class CPTableGeneralCell: UITableViewCell {
     lazy var collectionView = makeCollectionView()
     lazy var generalInputView = makeGeneralInputView()
     
+    private lazy var generalInputSetuped = false
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
@@ -33,9 +35,12 @@ extension CPTableGeneralCell {
         
         photoView.setup(selectedPhoto: element.selectedPhoto)
         
-        generalInputView.titleField.setup(title: element.title)
-        generalInputView.countField.setup(count: element.count)
-        generalInputView.priceField.setup(value: element.priceValue)
+        if !generalInputSetuped {
+            generalInputView.titleField.setup(title: element.title)
+            generalInputView.countField.setup(count: element.count)
+            generalInputView.priceField.setup(value: element.priceValue)
+            generalInputSetuped = true
+        }
         generalInputView.priceField.setup(currency: element.priceCurrency)
     }
 }

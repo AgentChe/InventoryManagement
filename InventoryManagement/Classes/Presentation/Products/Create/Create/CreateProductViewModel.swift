@@ -40,8 +40,8 @@ extension CreateProductViewModel {
         let didTapAddNewPhoto: Signal<Void>
         let didAddedNewPhoto: Signal<UIImage>
         let didChangedTitle: Signal<String>
-        let didChangedCount: Signal<Int>
-        let didChangedPriceValue: Signal<Double>
+        let didChangedCount: Signal<Int?>
+        let didChangedPriceValue: Signal<Double?>
         let didChangedPriceCurrency: Signal<PriceCurrency>
         let didTapAddFields: Signal<Void>
         let didTapAddBarcode: Signal<Void>
@@ -92,9 +92,16 @@ extension CreateProductViewModel {
             priceValue: priceValue,
             priceCurrency: priceCurrency
         )
-        let barcodeElement = makeBarcodeElement(
+        let barcode = makeBarcode(
             initialDetails: initialDetailsData,
             didCreateNewBarcode: input.didCreateNewBarcode
+        )
+        let saveEnable = makeSaveEnable(
+            images: images,
+            title: title,
+            count: count,
+            price: price,
+            barcode: barcode
         )
         
         return Output(
@@ -106,7 +113,8 @@ extension CreateProductViewModel {
             ),
             elements: makeElements(
                 generalElement: generalElement,
-                barcodeElement: barcodeElement
+                barcode: barcode,
+                saveEnable: saveEnable
             )
         )
     }
@@ -153,15 +161,20 @@ private extension CreateProductViewModel {
     
     func makeElements(
         generalElement: Driver<CPTableGeneralElement>,
-        barcodeElement: Driver<CreateProductTableElement>
+        barcode: Driver<Barcode?>,
+        saveEnable: Driver<Bool>
     ) -> Driver<[CreateProductTableElement]> {
         Driver
-            .combineLatest(generalElement, barcodeElement)
-            .map { generalElement, barcodeElement -> [CreateProductTableElement] in
+            .combineLatest(generalElement, barcode, saveEnable)
+            .map { generalElement, barcode, saveEnable -> [CreateProductTableElement] in
                 [
                     .general(generalElement),
                     .addFields,
-                    barcodeElement
+                    {
+                        guard let barcode else { return .addBarcode }
+                        return .barcode(barcode)
+                    }(),
+                    .save(saveEnable)
                 ]
             }
     }
@@ -222,14 +235,12 @@ private extension CreateProductViewModel {
     
     func makeCount(
         initialDetails: Driver<DetailsData>,
-        didChangedCount: Signal<Int>
+        didChangedCount: Signal<Int?>
     ) -> Driver<Int?> {
         Driver
             .merge(
                 initialDetails.map { $0.count },
-                didChangedCount
-                    .asDriver(onErrorDriveWith: .never())
-                    .map { count -> Int? in count }
+                didChangedCount.asDriver(onErrorDriveWith: .never())
             )
     }
     
@@ -247,14 +258,12 @@ private extension CreateProductViewModel {
     
     func makePriceValue(
         initialDetails: Driver<DetailsData>,
-        didChangedPriceValue: Signal<Double>
+        didChangedPriceValue: Signal<Double?>
     ) -> Driver<Double?> {
         Driver
             .merge(
                 initialDetails.map { $0.priceValue },
-                didChangedPriceValue
-                    .asDriver(onErrorDriveWith: .never())
-                    .map { price -> Double? in price }
+                didChangedPriceValue.asDriver(onErrorDriveWith: .never())
             )
     }
     
@@ -338,26 +347,47 @@ private extension CreateProductViewModel {
             }
     }
     
-    func makeBarcodeElement(
+    func makeBarcode(
         initialDetails: Driver<DetailsData>,
         didCreateNewBarcode: Signal<Barcode>
-    ) -> Driver<CreateProductTableElement> {
+    ) -> Driver<Barcode?> {
         let initial = initialDetails
-            .map { initialDetails -> CreateProductTableElement in
+            .map { initialDetails -> Barcode? in
                 guard let barcodeValue = initialDetails.barcode else {
-                    return .addBarcode
+                    return nil
                 }
                 
-                let barcode = Barcode(value: barcodeValue, type: .code128)
-                return .barcode(barcode)
+                return Barcode(value: barcodeValue, type: .code128)
             }
     
         let createNew = didCreateNewBarcode
-            .map { CreateProductTableElement.barcode($0) }
+            .map { barcode -> Barcode? in barcode }
             .asDriver(onErrorDriveWith: .never())
         
         return Driver
             .merge(initial, createNew)
+    }
+    
+    func makeSaveEnable(
+        images: Driver<[URL]>,
+        title: Driver<String?>,
+        count: Driver<Int?>,
+        price: Driver<Price?>,
+        barcode: Driver<Barcode?>
+    ) -> Driver<Bool> {
+        Driver
+            .combineLatest(images, title, count, price, barcode)
+            .map { images, title, count, price, barcode -> Bool in
+                let hasEmpty = [
+                    images.isEmpty,
+                    (title ?? "").trimmingCharacters(in: .whitespacesAndNewlines).isEmpty,
+                    count == nil,
+                    price == nil,
+                    barcode == nil
+                ]
+                return !hasEmpty.contains(true)
+            }
+            .distinctUntilChanged()
     }
     
     func makeInitialDetailsData(source: Driver<CreateProductViewController.Source>) -> Driver<DetailsData> {

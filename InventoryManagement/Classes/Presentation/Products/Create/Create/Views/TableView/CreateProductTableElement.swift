@@ -12,6 +12,7 @@ enum CreateProductTableElement {
     case addFields
     case barcode(Barcode)
     case addBarcode
+    case save(Bool)
 }
 
 struct CPTableGeneralElement {
