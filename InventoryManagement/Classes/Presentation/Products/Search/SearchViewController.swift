@@ -93,12 +93,12 @@ private extension SearchViewController {
         case .openMenu(let product):
             print("open menu") // TODO
         case .openDetails(let product):
-            print("open details") // TODO
+            CreateProductAssembly().edit(from: self, product: product)
         case .openPaygate:
             let vc = PaygateViewController.make()
             present(vc, animated: true)
         case .createNewProduct:
-            print("createNewProduct") // TODO
+            CreateProductAssembly().manually(from: self)
         }
     }
 }

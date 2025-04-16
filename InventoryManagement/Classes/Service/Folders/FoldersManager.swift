@@ -17,6 +17,11 @@ protocol FoldersManagerProtocol {
     ) -> Single<RequestResult>
     func rename(id: String, title: String, notes: String?) -> Single<RequestResult>
     func delete(id: String) -> Single<RequestResult>
+    func move(
+        currentFolderId: String,
+        targetFolderId: String,
+        productId: String
+    ) -> Single<RequestResult>
 }
 
 final class FoldersManager {
@@ -114,6 +119,34 @@ extension FoldersManager: FoldersManagerProtocol {
                 guard result.success else { return }
                 
                 FoldersMediator.shared.notifyDeleted(id: id)
+            })
+    }
+    
+    func move(
+        currentFolderId: String,
+        targetFolderId: String,
+        productId: String
+    ) -> Single<RequestResult> {
+        let request = FolderMoveRequest(
+            anonymousId: sessionManager.anonymousId,
+            internalId: sessionManager.internalId,
+            currentFolderId: currentFolderId,
+            targetFolderId: targetFolderId,
+            productId: productId
+        )
+        
+        return restAPITransport
+            .callServerApi(requestBody: request)
+            .map { RequestResult.map(response: $0) }
+            .do(onSuccess: { result in
+                guard result.success else { return }
+                
+                let moved: FoldersMediator.Moved = (
+                    productId: productId,
+                    fromFolderId: currentFolderId,
+                    intoFolderId: targetFolderId
+                )
+                FoldersMediator.shared.notifyMoved(moved: moved)
             })
     }
 }

@@ -17,7 +17,18 @@ protocol ProductsManagerProtocol {
         priceValue: Double,
         priceCurrency: String,
         meta: [String: Any]?,
-        relate: [String: Any]?
+        relate: [String: Any]?,
+        creationMethod: CreateProductRequest.CreationMethod
+    ) -> Single<RequestResult>
+    func edit(
+        id: String,
+        title: String,
+        images: [String],
+        count: Int,
+        barcode: String,
+        priceValue: Double,
+        priceCurrency: String,
+        meta: [String: Any]?
     ) -> Single<RequestResult>
     func obtainDetails(id: String) -> Single<ProductDetails?>
     func upload(image: UIImage) -> Single<UploadImageResult?>
@@ -26,6 +37,7 @@ protocol ProductsManagerProtocol {
         folderId: String?,
         page: Int
     ) -> Single<Page<[Product]>?>
+    func delete(id: String) -> Single<RequestResult>
 }
 
 final class ProductsManager {
@@ -59,6 +71,7 @@ extension ProductsManager: ProductsManagerProtocol {
         }
     }
     
+    // TODO
     func create(
         title: String,
         images: [String],
@@ -67,41 +80,102 @@ extension ProductsManager: ProductsManagerProtocol {
         priceValue: Double,
         priceCurrency: String,
         meta: [String: Any]?,
-        relate: [String: Any]?
+        relate: [String: Any]?,
+        creationMethod: CreateProductRequest.CreationMethod
     ) -> Single<RequestResult> {
-        let request = CreateProductRequest(
-            anonymousId: sessionManager.anonymousId,
-            internalId: sessionManager.internalId,
-            title: title,
-            images: images,
-            count: count,
-            barcode: barcode,
-            priceValue: priceValue,
-            priceCurrency: priceCurrency,
-            meta: meta,
-            relate: relate
-        )
+//        let request = CreateProductRequest(
+//            anonymousId: sessionManager.anonymousId,
+//            internalId: sessionManager.internalId,
+//            title: title,
+//            images: images,
+//            count: count,
+//            barcode: barcode,
+//            priceValue: priceValue,
+//            priceCurrency: priceCurrency,
+//            meta: meta,
+//            relate: relate,
+//            creationMethod: creationMethod
+//        )
+//        
+//        return restAPITransport
+//            .callServerApi(requestBody: request)
+//            .map { RequestResult.map(response: $0) }
+//            .do(onSuccess: { result in
+//                guard result.success else { return }
+//                
+//                ProductsMediator.shared.notifyCreateProduct()
+//            })
         
-        return restAPITransport
-            .callServerApi(requestBody: request)
-            .map { RequestResult.map(response: $0) }
-            .do(onSuccess: { result in
-                guard result.success else { return }
-                
-                ProductsMediator.shared.notifyCreateProduct()
+        Single<RequestResult>.create { single in
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.5, execute: {
+                single(.success(RequestResult(success: Bool.random())))
             })
+            
+            return Disposables.create()
+        }
     }
     
-    func obtainDetails(id: String) -> Single<ProductDetails?> {
-        let request = ObtainProductDetailsRequest(
-            anonymousId: sessionManager.anonymousId,
-            internalId: sessionManager.internalId,
-            id: id
-        )
+    // TODO
+    func edit(
+        id: String,
+        title: String,
+        images: [String],
+        count: Int,
+        barcode: String,
+        priceValue: Double,
+        priceCurrency: String,
+        meta: [String: Any]?
+    ) -> Single<RequestResult> {
+//        let request = EditProductRequest(
+//            anonymousId: sessionManager.anonymousId,
+//            internalId: sessionManager.internalId,
+//            id: id,
+//            title: title,
+//            images: images,
+//            count: count,
+//            barcode: barcode,
+//            priceValue: priceValue,
+//            priceCurrency: priceCurrency,
+//            meta: meta
+//        )
+//        
+//        return restAPITransport
+//            .callServerApi(requestBody: request)
+//            .map { RequestResult.map(response: $0) }
+//            .do(onSuccess: { result in
+//                guard result.success else { return }
+//                
+//                ProductsMediator.shared.notifyEditeProduct(id: id)
+//            })
         
-        return restAPITransport
-            .callServerApi(requestBody: request)
-            .map { ProductDetails.map(response: $0) }
+        Single<RequestResult>.create { single in
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.5, execute: {
+                single(.success(RequestResult(success: Bool.random())))
+            })
+            
+            return Disposables.create()
+        }
+    }
+    
+    // TODO
+    func obtainDetails(id: String) -> Single<ProductDetails?> {
+//        let request = ObtainProductDetailsRequest(
+//            anonymousId: sessionManager.anonymousId,
+//            internalId: sessionManager.internalId,
+//            id: id
+//        )
+//        
+//        return restAPITransport
+//            .callServerApi(requestBody: request)
+//            .map { ProductDetails.map(response: $0) }
+        
+        Single<ProductDetails?>.create { single in
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.5, execute: {
+                single(.success(detailsMock()))
+            })
+            
+            return Disposables.create()
+        }
     }
     
     // TODO
@@ -160,6 +234,23 @@ extension ProductsManager: ProductsManagerProtocol {
             return Disposables.create()
         }
     }
+    
+    func delete(id: String) -> Single<RequestResult> {
+        let request = DeleteProductRequest(
+            anonymousId: sessionManager.anonymousId,
+            internalId: sessionManager.internalId,
+            id: id
+        )
+        
+        return restAPITransport
+            .callServerApi(requestBody: request)
+            .map { RequestResult.map(response: $0) }
+            .do(onSuccess: { result in
+                guard result.success else { return }
+                
+                ProductsMediator.shared.notifyDeleteProduct(id: id)
+            })
+    }
 }
 
 // TODO: remove
@@ -182,9 +273,9 @@ func productsMock(count: Int = 10) -> [Product] {
     }
 }
 
+// TODO: remove
 func scanMock() -> ProductScanBarcodeResult {
     let letters = "abcdefghijklmnopqrstuvwxyz"
-    let barcodeLetters = "abcdefghijklmnopqrstuvwxyz0123456789"
     
     let urls = [
         URL(string: "https://i.postimg.cc/1tPYX9xW/temp-Imagewn-Bj-RZ.avif")!,
@@ -201,5 +292,28 @@ func scanMock() -> ProductScanBarcodeResult {
         ),
         barcode: "051111407592",
         relate: nil
+    )
+}
+
+// TODO: remove
+func detailsMock() -> ProductDetails {
+    let letters = "abcdefghijklmnopqrstuvwxyz"
+    
+    let urls = [
+        URL(string: "https://i.postimg.cc/1tPYX9xW/temp-Imagewn-Bj-RZ.avif")!,
+        URL(string: "https://i.postimg.cc/qRjJGsKy/temp-Imagey-O3-Md-Y.avif")!,
+        URL(string: "https://i.postimg.cc/52R8szBc/temp-Image9s-D4vo.avif")!
+    ]
+    
+    return ProductDetails(
+        title: String((0..<20).map{ _ in letters.randomElement()! }),
+        images: urls,
+        count: Int.random(in: 1...10),
+        barcode: "051111407592",
+        price: Price(
+            value: Double.random(in: 1...100),
+            currency: PriceCurrency.dollar
+        ),
+        meta: nil
     )
 }

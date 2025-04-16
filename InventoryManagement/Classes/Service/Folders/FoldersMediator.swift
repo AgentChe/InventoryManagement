@@ -9,12 +9,15 @@ import RxSwift
 import RxCocoa
 
 final class FoldersMediator {
+    typealias Moved = (productId: String, fromFolderId: String, intoFolderId: String)
+    
     static let shared = FoldersMediator()
     
     private lazy var didCreatedTrigger = PublishRelay<Folder>()
     private lazy var didChangedTrigger = PublishRelay<String>()
     private lazy var didRenamedTrigger = PublishRelay<Folder>()
     private lazy var didDeletedTrigger = PublishRelay<String>()
+    private lazy var didMovedProductIdTrigger = PublishRelay<Moved>()
     
     private init() {}
 }
@@ -37,6 +40,10 @@ extension FoldersMediator {
         didDeletedTrigger.accept(id)
     }
     
+    func notifyMoved(moved: Moved) {
+        didMovedProductIdTrigger.accept(moved)
+    }
+    
     var didCreated: Signal<Folder> {
         didCreatedTrigger.asSignal()
     }
@@ -51,5 +58,9 @@ extension FoldersMediator {
     
     var didDeleted: Signal<String> {
         didDeletedTrigger.asSignal()
+    }
+    
+    var didMoved: Signal<Moved> {
+        didMovedProductIdTrigger.asSignal()
     }
 }

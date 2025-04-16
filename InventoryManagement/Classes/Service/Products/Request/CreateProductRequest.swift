@@ -8,6 +8,10 @@
 import Alamofire
 
 struct CreateProductRequest: APIRequestBody {
+    enum CreationMethod {
+        case scan, manual
+    }
+    
     let anonymousId: String
     let internalId: String
     let title: String
@@ -18,6 +22,7 @@ struct CreateProductRequest: APIRequestBody {
     let priceCurrency: String
     let meta: [String: Any]?
     let relate: [String: Any]?
+    let creationMethod: CreationMethod
     
     var url: String {
         GlobalDefinitions.domain + "/api/v1/product/create"
@@ -46,7 +51,15 @@ struct CreateProductRequest: APIRequestBody {
                 "currency": priceCurrency
             ],
             "meta": meta ?? NSNull(),
-            "relate": relate ?? NSNull()
+            "relate": relate ?? NSNull(),
+            "creation_method": {
+                switch creationMethod {
+                case .scan:
+                    return "scan"
+                case .manual:
+                    return "manual"
+                }
+            }()
         ]
     }
 }

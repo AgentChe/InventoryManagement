@@ -46,11 +46,13 @@ extension CreateProductViewModel {
         let didTapAddFields: Signal<Void>
         let didTapAddBarcode: Signal<Void>
         let didCreateNewBarcode: Signal<Barcode>
+        let didTapSave: Signal<Void>
     }
     
     struct Output {
         let action: Driver<Action>
         let elements: Driver<[CreateProductTableElement]>
+        let activity: Driver<Bool>
     }
     
     func configure(input: Input) -> Output {
@@ -103,19 +105,30 @@ extension CreateProductViewModel {
             price: price,
             barcode: barcode
         )
+        let saveData = makeSaveData(
+            title: title,
+            images: images,
+            count: count,
+            barcode: barcode,
+            price: price,
+            relate: initialDetailsData.map { $0.relate })
         
         return Output(
             action: makeAction(
                 didTapClose: input.didTapClose,
                 didTapAddNewPhoto: input.didTapAddNewPhoto,
                 didTapAddFields: input.didTapAddFields,
-                didTapAddBarcode: input.didTapAddBarcode
+                didTapAddBarcode: input.didTapAddBarcode,
+                didTapSave: input.didTapSave,
+                saveData: saveData,
+                source: source
             ),
             elements: makeElements(
                 generalElement: generalElement,
                 barcode: barcode,
                 saveEnable: saveEnable
-            )
+            ),
+            activity: activity.asDriver()
         )
     }
 }
@@ -133,11 +146,25 @@ private extension CreateProductViewModel {
         let relate: [String: Any]?
     }
     
+    struct SaveData {
+        let title: String
+        let images: [String]
+        let count: Int
+        let barcode: String
+        let priceValue: Double
+        let priceCurrency: PriceCurrency
+        let meta: [String: Any]?
+        let relate: [String: Any]?
+    }
+    
     func makeAction(
         didTapClose: Signal<Void>,
         didTapAddNewPhoto: Signal<Void>,
         didTapAddFields: Signal<Void>,
-        didTapAddBarcode: Signal<Void>
+        didTapAddBarcode: Signal<Void>,
+        didTapSave: Signal<Void>,
+        saveData: Driver<SaveData>,
+        source: Driver<CreateProductViewController.Source>
     ) -> Driver<Action> {
         let close = didTapClose
             .map { Action.close }
@@ -155,8 +182,109 @@ private extension CreateProductViewModel {
             .map { Action.addBarcode }
             .asDriver(onErrorDriveWith: .never())
         
+        let save = didTapSave
+            .asDriver(onErrorDriveWith: .never())
+            .withLatestFrom(saveData)
+            .withLatestFrom(source) { ($0, $1) }
+            .flatMapLatest { [weak self] data, source -> Driver<Action> in
+                guard let self else { return .never() }
+                
+                func request() -> Single<Void> {
+                    let requestResult: Single<RequestResult> = {
+                        switch source {
+                        case .scan:
+                            return self.productsManager
+                                .create(
+                                    title: data.title,
+                                    images: data.images,
+                                    count: data.count,
+                                    barcode: data.barcode,
+                                    priceValue: data.priceValue,
+                                    priceCurrency: data.priceCurrency.rawValue,
+                                    meta: data.meta,
+                                    relate: data.relate,
+                                    creationMethod: .scan
+                                )
+                        case .manually:
+                            return self.productsManager
+                                .create(
+                                    title: data.title,
+                                    images: data.images,
+                                    count: data.count,
+                                    barcode: data.barcode,
+                                    priceValue: data.priceValue,
+                                    priceCurrency: data.priceCurrency.rawValue,
+                                    meta: data.meta,
+                                    relate: data.relate,
+                                    creationMethod: .manual
+                                )
+                        case .edit(let product):
+                            return self.productsManager
+                                .edit(
+                                    id: product.id,
+                                    title: data.title,
+                                    images: data.images,
+                                    count: data.count,
+                                    barcode: data.barcode,
+                                    priceValue: data.priceValue,
+                                    priceCurrency: data.priceCurrency.rawValue,
+                                    meta: data.meta
+                                )
+                        }
+                    }()
+                    
+                    return requestResult
+                        .map { result -> Void in
+                            guard result.success else {
+                                throw ContentError(.notContent)
+                            }
+                            
+                            return Void()
+                        }
+                }
+                
+                func trigger(error: Error) -> Observable<Void> {
+                    tryAgain?(error) ?? .empty()
+                }
+                
+                return observableRetrySingle
+                    .retry(
+                        source: { request() },
+                        trigger: { trigger(error: $0) }
+                    )
+                    .trackActivity(activity)
+                    .asDriver(onErrorDriveWith: .never())
+                    .map { Action.close }
+            }
+        
         return Driver
-            .merge(close, addNewPhoto, addFields, addBarcode)
+            .merge(close, addNewPhoto, addFields, addBarcode, save)
+    }
+    
+    func makeSaveData(
+        title: Driver<String?>,
+        images: Driver<[URL]>,
+        count: Driver<Int?>,
+        barcode: Driver<Barcode?>,
+        price: Driver<Price?>,
+        relate: Driver<[String: Any]?>
+    ) -> Driver<SaveData> {
+        Driver
+            .combineLatest(title, images, count, barcode, price, relate)
+            .compactMap { title, images, count, barcode, price, relate -> SaveData? in
+                guard let title, !images.isEmpty, let count, let barcode, let price else { return nil }
+                
+                return SaveData(
+                    title: title,
+                    images: images.map { $0.absoluteString },
+                    count: count,
+                    barcode: barcode.value,
+                    priceValue: price.value,
+                    priceCurrency: price.currency,
+                    meta: nil,
+                    relate: relate
+                )
+            }
     }
     
     func makeElements(
@@ -419,9 +547,27 @@ private extension CreateProductViewModel {
                     )
                     .trackActivity(activity)
                     .asDriver(onErrorDriveWith: .never())
-            case .details(let productDetails):
-                let data = DetailsData(product: productDetails)
-                return .just(data)
+            case .edit(let product):
+                func source() -> Single<DetailsData> {
+                    productsManager
+                        .obtainDetails(id: product.id)
+                        .map { details -> DetailsData in
+                            guard let details else { throw ContentError(.notContent) }
+                            return DetailsData(product: details)
+                        }
+                }
+                
+                func trigger(error: Error) -> Observable<Void> {
+                    tryAgain?(error) ?? .empty()
+                }
+                
+                return observableRetrySingle
+                    .retry(
+                        source: { source() },
+                        trigger: { trigger(error: $0) }
+                    )
+                    .trackActivity(activity)
+                    .asDriver(onErrorDriveWith: .never())
             }
         }
     }

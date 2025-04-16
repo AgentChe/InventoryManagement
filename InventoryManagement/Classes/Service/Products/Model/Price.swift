@@ -14,8 +14,8 @@ enum PriceCurrency {
     case dollar, euro
     
     enum Constants {
-        static let dollar = "dollar"
-        static let euro = "euro"
+        static let dollar = "USD"
+        static let euro = "EURO"
     }
     
     init?(rawValue: String) {

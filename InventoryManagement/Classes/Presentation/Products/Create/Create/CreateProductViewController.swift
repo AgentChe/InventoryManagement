@@ -13,7 +13,7 @@ final class CreateProductViewController: UIViewController {
     enum Source {
         case scan(Barcode)
         case manually
-        case details(ProductDetails)
+        case edit(Product)
     }
     
     private lazy var mainView = CreateProductView()
@@ -69,7 +69,8 @@ final class CreateProductViewController: UIViewController {
             didChangedPriceCurrency: mainView.tableView.changedPriceCurrency,
             didTapAddFields: mainView.tableView.didTapAddFields,
             didTapAddBarcode: mainView.tableView.didTapAddBarcode,
-            didCreateNewBarcode: didCreateNewBarcodeTrigger.asSignal()
+            didCreateNewBarcode: didCreateNewBarcodeTrigger.asSignal(),
+            didTapSave: mainView.tableView.didTapSave
         ))
         
         output.action
@@ -81,6 +82,12 @@ final class CreateProductViewController: UIViewController {
         output.elements
             .drive(Binder(mainView.tableView) { base, elements in
                 base.setup(elements: elements)
+            })
+            .disposed(by: disposeBag)
+        
+        output.activity
+            .drive(Binder(mainView.preloader) { base, activity in
+                activity ? base.startAnimating() : base.stopAnimating()
             })
             .disposed(by: disposeBag)
         
@@ -97,8 +104,8 @@ extension CreateProductViewController {
             switch source {
             case .scan, .manually:
                 return "CreateProduct.Title".localized
-            case .details(let details):
-                return details.title
+            case .edit(let product):
+                return product.title
             }
         }()
         return vc

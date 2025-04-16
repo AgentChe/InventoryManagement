@@ -12,6 +12,8 @@ final class ProductsMediator {
     static let shared = ProductsMediator()
     
     private lazy var didCreatedProductTrigger = PublishRelay<Void>()
+    private lazy var didEditedProductTrigger = PublishRelay<String>()
+    private lazy var didDeletedProductTrigger = PublishRelay<String>()
     
     private init() {}
 }
@@ -22,7 +24,23 @@ extension ProductsMediator {
         didCreatedProductTrigger.accept(Void())
     }
     
+    func notifyEditeProduct(id: String) {
+        didEditedProductTrigger.accept(id)
+    }
+    
+    func notifyDeleteProduct(id: String) {
+        didDeletedProductTrigger.accept(id)
+    }
+    
     var didCreatedProduct: Signal<Void> {
         didCreatedProductTrigger.asSignal()
+    }
+    
+    var didEditedProduct: Signal<String> {
+        didEditedProductTrigger.asSignal()
+    }
+    
+    var didDeletedProduct: Signal<String> {
+        didDeletedProductTrigger.asSignal()
     }
 }

@@ -152,6 +152,9 @@
 		DEE230B92DAF98D4008DD773 /* CPTableBarcodeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE230B82DAF98D4008DD773 /* CPTableBarcodeCell.swift */; };
 		DEE230BB2DAF9DD0008DD773 /* CPTableAddBarcodeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE230BA2DAF9DD0008DD773 /* CPTableAddBarcodeCell.swift */; };
 		DEE230BD2DAFB9C7008DD773 /* CPTableSaveCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE230BC2DAFB9C7008DD773 /* CPTableSaveCell.swift */; };
+		DEE230BF2DAFDC17008DD773 /* EditProductRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE230BE2DAFDC17008DD773 /* EditProductRequest.swift */; };
+		DEE230C12DAFDCEF008DD773 /* DeleteProductRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE230C02DAFDCEF008DD773 /* DeleteProductRequest.swift */; };
+		DEE230C32DAFDF5C008DD773 /* FolderMoveRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE230C22DAFDF5C008DD773 /* FolderMoveRequest.swift */; };
 		DEE48BBD2DA79A22002CD05A /* ScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE48BBC2DA79A22002CD05A /* ScannerViewController.swift */; };
 		DEE48BC02DA79BF5002CD05A /* ScannerOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE48BBF2DA79BF5002CD05A /* ScannerOverlayView.swift */; };
 		DEE48BC22DA79ED7002CD05A /* ScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE48BC12DA79ED7002CD05A /* ScannerView.swift */; };
@@ -317,6 +320,9 @@
 		DEE230B82DAF98D4008DD773 /* CPTableBarcodeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPTableBarcodeCell.swift; sourceTree = "<group>"; };
 		DEE230BA2DAF9DD0008DD773 /* CPTableAddBarcodeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPTableAddBarcodeCell.swift; sourceTree = "<group>"; };
 		DEE230BC2DAFB9C7008DD773 /* CPTableSaveCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPTableSaveCell.swift; sourceTree = "<group>"; };
+		DEE230BE2DAFDC17008DD773 /* EditProductRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProductRequest.swift; sourceTree = "<group>"; };
+		DEE230C02DAFDCEF008DD773 /* DeleteProductRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteProductRequest.swift; sourceTree = "<group>"; };
+		DEE230C22DAFDF5C008DD773 /* FolderMoveRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderMoveRequest.swift; sourceTree = "<group>"; };
 		DEE48BBC2DA79A22002CD05A /* ScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerViewController.swift; sourceTree = "<group>"; };
 		DEE48BBF2DA79BF5002CD05A /* ScannerOverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerOverlayView.swift; sourceTree = "<group>"; };
 		DEE48BC12DA79ED7002CD05A /* ScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerView.swift; sourceTree = "<group>"; };
@@ -875,9 +881,11 @@
 			children = (
 				DE1E60CE2DA65811006CF764 /* ScanBarcodeRequest.swift */,
 				DE1E60D42DA65E3B006CF764 /* CreateProductRequest.swift */,
+				DEE230BE2DAFDC17008DD773 /* EditProductRequest.swift */,
 				DE1E60D62DA6603F006CF764 /* ObtainProductDetailsRequest.swift */,
 				DE1E60DA2DA662AE006CF764 /* UploadImageRequest.swift */,
 				DE1E60E02DA66566006CF764 /* ObtainProductsRequest.swift */,
+				DEE230C02DAFDCEF008DD773 /* DeleteProductRequest.swift */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -909,6 +917,7 @@
 				DE1E60F12DA66D98006CF764 /* ManageFolderRequest.swift */,
 				DE1E60F32DA66EAA006CF764 /* RenameFolderRequest.swift */,
 				DE1E60F52DA67030006CF764 /* DeleteFolderRequest.swift */,
+				DEE230C22DAFDF5C008DD773 /* FolderMoveRequest.swift */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -1216,6 +1225,7 @@
 				DE0AA74B2DA4F318005DFC44 /* OnboardingView.swift in Sources */,
 				DE0AA75C2DA4F318005DFC44 /* TabView.swift in Sources */,
 				DE0AA7612DA4F318005DFC44 /* UIEdgeInsets+Extension.swift in Sources */,
+				DEE230BF2DAFDC17008DD773 /* EditProductRequest.swift in Sources */,
 				DE1E60F02DA66C66006CF764 /* ObtainFoldersRequest.swift in Sources */,
 				DE1E60F22DA66D98006CF764 /* ManageFolderRequest.swift in Sources */,
 				DEE230BD2DAFB9C7008DD773 /* CPTableSaveCell.swift in Sources */,
@@ -1289,6 +1299,7 @@
 				DE0AA7C32DA4F318005DFC44 /* Collection+Extension.swift in Sources */,
 				DEDD65312DAD05CB00867482 /* CPPhotosCollectionElement.swift in Sources */,
 				DEE230B92DAF98D4008DD773 /* CPTableBarcodeCell.swift in Sources */,
+				DEE230C12DAFDCEF008DD773 /* DeleteProductRequest.swift in Sources */,
 				DE0AA7C62DA4F318005DFC44 /* PaygateInfoCell.swift in Sources */,
 				DE0AA7D02DA4F318005DFC44 /* PaygateActionsView.swift in Sources */,
 				DE0AA7D32DA4F318005DFC44 /* PaygateEnableTrialButton.swift in Sources */,
@@ -1298,6 +1309,7 @@
 				DE1E60D12DA659DC006CF764 /* ProductScanBarcodeResult.swift in Sources */,
 				DE0AA7E12DA4F318005DFC44 /* UITapGestureRecognizer+Extension.swift in Sources */,
 				DE0AA7E32DA4F318005DFC44 /* NumberLaunches.swift in Sources */,
+				DEE230C32DAFDF5C008DD773 /* FolderMoveRequest.swift in Sources */,
 				DE0AA7E42DA4F318005DFC44 /* UIColor+Extension.swift in Sources */,
 				DE1E60DB2DA662AE006CF764 /* UploadImageRequest.swift in Sources */,
 				DEE48BCD2DA7B6B9002CD05A /* ScannerCameraPreviewView.swift in Sources */,

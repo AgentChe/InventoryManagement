@@ -23,6 +23,7 @@ final class CreateProductTableView: UITableView {
     private lazy var changedPriceCurrencyTrigger = PublishRelay<PriceCurrency>()
     private lazy var didTapAddFieldsTrigger = PublishRelay<Void>()
     private lazy var didTapAddBarcodeTrigger = PublishRelay<Void>()
+    private lazy var didTapSaveTrigger = PublishRelay<Void>()
     
     override init(frame: CGRect, style: UITableView.Style) {
         super.init(frame: frame, style: style)
@@ -77,6 +78,10 @@ extension CreateProductTableView {
     
     var didTapAddBarcode: Signal<Void> {
         didTapAddBarcodeTrigger.asSignal()
+    }
+    
+    var didTapSave: Signal<Void> {
+        didTapSaveTrigger.asSignal()
     }
 }
 
@@ -145,6 +150,8 @@ extension CreateProductTableView: UITableViewDelegate {
             didTapAddFieldsTrigger.accept(Void())
         case .addBarcode:
             didTapAddBarcodeTrigger.accept(Void())
+        case .save(let enable):
+            if enable { didTapSaveTrigger.accept(Void()) }
         default:
             return
         }
