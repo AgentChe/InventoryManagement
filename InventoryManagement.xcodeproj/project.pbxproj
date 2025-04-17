@@ -133,6 +133,8 @@
 		DE1E61042DA68D3B006CF764 /* SearchTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1E61032DA68D3B006CF764 /* SearchTableView.swift */; };
 		DE1E61062DA68D42006CF764 /* SearchTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1E61052DA68D42006CF764 /* SearchTableCell.swift */; };
 		DE1E61082DA69CB4006CF764 /* SearchEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1E61072DA69CB4006CF764 /* SearchEmptyView.swift */; };
+		DE522C3D2DB0D05C007C6BD6 /* ObtainTransactionsFiltersRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE522C3C2DB0D05C007C6BD6 /* ObtainTransactionsFiltersRequest.swift */; };
+		DE522C3F2DB0D095007C6BD6 /* ObtainTransactionsItemsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE522C3E2DB0D095007C6BD6 /* ObtainTransactionsItemsRequest.swift */; };
 		DEC48D742DA8F0D500AC1B3D /* CreateProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC48D732DA8F0D500AC1B3D /* CreateProductViewController.swift */; };
 		DEC48D772DA8F0E400AC1B3D /* CreateProductViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC48D762DA8F0E400AC1B3D /* CreateProductViewModel.swift */; };
 		DEC48D792DA8F0E800AC1B3D /* CreateProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC48D782DA8F0E800AC1B3D /* CreateProductView.swift */; };
@@ -155,6 +157,9 @@
 		DEE230BF2DAFDC17008DD773 /* EditProductRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE230BE2DAFDC17008DD773 /* EditProductRequest.swift */; };
 		DEE230C12DAFDCEF008DD773 /* DeleteProductRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE230C02DAFDCEF008DD773 /* DeleteProductRequest.swift */; };
 		DEE230C32DAFDF5C008DD773 /* FolderMoveRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE230C22DAFDF5C008DD773 /* FolderMoveRequest.swift */; };
+		DEE230C82DB01A17008DD773 /* TransactionsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE230C72DB01A17008DD773 /* TransactionsManager.swift */; };
+		DEE230CA2DB01A50008DD773 /* TransactionsFilters.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE230C92DB01A50008DD773 /* TransactionsFilters.swift */; };
+		DEE230CC2DB01B70008DD773 /* TransactionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE230CB2DB01B70008DD773 /* TransactionItem.swift */; };
 		DEE48BBD2DA79A22002CD05A /* ScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE48BBC2DA79A22002CD05A /* ScannerViewController.swift */; };
 		DEE48BC02DA79BF5002CD05A /* ScannerOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE48BBF2DA79BF5002CD05A /* ScannerOverlayView.swift */; };
 		DEE48BC22DA79ED7002CD05A /* ScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE48BC12DA79ED7002CD05A /* ScannerView.swift */; };
@@ -301,6 +306,8 @@
 		DE1E61032DA68D3B006CF764 /* SearchTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableView.swift; sourceTree = "<group>"; };
 		DE1E61052DA68D42006CF764 /* SearchTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableCell.swift; sourceTree = "<group>"; };
 		DE1E61072DA69CB4006CF764 /* SearchEmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchEmptyView.swift; sourceTree = "<group>"; };
+		DE522C3C2DB0D05C007C6BD6 /* ObtainTransactionsFiltersRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObtainTransactionsFiltersRequest.swift; sourceTree = "<group>"; };
+		DE522C3E2DB0D095007C6BD6 /* ObtainTransactionsItemsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObtainTransactionsItemsRequest.swift; sourceTree = "<group>"; };
 		DEC48D732DA8F0D500AC1B3D /* CreateProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateProductViewController.swift; sourceTree = "<group>"; };
 		DEC48D762DA8F0E400AC1B3D /* CreateProductViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateProductViewModel.swift; sourceTree = "<group>"; };
 		DEC48D782DA8F0E800AC1B3D /* CreateProductView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateProductView.swift; sourceTree = "<group>"; };
@@ -323,6 +330,9 @@
 		DEE230BE2DAFDC17008DD773 /* EditProductRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProductRequest.swift; sourceTree = "<group>"; };
 		DEE230C02DAFDCEF008DD773 /* DeleteProductRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteProductRequest.swift; sourceTree = "<group>"; };
 		DEE230C22DAFDF5C008DD773 /* FolderMoveRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderMoveRequest.swift; sourceTree = "<group>"; };
+		DEE230C72DB01A17008DD773 /* TransactionsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsManager.swift; sourceTree = "<group>"; };
+		DEE230C92DB01A50008DD773 /* TransactionsFilters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsFilters.swift; sourceTree = "<group>"; };
+		DEE230CB2DB01B70008DD773 /* TransactionItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionItem.swift; sourceTree = "<group>"; };
 		DEE48BBC2DA79A22002CD05A /* ScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerViewController.swift; sourceTree = "<group>"; };
 		DEE48BBF2DA79BF5002CD05A /* ScannerOverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerOverlayView.swift; sourceTree = "<group>"; };
 		DEE48BC12DA79ED7002CD05A /* ScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerView.swift; sourceTree = "<group>"; };
@@ -720,6 +730,7 @@
 		DE0AA7452DA4F318005DFC44 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				DEE230C42DB01A05008DD773 /* Transactions */,
 				DE1E60E22DA66658006CF764 /* Folders */,
 				DE1E60C32DA64ECA006CF764 /* Products */,
 				DE0AA7382DA4F318005DFC44 /* Profile */,
@@ -1051,6 +1062,34 @@
 			path = Input;
 			sourceTree = "<group>";
 		};
+		DEE230C42DB01A05008DD773 /* Transactions */ = {
+			isa = PBXGroup;
+			children = (
+				DEE230C62DB01A11008DD773 /* Request */,
+				DEE230C52DB01A0D008DD773 /* Model */,
+				DEE230C72DB01A17008DD773 /* TransactionsManager.swift */,
+			);
+			path = Transactions;
+			sourceTree = "<group>";
+		};
+		DEE230C52DB01A0D008DD773 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DEE230C92DB01A50008DD773 /* TransactionsFilters.swift */,
+				DEE230CB2DB01B70008DD773 /* TransactionItem.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DEE230C62DB01A11008DD773 /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				DE522C3C2DB0D05C007C6BD6 /* ObtainTransactionsFiltersRequest.swift */,
+				DE522C3E2DB0D095007C6BD6 /* ObtainTransactionsItemsRequest.swift */,
+			);
+			path = Request;
+			sourceTree = "<group>";
+		};
 		DEE48BBA2DA79A07002CD05A /* Create */ = {
 			isa = PBXGroup;
 			children = (
@@ -1253,6 +1292,8 @@
 				DEE48BC62DA7A437002CD05A /* CreateProductAssembly.swift in Sources */,
 				DE0AA77E2DA4F318005DFC44 /* RxActivityIndicator.swift in Sources */,
 				DE0AA7802DA4F318005DFC44 /* SessionManager.swift in Sources */,
+				DE522C3F2DB0D095007C6BD6 /* ObtainTransactionsItemsRequest.swift in Sources */,
+				DE522C3D2DB0D05C007C6BD6 /* ObtainTransactionsFiltersRequest.swift in Sources */,
 				DE0AA7812DA4F318005DFC44 /* ObservableAndSingle+Extension.swift in Sources */,
 				DE1E60F62DA67030006CF764 /* DeleteFolderRequest.swift in Sources */,
 				DE1E60D92DA66061006CF764 /* ProductDetails.swift in Sources */,
@@ -1289,6 +1330,7 @@
 				DEE48BC22DA79ED7002CD05A /* ScannerView.swift in Sources */,
 				DE0AA7AC2DA4F318005DFC44 /* SplashView.swift in Sources */,
 				DE0AA88C2DA50418005DFC44 /* RequestResult.swift in Sources */,
+				DEE230C82DB01A17008DD773 /* TransactionsManager.swift in Sources */,
 				DE0AA7AF2DA4F318005DFC44 /* NetworkError.swift in Sources */,
 				DE0AA7B22DA4F318005DFC44 /* IAPErrorHelper.swift in Sources */,
 				DE0AA7B52DA4F318005DFC44 /* APIFormDataRequestBody.swift in Sources */,
@@ -1328,10 +1370,12 @@
 				DE0AA8062DA4F318005DFC44 /* SceneDelegate.swift in Sources */,
 				DE0AA8092DA4F318005DFC44 /* PaygateInfoView.swift in Sources */,
 				DE0AA81A2DA4F318005DFC44 /* PaygateProductButton.swift in Sources */,
+				DEE230CA2DB01A50008DD773 /* TransactionsFilters.swift in Sources */,
 				DE1E60E82DA6686F006CF764 /* FoldersManager.swift in Sources */,
 				DE0AA8202DA4F318005DFC44 /* TryAgainView.swift in Sources */,
 				DE0AA8242DA4F318005DFC44 /* XOREncryption.swift in Sources */,
 				DE1E61012DA68ABD006CF764 /* SearchField.swift in Sources */,
+				DEE230CC2DB01B70008DD773 /* TransactionItem.swift in Sources */,
 				DEE48BC82DA7A55D002CD05A /* ScannerViewModel.swift in Sources */,
 				DE0AA8262DA4F318005DFC44 /* PaygateBestOfferView.swift in Sources */,
 				DEC48D792DA8F0E800AC1B3D /* CreateProductView.swift in Sources */,
