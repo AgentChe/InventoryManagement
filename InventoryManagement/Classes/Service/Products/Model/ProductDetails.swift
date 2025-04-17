@@ -13,7 +13,7 @@ struct ProductDetails {
     let count: Int
     let barcode: String
     let price: Price
-    let meta: [String: Any]?
+    let meta: [ProductMetaField]
 }
 
 // MARK: Public
@@ -41,7 +41,10 @@ extension ProductDetails {
             count: count,
             barcode: barcode,
             price: price,
-            meta: body["meta"] as? [String: Any]
+            meta: {
+                guard let json = body["meta"] as? [String: Any] else { return [] }
+                return ProductMetaFieldsMapper().fields(json: json)
+            }()
         )
     }
 }

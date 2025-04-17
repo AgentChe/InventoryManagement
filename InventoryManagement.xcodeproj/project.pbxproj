@@ -157,6 +157,7 @@
 		DE522C702DB10CB4007C6BD6 /* CreateCheckboxValueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE522C6F2DB10CB4007C6BD6 /* CreateCheckboxValueView.swift */; };
 		DE522C732DB12CF4007C6BD6 /* CreateDateTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE522C722DB12CF4007C6BD6 /* CreateDateTypeView.swift */; };
 		DE522C752DB131C7007C6BD6 /* CreateDateButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE522C742DB131C7007C6BD6 /* CreateDateButton.swift */; };
+		DE522C772DB15041007C6BD6 /* ProductMetaField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE522C762DB15041007C6BD6 /* ProductMetaField.swift */; };
 		DEC48D742DA8F0D500AC1B3D /* CreateProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC48D732DA8F0D500AC1B3D /* CreateProductViewController.swift */; };
 		DEC48D772DA8F0E400AC1B3D /* CreateProductViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC48D762DA8F0E400AC1B3D /* CreateProductViewModel.swift */; };
 		DEC48D792DA8F0E800AC1B3D /* CreateProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC48D782DA8F0E800AC1B3D /* CreateProductView.swift */; };
@@ -352,6 +353,7 @@
 		DE522C6F2DB10CB4007C6BD6 /* CreateCheckboxValueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCheckboxValueView.swift; sourceTree = "<group>"; };
 		DE522C722DB12CF4007C6BD6 /* CreateDateTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateDateTypeView.swift; sourceTree = "<group>"; };
 		DE522C742DB131C7007C6BD6 /* CreateDateButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateDateButton.swift; sourceTree = "<group>"; };
+		DE522C762DB15041007C6BD6 /* ProductMetaField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductMetaField.swift; sourceTree = "<group>"; };
 		DEC48D732DA8F0D500AC1B3D /* CreateProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateProductViewController.swift; sourceTree = "<group>"; };
 		DEC48D762DA8F0E400AC1B3D /* CreateProductViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateProductViewModel.swift; sourceTree = "<group>"; };
 		DEC48D782DA8F0E800AC1B3D /* CreateProductView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateProductView.swift; sourceTree = "<group>"; };
@@ -927,6 +929,7 @@
 				DE1E60D82DA66061006CF764 /* ProductDetails.swift */,
 				DE1E60DC2DA66341006CF764 /* UploadImageResult.swift */,
 				DE1E60DE2DA66407006CF764 /* Product.swift */,
+				DE522C762DB15041007C6BD6 /* ProductMetaField.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1403,6 +1406,7 @@
 				DE0AA8A02DA53537005DFC44 /* SettingsView.swift in Sources */,
 				DE522C592DB0EC8D007C6BD6 /* CreateMetaFieldViewModel.swift in Sources */,
 				DEC48D772DA8F0E400AC1B3D /* CreateProductViewModel.swift in Sources */,
+				DE522C772DB15041007C6BD6 /* ProductMetaField.swift in Sources */,
 				DE0AA7642DA4F318005DFC44 /* APIRequestBody.swift in Sources */,
 				DE1E60D32DA65A33006CF764 /* Price.swift in Sources */,
 				DE0AA7692DA4F318005DFC44 /* AppDelegate.swift in Sources */,

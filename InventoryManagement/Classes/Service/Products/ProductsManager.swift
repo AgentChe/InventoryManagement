@@ -314,6 +314,6 @@ func detailsMock() -> ProductDetails {
             value: Double.random(in: 1...100),
             currency: PriceCurrency.dollar
         ),
-        meta: nil
+        meta: []
     )
 }

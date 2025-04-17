@@ -142,7 +142,7 @@ private extension CreateProductViewModel {
         let barcode: String?
         let priceValue: Double?
         let priceCurrency: PriceCurrency
-        let meta: [String: Any]?
+        let meta: [ProductMetaField]
         let relate: [String: Any]?
     }
     
@@ -582,7 +582,7 @@ private extension CreateProductViewModel.DetailsData {
         barcode = nil
         priceValue = nil
         priceCurrency = .dollar
-        meta = nil
+        meta = []
         relate = nil
     }
     
@@ -593,7 +593,7 @@ private extension CreateProductViewModel.DetailsData {
         barcode = scanResult.barcode
         priceValue = scanResult.price?.value
         priceCurrency = scanResult.price?.currency ?? .dollar
-        meta = nil
+        meta = []
         relate = scanResult.relate
     }
     
