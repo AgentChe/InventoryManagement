@@ -124,7 +124,8 @@ private extension CreateProductViewController {
             }
             takePhoto?.take(from: self)
         case .addFields:
-            break // TODO
+            let vc = SelectMetaFieldsViewController.make()
+            present(vc, animated: true)
         case .addBarcode:
             let nc = NavigationController()
             nc.modalPresentationStyle = .fullScreen

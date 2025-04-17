@@ -135,6 +135,28 @@
 		DE1E61082DA69CB4006CF764 /* SearchEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1E61072DA69CB4006CF764 /* SearchEmptyView.swift */; };
 		DE522C3D2DB0D05C007C6BD6 /* ObtainTransactionsFiltersRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE522C3C2DB0D05C007C6BD6 /* ObtainTransactionsFiltersRequest.swift */; };
 		DE522C3F2DB0D095007C6BD6 /* ObtainTransactionsItemsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE522C3E2DB0D095007C6BD6 /* ObtainTransactionsItemsRequest.swift */; };
+		DE522C442DB0D3F7007C6BD6 /* SelectMetaFieldsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE522C432DB0D3F7007C6BD6 /* SelectMetaFieldsView.swift */; };
+		DE522C472DB0D532007C6BD6 /* SelectMetaFieldsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE522C462DB0D532007C6BD6 /* SelectMetaFieldsViewController.swift */; };
+		DE522C492DB0D537007C6BD6 /* SelectMetaFieldsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE522C482DB0D537007C6BD6 /* SelectMetaFieldsViewModel.swift */; };
+		DE522C4D2DB0D7F3007C6BD6 /* SMFTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE522C4C2DB0D7F3007C6BD6 /* SMFTableView.swift */; };
+		DE522C4F2DB0D7FB007C6BD6 /* SMFTableElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE522C4E2DB0D7FB007C6BD6 /* SMFTableElement.swift */; };
+		DE522C512DB0D7FF007C6BD6 /* SMFTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE522C502DB0D7FF007C6BD6 /* SMFTableCell.swift */; };
+		DE522C542DB0E164007C6BD6 /* CreateMetaFieldViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE522C532DB0E164007C6BD6 /* CreateMetaFieldViewController.swift */; };
+		DE522C562DB0E16D007C6BD6 /* CreateMetaFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE522C552DB0E16D007C6BD6 /* CreateMetaFieldView.swift */; };
+		DE522C592DB0EC8D007C6BD6 /* CreateMetaFieldViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE522C582DB0EC8D007C6BD6 /* CreateMetaFieldViewModel.swift */; };
+		DE522C5B2DB0EE6E007C6BD6 /* CreateSTBField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE522C5A2DB0EE6E007C6BD6 /* CreateSTBField.swift */; };
+		DE522C5D2DB0EEE9007C6BD6 /* CreateLTBField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE522C5C2DB0EEE9007C6BD6 /* CreateLTBField.swift */; };
+		DE522C5F2DB0EEF2007C6BD6 /* CreateRNField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE522C5E2DB0EEF2007C6BD6 /* CreateRNField.swift */; };
+		DE522C612DB0EEFB007C6BD6 /* CreateDNField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE522C602DB0EEFB007C6BD6 /* CreateDNField.swift */; };
+		DE522C632DB0EF03007C6BD6 /* CreateCheckboxField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE522C622DB0EF03007C6BD6 /* CreateCheckboxField.swift */; };
+		DE522C652DB0EF09007C6BD6 /* CreateDateField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE522C642DB0EF09007C6BD6 /* CreateDateField.swift */; };
+		DE522C672DB0EF11007C6BD6 /* CreatePhoneNumberField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE522C662DB0EF11007C6BD6 /* CreatePhoneNumberField.swift */; };
+		DE522C692DB0EF19007C6BD6 /* CreateWebLinkField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE522C682DB0EF19007C6BD6 /* CreateWebLinkField.swift */; };
+		DE522C6B2DB0EF1F007C6BD6 /* CreateEmailField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE522C6A2DB0EF1F007C6BD6 /* CreateEmailField.swift */; };
+		DE522C6D2DB0F4C6007C6BD6 /* CreateProductFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE522C6C2DB0F4C6007C6BD6 /* CreateProductFieldView.swift */; };
+		DE522C702DB10CB4007C6BD6 /* CreateCheckboxValueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE522C6F2DB10CB4007C6BD6 /* CreateCheckboxValueView.swift */; };
+		DE522C732DB12CF4007C6BD6 /* CreateDateTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE522C722DB12CF4007C6BD6 /* CreateDateTypeView.swift */; };
+		DE522C752DB131C7007C6BD6 /* CreateDateButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE522C742DB131C7007C6BD6 /* CreateDateButton.swift */; };
 		DEC48D742DA8F0D500AC1B3D /* CreateProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC48D732DA8F0D500AC1B3D /* CreateProductViewController.swift */; };
 		DEC48D772DA8F0E400AC1B3D /* CreateProductViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC48D762DA8F0E400AC1B3D /* CreateProductViewModel.swift */; };
 		DEC48D792DA8F0E800AC1B3D /* CreateProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC48D782DA8F0E800AC1B3D /* CreateProductView.swift */; };
@@ -308,6 +330,28 @@
 		DE1E61072DA69CB4006CF764 /* SearchEmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchEmptyView.swift; sourceTree = "<group>"; };
 		DE522C3C2DB0D05C007C6BD6 /* ObtainTransactionsFiltersRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObtainTransactionsFiltersRequest.swift; sourceTree = "<group>"; };
 		DE522C3E2DB0D095007C6BD6 /* ObtainTransactionsItemsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObtainTransactionsItemsRequest.swift; sourceTree = "<group>"; };
+		DE522C432DB0D3F7007C6BD6 /* SelectMetaFieldsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectMetaFieldsView.swift; sourceTree = "<group>"; };
+		DE522C462DB0D532007C6BD6 /* SelectMetaFieldsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectMetaFieldsViewController.swift; sourceTree = "<group>"; };
+		DE522C482DB0D537007C6BD6 /* SelectMetaFieldsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectMetaFieldsViewModel.swift; sourceTree = "<group>"; };
+		DE522C4C2DB0D7F3007C6BD6 /* SMFTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMFTableView.swift; sourceTree = "<group>"; };
+		DE522C4E2DB0D7FB007C6BD6 /* SMFTableElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMFTableElement.swift; sourceTree = "<group>"; };
+		DE522C502DB0D7FF007C6BD6 /* SMFTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMFTableCell.swift; sourceTree = "<group>"; };
+		DE522C532DB0E164007C6BD6 /* CreateMetaFieldViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateMetaFieldViewController.swift; sourceTree = "<group>"; };
+		DE522C552DB0E16D007C6BD6 /* CreateMetaFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateMetaFieldView.swift; sourceTree = "<group>"; };
+		DE522C582DB0EC8D007C6BD6 /* CreateMetaFieldViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateMetaFieldViewModel.swift; sourceTree = "<group>"; };
+		DE522C5A2DB0EE6E007C6BD6 /* CreateSTBField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateSTBField.swift; sourceTree = "<group>"; };
+		DE522C5C2DB0EEE9007C6BD6 /* CreateLTBField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateLTBField.swift; sourceTree = "<group>"; };
+		DE522C5E2DB0EEF2007C6BD6 /* CreateRNField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRNField.swift; sourceTree = "<group>"; };
+		DE522C602DB0EEFB007C6BD6 /* CreateDNField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateDNField.swift; sourceTree = "<group>"; };
+		DE522C622DB0EF03007C6BD6 /* CreateCheckboxField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCheckboxField.swift; sourceTree = "<group>"; };
+		DE522C642DB0EF09007C6BD6 /* CreateDateField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateDateField.swift; sourceTree = "<group>"; };
+		DE522C662DB0EF11007C6BD6 /* CreatePhoneNumberField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePhoneNumberField.swift; sourceTree = "<group>"; };
+		DE522C682DB0EF19007C6BD6 /* CreateWebLinkField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateWebLinkField.swift; sourceTree = "<group>"; };
+		DE522C6A2DB0EF1F007C6BD6 /* CreateEmailField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEmailField.swift; sourceTree = "<group>"; };
+		DE522C6C2DB0F4C6007C6BD6 /* CreateProductFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateProductFieldView.swift; sourceTree = "<group>"; };
+		DE522C6F2DB10CB4007C6BD6 /* CreateCheckboxValueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCheckboxValueView.swift; sourceTree = "<group>"; };
+		DE522C722DB12CF4007C6BD6 /* CreateDateTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateDateTypeView.swift; sourceTree = "<group>"; };
+		DE522C742DB131C7007C6BD6 /* CreateDateButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateDateButton.swift; sourceTree = "<group>"; };
 		DEC48D732DA8F0D500AC1B3D /* CreateProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateProductViewController.swift; sourceTree = "<group>"; };
 		DEC48D762DA8F0E400AC1B3D /* CreateProductViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateProductViewModel.swift; sourceTree = "<group>"; };
 		DEC48D782DA8F0E800AC1B3D /* CreateProductView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateProductView.swift; sourceTree = "<group>"; };
@@ -936,6 +980,7 @@
 		DE1E60F72DA68025006CF764 /* Products */ = {
 			isa = PBXGroup;
 			children = (
+				DE522C402DB0D3D5007C6BD6 /* MetaFields */,
 				DEE48BBA2DA79A07002CD05A /* Create */,
 				DE1E60F82DA68029006CF764 /* Search */,
 			);
@@ -970,6 +1015,91 @@
 				DE1E61052DA68D42006CF764 /* SearchTableCell.swift */,
 			);
 			path = TableView;
+			sourceTree = "<group>";
+		};
+		DE522C402DB0D3D5007C6BD6 /* MetaFields */ = {
+			isa = PBXGroup;
+			children = (
+				DE522C522DB0E153007C6BD6 /* Create */,
+				DE522C452DB0D475007C6BD6 /* Select */,
+			);
+			path = MetaFields;
+			sourceTree = "<group>";
+		};
+		DE522C452DB0D475007C6BD6 /* Select */ = {
+			isa = PBXGroup;
+			children = (
+				DE522C4A2DB0D7E2007C6BD6 /* Views */,
+				DE522C462DB0D532007C6BD6 /* SelectMetaFieldsViewController.swift */,
+				DE522C482DB0D537007C6BD6 /* SelectMetaFieldsViewModel.swift */,
+				DE522C432DB0D3F7007C6BD6 /* SelectMetaFieldsView.swift */,
+			);
+			path = Select;
+			sourceTree = "<group>";
+		};
+		DE522C4A2DB0D7E2007C6BD6 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				DE522C4B2DB0D7E6007C6BD6 /* TableView */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		DE522C4B2DB0D7E6007C6BD6 /* TableView */ = {
+			isa = PBXGroup;
+			children = (
+				DE522C4C2DB0D7F3007C6BD6 /* SMFTableView.swift */,
+				DE522C4E2DB0D7FB007C6BD6 /* SMFTableElement.swift */,
+				DE522C502DB0D7FF007C6BD6 /* SMFTableCell.swift */,
+			);
+			path = TableView;
+			sourceTree = "<group>";
+		};
+		DE522C522DB0E153007C6BD6 /* Create */ = {
+			isa = PBXGroup;
+			children = (
+				DE522C572DB0E170007C6BD6 /* Views */,
+				DE522C532DB0E164007C6BD6 /* CreateMetaFieldViewController.swift */,
+				DE522C582DB0EC8D007C6BD6 /* CreateMetaFieldViewModel.swift */,
+				DE522C552DB0E16D007C6BD6 /* CreateMetaFieldView.swift */,
+			);
+			path = Create;
+			sourceTree = "<group>";
+		};
+		DE522C572DB0E170007C6BD6 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				DE522C712DB114E0007C6BD6 /* Date */,
+				DE522C6E2DB10C9C007C6BD6 /* Checkbox */,
+				DE522C6C2DB0F4C6007C6BD6 /* CreateProductFieldView.swift */,
+				DE522C5A2DB0EE6E007C6BD6 /* CreateSTBField.swift */,
+				DE522C5C2DB0EEE9007C6BD6 /* CreateLTBField.swift */,
+				DE522C5E2DB0EEF2007C6BD6 /* CreateRNField.swift */,
+				DE522C602DB0EEFB007C6BD6 /* CreateDNField.swift */,
+				DE522C662DB0EF11007C6BD6 /* CreatePhoneNumberField.swift */,
+				DE522C682DB0EF19007C6BD6 /* CreateWebLinkField.swift */,
+				DE522C6A2DB0EF1F007C6BD6 /* CreateEmailField.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		DE522C6E2DB10C9C007C6BD6 /* Checkbox */ = {
+			isa = PBXGroup;
+			children = (
+				DE522C622DB0EF03007C6BD6 /* CreateCheckboxField.swift */,
+				DE522C6F2DB10CB4007C6BD6 /* CreateCheckboxValueView.swift */,
+			);
+			path = Checkbox;
+			sourceTree = "<group>";
+		};
+		DE522C712DB114E0007C6BD6 /* Date */ = {
+			isa = PBXGroup;
+			children = (
+				DE522C642DB0EF09007C6BD6 /* CreateDateField.swift */,
+				DE522C722DB12CF4007C6BD6 /* CreateDateTypeView.swift */,
+				DE522C742DB131C7007C6BD6 /* CreateDateButton.swift */,
+			);
+			path = Date;
 			sourceTree = "<group>";
 		};
 		DEC48D752DA8F0D900AC1B3D /* Create */ = {
@@ -1263,6 +1393,7 @@
 				DE0AA7482DA4F318005DFC44 /* NavigationControllerSettings.swift in Sources */,
 				DE0AA74B2DA4F318005DFC44 /* OnboardingView.swift in Sources */,
 				DE0AA75C2DA4F318005DFC44 /* TabView.swift in Sources */,
+				DE522C542DB0E164007C6BD6 /* CreateMetaFieldViewController.swift in Sources */,
 				DE0AA7612DA4F318005DFC44 /* UIEdgeInsets+Extension.swift in Sources */,
 				DEE230BF2DAFDC17008DD773 /* EditProductRequest.swift in Sources */,
 				DE1E60F02DA66C66006CF764 /* ObtainFoldersRequest.swift in Sources */,
@@ -1270,6 +1401,7 @@
 				DEE230BD2DAFB9C7008DD773 /* CPTableSaveCell.swift in Sources */,
 				DEDD65362DAD062600867482 /* CPPCollectionAddCell.swift in Sources */,
 				DE0AA8A02DA53537005DFC44 /* SettingsView.swift in Sources */,
+				DE522C592DB0EC8D007C6BD6 /* CreateMetaFieldViewModel.swift in Sources */,
 				DEC48D772DA8F0E400AC1B3D /* CreateProductViewModel.swift in Sources */,
 				DE0AA7642DA4F318005DFC44 /* APIRequestBody.swift in Sources */,
 				DE1E60D32DA65A33006CF764 /* Price.swift in Sources */,
@@ -1281,14 +1413,17 @@
 				DE0AA76E2DA4F318005DFC44 /* PaygateInteractor.swift in Sources */,
 				DE1E61082DA69CB4006CF764 /* SearchEmptyView.swift in Sources */,
 				DE0AA7722DA4F318005DFC44 /* ContentError.swift in Sources */,
+				DE522C702DB10CB4007C6BD6 /* CreateCheckboxValueView.swift in Sources */,
 				DE1E60F42DA66EAA006CF764 /* RenameFolderRequest.swift in Sources */,
 				DEDD65422DAD727000867482 /* CPGeneralCountField.swift in Sources */,
 				DEDD653E2DAD67B000867482 /* CPGeneralInputView.swift in Sources */,
 				DE0AA7732DA4F318005DFC44 /* UIDevice+Extension.swift in Sources */,
 				DE0AA7752DA4F318005DFC44 /* ProfileManager.swift in Sources */,
+				DE522C5F2DB0EEF2007C6BD6 /* CreateRNField.swift in Sources */,
 				DE1E60CD2DA64F69006CF764 /* Page.swift in Sources */,
 				DE0AA77A2DA4F318005DFC44 /* TabItemButton.swift in Sources */,
 				DE0AA77C2DA4F318005DFC44 /* PaygateViewController.swift in Sources */,
+				DE522C492DB0D537007C6BD6 /* SelectMetaFieldsViewModel.swift in Sources */,
 				DEE48BC62DA7A437002CD05A /* CreateProductAssembly.swift in Sources */,
 				DE0AA77E2DA4F318005DFC44 /* RxActivityIndicator.swift in Sources */,
 				DE0AA7802DA4F318005DFC44 /* SessionManager.swift in Sources */,
@@ -1297,14 +1432,17 @@
 				DE0AA7812DA4F318005DFC44 /* ObservableAndSingle+Extension.swift in Sources */,
 				DE1E60F62DA67030006CF764 /* DeleteFolderRequest.swift in Sources */,
 				DE1E60D92DA66061006CF764 /* ProductDetails.swift in Sources */,
+				DE522C4F2DB0D7FB007C6BD6 /* SMFTableElement.swift in Sources */,
 				DE0AA7822DA4F318005DFC44 /* GlobalDefinitions.swift in Sources */,
 				DE0AA8A62DA536AE005DFC44 /* SettingsTableElement.swift in Sources */,
 				DE0AA7862DA4F318005DFC44 /* String+Extension.swift in Sources */,
 				DE1E60C92DA64EF5006CF764 /* PageInfo.swift in Sources */,
 				DEE48BCF2DA7DB37002CD05A /* DetectBarcodeImage.swift in Sources */,
 				DE0AA88F2DA5059C005DFC44 /* OWelcomeView.swift in Sources */,
+				DE522C672DB0EF11007C6BD6 /* CreatePhoneNumberField.swift in Sources */,
 				DE1E60C72DA64EDF006CF764 /* ProductsManager.swift in Sources */,
 				DEDD652F2DAD05BF00867482 /* CPPhotosCollectionView.swift in Sources */,
+				DE522C562DB0E16D007C6BD6 /* CreateMetaFieldView.swift in Sources */,
 				DE0AA7882DA4F318005DFC44 /* IAPProduct.swift in Sources */,
 				DE0AA8AB2DA536C2005DFC44 /* STLinksCell.swift in Sources */,
 				DE0AA78B2DA4F318005DFC44 /* PaddingLabel.swift in Sources */,
@@ -1330,6 +1468,7 @@
 				DEE48BC22DA79ED7002CD05A /* ScannerView.swift in Sources */,
 				DE0AA7AC2DA4F318005DFC44 /* SplashView.swift in Sources */,
 				DE0AA88C2DA50418005DFC44 /* RequestResult.swift in Sources */,
+				DE522C6D2DB0F4C6007C6BD6 /* CreateProductFieldView.swift in Sources */,
 				DEE230C82DB01A17008DD773 /* TransactionsManager.swift in Sources */,
 				DE0AA7AF2DA4F318005DFC44 /* NetworkError.swift in Sources */,
 				DE0AA7B22DA4F318005DFC44 /* IAPErrorHelper.swift in Sources */,
@@ -1349,6 +1488,7 @@
 				DE0AA8912DA50C95005DFC44 /* Onstruction1View.swift in Sources */,
 				DE1E61062DA68D42006CF764 /* SearchTableCell.swift in Sources */,
 				DE1E60D12DA659DC006CF764 /* ProductScanBarcodeResult.swift in Sources */,
+				DE522C5B2DB0EE6E007C6BD6 /* CreateSTBField.swift in Sources */,
 				DE0AA7E12DA4F318005DFC44 /* UITapGestureRecognizer+Extension.swift in Sources */,
 				DE0AA7E32DA4F318005DFC44 /* NumberLaunches.swift in Sources */,
 				DEE230C32DAFDF5C008DD773 /* FolderMoveRequest.swift in Sources */,
@@ -1356,12 +1496,18 @@
 				DE1E60DB2DA662AE006CF764 /* UploadImageRequest.swift in Sources */,
 				DEE48BCD2DA7B6B9002CD05A /* ScannerCameraPreviewView.swift in Sources */,
 				DEC48D742DA8F0D500AC1B3D /* CreateProductViewController.swift in Sources */,
+				DE522C472DB0D532007C6BD6 /* SelectMetaFieldsViewController.swift in Sources */,
+				DE522C6B2DB0EF1F007C6BD6 /* CreateEmailField.swift in Sources */,
 				DE0AA7E82DA4F318005DFC44 /* RestAPITransport.swift in Sources */,
+				DE522C692DB0EF19007C6BD6 /* CreateWebLinkField.swift in Sources */,
+				DE522C612DB0EEFB007C6BD6 /* CreateDNField.swift in Sources */,
 				DEE48BC42DA7A07E002CD05A /* ScannerControlsView.swift in Sources */,
 				DE0AA7F02DA4F318005DFC44 /* TakePhoto.swift in Sources */,
+				DE522C652DB0EF09007C6BD6 /* CreateDateField.swift in Sources */,
 				DE0AA7F22DA4F318005DFC44 /* UIView+RxExtension.swift in Sources */,
 				DE0AA7F72DA4F318005DFC44 /* Scalable.swift in Sources */,
 				DE0AA7FB2DA4F318005DFC44 /* MainViewController.swift in Sources */,
+				DE522C632DB0EF03007C6BD6 /* CreateCheckboxField.swift in Sources */,
 				DEDD653B2DAD65BB00867482 /* CPPhotoView.swift in Sources */,
 				DE0AA7FC2DA4F318005DFC44 /* AmplitudeManager.swift in Sources */,
 				DE1E60FC2DA68036006CF764 /* SearchViewModel.swift in Sources */,
@@ -1376,16 +1522,21 @@
 				DE0AA8242DA4F318005DFC44 /* XOREncryption.swift in Sources */,
 				DE1E61012DA68ABD006CF764 /* SearchField.swift in Sources */,
 				DEE230CC2DB01B70008DD773 /* TransactionItem.swift in Sources */,
+				DE522C512DB0D7FF007C6BD6 /* SMFTableCell.swift in Sources */,
 				DEE48BC82DA7A55D002CD05A /* ScannerViewModel.swift in Sources */,
 				DE0AA8262DA4F318005DFC44 /* PaygateBestOfferView.swift in Sources */,
+				DE522C732DB12CF4007C6BD6 /* CreateDateTypeView.swift in Sources */,
+				DE522C4D2DB0D7F3007C6BD6 /* SMFTableView.swift in Sources */,
 				DEC48D792DA8F0E800AC1B3D /* CreateProductView.swift in Sources */,
 				DE0AA8A92DA536BC005DFC44 /* STUnlockAccessCell.swift in Sources */,
+				DE522C5D2DB0EEE9007C6BD6 /* CreateLTBField.swift in Sources */,
 				DEE48BD12DA7E0A6002CD05A /* Barcode.swift in Sources */,
 				DE0AA8272DA4F318005DFC44 /* SplashReceiptValidationObserver.swift in Sources */,
 				DE0AA8292DA4F318005DFC44 /* Fonts.swift in Sources */,
 				DE0AA8302DA4F318005DFC44 /* MainView.swift in Sources */,
 				DE0AA84D2DA4F318005DFC44 /* ProfileBindingRequest.swift in Sources */,
 				DEE48BC02DA79BF5002CD05A /* ScannerOverlayView.swift in Sources */,
+				DE522C442DB0D3F7007C6BD6 /* SelectMetaFieldsView.swift in Sources */,
 				DE0AA8932DA50D01005DFC44 /* Onstruction2View.swift in Sources */,
 				DE0AA84E2DA4F318005DFC44 /* ChoosePhotoFromGallery.swift in Sources */,
 				DE0AA8552DA4F318005DFC44 /* TapAreaButton.swift in Sources */,
@@ -1394,6 +1545,7 @@
 				DEE48BCB2DA7ADAA002CD05A /* ScannerAVCapture.swift in Sources */,
 				DE0AA85E2DA4F318005DFC44 /* TryAgainViewController.swift in Sources */,
 				DEDD65282DAD058E00867482 /* CreateProductTableElement.swift in Sources */,
+				DE522C752DB131C7007C6BD6 /* CreateDateButton.swift in Sources */,
 				DE0AA85F2DA4F318005DFC44 /* SplashViewModel.swift in Sources */,
 				DE0AA8632DA4F318005DFC44 /* Appearance.swift in Sources */,
 				DE1E61042DA68D3B006CF764 /* SearchTableView.swift in Sources */,

@@ -97,3 +97,52 @@
 "CreateProduct.General.Input.Price.Euro" = "Euro";
 "CreateProduct.AddFields.Title" = "Add more fields";
 "CreateProduct.AddBarcode.Title" = "Add barcode";
+
+// MARK: MetaFields
+"MetaFields.STB" = "Small Text Box";
+"MetaFields.LTB" = "Large Text Box";
+"MetaFields.RN" = "Round Number";
+"MetaFields.DN" = "Decimal Number";
+"MetaFields.Checkbox" = "Checkbox";
+"MetaFields.Date" = "Date";
+"MetaFields.PhoneNumber" = "Phone Number";
+"MetaFields.WebLink" = "Web Link";
+"MetaFields.Email" = "Email";
+
+// MARK: SelectMetaFields
+"SelectMetaFields.Title" = "Creating new field";
+
+// MARK: CreateMetaField
+"CreateMetaField.Title.STB" = "New Small Text Box";
+"CreateMetaField.Title.LTB" = "New Large Text Box";
+"CreateMetaField.Title.RN" = "New Round Number";
+"CreateMetaField.Title.DN" = "New Decimal Number";
+"CreateMetaField.Title.Checkbox" = "New Checkbox";
+"CreateMetaField.Title.Date" = "New Date";
+"CreateMetaField.Title.PhoneNumber" = "New Phone Number";
+"CreateMetaField.Title.WebLink" = "New Web Link";
+"CreateMetaField.Title.Email" = "New Email";
+"CreateMetaField.STB.SubTitle" = "Up to 240 characters";
+"CreateMetaField.STB.Name.Placeholder" = "Field Name";
+"CreateMetaField.STB.Value.Placeholder" = "Default (optional)";
+"CreateMetaField.LTB.Name.Placeholder" = "Field Name";
+"CreateMetaField.LTB.Value.Placeholder" = "Default (optional)";
+"CreateMetaField.RN.Name.Placeholder" = "Field Name";
+"CreateMetaField.RN.Value.Placeholder" = "Default (optional)";
+"CreateMetaField.DN.Name.Placeholder" = "Field Name";
+"CreateMetaField.DN.Value.Placeholder" = "Default (optional)";
+"CreateMetaField.Checkbox.Name.Placeholder" = "Field Name";
+"CreateMetaField.Checkbox.Value.Title" = "Default state";
+"CreateMetaField.Checkbox.Value.Checked" = "Checked";
+"CreateMetaField.Checkbox.Value.Unchecked" = "Unchecked";
+"CreateMetaField.Date.Value.Name.Placeholder" = "Field Name";
+"CreateMetaField.Date.Value.Title" = "Default state";
+"CreateMetaField.Date.Value.Today" = "Today";
+"CreateMetaField.Date.Value.Tomorrow" = "Tomorrow";
+"CreateMetaField.Date.Value.CustomDate" = "Custom date";
+"CreateMetaField.PhoneNumber.Name.Placeholder" = "Field Name";
+"CreateMetaField.PhoneNumber.Value.Placeholder" = "Default (optional)";
+"CreateMetaField.WebLink.Name.Placeholder" = "Field Name";
+"CreateMetaField.WebLink.Value.Placeholder" = "Default (optional)";
+"CreateMetaField.Email.Name.Placeholder" = "Field Name";
+"CreateMetaField.Email.Value.Placeholder" = "Default (optional)";
