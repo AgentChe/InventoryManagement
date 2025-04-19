@@ -11,21 +11,21 @@ struct Price {
 }
 
 enum PriceCurrency {
-    case dollar, euro
+    case dollar, euro, custom(String)
     
     enum Constants {
         static let dollar = "USD"
         static let euro = "EURO"
     }
     
-    init?(rawValue: String) {
+    init(rawValue: String) {
         switch rawValue {
         case Constants.dollar:
             self = .dollar
         case Constants.euro:
             self = .euro
         default:
-            return nil
+            self = .custom(rawValue)
         }
     }
     
@@ -35,6 +35,8 @@ enum PriceCurrency {
             return Constants.dollar
         case .euro:
             return Constants.euro
+        case .custom(let currency):
+            return currency
         }
     }
     
@@ -44,6 +46,8 @@ enum PriceCurrency {
             return "$"
         case .euro:
             return "€"
+        case .custom(let currency):
+            return currency
         }
     }
 }

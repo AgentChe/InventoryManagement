@@ -25,6 +25,13 @@ final class CreatePhoneNumberField: CreateProductFieldView {
     override func forceCheckEnable() {
         textEditing()
     }
+    
+    override func createField() -> any ProductMetaField {
+        PhoneNumberField(
+            name: nameField.text ?? "",
+            phoneNumber: valueField.text
+        )
+    }
 }
 
 // MARK: UITextFieldDelegate

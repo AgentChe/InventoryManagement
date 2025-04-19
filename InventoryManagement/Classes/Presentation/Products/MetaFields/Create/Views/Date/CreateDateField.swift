@@ -31,6 +31,13 @@ final class CreateDateField: CreateProductFieldView {
     override func forceCheckEnable() {
         textEditing()
     }
+    
+    override func createField() -> any ProductMetaField {
+        DateField(
+            name: nameField.text ?? "",
+            date: dateTypeView.selectedDate
+        )
+    }
 }
 
 // MARK: UITextFieldDelegate

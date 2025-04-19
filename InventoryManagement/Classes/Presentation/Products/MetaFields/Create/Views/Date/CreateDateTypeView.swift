@@ -40,6 +40,16 @@ extension CreateDateTypeView {
         updateButtons(dateType: dateType)
         updateSeparators(dateType: dateType)
     }
+    
+    var selectedDate: Date? {
+        let buttons = [
+            todayButton,
+            tomorrowButton,
+            customButton
+        ]
+        
+        return buttons.first(where: { $0.marked })?.date
+    }
 }
 
 // MARK: Private

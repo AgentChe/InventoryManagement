@@ -13,4 +13,8 @@ class CreateProductFieldView: UIView {
     func forceCheckEnable() {
         fatalError("Should be override")
     }
+    
+    func createField() -> ProductMetaField {
+        fatalError("Should be override")
+    }
 }

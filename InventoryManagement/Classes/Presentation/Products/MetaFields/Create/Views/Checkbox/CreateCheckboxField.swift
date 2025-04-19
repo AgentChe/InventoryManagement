@@ -30,6 +30,16 @@ final class CreateCheckboxField: CreateProductFieldView {
     override func forceCheckEnable() {
         textEditing()
     }
+    
+    override func createField() -> any ProductMetaField {
+        CheckboxField(
+            name: nameField.text ?? "",
+            value: {
+                guard let value = valuesView.value else { return nil }
+                return value == .checked
+            }()
+        )
+    }
 }
 
 // MARK: UITextFieldDelegate

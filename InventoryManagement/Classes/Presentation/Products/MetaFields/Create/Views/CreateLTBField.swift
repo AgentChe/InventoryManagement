@@ -25,6 +25,13 @@ final class CreateLTBField: CreateProductFieldView {
     override func forceCheckEnable() {
         textEditing()
     }
+    
+    override func createField() -> any ProductMetaField {
+        LargeTextBoxField(
+            name: nameField.text ?? "",
+            text: valueField.text
+        )
+    }
 }
 
 // MARK: UITextFieldDelegate

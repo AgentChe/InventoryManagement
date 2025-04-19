@@ -30,6 +30,13 @@ final class CreateSTBField: CreateProductFieldView {
     override func forceCheckEnable() {
         textEditing()
     }
+    
+    override func createField() -> any ProductMetaField {
+        SmallTextBoxField(
+            name: nameField.text ?? "",
+            text: valueField.text
+        )
+    }
 }
 
 // MARK: UITextFieldDelegate

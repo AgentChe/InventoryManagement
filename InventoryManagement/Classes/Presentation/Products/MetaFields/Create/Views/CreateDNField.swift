@@ -11,6 +11,13 @@ final class CreateDNField: CreateProductFieldView {
     lazy var nameField = makeNameField()
     lazy var valueField = makeValueField()
     
+    private lazy var formatter: NumberFormatter = {
+        let formatter = NumberFormatter()
+        formatter.locale = Locale.current
+        formatter.numberStyle = .decimal
+        return formatter
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -24,6 +31,16 @@ final class CreateDNField: CreateProductFieldView {
     
     override func forceCheckEnable() {
         textEditing()
+    }
+    
+    override func createField() -> any ProductMetaField {
+        DecimalNumberField(
+            name: nameField.text ?? "",
+            number: {
+                guard let text = valueField.text else { return nil }
+                return formatter.number(from: text)?.doubleValue
+            }()
+        )
     }
 }
 

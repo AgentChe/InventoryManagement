@@ -47,6 +47,7 @@ extension CreateProductViewModel {
         let didTapAddBarcode: Signal<Void>
         let didCreateNewBarcode: Signal<Barcode>
         let didTapSave: Signal<Void>
+        let didCreatedNewField: Signal<ProductMetaField>
     }
     
     struct Output {
@@ -97,6 +98,10 @@ extension CreateProductViewModel {
         let barcode = makeBarcode(
             initialDetails: initialDetailsData,
             didCreateNewBarcode: input.didCreateNewBarcode
+        )
+        let metaFields = makeMetaFields(
+            initialDetails: initialDetailsData,
+            didCreatedNewField: input.didCreatedNewField
         )
         let saveEnable = makeSaveEnable(
             images: images,
@@ -494,6 +499,34 @@ private extension CreateProductViewModel {
         
         return Driver
             .merge(initial, createNew)
+    }
+    
+    func makeMetaFields(
+        initialDetails: Driver<DetailsData>,
+        didCreatedNewField: Signal<ProductMetaField>
+    ) -> Driver<[ProductMetaField]> {
+        initialDetails
+            .map { $0.meta }
+            .flatMapLatest { initialMetaFields -> Driver<[ProductMetaField]> in
+                enum Action {
+                    case newField(ProductMetaField)
+                }
+                
+                let newField = didCreatedNewField
+                    .map { Action.newField($0) }
+                    .asDriver(onErrorDriveWith: .never())
+                
+                let action = Driver.merge(newField)
+                
+                return action
+                    .scan(initialMetaFields) { fields, action -> [ProductMetaField] in
+                        switch action {
+                        case .newField(let field):
+                            return fields + [field]
+                        }
+                    }
+                    .startWith(initialMetaFields)
+            }
     }
     
     func makeSaveEnable(

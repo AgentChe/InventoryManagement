@@ -15,6 +15,18 @@ final class SelectMetaFieldsViewController: UIViewController {
     
     private lazy var disposeBag = DisposeBag()
     
+    private let created: (ProductMetaField) -> Void
+    
+    private init(created: @escaping (ProductMetaField) -> Void) {
+        self.created = created
+        
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func loadView() {
         view = mainView
     }
@@ -42,8 +54,9 @@ final class SelectMetaFieldsViewController: UIViewController {
 
 // MARK: Public
 extension SelectMetaFieldsViewController {
-    static func make() -> NavigationController {
-        let nc = NavigationController(rootViewController: SelectMetaFieldsViewController())
+    static func make(created: @escaping (ProductMetaField) -> Void) -> NavigationController {
+        let vc =  SelectMetaFieldsViewController(created: created)
+        let nc = NavigationController(rootViewController: vc)
         nc.setNavigationBarHidden(true, animated: false)
         return nc
     }
@@ -54,7 +67,7 @@ private extension SelectMetaFieldsViewController {
     func action(_ action: SelectMetaFieldsViewModel.Action) {
         switch action {
         case .createField(let field):
-            let vc = CreateMetaFieldViewController.make(field: field)
+            let vc = CreateMetaFieldViewController.make(field: field, created: created)
             navigationController?.pushViewController(vc, animated: true)
         }
     }

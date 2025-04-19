@@ -25,6 +25,13 @@ final class CreateWebLinkField: CreateProductFieldView {
     override func forceCheckEnable() {
         textEditing()
     }
+    
+    override func createField() -> any ProductMetaField {
+        WebLinkField(
+            name: nameField.text ?? "",
+            link: valueField.text
+        )
+    }
 }
 
 // MARK: UITextFieldDelegate

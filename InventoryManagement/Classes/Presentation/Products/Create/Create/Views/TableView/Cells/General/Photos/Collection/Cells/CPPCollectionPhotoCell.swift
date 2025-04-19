@@ -99,6 +99,8 @@ private extension CPPCollectionPhotoCell {
     
     func makeDimmedView() -> UIView {
         let view = UIView()
+        view.layer.cornerRadius = 20.scale
+        view.layer.masksToBounds = true
         view.backgroundColor = Appearance.mono200.withAlphaComponent(0.1)
         view.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(view)

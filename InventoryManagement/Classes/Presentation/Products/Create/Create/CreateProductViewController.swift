@@ -26,6 +26,7 @@ final class CreateProductViewController: UIViewController {
     
     private lazy var didAddedNewPhotoTrigger = PublishRelay<UIImage>()
     private lazy var didCreateNewBarcodeTrigger = PublishRelay<Barcode>()
+    private lazy var didCreatedNewFieldTrigger = PublishRelay<ProductMetaField>()
     
     private var takePhoto: TakePhoto?
     
@@ -70,7 +71,8 @@ final class CreateProductViewController: UIViewController {
             didTapAddFields: mainView.tableView.didTapAddFields,
             didTapAddBarcode: mainView.tableView.didTapAddBarcode,
             didCreateNewBarcode: didCreateNewBarcodeTrigger.asSignal(),
-            didTapSave: mainView.tableView.didTapSave
+            didTapSave: mainView.tableView.didTapSave,
+            didCreatedNewField: didCreatedNewFieldTrigger.asSignal()
         ))
         
         output.action
@@ -124,7 +126,9 @@ private extension CreateProductViewController {
             }
             takePhoto?.take(from: self)
         case .addFields:
-            let vc = SelectMetaFieldsViewController.make()
+            let vc = SelectMetaFieldsViewController.make { [weak self] field in
+                self?.didCreatedNewFieldTrigger.accept(field)
+            }
             present(vc, animated: true)
         case .addBarcode:
             let nc = NavigationController()

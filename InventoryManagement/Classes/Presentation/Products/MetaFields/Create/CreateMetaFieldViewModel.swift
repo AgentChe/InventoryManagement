@@ -11,6 +11,7 @@ import RxCocoa
 final class CreateMetaFieldViewModel {
     enum Action {
         case back
+        case createField
     }
 }
 
@@ -18,6 +19,7 @@ final class CreateMetaFieldViewModel {
 extension CreateMetaFieldViewModel {
     struct Input {
         let didTapBack: Signal<Void>
+        let didTapCreate: Signal<Void>
     }
     
     struct Output {
@@ -26,16 +28,29 @@ extension CreateMetaFieldViewModel {
     
     func configure(input: Input) -> Output {
         Output(
-            action: makeAction(didTapBack: input.didTapBack)
+            action: makeAction(
+                didTapBack: input.didTapBack,
+                didTapCreate: input.didTapCreate
+            )
         )
     }
 }
 
 // MARK: Private
 private extension CreateMetaFieldViewModel {
-    func makeAction(didTapBack: Signal<Void>) -> Driver<Action> {
-        didTapBack
+    func makeAction(
+        didTapBack: Signal<Void>,
+        didTapCreate: Signal<Void>
+    ) -> Driver<Action> {
+        let back = didTapBack
             .map { Action.back }
             .asDriver(onErrorDriveWith: .never())
+        
+        let createField = didTapCreate
+            .map { Action.createField }
+            .asDriver(onErrorDriveWith: .never())
+        
+        return Driver
+            .merge(back, createField)
     }
 }

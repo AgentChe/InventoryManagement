@@ -25,6 +25,13 @@ final class CreateEmailField: CreateProductFieldView {
     override func forceCheckEnable() {
         textEditing()
     }
+    
+    override func createField() -> any ProductMetaField {
+        EmailField(
+            name: nameField.text ?? "",
+            email: valueField.text
+        )
+    }
 }
 
 // MARK: UITextFieldDelegate

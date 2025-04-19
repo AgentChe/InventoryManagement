@@ -16,6 +16,8 @@ final class CreateCheckboxValueView: UIView {
     lazy var checkedButton = makeValueButton()
     lazy var uncheckedButton = makeValueButton()
     
+    var value: Value?
+    
     private lazy var cursorXConstraint = NSLayoutConstraint()
     
     private lazy var selectedAttrs = TextAttributes()
@@ -40,6 +42,8 @@ final class CreateCheckboxValueView: UIView {
 // MARK: Public
 extension CreateCheckboxValueView {
     func setup(value: Value, animate: Bool) {
+        self.value = value
+        
         updateCursor(value: value, animate: animate)
         updateButtons(value: value)
     }

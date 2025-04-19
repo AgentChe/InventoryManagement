@@ -27,8 +27,11 @@ final class CreateMetaFieldViewController: UIViewController {
     
     private lazy var disposeBag = DisposeBag()
     
-    private init(field: Field) {
-        mainView = CreateMetaFieldView(field: field)
+    private let created: (ProductMetaField) -> Void
+    
+    private init(field: Field, created: @escaping (ProductMetaField) -> Void) {
+        self.mainView = CreateMetaFieldView(field: field)
+        self.created = created
         
         super.init(nibName: nil, bundle: nil)
     }
@@ -45,7 +48,8 @@ final class CreateMetaFieldViewController: UIViewController {
         super.viewDidLoad()
         
         let output = viewModel.configure(input: CreateMetaFieldViewModel.Input(
-            didTapBack: mainView.backButton.rx.tap.asSignal()
+            didTapBack: mainView.backButton.rx.tap.asSignal(),
+            didTapCreate: mainView.saveButton.rx.tap.asSignal()
         ))
         
         output.action
@@ -58,8 +62,8 @@ final class CreateMetaFieldViewController: UIViewController {
 
 // MARK: Public
 extension CreateMetaFieldViewController {
-    static func make(field: Field) -> CreateMetaFieldViewController {
-        CreateMetaFieldViewController(field: field)
+    static func make(field: Field, created: @escaping (ProductMetaField) -> Void) -> CreateMetaFieldViewController {
+        CreateMetaFieldViewController(field: field, created: created)
     }
 }
 
@@ -68,6 +72,11 @@ private extension CreateMetaFieldViewController {
     func action(_ action: CreateMetaFieldViewModel.Action) {
         switch action {
         case .back:
+            navigationController?.popViewController(animated: true)
+        case .createField:
+            let field = mainView.createView.createField()
+            created(field)
+            
             navigationController?.popViewController(animated: true)
         }
     }

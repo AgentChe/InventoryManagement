@@ -25,6 +25,16 @@ final class CreateRNField: CreateProductFieldView {
     override func forceCheckEnable() {
         textEditing()
     }
+    
+    override func createField() -> any ProductMetaField {
+        RoundNumberField(
+            name: nameField.text ?? "",
+            number: {
+                guard let value = valueField.text else { return nil }
+                return Int(value)
+            }()
+        )
+    }
 }
 
 // MARK: UITextFieldDelegate
