@@ -11,7 +11,7 @@ struct Product {
     let id: String
     let title: String
     let image: URL
-    let countLocalized: String
+    let count: Int
     let barcode: String
 }
 
@@ -39,14 +39,14 @@ extension Product {
                 guard let string = json["image"] as? String else { return nil }
                 return URL(string: string)
             }(),
-            let countLocalized = json["count"] as? String,
+            let count = json["count"] as? Int,
             let barcode = json["barcode"] as? String
         else { return nil }
         
         self.id = id
         self.title = title
         self.image = image
-        self.countLocalized = countLocalized
+        self.count = count
         self.barcode = barcode
     }
 }

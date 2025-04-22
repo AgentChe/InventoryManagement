@@ -35,7 +35,7 @@ extension Folder {
         guard
             let json = listResponse as? [String: Any],
             let body = json["body"] as? [String: Any],
-            let items = body["folders"] as? [[String: Any]],
+            let items = body["items"] as? [[String: Any]],
             let pageInfoJSON = body["pagination"] as? [String: Any],
             let pageInfo = PageInfo(json: pageInfoJSON)
         else { return nil }

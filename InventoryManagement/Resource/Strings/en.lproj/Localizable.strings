@@ -15,6 +15,11 @@
 "OK" = "OK";
 "Save" = "Save";
 
+// MARK: Unit
+"Unit.One" = "Unit";
+"Unit.Two" = "Units";
+"Unit.Many" = "Units";
+
 // MARK: TryAgain
 "TryAgain.Title" = "The app failed to perform a request";
 "TryAgain.SubTitle" = "If there’s a connection issue on your side try one more time. If the connection is fine and the error keeps on repeating please get in touch with the support";
@@ -146,3 +151,28 @@
 "CreateMetaField.WebLink.Value.Placeholder" = "Default (optional)";
 "CreateMetaField.Email.Name.Placeholder" = "Field Name";
 "CreateMetaField.Email.Value.Placeholder" = "Default (optional)";
+
+// MARK: Items
+"Items.AddFirst.Title" = "Add first item";
+"Items.AddFirst.SubTitle" = "Scan barcode or add new\nitem manually ";
+"Items.AddFirst.Button" = "Add new";
+"Items.UnlockAccess.Title" = "Enjoy effortless\ninventory management";
+"Items.UnlockAccess.Button" = "Try for free";
+"Items.Title" = "Items";
+"Items.SeeAll" = "See all";
+"Items.DemoItems.Title" = "Demo items";
+"Items.DemoItems.Mark" = "Demo item";
+"Items.Folders.Title" = "Folders";
+"Items.Folders.AddNew" = "Add new";
+"Items.LastAdded.Title" = "Last Added";
+"Items.AllItems.Title" = "All items";
+"Items.Statistics.ProductCount" = "Items";
+"Items.Statistics.TotalPrice" = "Total Value";
+"Items.Statistics.FoldersCount" = "Folders";
+"Items.Statistics.TotalQTY" = "Total quantity";
+
+// MARK: DemoProduct
+"DemoProduct.StanleyCup.Title" = "Stanley Cup";
+"DemoProduct.StanleyCup.Count" = "53 unit";
+"DemoProduct.VitaminC.Title" = "Vitamin C";
+"DemoProduct.VitaminC.Count" = "68 unit";

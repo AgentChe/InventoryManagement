@@ -11,6 +11,7 @@ import RxCocoa
 protocol ProfileManagerProtocol: AnyObject {
     func create() -> Single<RequestResult>
     func binding() -> Single<RequestResult>
+    func obtainStatistics() -> Single<ProfileStatistics?>
 }
 
 final class ProfileManager {
@@ -41,5 +42,16 @@ extension ProfileManager: ProfileManagerProtocol {
         return restApiTransport
             .callServerApi(requestBody: request)
             .map { RequestResult.map(response: $0) }
+    }
+    
+    func obtainStatistics() -> Single<ProfileStatistics?> {
+        let request = ObtainProfileStatisticsRequest(
+            anonymousId: sessionManager.anonymousId,
+            internalId: sessionManager.internalId
+        )
+        
+        return restApiTransport
+            .callServerApi(requestBody: request)
+            .map { ProfileStatistics(response: $0) }
     }
 }

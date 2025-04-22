@@ -57,7 +57,14 @@ extension SearchTableCell {
         
         titleLabel.attributedText = element.title.attributed(with: titleAttrs)
         
-        let additional = [element.countLocalized, element.barcode].joined(separator: "  ")
+        let unitLocalized = String.choosePluralForm(
+            byNumber: element.count,
+            one: "Unit.One".localized,
+            two: "Unit.Two".localized,
+            many: "Unit.Many".localized
+        )
+        let countLocalized = String(format: "%i %@", element.count, unitLocalized)
+        let additional = [countLocalized, element.barcode].joined(separator: "  ")
         additionalLabel.attributedText = additional.attributed(with: additionalAttrs)
     }
 }
