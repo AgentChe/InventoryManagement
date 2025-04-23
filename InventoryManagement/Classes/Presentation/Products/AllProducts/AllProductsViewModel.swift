@@ -16,16 +16,6 @@ final class AllProductsViewModel {
         case createNewProduct
     }
     
-    private let source: Driver<Source>
-    
-    init() {
-        source = BehaviorRelay(value: Source.allProducts).asDriver()
-    }
-    
-    init(folder: Folder) {
-        source = BehaviorRelay(value: Source.folder(folder)).asDriver()
-    }
-    
     private lazy var firstPageActivity = RxActivityIndicator()
     private lazy var paginationActivity = RxActivityIndicator()
     
@@ -56,7 +46,6 @@ extension AllProductsViewModel {
             .startWith(())
         let fetchPageProducts = makePageProducts(
             didStartFirstLoad: didStartFirstLoad,
-            source: source,
             didScrollToBottom: input.didScrollToBottom
         )
         let allProducts = makeAllProducts(
@@ -81,11 +70,6 @@ extension AllProductsViewModel {
 
 // MARK: Private
 private extension AllProductsViewModel {
-    enum Source {
-        case allProducts
-        case folder(Folder)
-    }
-    
     func makeAction(
         didTapMenu: Signal<Product>,
         didSelectProduct: Signal<Product>,
@@ -120,6 +104,7 @@ private extension AllProductsViewModel {
         enum Action {
             case startSearch
             case fetch(Page<[Product]>)
+            case delete(String)
         }
         
         let action = Driver
@@ -128,7 +113,10 @@ private extension AllProductsViewModel {
                     .asDriver(onErrorDriveWith: .never())
                     .map { _ in Action.startSearch },
                 fetchPageProducts
-                    .map { Action.fetch($0) }
+                    .map { Action.fetch($0) },
+                ProductsMediator.shared.didDeletedProduct
+                    .asDriver(onErrorDriveWith: .never())
+                    .map { Action.delete($0) }
             )
         
         return action
@@ -138,6 +126,10 @@ private extension AllProductsViewModel {
                     return []
                 case .fetch(let page):
                     return page.info.current == 1 ? page.elements : (allProducts + page.elements)
+                case .delete(let id):
+                    var result = allProducts
+                    result.removeAll(where: { $0.id == id })
+                    return result
                 }
             }
             .startWith([])
@@ -145,24 +137,13 @@ private extension AllProductsViewModel {
     
     func makePageProducts(
         didStartFirstLoad: Driver<Void>,
-        source: Driver<Source>,
         didScrollToBottom: Signal<Void>
     ) -> Driver<Page<[Product]>> {
         var lastPageInfo: PageInfo?
         
-        func fetch(page: Int, source: Source) -> Driver<Page<[Product]>> {
+        func fetch(page: Int) -> Driver<Page<[Product]>> {
             productsManager
-                .obtainProducts(
-                    folderId: {
-                        switch source {
-                        case .allProducts:
-                            return nil
-                        case .folder(let folder):
-                            return folder.id
-                        }
-                    }(),
-                    page: page
-                )
+                .obtainProducts(page: page)
                 .trackActivity(page == 1 ? firstPageActivity : paginationActivity)
                 .asDriver(onErrorJustReturn: nil)
                 .compactMap { $0 }
@@ -172,26 +153,21 @@ private extension AllProductsViewModel {
         }
         
         let firstPage = didStartFirstLoad
-            .withLatestFrom(source)
-            .flatMapLatest { source -> Driver<Page<[Product]>> in
-                fetch(page: 1, source: source)
+            .flatMapLatest { void -> Driver<Page<[Product]>> in
+                fetch(page: 1)
             }
         let downloadedPage = firstPage
             .flatMapLatest { firstPage -> Driver<Page<[Product]>> in
                 didScrollToBottom
                     .asDriver(onErrorDriveWith: .never())
-                    .withLatestFrom(source)
-                    .compactMap { source -> (Source, PageInfo)? in
-                        guard let lastPageInfo else { return nil }
-                        return (source, lastPageInfo)
-                    }
-                    .filter { _, lastPageInfo -> Bool in
+                    .compactMap { lastPageInfo }
+                    .filter { lastPageInfo -> Bool in
                         let nextPageNotTotal = lastPageInfo.next <= lastPageInfo.total
                         let currentNotTotal = lastPageInfo.current != lastPageInfo.total
                         return nextPageNotTotal && currentNotTotal
                     }
-                    .flatMapFirst { source, lastPageInfo -> Driver<Page<[Product]>> in
-                        fetch(page: lastPageInfo.next, source: source)
+                    .flatMapFirst { lastPageInfo -> Driver<Page<[Product]>> in
+                        fetch(page: lastPageInfo.next)
                     }
                     .startWith(firstPage)
             }

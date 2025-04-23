@@ -65,17 +65,10 @@ final class AllProductsViewController: UIViewController {
 
 // MARK: Public
 extension AllProductsViewController {
-    static func allProducts() -> AllProductsViewController {
+    static func make() -> AllProductsViewController {
         let vc = AllProductsViewController()
         vc.navigationItem.backButtonTitle = " "
         vc.navigationItem.title = "AllProducts.Title".localized
-        return vc
-    }
-    
-    static func products(folder: Folder) -> AllProductsViewController {
-        let vc = AllProductsViewController()
-        vc.navigationItem.backButtonTitle = " "
-        vc.navigationItem.title = folder.title
         return vc
     }
 }

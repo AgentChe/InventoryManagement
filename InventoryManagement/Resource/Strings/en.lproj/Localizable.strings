@@ -14,6 +14,7 @@
 "Skip" = "Skip";
 "OK" = "OK";
 "Save" = "Save";
+"Delete" = "Delete";
 
 // MARK: Unit
 "Unit.One" = "Unit";
@@ -179,3 +180,11 @@
 
 // MARK: AllProducts
 "AllProducts.Title" = "Items";
+
+// MARK: Folders
+"Folders.Title" = "All Folders";
+
+// MARK: FolderProducts
+"FolderProducts.Menu.Delete" = "Delete";
+"FolderProducts.Menu.Rename" = "Rename";
+"FolderProducts.ConfirmDelete.Text" = "Are you sure you want to delete %@?";

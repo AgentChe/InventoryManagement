@@ -69,7 +69,8 @@ private extension ItemsViewController {
         case .openDemoProduct(let demoProduct):
             break // TODO
         case .openFolder(let folder):
-            break // TODO
+            let vc = FolderProductsViewController.make(folder: folder)
+            navigationController?.pushViewController(vc, animated: true)
         case .createFolder:
             break // TODO
         case .openProduct(let product):
@@ -77,9 +78,10 @@ private extension ItemsViewController {
         case .openProductMenu(let product):
             break // TODO
         case .openFolders:
-            break // TODO
+            let vc = FoldersViewController.make()
+            navigationController?.pushViewController(vc, animated: true)
         case .openAllProducts:
-            let vc = AllProductsViewController.allProducts()
+            let vc = AllProductsViewController.make()
             navigationController?.pushViewController(vc, animated: true)
         }
     }

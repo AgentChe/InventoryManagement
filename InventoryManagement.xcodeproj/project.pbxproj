@@ -184,6 +184,14 @@
 		DEA35BD82DB8BF5B00D8D20A /* AllProductsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA35BD72DB8BF5B00D8D20A /* AllProductsViewController.swift */; };
 		DEA35BDA2DB8BF6000D8D20A /* AllProductsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA35BD92DB8BF6000D8D20A /* AllProductsViewModel.swift */; };
 		DEA35BDC2DB8BF6400D8D20A /* AllProductsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA35BDB2DB8BF6400D8D20A /* AllProductsView.swift */; };
+		DEA35BDF2DB8E97F00D8D20A /* FolderProductsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA35BDE2DB8E97F00D8D20A /* FolderProductsViewController.swift */; };
+		DEA35BE12DB8E98400D8D20A /* FolderProductsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA35BE02DB8E98400D8D20A /* FolderProductsViewModel.swift */; };
+		DEA35BE32DB8E98D00D8D20A /* FolderProductsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA35BE22DB8E98D00D8D20A /* FolderProductsView.swift */; };
+		DEA35BE72DB8F27E00D8D20A /* FoldersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA35BE62DB8F27E00D8D20A /* FoldersViewController.swift */; };
+		DEA35BE92DB8F28200D8D20A /* FoldersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA35BE82DB8F28200D8D20A /* FoldersViewModel.swift */; };
+		DEA35BEB2DB8F28600D8D20A /* FoldersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA35BEA2DB8F28600D8D20A /* FoldersView.swift */; };
+		DEA35BEF2DB8F3DC00D8D20A /* FoldersCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA35BEE2DB8F3DC00D8D20A /* FoldersCollectionView.swift */; };
+		DEA35BF12DB8F3E100D8D20A /* FoldersCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA35BF02DB8F3E100D8D20A /* FoldersCollectionCell.swift */; };
 		DEC48D742DA8F0D500AC1B3D /* CreateProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC48D732DA8F0D500AC1B3D /* CreateProductViewController.swift */; };
 		DEC48D772DA8F0E400AC1B3D /* CreateProductViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC48D762DA8F0E400AC1B3D /* CreateProductViewModel.swift */; };
 		DEC48D792DA8F0E800AC1B3D /* CreateProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC48D782DA8F0E800AC1B3D /* CreateProductView.swift */; };
@@ -406,6 +414,14 @@
 		DEA35BD72DB8BF5B00D8D20A /* AllProductsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllProductsViewController.swift; sourceTree = "<group>"; };
 		DEA35BD92DB8BF6000D8D20A /* AllProductsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllProductsViewModel.swift; sourceTree = "<group>"; };
 		DEA35BDB2DB8BF6400D8D20A /* AllProductsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllProductsView.swift; sourceTree = "<group>"; };
+		DEA35BDE2DB8E97F00D8D20A /* FolderProductsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderProductsViewController.swift; sourceTree = "<group>"; };
+		DEA35BE02DB8E98400D8D20A /* FolderProductsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderProductsViewModel.swift; sourceTree = "<group>"; };
+		DEA35BE22DB8E98D00D8D20A /* FolderProductsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderProductsView.swift; sourceTree = "<group>"; };
+		DEA35BE62DB8F27E00D8D20A /* FoldersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoldersViewController.swift; sourceTree = "<group>"; };
+		DEA35BE82DB8F28200D8D20A /* FoldersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoldersViewModel.swift; sourceTree = "<group>"; };
+		DEA35BEA2DB8F28600D8D20A /* FoldersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoldersView.swift; sourceTree = "<group>"; };
+		DEA35BEE2DB8F3DC00D8D20A /* FoldersCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoldersCollectionView.swift; sourceTree = "<group>"; };
+		DEA35BF02DB8F3E100D8D20A /* FoldersCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoldersCollectionCell.swift; sourceTree = "<group>"; };
 		DEC48D732DA8F0D500AC1B3D /* CreateProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateProductViewController.swift; sourceTree = "<group>"; };
 		DEC48D762DA8F0E400AC1B3D /* CreateProductViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateProductViewModel.swift; sourceTree = "<group>"; };
 		DEC48D782DA8F0E800AC1B3D /* CreateProductView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateProductView.swift; sourceTree = "<group>"; };
@@ -763,6 +779,7 @@
 		DE0AA6EB2DA4F318005DFC44 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				DEA35BE42DB8F27100D8D20A /* Folders */,
 				DE1E60F72DA68025006CF764 /* Products */,
 				DE0AA6602DA4F318005DFC44 /* Main */,
 				DE0AA6E72DA4F318005DFC44 /* Splash */,
@@ -1038,6 +1055,7 @@
 		DE1E60F72DA68025006CF764 /* Products */ = {
 			isa = PBXGroup;
 			children = (
+				DEA35BDD2DB8E97100D8D20A /* FolderProducts */,
 				DEA35BD62DB8BF4D00D8D20A /* AllProducts */,
 				DE522C402DB0D3D5007C6BD6 /* MetaFields */,
 				DEE48BBA2DA79A07002CD05A /* Create */,
@@ -1269,6 +1287,52 @@
 				DEA35BDB2DB8BF6400D8D20A /* AllProductsView.swift */,
 			);
 			path = AllProducts;
+			sourceTree = "<group>";
+		};
+		DEA35BDD2DB8E97100D8D20A /* FolderProducts */ = {
+			isa = PBXGroup;
+			children = (
+				DEA35BDE2DB8E97F00D8D20A /* FolderProductsViewController.swift */,
+				DEA35BE02DB8E98400D8D20A /* FolderProductsViewModel.swift */,
+				DEA35BE22DB8E98D00D8D20A /* FolderProductsView.swift */,
+			);
+			path = FolderProducts;
+			sourceTree = "<group>";
+		};
+		DEA35BE42DB8F27100D8D20A /* Folders */ = {
+			isa = PBXGroup;
+			children = (
+				DEA35BE52DB8F27600D8D20A /* Folders */,
+			);
+			path = Folders;
+			sourceTree = "<group>";
+		};
+		DEA35BE52DB8F27600D8D20A /* Folders */ = {
+			isa = PBXGroup;
+			children = (
+				DEA35BEC2DB8F3CC00D8D20A /* Views */,
+				DEA35BE62DB8F27E00D8D20A /* FoldersViewController.swift */,
+				DEA35BE82DB8F28200D8D20A /* FoldersViewModel.swift */,
+				DEA35BEA2DB8F28600D8D20A /* FoldersView.swift */,
+			);
+			path = Folders;
+			sourceTree = "<group>";
+		};
+		DEA35BEC2DB8F3CC00D8D20A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				DEA35BED2DB8F3D100D8D20A /* CollectionView */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		DEA35BED2DB8F3D100D8D20A /* CollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				DEA35BEE2DB8F3DC00D8D20A /* FoldersCollectionView.swift */,
+				DEA35BF02DB8F3E100D8D20A /* FoldersCollectionCell.swift */,
+			);
+			path = CollectionView;
 			sourceTree = "<group>";
 		};
 		DEC48D752DA8F0D900AC1B3D /* Create */ = {
@@ -1567,11 +1631,15 @@
 				DEA35BC12DB79B6200D8D20A /* ITProductCell.swift in Sources */,
 				DEE230BF2DAFDC17008DD773 /* EditProductRequest.swift in Sources */,
 				DE1E60F02DA66C66006CF764 /* ObtainFoldersRequest.swift in Sources */,
+				DEA35BE92DB8F28200D8D20A /* FoldersViewModel.swift in Sources */,
+				DEA35BDF2DB8E97F00D8D20A /* FolderProductsViewController.swift in Sources */,
 				DE1E60F22DA66D98006CF764 /* ManageFolderRequest.swift in Sources */,
 				DEE230BD2DAFB9C7008DD773 /* CPTableSaveCell.swift in Sources */,
 				DEDD65362DAD062600867482 /* CPPCollectionAddCell.swift in Sources */,
+				DEA35BE32DB8E98D00D8D20A /* FolderProductsView.swift in Sources */,
 				DE0AA8A02DA53537005DFC44 /* SettingsView.swift in Sources */,
 				DE522C592DB0EC8D007C6BD6 /* CreateMetaFieldViewModel.swift in Sources */,
+				DEA35BF12DB8F3E100D8D20A /* FoldersCollectionCell.swift in Sources */,
 				DEA35BD52DB7F52900D8D20A /* ITLastAddedCollectionCell.swift in Sources */,
 				DEC48D772DA8F0E400AC1B3D /* CreateProductViewModel.swift in Sources */,
 				DE522C772DB15041007C6BD6 /* ProductMetaField.swift in Sources */,
@@ -1600,6 +1668,7 @@
 				DE522C492DB0D537007C6BD6 /* SelectMetaFieldsViewModel.swift in Sources */,
 				DEE48BC62DA7A437002CD05A /* CreateProductAssembly.swift in Sources */,
 				DE0AA77E2DA4F318005DFC44 /* RxActivityIndicator.swift in Sources */,
+				DEA35BEF2DB8F3DC00D8D20A /* FoldersCollectionView.swift in Sources */,
 				DE0AA7802DA4F318005DFC44 /* SessionManager.swift in Sources */,
 				DE522C3F2DB0D095007C6BD6 /* ObtainTransactionsItemsRequest.swift in Sources */,
 				DE522C3D2DB0D05C007C6BD6 /* ObtainTransactionsFiltersRequest.swift in Sources */,
@@ -1648,6 +1717,7 @@
 				DE1E60EC2DA66A7A006CF764 /* CreateFolderRequest.swift in Sources */,
 				DE0AA8AF2DA53784005DFC44 /* STLinkButton.swift in Sources */,
 				DEE48BC22DA79ED7002CD05A /* ScannerView.swift in Sources */,
+				DEA35BEB2DB8F28600D8D20A /* FoldersView.swift in Sources */,
 				DE0AA7AC2DA4F318005DFC44 /* SplashView.swift in Sources */,
 				DE0AA88C2DA50418005DFC44 /* RequestResult.swift in Sources */,
 				DEA35BA42DB6A52D00D8D20A /* ItemsViewController.swift in Sources */,
@@ -1744,6 +1814,7 @@
 				DE522C752DB131C7007C6BD6 /* CreateDateButton.swift in Sources */,
 				DE0AA85F2DA4F318005DFC44 /* SplashViewModel.swift in Sources */,
 				DE0AA8632DA4F318005DFC44 /* Appearance.swift in Sources */,
+				DEA35BE12DB8E98400D8D20A /* FolderProductsViewModel.swift in Sources */,
 				DE1E61042DA68D3B006CF764 /* SearchTableView.swift in Sources */,
 				DE0AA8992DA50DF1005DFC44 /* OAccountButton.swift in Sources */,
 				DEDD65442DAD793300867482 /* CPGeneralPriceField.swift in Sources */,
@@ -1758,6 +1829,7 @@
 				DE0AA86D2DA4F318005DFC44 /* IAPError.swift in Sources */,
 				DE0AA86F2DA4F318005DFC44 /* SplashViewController.swift in Sources */,
 				DE0AA8732DA4F318005DFC44 /* PaddingTextField.swift in Sources */,
+				DEA35BE72DB8F27E00D8D20A /* FoldersViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
