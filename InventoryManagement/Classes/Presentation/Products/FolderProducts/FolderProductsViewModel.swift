@@ -17,6 +17,7 @@ final class FolderProductsViewModel {
         case openMenu
         case close
         case confirmDelete(Folder)
+        case renameFolder(Folder)
     }
     
     var tryAgain: ((Error) -> (Observable<Void>))?
@@ -92,6 +93,7 @@ extension FolderProductsViewModel {
                 didTapMenu: input.didTapMenu,
                 didTapDeleteFolder: input.didTapDeleteFolder,
                 didDeleteConfirmed: input.didDeleteConfirmed,
+                didTapRenameFolder: input.didTapRenameFolder,
                 folder: folder
             ),
             isEmpty: allProducts.map { $0.isEmpty },
@@ -104,6 +106,11 @@ extension FolderProductsViewModel {
 private extension FolderProductsViewModel {
     func makeFolder(initial: Driver<Folder>) -> Driver<Folder> {
         initial
+            .flatMapLatest { initialFolder -> Driver<Folder> in
+                FoldersMediator.shared.didRenamed
+                    .asDriver(onErrorDriveWith: .never())
+                    .startWith(initialFolder)
+            }
     }
     
     func makeAction(
@@ -113,6 +120,7 @@ private extension FolderProductsViewModel {
         didTapMenu: Signal<Void>,
         didTapDeleteFolder: Signal<Void>,
         didDeleteConfirmed: Signal<Void>,
+        didTapRenameFolder: Signal<Void>,
         folder: Driver<Folder>
     ) -> Driver<Action> {
         let openProductMenu = didTapProductMenu
@@ -172,6 +180,11 @@ private extension FolderProductsViewModel {
                     .asDriver(onErrorDriveWith: .never())
             }
         
+        let renameFolder = didTapRenameFolder
+            .asDriver(onErrorDriveWith: .never())
+            .withLatestFrom(folder)
+            .map { Action.renameFolder($0) }
+        
         return Driver
             .merge(
                 openProductMenu,
@@ -179,7 +192,8 @@ private extension FolderProductsViewModel {
                 createNewProduct,
                 openMenu,
                 confiremDelete,
-                delete
+                delete,
+                renameFolder
             )
     }
     

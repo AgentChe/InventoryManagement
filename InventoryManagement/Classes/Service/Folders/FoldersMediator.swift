@@ -13,7 +13,7 @@ final class FoldersMediator {
     
     static let shared = FoldersMediator()
     
-    private lazy var didCreatedTrigger = PublishRelay<Folder>()
+    private lazy var didCreatedTrigger = PublishRelay<Void>()
     private lazy var didChangedTrigger = PublishRelay<String>()
     private lazy var didRenamedTrigger = PublishRelay<Folder>()
     private lazy var didDeletedTrigger = PublishRelay<String>()
@@ -24,8 +24,8 @@ final class FoldersMediator {
 
 // MARK: Public
 extension FoldersMediator {
-    func notifyCreated(folder: Folder) {
-        didCreatedTrigger.accept(folder)
+    func notifyCreated() {
+        didCreatedTrigger.accept(Void())
     }
     
     func notifyChanged(id: String) {
@@ -44,7 +44,7 @@ extension FoldersMediator {
         didMovedProductIdTrigger.accept(moved)
     }
     
-    var didCreated: Signal<Folder> {
+    var didCreated: Signal<Void> {
         didCreatedTrigger.asSignal()
     }
     

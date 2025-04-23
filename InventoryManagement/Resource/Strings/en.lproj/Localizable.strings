@@ -188,3 +188,8 @@
 "FolderProducts.Menu.Delete" = "Delete";
 "FolderProducts.Menu.Rename" = "Rename";
 "FolderProducts.ConfirmDelete.Text" = "Are you sure you want to delete %@?";
+
+// MARK: CreateFolder
+"CreateFolder.Title.Create" = "Create folder";
+"CreateFolder.Title.Edit" = "Change name";
+"CreateFolder.Placeholder" = "Name";

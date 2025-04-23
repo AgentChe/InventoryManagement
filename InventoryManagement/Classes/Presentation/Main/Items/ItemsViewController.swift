@@ -72,7 +72,8 @@ private extension ItemsViewController {
             let vc = FolderProductsViewController.make(folder: folder)
             navigationController?.pushViewController(vc, animated: true)
         case .createFolder:
-            break // TODO
+            let vc = CreateFolderViewController.create()
+            present(vc, animated: false)
         case .openProduct(let product):
             CreateProductAssembly().edit(from: self, product: product)
         case .openProductMenu(let product):

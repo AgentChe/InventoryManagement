@@ -192,6 +192,9 @@
 		DEA35BEB2DB8F28600D8D20A /* FoldersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA35BEA2DB8F28600D8D20A /* FoldersView.swift */; };
 		DEA35BEF2DB8F3DC00D8D20A /* FoldersCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA35BEE2DB8F3DC00D8D20A /* FoldersCollectionView.swift */; };
 		DEA35BF12DB8F3E100D8D20A /* FoldersCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA35BF02DB8F3E100D8D20A /* FoldersCollectionCell.swift */; };
+		DEA35BF42DB9004400D8D20A /* CreateFolderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA35BF32DB9004400D8D20A /* CreateFolderViewController.swift */; };
+		DEA35BF62DB9004800D8D20A /* CreateFolderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA35BF52DB9004800D8D20A /* CreateFolderViewModel.swift */; };
+		DEA35BF82DB9004C00D8D20A /* CreateFolderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA35BF72DB9004C00D8D20A /* CreateFolderView.swift */; };
 		DEC48D742DA8F0D500AC1B3D /* CreateProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC48D732DA8F0D500AC1B3D /* CreateProductViewController.swift */; };
 		DEC48D772DA8F0E400AC1B3D /* CreateProductViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC48D762DA8F0E400AC1B3D /* CreateProductViewModel.swift */; };
 		DEC48D792DA8F0E800AC1B3D /* CreateProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC48D782DA8F0E800AC1B3D /* CreateProductView.swift */; };
@@ -422,6 +425,9 @@
 		DEA35BEA2DB8F28600D8D20A /* FoldersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoldersView.swift; sourceTree = "<group>"; };
 		DEA35BEE2DB8F3DC00D8D20A /* FoldersCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoldersCollectionView.swift; sourceTree = "<group>"; };
 		DEA35BF02DB8F3E100D8D20A /* FoldersCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoldersCollectionCell.swift; sourceTree = "<group>"; };
+		DEA35BF32DB9004400D8D20A /* CreateFolderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateFolderViewController.swift; sourceTree = "<group>"; };
+		DEA35BF52DB9004800D8D20A /* CreateFolderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateFolderViewModel.swift; sourceTree = "<group>"; };
+		DEA35BF72DB9004C00D8D20A /* CreateFolderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateFolderView.swift; sourceTree = "<group>"; };
 		DEC48D732DA8F0D500AC1B3D /* CreateProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateProductViewController.swift; sourceTree = "<group>"; };
 		DEC48D762DA8F0E400AC1B3D /* CreateProductViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateProductViewModel.swift; sourceTree = "<group>"; };
 		DEC48D782DA8F0E800AC1B3D /* CreateProductView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateProductView.swift; sourceTree = "<group>"; };
@@ -1302,6 +1308,7 @@
 		DEA35BE42DB8F27100D8D20A /* Folders */ = {
 			isa = PBXGroup;
 			children = (
+				DEA35BF22DB9003400D8D20A /* CreateFolder */,
 				DEA35BE52DB8F27600D8D20A /* Folders */,
 			);
 			path = Folders;
@@ -1333,6 +1340,16 @@
 				DEA35BF02DB8F3E100D8D20A /* FoldersCollectionCell.swift */,
 			);
 			path = CollectionView;
+			sourceTree = "<group>";
+		};
+		DEA35BF22DB9003400D8D20A /* CreateFolder */ = {
+			isa = PBXGroup;
+			children = (
+				DEA35BF32DB9004400D8D20A /* CreateFolderViewController.swift */,
+				DEA35BF52DB9004800D8D20A /* CreateFolderViewModel.swift */,
+				DEA35BF72DB9004C00D8D20A /* CreateFolderView.swift */,
+			);
+			path = CreateFolder;
 			sourceTree = "<group>";
 		};
 		DEC48D752DA8F0D900AC1B3D /* Create */ = {
@@ -1689,6 +1706,7 @@
 				DEDD652F2DAD05BF00867482 /* CPPhotosCollectionView.swift in Sources */,
 				DE522C562DB0E16D007C6BD6 /* CreateMetaFieldView.swift in Sources */,
 				DEA35B9F2DB69FB400D8D20A /* ProfileStatistics.swift in Sources */,
+				DEA35BF62DB9004800D8D20A /* CreateFolderViewModel.swift in Sources */,
 				DE0AA7882DA4F318005DFC44 /* IAPProduct.swift in Sources */,
 				DE0AA8AB2DA536C2005DFC44 /* STLinksCell.swift in Sources */,
 				DE0AA78B2DA4F318005DFC44 /* PaddingLabel.swift in Sources */,
@@ -1762,6 +1780,7 @@
 				DE522C692DB0EF19007C6BD6 /* CreateWebLinkField.swift in Sources */,
 				DE522C612DB0EEFB007C6BD6 /* CreateDNField.swift in Sources */,
 				DEE48BC42DA7A07E002CD05A /* ScannerControlsView.swift in Sources */,
+				DEA35BF82DB9004C00D8D20A /* CreateFolderView.swift in Sources */,
 				DE0AA7F02DA4F318005DFC44 /* TakePhoto.swift in Sources */,
 				DE522C652DB0EF09007C6BD6 /* CreateDateField.swift in Sources */,
 				DEA35BDA2DB8BF6000D8D20A /* AllProductsViewModel.swift in Sources */,
@@ -1775,6 +1794,7 @@
 				DEA35BB32DB75CE700D8D20A /* ITUnlockAccessCell.swift in Sources */,
 				DE1E60FC2DA68036006CF764 /* SearchViewModel.swift in Sources */,
 				DE0AA7FD2DA4F318005DFC44 /* Weak.swift in Sources */,
+				DEA35BF42DB9004400D8D20A /* CreateFolderViewController.swift in Sources */,
 				DEE230B72DAF9572008DD773 /* CPTableAddFieldCell.swift in Sources */,
 				DE0AA8062DA4F318005DFC44 /* SceneDelegate.swift in Sources */,
 				DE0AA8092DA4F318005DFC44 /* PaygateInfoView.swift in Sources */,

@@ -8,7 +8,7 @@
 import RxSwift
 
 protocol FoldersManagerProtocol {
-    func create(title: String, notes: String?) -> Single<Folder?>
+    func create(title: String, notes: String?) -> Single<RequestResult>
     func obtain(page: Int) -> Single<Page<[Folder]>?>
     func manage(
         folderId: String,
@@ -32,7 +32,7 @@ final class FoldersManager {
 
 // MARK: FoldersManagerProtocol
 extension FoldersManager: FoldersManagerProtocol {
-    func create(title: String, notes: String?) -> Single<Folder?> {
+    func create(title: String, notes: String?) -> Single<RequestResult> {
         let request = CreateFolderRequest(
             anonymousId: sessionManager.anonymousId,
             internalId: sessionManager.internalId,
@@ -42,11 +42,11 @@ extension FoldersManager: FoldersManagerProtocol {
         
         return restAPITransport
             .callServerApi(requestBody: request)
-            .map { Folder.map(createResponse: $0, title: title, notes: notes) }
-            .do(onSuccess: { folder in
-                guard let folder else { return }
+            .map { RequestResult.map(response: $0) }
+            .do(onSuccess: { result in
+                guard result.success else { return }
                 
-                FoldersMediator.shared.notifyCreated(folder: folder)
+                FoldersMediator.shared.notifyCreated()
             })
     }
     

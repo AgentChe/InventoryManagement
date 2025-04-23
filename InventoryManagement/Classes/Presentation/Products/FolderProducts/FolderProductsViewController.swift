@@ -86,8 +86,8 @@ final class FolderProductsViewController: UIViewController {
             .disposed(by: disposeBag)
         
         output.title
-            .drive(Binder(navigationItem) { base, title in
-                base.title = title
+            .drive(Binder(self) { base, title in
+                base.navigationItem.title = title
             })
             .disposed(by: disposeBag)
         
@@ -124,6 +124,9 @@ private extension FolderProductsViewController {
             navigationController?.popViewController(animated: true)
         case .confirmDelete(let folder):
             confirmDelete(folder: folder)
+        case .renameFolder(let folder):
+            let vc = CreateFolderViewController.edit(folder: folder)
+            present(vc, animated: false)
         }
     }
     
