@@ -176,3 +176,6 @@
 "DemoProduct.StanleyCup.Count" = "53 unit";
 "DemoProduct.VitaminC.Title" = "Vitamin C";
 "DemoProduct.VitaminC.Count" = "68 unit";
+
+// MARK: AllProducts
+"AllProducts.Title" = "Items";

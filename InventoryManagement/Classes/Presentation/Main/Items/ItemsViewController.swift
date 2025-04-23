@@ -22,12 +22,27 @@ final class ItemsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let output = viewModel.configure(input: ItemsViewModel.Input())
+        let output = viewModel.configure(input: ItemsViewModel.Input(
+            didTapAddFirstItem: mainView.tableView.didTapAddFirstItem,
+            didTapUnlockAccess: mainView.tableView.didTapUnlockAccess,
+            didSelectDemoProduct: mainView.tableView.didSelectDemoProduct,
+            didSelectFolder: mainView.tableView.didSelectFolder,
+            didTapAddNewFolder: mainView.tableView.didTapAddNewFolder,
+            didSelectProduct: mainView.tableView.didSelectProduct,
+            didTapProductMenu: mainView.tableView.didTapProductMenu,
+            didTapSeeAllBlock: mainView.tableView.didTapSeeAllBlock
+        ))
         
         output.elements
             .drive(Binder(mainView) { base, elements in
                 base.preloader.stopAnimating()
                 base.tableView.setup(elements: elements)
+            })
+            .disposed(by: disposeBag)
+        
+        output.action
+            .drive(Binder(self) { base, action in
+                base.action(action)
             })
             .disposed(by: disposeBag)
     }
@@ -44,5 +59,28 @@ extension ItemsViewController {
 
 // MARK: Private
 private extension ItemsViewController {
-    
+    func action(_ action: ItemsViewModel.Action) {
+        switch action {
+        case .openPaygate:
+            let vc = PaygateViewController.make()
+            present(vc, animated: true)
+        case .createProduct:
+            break // TODO
+        case .openDemoProduct(let demoProduct):
+            break // TODO
+        case .openFolder(let folder):
+            break // TODO
+        case .createFolder:
+            break // TODO
+        case .openProduct(let product):
+            CreateProductAssembly().edit(from: self, product: product)
+        case .openProductMenu(let product):
+            break // TODO
+        case .openFolders:
+            break // TODO
+        case .openAllProducts:
+            let vc = AllProductsViewController.allProducts()
+            navigationController?.pushViewController(vc, animated: true)
+        }
+    }
 }

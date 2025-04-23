@@ -14,10 +14,12 @@ final class ItemsTableView: UITableView {
     
     private lazy var didTapAddFirstItemTrigger = PublishRelay<Void>()
     private lazy var didTapUnlockAccessTrigger = PublishRelay<Void>()
+    private lazy var didSelectDemoProductTrigger = PublishRelay<DemoProduct>()
     private lazy var didSelectFolderTrigger = PublishRelay<Folder>()
     private lazy var didTapAddNewFolderTrigger = PublishRelay<Void>()
     private lazy var didSelectProductTrigger = PublishRelay<Product>()
     private lazy var didTapProductMenuTrigger = PublishRelay<Product>()
+    private lazy var didTapSeeAllBlockTrigger = PublishRelay<ITBlockTitleElement.Block>()
     
     override init(frame: CGRect, style: UITableView.Style) {
         super.init(frame: frame, style: style)
@@ -46,6 +48,10 @@ extension ItemsTableView {
         didTapUnlockAccessTrigger.asSignal()
     }
     
+    var didSelectDemoProduct: Signal<DemoProduct> {
+        didSelectDemoProductTrigger.asSignal()
+    }
+    
     var didSelectFolder: Signal<Folder> {
         didSelectFolderTrigger.asSignal()
     }
@@ -60,6 +66,10 @@ extension ItemsTableView {
     
     var didTapProductMenu: Signal<Product> {
         didTapProductMenuTrigger.asSignal()
+    }
+    
+    var didTapSeeAllBlock: Signal<ITBlockTitleElement.Block> {
+        didTapSeeAllBlockTrigger.asSignal()
     }
 }
 
@@ -88,6 +98,9 @@ extension ItemsTableView: UITableViewDataSource {
         case .block(let element):
             let cell = dequeueReusableCell(withIdentifier: String(describing: ITBlockTitleCell.self), for: indexPath) as! ITBlockTitleCell
             cell.setup(element: element)
+            cell.didTap = { [weak self] in
+                self?.didTapSeeAllBlockTrigger.accept(element.block)
+            }
             return cell
         case .demoProduct(let element):
             let cell = dequeueReusableCell(withIdentifier: String(describing: ITDemoProductCell.self), for: indexPath) as! ITDemoProductCell

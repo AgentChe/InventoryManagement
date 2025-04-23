@@ -8,6 +8,8 @@
 import UIKit
 
 final class ITBlockTitleCell: UITableViewCell {
+    var didTap: (() -> Void)?
+    
     lazy var label = makeLabel()
     lazy var seeAllButton = makeSeeAllButton()
     
@@ -47,6 +49,11 @@ extension ITBlockTitleCell {
         label.attributedText = title.attributed(with: attrs)
         
         seeAllButton.isHidden = element.seeAllHidden
+    }
+    
+    @objc
+    func seeAllTapped() {
+        didTap?()
     }
 }
 
@@ -95,6 +102,7 @@ private extension ITBlockTitleCell {
         view.backgroundColor = UIColor.clear
         view.setAttributedTitle("Items.SeeAll".localized.attributed(with: attrs), for: .normal)
         view.translatesAutoresizingMaskIntoConstraints = false
+        view.addTarget(self, action: #selector(seeAllTapped), for: .touchUpInside)
         contentView.addSubview(view)
         return view
     }
