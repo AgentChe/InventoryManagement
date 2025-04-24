@@ -117,6 +117,7 @@ private extension ITDemoProductCell {
 private extension ITDemoProductCell {
     func makeContainer() -> UIView {
         let view = UIView()
+        view.isUserInteractionEnabled = false
         view.backgroundColor = Appearance.mono100
         view.layer.cornerRadius = 24.scale
         view.layer.shadowColor = Appearance.mono200.withAlphaComponent(0.4).cgColor
@@ -138,6 +139,7 @@ private extension ITDemoProductCell {
     
     func makeTextContainer() -> UIView {
         let view = UIView()
+        view.isUserInteractionEnabled = false
         view.translatesAutoresizingMaskIntoConstraints = false
         container.addSubview(view)
         return view

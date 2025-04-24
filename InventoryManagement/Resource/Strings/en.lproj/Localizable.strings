@@ -193,3 +193,7 @@
 "CreateFolder.Title.Create" = "Create folder";
 "CreateFolder.Title.Edit" = "Change name";
 "CreateFolder.Placeholder" = "Name";
+
+// MARK: DemoProduct
+"DemoProduct.SP.Title" = "Stanley Cup";
+"DemoProduct.VitaminC.Title" = "Now Vitamin C 100 cpsl";

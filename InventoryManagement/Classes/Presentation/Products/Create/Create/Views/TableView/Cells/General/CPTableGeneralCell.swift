@@ -39,6 +39,7 @@ extension CPTableGeneralCell {
             generalInputView.titleField.setup(title: element.title)
             generalInputView.countField.setup(count: element.count)
             generalInputView.priceField.setup(value: element.priceValue)
+            generalInputView.priceField.setup(currency: element.priceCurrency)
             generalInputSetuped = true
         }
         generalInputView.priceField.setup(currency: element.priceCurrency)

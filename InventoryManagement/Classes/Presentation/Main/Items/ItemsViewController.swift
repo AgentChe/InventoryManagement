@@ -67,7 +67,8 @@ private extension ItemsViewController {
         case .createProduct:
             break // TODO
         case .openDemoProduct(let demoProduct):
-            break // TODO
+            let vc = DemoProductViewController.make(demoProduct: demoProduct.product)
+            present(vc, animated: true)
         case .openFolder(let folder):
             let vc = FolderProductsViewController.make(folder: folder)
             navigationController?.pushViewController(vc, animated: true)

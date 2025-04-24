@@ -151,6 +151,8 @@ extension ItemsTableView: UITableViewDelegate {
         switch elements[indexPath.row] {
         case .product(let product):
             didSelectProductTrigger.accept(product)
+        case .demoProduct(let demoProduct):
+            didSelectDemoProductTrigger.accept(demoProduct)
         default:
             return
         }

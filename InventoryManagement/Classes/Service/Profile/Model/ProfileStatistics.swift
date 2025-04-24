@@ -9,17 +9,19 @@ struct ProfileStatistics {
     let lastAddedProducts: [Product]
     let statistics: Statistics
     
+    // TODO
     init?(response: Any) {
-        guard
-            let json = response as? [String: Any],
-            let body = json["body"] as? [String: Any],
-            let productsArray = body["last_added"] as? [[String: Any]],
-            let statisticsJSON = body["statistics"] as? [String: Any],
-            let statistics = Statistics(json: statisticsJSON)
-        else { return nil }
-        
-        self.lastAddedProducts = productsArray.compactMap { Product(json: $0) }
-        self.statistics = statistics
+        return nil
+//        guard
+//            let json = response as? [String: Any],
+//            let body = json["body"] as? [String: Any],
+//            let productsArray = body["last_added"] as? [[String: Any]],
+//            let statisticsJSON = body["statistics"] as? [String: Any],
+//            let statistics = Statistics(json: statisticsJSON)
+//        else { return nil }
+//        
+//        self.lastAddedProducts = productsArray.compactMap { Product(json: $0) }
+//        self.statistics = statistics
     }
 }
 
