@@ -174,6 +174,9 @@
 "Items.Statistics.TotalPrice" = "Total Value";
 "Items.Statistics.FoldersCount" = "Folders";
 "Items.Statistics.TotalQTY" = "Total quantity";
+"Items.Duplicate" = "The product has been successfully duplicated";
+"Items.MoveToFolder" = "The product has been successfully moved";
+"Items.Delete" = "The product has been successfully deleted";
 
 // MARK: DemoProduct
 "DemoProduct.StanleyCup.Title" = "Stanley Cup";

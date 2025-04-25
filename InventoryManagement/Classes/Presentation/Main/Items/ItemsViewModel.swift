@@ -19,11 +19,16 @@ final class ItemsViewModel {
         case openProductMenu(Product)
         case openFolders
         case openAllProducts
+        case toast(String)
     }
+    
+    var tryAgain: ((Error) -> (Observable<Void>))?
     
     private lazy var productsManager = ProductsManager()
     private lazy var foldersManager = FoldersManager()
     private lazy var profileManager = ProfileManager()
+    
+    private lazy var observableRetrySingle = ObservableRetrySingle()
 }
 
 // MARK: Public
@@ -37,6 +42,9 @@ extension ItemsViewModel {
         let didSelectProduct: Signal<Product>
         let didTapProductMenu: Signal<Product>
         let didTapSeeAllBlock: Signal<ITBlockTitleElement.Block>
+        let didDuplicateProduct: Signal<Product>
+        let didMoveToFolder: Signal<(Product, Folder)>
+        let didDeleteProduct: Signal<Product>
     }
     
     struct Output {
@@ -54,7 +62,10 @@ extension ItemsViewModel {
                 didTapAddNewFolder: input.didTapAddNewFolder,
                 didSelectProduct: input.didSelectProduct,
                 didTapProductMenu: input.didTapProductMenu,
-                didTapSeeAllBlock: input.didTapSeeAllBlock
+                didTapSeeAllBlock: input.didTapSeeAllBlock,
+                didDuplicateProduct: input.didDuplicateProduct,
+                didMoveToFolder: input.didMoveToFolder,
+                didDeleteProduct: input.didDeleteProduct
             ),
             elements: makeElements(
                 statistics: makeStatistics(),
@@ -76,7 +87,10 @@ private extension ItemsViewModel {
         didTapAddNewFolder: Signal<Void>,
         didSelectProduct: Signal<Product>,
         didTapProductMenu: Signal<Product>,
-        didTapSeeAllBlock: Signal<ITBlockTitleElement.Block>
+        didTapSeeAllBlock: Signal<ITBlockTitleElement.Block>,
+        didDuplicateProduct: Signal<Product>,
+        didMoveToFolder: Signal<(Product, Folder)>,
+        didDeleteProduct: Signal<Product>
     ) -> Driver<Action> {
         let openPaygate = didTapUnlockAccess
             .map { Action.openPaygate }
@@ -119,6 +133,93 @@ private extension ItemsViewModel {
             }
             .asDriver(onErrorDriveWith: .never())
         
+        let duplicate = didDuplicateProduct
+            .flatMap { [weak self] product -> Driver<Action> in
+                guard let self else { return .never() }
+                
+                func source() -> Single<Action> {
+                    productsManager
+                        .duplicate(id: product.id)
+                        .map { result -> Action in
+                            guard result.success else {
+                                throw ContentError(.notContent)
+                            }
+                            
+                            return Action.toast("Items.Duplicate".localized)
+                        }
+                }
+                
+                func trigger(error: Error) -> Observable<Void> {
+                    tryAgain?(error) ?? .empty()
+                }
+                
+                return observableRetrySingle
+                    .retry(
+                        source: { source() },
+                        trigger: { trigger(error: $0) }
+                    )
+                    .asDriver(onErrorDriveWith: .never())
+            }
+        
+        let moveToFolder = didMoveToFolder
+            .flatMap { [weak self] product, folder -> Driver<Action> in
+                guard let self else { return .never() }
+                
+                func source() -> Single<Action> {
+                    foldersManager
+                        .move(
+                            targetFolderId: folder.id,
+                            productId: product.id
+                        )
+                        .map { result -> Action in
+                            guard result.success else {
+                                throw ContentError(.notContent)
+                            }
+                            
+                            return Action.toast("Items.MoveToFolder".localized)
+                        }
+                }
+                
+                func trigger(error: Error) -> Observable<Void> {
+                    tryAgain?(error) ?? .empty()
+                }
+                
+                return observableRetrySingle
+                    .retry(
+                        source: { source() },
+                        trigger: { trigger(error: $0) }
+                    )
+                    .asDriver(onErrorDriveWith: .never())
+            }
+        
+        let delete = didDeleteProduct
+            .flatMap { [weak self] product -> Driver<Action> in
+                guard let self else { return .never() }
+                
+                func source() -> Single<Action> {
+                    productsManager
+                        .delete(id: product.id)
+                        .map { result -> Action in
+                            guard result.success else {
+                                throw ContentError(.notContent)
+                            }
+                            
+                            return Action.toast("Items.Delete".localized)
+                        }
+                }
+                
+                func trigger(error: Error) -> Observable<Void> {
+                    tryAgain?(error) ?? .empty()
+                }
+                
+                return observableRetrySingle
+                    .retry(
+                        source: { source() },
+                        trigger: { trigger(error: $0) }
+                    )
+                    .asDriver(onErrorDriveWith: .never())
+            }
+        
         return Driver
             .merge(
                 openPaygate,
@@ -128,7 +229,10 @@ private extension ItemsViewModel {
                 createFolder,
                 openProduct,
                 openProductMenu,
-                openBlock
+                openBlock,
+                duplicate,
+                moveToFolder,
+                delete
             )
     }
     
@@ -221,7 +325,8 @@ private extension ItemsViewModel {
                 FoldersMediator.shared.didDeleted.map { _ in Void() },
                 ProductsMediator.shared.didCreatedProduct.map { _ in Void() },
                 ProductsMediator.shared.didEditedProduct.map { _ in Void() },
-                ProductsMediator.shared.didDeletedProduct.map { _ in Void() }
+                ProductsMediator.shared.didDeletedProduct.map { _ in Void() },
+                ProductsMediator.shared.didDuplicatedProduct.map { _ in Void() }
             )
             .startWith(())
             .asDriver(onErrorDriveWith: .never())
@@ -262,7 +367,8 @@ private extension ItemsViewModel {
             .merge(
                 ProductsMediator.shared.didCreatedProduct,
                 ProductsMediator.shared.didDeletedProduct.map { _ in Void() },
-                ProductsMediator.shared.didEditedProduct.map { _ in Void() }
+                ProductsMediator.shared.didEditedProduct.map { _ in Void() },
+                ProductsMediator.shared.didDuplicatedProduct.map { _ in Void() }
             )
             .startWith(())
             .asDriver(onErrorDriveWith: .never())

@@ -7,6 +7,8 @@
 
 import UIKit
 import RxSwift
+import RxCocoa
+import Toast_Swift
 
 final class ItemsViewController: UIViewController {
     private lazy var mainView = ItemsView()
@@ -15,12 +17,20 @@ final class ItemsViewController: UIViewController {
     
     private lazy var disposeBag = DisposeBag()
     
+    private lazy var didDuplicateProductTrigger = PublishRelay<Product>()
+    private lazy var didMoveToFolderTrigger = PublishRelay<(Product, Folder)>()
+    private lazy var didDeleteProductTrigger = PublishRelay<Product>()
+    
     override func loadView() {
         view = mainView
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        viewModel.tryAgain = { [weak self] error -> Observable<Void> in
+            self?.open(error: error) ?? .never()
+        }
         
         let output = viewModel.configure(input: ItemsViewModel.Input(
             didTapAddFirstItem: mainView.tableView.didTapAddFirstItem,
@@ -30,7 +40,10 @@ final class ItemsViewController: UIViewController {
             didTapAddNewFolder: mainView.tableView.didTapAddNewFolder,
             didSelectProduct: mainView.tableView.didSelectProduct,
             didTapProductMenu: mainView.tableView.didTapProductMenu,
-            didTapSeeAllBlock: mainView.tableView.didTapSeeAllBlock
+            didTapSeeAllBlock: mainView.tableView.didTapSeeAllBlock,
+            didDuplicateProduct: didDuplicateProductTrigger.asSignal(),
+            didMoveToFolder: didMoveToFolderTrigger.asSignal(),
+            didDeleteProduct: didDeleteProductTrigger.asSignal()
         ))
         
         output.elements
@@ -78,13 +91,47 @@ private extension ItemsViewController {
         case .openProduct(let product):
             CreateProductAssembly().edit(from: self, product: product)
         case .openProductMenu(let product):
-            break // TODO
+            let menu = ProductMenuActionSheet().actionSheet(
+                product: product,
+                duplicate: { [weak self] product in
+                    self?.didDuplicateProductTrigger.accept(product)
+                },
+                moveToFolder: { [weak self] product in
+                    guard let self else { return }
+                    
+                    let vc = WhereMoveFoldersViewController.make { [weak self] folder in
+                        self?.didMoveToFolderTrigger.accept((product, folder))
+                    }
+                    present(vc, animated: true)
+                },
+                delete: { [weak self] product in
+                    self?.didDeleteProductTrigger.accept(product)
+                }
+            )
+            
+            present(menu, animated: true)
         case .openFolders:
             let vc = FoldersViewController.make()
             navigationController?.pushViewController(vc, animated: true)
         case .openAllProducts:
             let vc = AllProductsViewController.make()
             navigationController?.pushViewController(vc, animated: true)
+        case .toast(let message):
+            mainView.makeToast(message)
         }
+    }
+    
+    func open(error: Error) -> Observable<Void> {
+        Observable<Void>
+            .create { [weak self] observe in
+                guard let self else { return Disposables.create() }
+                
+                let vc = TryAgainViewController.make(error: error) {
+                    observe.onNext(())
+                }
+                self.present(vc, animated: true)
+                
+                return Disposables.create()
+            }
     }
 }
