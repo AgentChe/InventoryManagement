@@ -13,6 +13,7 @@ struct Product {
     let image: URL
     let count: Int
     let barcode: String
+    let folderId: String?
 }
 
 // MARK: Public
@@ -48,5 +49,6 @@ extension Product {
         self.image = image
         self.count = count
         self.barcode = barcode
+        self.folderId = json["folder"] as? String
     }
 }

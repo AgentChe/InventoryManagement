@@ -18,7 +18,6 @@ protocol FoldersManagerProtocol {
     func rename(id: String, title: String, notes: String?) -> Single<RequestResult>
     func delete(id: String) -> Single<RequestResult>
     func move(
-        currentFolderId: String,
         targetFolderId: String,
         productId: String
     ) -> Single<RequestResult>
@@ -123,14 +122,12 @@ extension FoldersManager: FoldersManagerProtocol {
     }
     
     func move(
-        currentFolderId: String,
         targetFolderId: String,
         productId: String
     ) -> Single<RequestResult> {
         let request = FolderMoveRequest(
             anonymousId: sessionManager.anonymousId,
             internalId: sessionManager.internalId,
-            currentFolderId: currentFolderId,
             targetFolderId: targetFolderId,
             productId: productId
         )
@@ -143,7 +140,6 @@ extension FoldersManager: FoldersManagerProtocol {
                 
                 let moved: FoldersMediator.Moved = (
                     productId: productId,
-                    fromFolderId: currentFolderId,
                     intoFolderId: targetFolderId
                 )
                 FoldersMediator.shared.notifyMoved(moved: moved)

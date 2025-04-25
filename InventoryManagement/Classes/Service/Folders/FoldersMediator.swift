@@ -9,7 +9,7 @@ import RxSwift
 import RxCocoa
 
 final class FoldersMediator {
-    typealias Moved = (productId: String, fromFolderId: String, intoFolderId: String)
+    typealias Moved = (productId: String, intoFolderId: String)
     
     static let shared = FoldersMediator()
     

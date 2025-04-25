@@ -164,6 +164,11 @@
 		DE8AED492DB9FB1A00E2E1CF /* DemoProductTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8AED482DB9FB1A00E2E1CF /* DemoProductTableView.swift */; };
 		DE8AED4B2DB9FB2000E2E1CF /* DemoProductTableElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8AED4A2DB9FB2000E2E1CF /* DemoProductTableElement.swift */; };
 		DE8AED4E2DB9FD6B00E2E1CF /* DPTableGeneralCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8AED4D2DB9FD6B00E2E1CF /* DPTableGeneralCell.swift */; };
+		DE8AED522DBA4C5B00E2E1CF /* ProductMenuActionSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8AED512DBA4C5B00E2E1CF /* ProductMenuActionSheet.swift */; };
+		DE8AED582DBA513C00E2E1CF /* WhereMoveFoldersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8AED572DBA513C00E2E1CF /* WhereMoveFoldersView.swift */; };
+		DE8AED5A2DBA514D00E2E1CF /* WhereMoveFoldersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8AED592DBA514D00E2E1CF /* WhereMoveFoldersViewController.swift */; };
+		DE8AED5C2DBA515200E2E1CF /* WhereMoveFoldersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8AED5B2DBA515200E2E1CF /* WhereMoveFoldersViewModel.swift */; };
+		DE8AED612DBBAC4E00E2E1CF /* DuplicateProductRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8AED602DBBAC4E00E2E1CF /* DuplicateProductRequest.swift */; };
 		DEA35B9F2DB69FB400D8D20A /* ProfileStatistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA35B9E2DB69FB400D8D20A /* ProfileStatistics.swift */; };
 		DEA35BA12DB6A45300D8D20A /* ObtainProfileStatisticsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA35BA02DB6A45300D8D20A /* ObtainProfileStatisticsRequest.swift */; };
 		DEA35BA42DB6A52D00D8D20A /* ItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA35BA32DB6A52D00D8D20A /* ItemsViewController.swift */; };
@@ -403,6 +408,11 @@
 		DE8AED482DB9FB1A00E2E1CF /* DemoProductTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoProductTableView.swift; sourceTree = "<group>"; };
 		DE8AED4A2DB9FB2000E2E1CF /* DemoProductTableElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoProductTableElement.swift; sourceTree = "<group>"; };
 		DE8AED4D2DB9FD6B00E2E1CF /* DPTableGeneralCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DPTableGeneralCell.swift; sourceTree = "<group>"; };
+		DE8AED512DBA4C5B00E2E1CF /* ProductMenuActionSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductMenuActionSheet.swift; sourceTree = "<group>"; };
+		DE8AED572DBA513C00E2E1CF /* WhereMoveFoldersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhereMoveFoldersView.swift; sourceTree = "<group>"; };
+		DE8AED592DBA514D00E2E1CF /* WhereMoveFoldersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhereMoveFoldersViewController.swift; sourceTree = "<group>"; };
+		DE8AED5B2DBA515200E2E1CF /* WhereMoveFoldersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhereMoveFoldersViewModel.swift; sourceTree = "<group>"; };
+		DE8AED602DBBAC4E00E2E1CF /* DuplicateProductRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DuplicateProductRequest.swift; sourceTree = "<group>"; };
 		DEA35B9E2DB69FB400D8D20A /* ProfileStatistics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileStatistics.swift; sourceTree = "<group>"; };
 		DEA35BA02DB6A45300D8D20A /* ObtainProfileStatisticsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObtainProfileStatisticsRequest.swift; sourceTree = "<group>"; };
 		DEA35BA32DB6A52D00D8D20A /* ItemsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsViewController.swift; sourceTree = "<group>"; };
@@ -600,6 +610,7 @@
 				DE0AA5A12DA4F318005DFC44 /* PaddingLabel.swift */,
 				DE0AA5A22DA4F318005DFC44 /* PaddingTextField.swift */,
 				DE0AA5A42DA4F318005DFC44 /* TapAreaButton.swift */,
+				DE8AED512DBA4C5B00E2E1CF /* ProductMenuActionSheet.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -1034,6 +1045,7 @@
 				DE1E60DA2DA662AE006CF764 /* UploadImageRequest.swift */,
 				DE1E60E02DA66566006CF764 /* ObtainProductsRequest.swift */,
 				DEE230C02DAFDCEF008DD773 /* DeleteProductRequest.swift */,
+				DE8AED602DBBAC4E00E2E1CF /* DuplicateProductRequest.swift */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -1235,6 +1247,16 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		DE8AED562DBA513300E2E1CF /* WhereMoveFolders */ = {
+			isa = PBXGroup;
+			children = (
+				DE8AED592DBA514D00E2E1CF /* WhereMoveFoldersViewController.swift */,
+				DE8AED5B2DBA515200E2E1CF /* WhereMoveFoldersViewModel.swift */,
+				DE8AED572DBA513C00E2E1CF /* WhereMoveFoldersView.swift */,
+			);
+			path = WhereMoveFolders;
+			sourceTree = "<group>";
+		};
 		DEA35BA22DB6A52400D8D20A /* Items */ = {
 			isa = PBXGroup;
 			children = (
@@ -1358,6 +1380,7 @@
 		DEA35BE42DB8F27100D8D20A /* Folders */ = {
 			isa = PBXGroup;
 			children = (
+				DE8AED562DBA513300E2E1CF /* WhereMoveFolders */,
 				DEA35BF22DB9003400D8D20A /* CreateFolder */,
 				DEA35BE52DB8F27600D8D20A /* Folders */,
 			);
@@ -1730,6 +1753,7 @@
 				DE8AED4E2DB9FD6B00E2E1CF /* DPTableGeneralCell.swift in Sources */,
 				DEDD653E2DAD67B000867482 /* CPGeneralInputView.swift in Sources */,
 				DE0AA7732DA4F318005DFC44 /* UIDevice+Extension.swift in Sources */,
+				DE8AED5C2DBA515200E2E1CF /* WhereMoveFoldersViewModel.swift in Sources */,
 				DE0AA7752DA4F318005DFC44 /* ProfileManager.swift in Sources */,
 				DE522C5F2DB0EEF2007C6BD6 /* CreateRNField.swift in Sources */,
 				DE1E60CD2DA64F69006CF764 /* Page.swift in Sources */,
@@ -1747,6 +1771,7 @@
 				DE1E60D92DA66061006CF764 /* ProductDetails.swift in Sources */,
 				DEA35BB72DB75D0500D8D20A /* ITBlockTitleCell.swift in Sources */,
 				DE522C4F2DB0D7FB007C6BD6 /* SMFTableElement.swift in Sources */,
+				DE8AED582DBA513C00E2E1CF /* WhereMoveFoldersView.swift in Sources */,
 				DE0AA7822DA4F318005DFC44 /* GlobalDefinitions.swift in Sources */,
 				DE0AA8A62DA536AE005DFC44 /* SettingsTableElement.swift in Sources */,
 				DE0AA7862DA4F318005DFC44 /* String+Extension.swift in Sources */,
@@ -1782,6 +1807,7 @@
 				DEA35BC82DB7AB7E00D8D20A /* ITStatisticsItemView.swift in Sources */,
 				DE1E60DF2DA66407006CF764 /* Product.swift in Sources */,
 				DEA35BD12DB7ECBC00D8D20A /* ITFoldersCollectionAddCell.swift in Sources */,
+				DE8AED5A2DBA514D00E2E1CF /* WhereMoveFoldersViewController.swift in Sources */,
 				DE0AA7A32DA4F318005DFC44 /* ScreenSize.swift in Sources */,
 				DE0AA7A72DA4F318005DFC44 /* SignError.swift in Sources */,
 				DE0AA7AB2DA4F318005DFC44 /* ObservableRetrySingle.swift in Sources */,
@@ -1798,6 +1824,7 @@
 				DE0AA7AF2DA4F318005DFC44 /* NetworkError.swift in Sources */,
 				DE0AA7B22DA4F318005DFC44 /* IAPErrorHelper.swift in Sources */,
 				DE0AA7B52DA4F318005DFC44 /* APIFormDataRequestBody.swift in Sources */,
+				DE8AED522DBA4C5B00E2E1CF /* ProductMenuActionSheet.swift in Sources */,
 				DE1E60CF2DA65811006CF764 /* ScanBarcodeRequest.swift in Sources */,
 				DE0AA7B72DA4F318005DFC44 /* RequestReview.swift in Sources */,
 				DE0AA7B82DA4F318005DFC44 /* PurchaseValidationObserver.swift in Sources */,
@@ -1836,6 +1863,7 @@
 				DEA35BF82DB9004C00D8D20A /* CreateFolderView.swift in Sources */,
 				DE0AA7F02DA4F318005DFC44 /* TakePhoto.swift in Sources */,
 				DE522C652DB0EF09007C6BD6 /* CreateDateField.swift in Sources */,
+				DE8AED612DBBAC4E00E2E1CF /* DuplicateProductRequest.swift in Sources */,
 				DEA35BDA2DB8BF6000D8D20A /* AllProductsViewModel.swift in Sources */,
 				DE0AA7F22DA4F318005DFC44 /* UIView+RxExtension.swift in Sources */,
 				DEA35BD32DB7F52300D8D20A /* ITLastAddedCollectionView.swift in Sources */,

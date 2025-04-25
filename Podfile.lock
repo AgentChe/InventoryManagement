@@ -10,6 +10,7 @@ PODS:
     - RxSwift (= 6.9.0)
   - RxSwift (6.9.0)
   - SwiftyStoreKit (0.16.1)
+  - Toast-Swift (5.1.1)
 
 DEPENDENCIES:
   - Alamofire
@@ -19,6 +20,7 @@ DEPENDENCIES:
   - RxCocoa
   - RxSwift
   - SwiftyStoreKit
+  - Toast-Swift
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
@@ -29,6 +31,7 @@ SPEC REPOS:
     - RxRelay
     - RxSwift
     - SwiftyStoreKit
+    - Toast-Swift
 
 EXTERNAL SOURCES:
   OtterScaleiOS:
@@ -48,7 +51,8 @@ SPEC CHECKSUMS:
   RxRelay: 6b0c930e5cef57d5fe2032571e5e65b78e3cbdb1
   RxSwift: 31649ace6aceeb422e16ff71c60804f9c3281ed9
   SwiftyStoreKit: 6b9c08810269f030586dac1fae8e75871a82e84a
+  Toast-Swift: 7a03a532afe3a560d4044bc7c237e2864d295173
 
-PODFILE CHECKSUM: 29604d8415ad3cc36c322980a6d9816920a2520e
+PODFILE CHECKSUM: 7caa6039bb1b68662376e667d1dfc1858e86534b
 
 COCOAPODS: 1.16.2

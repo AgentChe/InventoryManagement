@@ -14,12 +14,18 @@ final class SearchViewModel {
         case openDetails(Product)
         case openPaygate
         case createNewProduct
+        case toast(String)
     }
+    
+    var tryAgain: ((Error) -> (Observable<Void>))?
     
     private lazy var firstPageActivity = RxActivityIndicator()
     private lazy var paginationActivity = RxActivityIndicator()
     
     private lazy var productsManager = ProductsManager()
+    private lazy var foldersManager = FoldersManager()
+    
+    private lazy var observableRetrySingle = ObservableRetrySingle()
 }
 
 // MARK: Public
@@ -31,6 +37,9 @@ extension SearchViewModel {
         let didTapMenu: Signal<Product>
         let didSelectProduct: Signal<Product>
         let didTapCreateProduct: Signal<Void>
+        let didDuplicateProduct: Signal<Product>
+        let didMoveToFolder: Signal<(Product, Folder)>
+        let didDeleteProduct: Signal<Product>
     }
     
     struct Output {
@@ -42,16 +51,24 @@ extension SearchViewModel {
     }
     
     func configure(input: Input) -> Output {
+        let startSearch = Signal
+            .merge(
+                input.didTapSearch.startWith(()),
+                ProductsMediator.shared.didEditedProduct.map { _ in Void() },
+                ProductsMediator.shared.didDuplicatedProduct.map { _ in Void() },
+                ProductsMediator.shared.didCreatedProduct.map { _ in Void() }
+            )
+            .asDriver(onErrorDriveWith: .never())
         let inputText = input.didChangedInputText
             .asDriver(onErrorDriveWith: .never())
             .startWith("")
         let fetchPageProducts = makePageProducts(
-            didTapSearch: input.didTapSearch,
+            startSearch: startSearch,
             inputText: inputText,
             didScrollToBottom: input.didScrollToBottom
         )
         let allProducts = makeAllProducts(
-            didTapSearch: input.didTapSearch,
+            startSearch: startSearch,
             fetchPageProducts: fetchPageProducts
         )
         let firstPageActivity = firstPageActivity.asDriver()
@@ -63,7 +80,10 @@ extension SearchViewModel {
             action: makeAction(
                 didTapMenu: input.didTapMenu,
                 didSelectProduct: input.didSelectProduct,
-                didTapCreateProduct: input.didTapCreateProduct
+                didTapCreateProduct: input.didTapCreateProduct,
+                didDuplicateProduct: input.didDuplicateProduct,
+                didMoveToFolder: input.didMoveToFolder,
+                didDeleteProduct: input.didDeleteProduct
             ),
             isEmpty: allProducts.map { $0.isEmpty }
         )
@@ -75,7 +95,10 @@ private extension SearchViewModel {
     func makeAction(
         didTapMenu: Signal<Product>,
         didSelectProduct: Signal<Product>,
-        didTapCreateProduct: Signal<Void>
+        didTapCreateProduct: Signal<Void>,
+        didDuplicateProduct: Signal<Product>,
+        didMoveToFolder: Signal<(Product, Folder)>,
+        didDeleteProduct: Signal<Product>
     ) -> Driver<Action> {
         let openMenu = didTapMenu
             .map { product -> Action in
@@ -95,26 +118,124 @@ private extension SearchViewModel {
             }
             .asDriver(onErrorDriveWith: .never())
         
+        let duplicate = didDuplicateProduct
+            .flatMap { [weak self] product -> Driver<Action> in
+                guard let self else { return .never() }
+                
+                func source() -> Single<Action> {
+                    productsManager
+                        .duplicate(id: product.id)
+                        .map { result -> Action in
+                            guard result.success else {
+                                throw ContentError(.notContent)
+                            }
+                            
+                            return Action.toast("Search.Duplicate".localized)
+                        }
+                }
+                
+                func trigger(error: Error) -> Observable<Void> {
+                    tryAgain?(error) ?? .empty()
+                }
+                
+                return observableRetrySingle
+                    .retry(
+                        source: { source() },
+                        trigger: { trigger(error: $0) }
+                    )
+                    .asDriver(onErrorDriveWith: .never())
+            }
+        
+        let moveToFolder = didMoveToFolder
+            .flatMap { [weak self] product, folder -> Driver<Action> in
+                guard let self else { return .never() }
+                
+                func source() -> Single<Action> {
+                    foldersManager
+                        .move(
+                            currentFolderId: product.folderId,
+                            targetFolderId: folder.id,
+                            productId: product.id
+                        )
+                        .map { result -> Action in
+                            guard result.success else {
+                                throw ContentError(.notContent)
+                            }
+                            
+                            return Action.toast("Search.MoveToFolder".localized)
+                        }
+                }
+                
+                func trigger(error: Error) -> Observable<Void> {
+                    tryAgain?(error) ?? .empty()
+                }
+                
+                return observableRetrySingle
+                    .retry(
+                        source: { source() },
+                        trigger: { trigger(error: $0) }
+                    )
+                    .asDriver(onErrorDriveWith: .never())
+            }
+        
+        let delete = didDeleteProduct
+            .flatMap { [weak self] product -> Driver<Action> in
+                guard let self else { return .never() }
+                
+                func source() -> Single<Action> {
+                    productsManager
+                        .delete(id: product.id)
+                        .map { result -> Action in
+                            guard result.success else {
+                                throw ContentError(.notContent)
+                            }
+                            
+                            return Action.toast("Search.Delete".localized)
+                        }
+                }
+                
+                func trigger(error: Error) -> Observable<Void> {
+                    tryAgain?(error) ?? .empty()
+                }
+                
+                return observableRetrySingle
+                    .retry(
+                        source: { source() },
+                        trigger: { trigger(error: $0) }
+                    )
+                    .asDriver(onErrorDriveWith: .never())
+            }
+        
         return Driver
-            .merge(openMenu, openDetails, createNewProduct)
+            .merge(
+                openMenu,
+                openDetails,
+                createNewProduct,
+                duplicate,
+                moveToFolder,
+                delete
+            )
     }
     
     func makeAllProducts(
-        didTapSearch: Signal<Void>,
+        startSearch: Driver<Void>,
         fetchPageProducts: Driver<Page<[Product]>>
     ) -> Driver<[Product]> {
         enum Action {
             case startSearch
             case fetch(Page<[Product]>)
+            case delete(String)
         }
         
         let action = Driver
             .merge(
-                didTapSearch
-                    .asDriver(onErrorDriveWith: .never())
+                startSearch
                     .map { _ in Action.startSearch },
                 fetchPageProducts
-                    .map { Action.fetch($0) }
+                    .map { Action.fetch($0) },
+                ProductsMediator.shared.didDeletedProduct
+                    .asDriver(onErrorDriveWith: .never())
+                    .map { Action.delete($0) }
             )
         
         return action
@@ -124,13 +245,17 @@ private extension SearchViewModel {
                     return []
                 case .fetch(let page):
                     return page.info.current == 1 ? page.elements : (allProducts + page.elements)
+                case .delete(let id):
+                    var result = allProducts
+                    result.removeAll(where: { $0.id == id })
+                    return result
                 }
             }
             .startWith([])
     }
     
     func makePageProducts(
-        didTapSearch: Signal<Void>,
+        startSearch: Driver<Void>,
         inputText: Driver<String>,
         didScrollToBottom: Signal<Void>
     ) -> Driver<Page<[Product]>> {
@@ -150,10 +275,8 @@ private extension SearchViewModel {
                 })
         }
         
-        let firstPage = didTapSearch
-            .asDriver(onErrorDriveWith: .never())
+        let firstPage = startSearch
             .withLatestFrom(inputText)
-            .startWith("")
             .flatMapLatest { inputText -> Driver<Page<[Product]>> in
                 fetch(page: 1, inputText: inputText)
             }

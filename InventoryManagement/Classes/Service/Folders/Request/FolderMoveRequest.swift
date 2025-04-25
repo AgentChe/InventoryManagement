@@ -10,7 +10,6 @@ import Alamofire
 struct FolderMoveRequest: APIRequestBody {
     let anonymousId: String
     let internalId: String
-    let currentFolderId: String
     let targetFolderId: String
     let productId: String
     
@@ -32,7 +31,6 @@ struct FolderMoveRequest: APIRequestBody {
         [
             "anonymous_id": anonymousId,
             "internal_id": internalId,
-            "folder_id": currentFolderId,
             "target_folder_id": targetFolderId,
             "product_id": productId
         ]

@@ -38,6 +38,7 @@ protocol ProductsManagerProtocol {
         page: Int
     ) -> Single<Page<[Product]>?>
     func delete(id: String) -> Single<RequestResult>
+    func duplicate(id: String) -> Single<RequestResult>
 }
 
 final class ProductsManager {
@@ -184,6 +185,23 @@ extension ProductsManager: ProductsManagerProtocol {
                 guard result.success else { return }
                 
                 ProductsMediator.shared.notifyDeleteProduct(id: id)
+            })
+    }
+    
+    func duplicate(id: String) -> Single<RequestResult> {
+        let request = DuplicateProductRequest(
+            anonymousId: sessionManager.anonymousId,
+            internalId: sessionManager.internalId,
+            id: id
+        )
+        
+        return restAPITransport
+            .callServerApi(requestBody: request)
+            .map { RequestResult.map(response: $0) }
+            .do(onSuccess: { result in
+                guard result.success else { return }
+                
+                ProductsMediator.shared.notifyDuplicateProduct()
             })
     }
 }

@@ -88,6 +88,9 @@
 "Search.Empty.Title" = "Nothing found";
 "Search.Empty.SubTitle" = "Scan barcode or add new item\nmanually";
 "Search.Empty.Button" = "Add new";
+"Search.Duplicate" = "The product has been successfully duplicated";
+"Search.MoveToFolder" = "The product has been successfully moved";
+"Search.Delete" = "The product has been successfully deleted";
 
 // MARK: Scanner
 "Scanner.Title" = "Scan";
@@ -197,3 +200,10 @@
 // MARK: DemoProduct
 "DemoProduct.SP.Title" = "Stanley Cup";
 "DemoProduct.VitaminC.Title" = "Now Vitamin C 100 cpsl";
+
+// MARK: ProductMenu
+"ProductMenu.Duplicate" = "Duplicate";
+"ProductMenu.MoveToFolder" = "Move to Folder";
+
+// MARK: WhereMoveFolders
+"WhereMoveFolders.Title" = "Where to move?";

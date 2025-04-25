@@ -8,6 +8,7 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import Toast_Swift
 
 final class SearchViewController: UIViewController {
     private lazy var mainView = SearchView()
@@ -16,6 +17,10 @@ final class SearchViewController: UIViewController {
     
     private lazy var disposeBag = DisposeBag()
     
+    private lazy var didDuplicateProductTrigger = PublishRelay<Product>()
+    private lazy var didMoveToFolderTrigger = PublishRelay<(Product, Folder)>()
+    private lazy var didDeleteProductTrigger = PublishRelay<Product>()
+    
     override func loadView() {
         view = mainView
     }
@@ -23,13 +28,20 @@ final class SearchViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        viewModel.tryAgain = { [weak self] error -> Observable<Void> in
+            self?.open(error: error) ?? .never()
+        }
+        
         let output = viewModel.configure(input: SearchViewModel.Input(
             didChangedInputText: mainView.searchField.changedText,
             didTapSearch: mainView.searchField.didTapSearch,
             didScrollToBottom: mainView.tableView.didScrollToBottom,
             didTapMenu: mainView.tableView.didTapMenu,
             didSelectProduct: mainView.tableView.didSelect,
-            didTapCreateProduct: mainView.emptyView.addNewButton.rx.tap.asSignal()
+            didTapCreateProduct: mainView.emptyView.addNewButton.rx.tap.asSignal(),
+            didDuplicateProduct: didDuplicateProductTrigger.asSignal(),
+            didMoveToFolder: didMoveToFolderTrigger.asSignal(),
+            didDeleteProduct: didDeleteProductTrigger.asSignal()
         ))
         
         Driver
@@ -91,7 +103,25 @@ private extension SearchViewController {
     func action(_ action: SearchViewModel.Action) {
         switch action {
         case .openMenu(let product):
-            print("open menu") // TODO
+            let menu = ProductMenuActionSheet().actionSheet(
+                product: product,
+                duplicate: { [weak self] product in
+                    self?.didDuplicateProductTrigger.accept(product)
+                },
+                moveToFolder: { [weak self] product in
+                    guard let self else { return }
+                    
+                    let vc = WhereMoveFoldersViewController.make { [weak self] folder in
+                        self?.didMoveToFolderTrigger.accept((product, folder))
+                    }
+                    present(vc, animated: true)
+                },
+                delete: { [weak self] product in
+                    self?.didDeleteProductTrigger.accept(product)
+                }
+            )
+            
+            present(menu, animated: true)
         case .openDetails(let product):
             CreateProductAssembly().edit(from: self, product: product)
         case .openPaygate:
@@ -99,6 +129,22 @@ private extension SearchViewController {
             present(vc, animated: true)
         case .createNewProduct:
             CreateProductAssembly().manually(from: self)
+        case .toast(let message):
+            mainView.makeToast(message)
         }
+    }
+    
+    func open(error: Error) -> Observable<Void> {
+        Observable<Void>
+            .create { [weak self] observe in
+                guard let self else { return Disposables.create() }
+                
+                let vc = TryAgainViewController.make(error: error) {
+                    observe.onNext(())
+                }
+                self.present(vc, animated: true)
+                
+                return Disposables.create()
+            }
     }
 }
