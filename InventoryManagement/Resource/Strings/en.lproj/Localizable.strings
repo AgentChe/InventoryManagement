@@ -183,6 +183,9 @@
 
 // MARK: AllProducts
 "AllProducts.Title" = "Items";
+"AllProducts.Duplicate" = "The product has been successfully duplicated";
+"AllProducts.MoveToFolder" = "The product has been successfully moved";
+"AllProducts.Delete" = "The product has been successfully deleted";
 
 // MARK: Folders
 "Folders.Title" = "All Folders";

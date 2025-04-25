@@ -14,12 +14,18 @@ final class AllProductsViewModel {
         case openDetails(Product)
         case openPaygate
         case createNewProduct
+        case toast(String)
     }
+    
+    var tryAgain: ((Error) -> (Observable<Void>))?
     
     private lazy var firstPageActivity = RxActivityIndicator()
     private lazy var paginationActivity = RxActivityIndicator()
     
     private lazy var productsManager = ProductsManager()
+    private lazy var foldersManager = FoldersManager()
+    
+    private lazy var observableRetrySingle = ObservableRetrySingle()
 }
 
 // MARK: Public
@@ -29,6 +35,9 @@ extension AllProductsViewModel {
         let didTapMenu: Signal<Product>
         let didSelectProduct: Signal<Product>
         let didTapCreateProduct: Signal<Void>
+        let didDuplicateProduct: Signal<Product>
+        let didMoveToFolder: Signal<(Product, Folder)>
+        let didDeleteProduct: Signal<Product>
     }
     
     struct Output {
@@ -40,10 +49,14 @@ extension AllProductsViewModel {
     }
     
     func configure(input: Input) -> Output {
-        let didStartFirstLoad = ProductsMediator.shared.didCreatedProduct
-            .map { _ in Void() }
-            .asDriver(onErrorDriveWith: .never())
+        let didStartFirstLoad = Signal
+            .merge(
+                ProductsMediator.shared.didEditedProduct.map { _ in Void() },
+                ProductsMediator.shared.didDuplicatedProduct.map { _ in Void() },
+                ProductsMediator.shared.didCreatedProduct.map { _ in Void() }
+            )
             .startWith(())
+            .asDriver(onErrorDriveWith: .never())
         let fetchPageProducts = makePageProducts(
             didStartFirstLoad: didStartFirstLoad,
             didScrollToBottom: input.didScrollToBottom
@@ -61,7 +74,10 @@ extension AllProductsViewModel {
             action: makeAction(
                 didTapMenu: input.didTapMenu,
                 didSelectProduct: input.didSelectProduct,
-                didTapCreateProduct: input.didTapCreateProduct
+                didTapCreateProduct: input.didTapCreateProduct,
+                didDuplicateProduct: input.didDuplicateProduct,
+                didMoveToFolder: input.didMoveToFolder,
+                didDeleteProduct: input.didDeleteProduct
             ),
             isEmpty: allProducts.map { $0.isEmpty }
         )
@@ -73,7 +89,10 @@ private extension AllProductsViewModel {
     func makeAction(
         didTapMenu: Signal<Product>,
         didSelectProduct: Signal<Product>,
-        didTapCreateProduct: Signal<Void>
+        didTapCreateProduct: Signal<Void>,
+        didDuplicateProduct: Signal<Product>,
+        didMoveToFolder: Signal<(Product, Folder)>,
+        didDeleteProduct: Signal<Product>
     ) -> Driver<Action> {
         let openMenu = didTapMenu
             .map { product -> Action in
@@ -93,8 +112,102 @@ private extension AllProductsViewModel {
             }
             .asDriver(onErrorDriveWith: .never())
         
+        let duplicate = didDuplicateProduct
+            .flatMap { [weak self] product -> Driver<Action> in
+                guard let self else { return .never() }
+                
+                func source() -> Single<Action> {
+                    productsManager
+                        .duplicate(id: product.id)
+                        .map { result -> Action in
+                            guard result.success else {
+                                throw ContentError(.notContent)
+                            }
+                            
+                            return Action.toast("AllProducts.Duplicate".localized)
+                        }
+                }
+                
+                func trigger(error: Error) -> Observable<Void> {
+                    tryAgain?(error) ?? .empty()
+                }
+                
+                return observableRetrySingle
+                    .retry(
+                        source: { source() },
+                        trigger: { trigger(error: $0) }
+                    )
+                    .asDriver(onErrorDriveWith: .never())
+            }
+        
+        let moveToFolder = didMoveToFolder
+            .flatMap { [weak self] product, folder -> Driver<Action> in
+                guard let self else { return .never() }
+                
+                func source() -> Single<Action> {
+                    foldersManager
+                        .move(
+                            targetFolderId: folder.id,
+                            productId: product.id
+                        )
+                        .map { result -> Action in
+                            guard result.success else {
+                                throw ContentError(.notContent)
+                            }
+                            
+                            return Action.toast("AllProducts.MoveToFolder".localized)
+                        }
+                }
+                
+                func trigger(error: Error) -> Observable<Void> {
+                    tryAgain?(error) ?? .empty()
+                }
+                
+                return observableRetrySingle
+                    .retry(
+                        source: { source() },
+                        trigger: { trigger(error: $0) }
+                    )
+                    .asDriver(onErrorDriveWith: .never())
+            }
+        
+        let delete = didDeleteProduct
+            .flatMap { [weak self] product -> Driver<Action> in
+                guard let self else { return .never() }
+                
+                func source() -> Single<Action> {
+                    productsManager
+                        .delete(id: product.id)
+                        .map { result -> Action in
+                            guard result.success else {
+                                throw ContentError(.notContent)
+                            }
+                            
+                            return Action.toast("AllProducts.Delete".localized)
+                        }
+                }
+                
+                func trigger(error: Error) -> Observable<Void> {
+                    tryAgain?(error) ?? .empty()
+                }
+                
+                return observableRetrySingle
+                    .retry(
+                        source: { source() },
+                        trigger: { trigger(error: $0) }
+                    )
+                    .asDriver(onErrorDriveWith: .never())
+            }
+        
         return Driver
-            .merge(openMenu, openDetails, createNewProduct)
+            .merge(
+                openMenu,
+                openDetails,
+                createNewProduct,
+                duplicate,
+                moveToFolder,
+                delete
+            )
     }
     
     func makeAllProducts(
