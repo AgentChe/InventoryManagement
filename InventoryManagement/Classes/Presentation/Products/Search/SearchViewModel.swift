@@ -153,7 +153,6 @@ private extension SearchViewModel {
                 func source() -> Single<Action> {
                     foldersManager
                         .move(
-                            currentFolderId: product.folderId,
                             targetFolderId: folder.id,
                             productId: product.id
                         )

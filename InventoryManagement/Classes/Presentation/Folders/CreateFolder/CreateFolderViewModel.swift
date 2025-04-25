@@ -67,8 +67,8 @@ private extension CreateFolderViewModel {
                     case .create:
                         return foldersManager
                             .create(title: title, notes: nil)
-                            .map { folder -> Action in
-                                if folder == nil {
+                            .map { result -> Action in
+                                guard result.success else {
                                     throw ContentError(.notContent)
                                 }
                                 

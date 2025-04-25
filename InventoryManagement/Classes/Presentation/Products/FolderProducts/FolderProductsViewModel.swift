@@ -18,6 +18,7 @@ final class FolderProductsViewModel {
         case close
         case confirmDelete(Folder)
         case renameFolder(Folder)
+        case toast(String)
     }
     
     var tryAgain: ((Error) -> (Observable<Void>))?
@@ -48,6 +49,9 @@ extension FolderProductsViewModel {
         let didTapDeleteFolder: Signal<Void>
         let didTapRenameFolder: Signal<Void>
         let didDeleteConfirmed: Signal<Void>
+        let didDuplicateProduct: Signal<Product>
+        let didMoveToFolder: Signal<(Product, Folder)>
+        let didDeleteProduct: Signal<Product>
     }
     
     struct Output {
@@ -64,8 +68,7 @@ extension FolderProductsViewModel {
         let didStartFirstLoad = Signal<Void>
             .merge(
                 ProductsMediator.shared.didCreatedProduct.map { _ in Void() },
-                ProductsMediator.shared.didDeletedProduct.map { _ in Void() },
-                ProductsMediator.shared.didDeletedProduct.map { _ in Void() },
+                ProductsMediator.shared.didEditedProduct.map { _ in Void() },
                 FoldersMediator.shared.didMoved.map { _ in Void() },
                 FoldersMediator.shared.didChanged.map { _ in Void() }
             )
@@ -94,7 +97,10 @@ extension FolderProductsViewModel {
                 didTapDeleteFolder: input.didTapDeleteFolder,
                 didDeleteConfirmed: input.didDeleteConfirmed,
                 didTapRenameFolder: input.didTapRenameFolder,
-                folder: folder
+                folder: folder,
+                didDuplicateProduct: input.didDuplicateProduct,
+                didMoveToFolder: input.didMoveToFolder,
+                didDeleteProduct: input.didDeleteProduct
             ),
             isEmpty: allProducts.map { $0.isEmpty },
             title: folder.map { $0.title }
@@ -121,7 +127,10 @@ private extension FolderProductsViewModel {
         didTapDeleteFolder: Signal<Void>,
         didDeleteConfirmed: Signal<Void>,
         didTapRenameFolder: Signal<Void>,
-        folder: Driver<Folder>
+        folder: Driver<Folder>,
+        didDuplicateProduct: Signal<Product>,
+        didMoveToFolder: Signal<(Product, Folder)>,
+        didDeleteProduct: Signal<Product>
     ) -> Driver<Action> {
         let openProductMenu = didTapProductMenu
             .map { product -> Action in
@@ -150,7 +159,7 @@ private extension FolderProductsViewModel {
             .withLatestFrom(folder)
             .map { Action.confirmDelete($0) }
         
-        let delete = didDeleteConfirmed
+        let deleteFolder = didDeleteConfirmed
             .asDriver(onErrorDriveWith: .never())
             .withLatestFrom(folder)
             .flatMapLatest { [weak self] folder -> Driver<Action> in
@@ -185,6 +194,93 @@ private extension FolderProductsViewModel {
             .withLatestFrom(folder)
             .map { Action.renameFolder($0) }
         
+        let duplicateProduct = didDuplicateProduct
+            .flatMap { [weak self] product -> Driver<Action> in
+                guard let self else { return .never() }
+                
+                func source() -> Single<Action> {
+                    productsManager
+                        .duplicate(id: product.id)
+                        .map { result -> Action in
+                            guard result.success else {
+                                throw ContentError(.notContent)
+                            }
+                            
+                            return Action.toast("FolderProducts.Duplicate".localized)
+                        }
+                }
+                
+                func trigger(error: Error) -> Observable<Void> {
+                    tryAgain?(error) ?? .empty()
+                }
+                
+                return observableRetrySingle
+                    .retry(
+                        source: { source() },
+                        trigger: { trigger(error: $0) }
+                    )
+                    .asDriver(onErrorDriveWith: .never())
+            }
+        
+        let moveToFolder = didMoveToFolder
+            .flatMap { [weak self] product, folder -> Driver<Action> in
+                guard let self else { return .never() }
+                
+                func source() -> Single<Action> {
+                    foldersManager
+                        .move(
+                            targetFolderId: folder.id,
+                            productId: product.id
+                        )
+                        .map { result -> Action in
+                            guard result.success else {
+                                throw ContentError(.notContent)
+                            }
+                            
+                            return Action.toast("FolderProducts.MoveToFolder".localized)
+                        }
+                }
+                
+                func trigger(error: Error) -> Observable<Void> {
+                    tryAgain?(error) ?? .empty()
+                }
+                
+                return observableRetrySingle
+                    .retry(
+                        source: { source() },
+                        trigger: { trigger(error: $0) }
+                    )
+                    .asDriver(onErrorDriveWith: .never())
+            }
+        
+        let deleteProduct = didDeleteProduct
+            .flatMap { [weak self] product -> Driver<Action> in
+                guard let self else { return .never() }
+                
+                func source() -> Single<Action> {
+                    productsManager
+                        .delete(id: product.id)
+                        .map { result -> Action in
+                            guard result.success else {
+                                throw ContentError(.notContent)
+                            }
+                            
+                            return Action.toast("FolderProducts.Delete".localized)
+                        }
+                }
+                
+                func trigger(error: Error) -> Observable<Void> {
+                    tryAgain?(error) ?? .empty()
+                }
+                
+                return observableRetrySingle
+                    .retry(
+                        source: { source() },
+                        trigger: { trigger(error: $0) }
+                    )
+                    .asDriver(onErrorDriveWith: .never())
+            }
+        
         return Driver
             .merge(
                 openProductMenu,
@@ -192,8 +288,11 @@ private extension FolderProductsViewModel {
                 createNewProduct,
                 openMenu,
                 confiremDelete,
-                delete,
-                renameFolder
+                deleteFolder,
+                renameFolder,
+                duplicateProduct,
+                moveToFolder,
+                deleteProduct
             )
     }
     
@@ -204,6 +303,7 @@ private extension FolderProductsViewModel {
         enum Action {
             case startSearch
             case fetch(Page<[Product]>)
+            case delete(String)
         }
         
         let action = Driver
@@ -212,7 +312,10 @@ private extension FolderProductsViewModel {
                     .asDriver(onErrorDriveWith: .never())
                     .map { _ in Action.startSearch },
                 fetchPageProducts
-                    .map { Action.fetch($0) }
+                    .map { Action.fetch($0) },
+                ProductsMediator.shared.didDeletedProduct
+                    .asDriver(onErrorDriveWith: .never())
+                    .map { Action.delete($0) }
             )
         
         return action
@@ -222,6 +325,10 @@ private extension FolderProductsViewModel {
                     return []
                 case .fetch(let page):
                     return page.info.current == 1 ? page.elements : (allProducts + page.elements)
+                case .delete(let id):
+                    var result = allProducts
+                    result.removeAll(where: { $0.id == id })
+                    return result
                 }
             }
             .startWith([])

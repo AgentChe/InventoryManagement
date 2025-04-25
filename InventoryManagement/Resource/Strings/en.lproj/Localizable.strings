@@ -191,6 +191,9 @@
 "FolderProducts.Menu.Delete" = "Delete";
 "FolderProducts.Menu.Rename" = "Rename";
 "FolderProducts.ConfirmDelete.Text" = "Are you sure you want to delete %@?";
+"FolderProducts.Duplicate" = "The product has been successfully duplicated";
+"FolderProducts.MoveToFolder" = "The product has been successfully moved";
+"FolderProducts.Delete" = "The product has been successfully deleted";
 
 // MARK: CreateFolder
 "CreateFolder.Title.Create" = "Create folder";

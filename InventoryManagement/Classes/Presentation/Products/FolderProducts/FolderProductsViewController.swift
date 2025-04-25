@@ -8,6 +8,7 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import Toast_Swift
 
 final class FolderProductsViewController: UIViewController {
     private lazy var mainView = FolderProductsView()
@@ -21,6 +22,9 @@ final class FolderProductsViewController: UIViewController {
     private lazy var didTapDeleteTrigger = PublishRelay<Void>()
     private lazy var didDeleteConfirmedTrigger = PublishRelay<Void>()
     private lazy var didTapRenameTrigger = PublishRelay<Void>()
+    private lazy var didDuplicateProductTrigger = PublishRelay<Product>()
+    private lazy var didMoveToFolderTrigger = PublishRelay<(Product, Folder)>()
+    private lazy var didDeleteProductTrigger = PublishRelay<Product>()
     
     private init(folder: Folder) {
         viewModel = FolderProductsViewModel(folder: folder)
@@ -51,7 +55,10 @@ final class FolderProductsViewController: UIViewController {
             didTapMenu: menuButton.rx.tap.asSignal(),
             didTapDeleteFolder: didTapDeleteTrigger.asSignal(),
             didTapRenameFolder: didTapRenameTrigger.asSignal(),
-            didDeleteConfirmed: didDeleteConfirmedTrigger.asSignal()
+            didDeleteConfirmed: didDeleteConfirmedTrigger.asSignal(),
+            didDuplicateProduct: didDuplicateProductTrigger.asSignal(),
+            didMoveToFolder: didMoveToFolderTrigger.asSignal(),
+            didDeleteProduct: didDeleteProductTrigger.asSignal()
         ))
         
         Driver
@@ -110,7 +117,25 @@ private extension FolderProductsViewController {
     func action(_ action: FolderProductsViewModel.Action) {
         switch action {
         case .openProductMenu(let product):
-            print("open menu") // TODO
+            let menu = ProductMenuActionSheet().actionSheet(
+                product: product,
+                duplicate: { [weak self] product in
+                    self?.didDuplicateProductTrigger.accept(product)
+                },
+                moveToFolder: { [weak self] product in
+                    guard let self else { return }
+                    
+                    let vc = WhereMoveFoldersViewController.make { [weak self] folder in
+                        self?.didMoveToFolderTrigger.accept((product, folder))
+                    }
+                    present(vc, animated: true)
+                },
+                delete: { [weak self] product in
+                    self?.didDeleteProductTrigger.accept(product)
+                }
+            )
+            
+            present(menu, animated: true)
         case .openDetails(let product):
             CreateProductAssembly().edit(from: self, product: product)
         case .openPaygate:
@@ -127,6 +152,8 @@ private extension FolderProductsViewController {
         case .renameFolder(let folder):
             let vc = CreateFolderViewController.edit(folder: folder)
             present(vc, animated: false)
+        case .toast(let message):
+            mainView.makeToast(message)
         }
     }
     
