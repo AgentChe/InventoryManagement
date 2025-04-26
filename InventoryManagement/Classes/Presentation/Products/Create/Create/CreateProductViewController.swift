@@ -142,6 +142,9 @@ private extension CreateProductViewController {
             nc.setViewControllers([vc], animated: false)
             
             present(nc, animated: true)
+        case .openPaygate:
+            let vc = PaygateViewController.make()
+            present(vc, animated: true)
         }
     }
     

@@ -187,6 +187,8 @@
 "Items.Duplicate" = "The product has been successfully duplicated";
 "Items.MoveToFolder" = "The product has been successfully moved";
 "Items.Delete" = "The product has been successfully deleted";
+"Items.ScanBarcode" = "Scan barcode";
+"Items.AddManually" = "Add manually";
 
 // MARK: DemoProduct
 "DemoProduct.StanleyCup.Title" = "Stanley Cup";

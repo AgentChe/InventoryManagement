@@ -78,7 +78,7 @@ private extension ItemsViewController {
             let vc = PaygateViewController.make()
             present(vc, animated: true)
         case .createProduct:
-            break // TODO
+            selectMethodCreateProduct()
         case .openDemoProduct(let demoProduct):
             let vc = DemoProductViewController.make(demoProduct: demoProduct.product)
             present(vc, animated: true)
@@ -133,5 +133,28 @@ private extension ItemsViewController {
                 
                 return Disposables.create()
             }
+    }
+    
+    func selectMethodCreateProduct() {
+        let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        
+        let scanBarcodeAction = UIAlertAction(title: "Items.ScanBarcode".localized, style: .default) { [weak self] action in
+            guard let self else { return }
+            
+            CreateProductAssembly().scan(from: self)
+        }
+        actionSheet.addAction(scanBarcodeAction)
+        
+        let addManuallyAction = UIAlertAction(title: "Items.AddManually".localized, style: .default) { [weak self] action in
+            guard let self else { return }
+            
+            CreateProductAssembly().manually(from: self)
+        }
+        actionSheet.addAction(addManuallyAction)
+        
+        let cancelAction = UIAlertAction(title: "Cancel".localized, style: .cancel)
+        actionSheet.addAction(cancelAction)
+        
+        present(actionSheet, animated: true)
     }
 }

@@ -14,6 +14,7 @@ final class CreateProductViewModel {
         case addPhoto
         case addFields
         case addBarcode
+        case openPaygate
     }
     
     var tryAgain: ((Error) -> (Observable<Void>))?
@@ -189,7 +190,12 @@ private extension CreateProductViewModel {
             .map { Action.addBarcode }
             .asDriver(onErrorDriveWith: .never())
         
+        let openPaygate = didTapSave
+            .compactMap { SessionManager().hasActiveSubscriptions() ? nil : Action.openPaygate }
+            .asDriver(onErrorDriveWith: .never())
+        
         let save = didTapSave
+            .filter { SessionManager().hasActiveSubscriptions() }
             .asDriver(onErrorDriveWith: .never())
             .withLatestFrom(saveData)
             .withLatestFrom(source) { ($0, $1) }
@@ -268,7 +274,14 @@ private extension CreateProductViewModel {
             }
         
         return Driver
-            .merge(close, addNewPhoto, addFields, addBarcode, save)
+            .merge(
+                close,
+                addNewPhoto,
+                addFields,
+                addBarcode,
+                openPaygate,
+                save
+            )
     }
     
     func makeSaveData(
