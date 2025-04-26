@@ -46,7 +46,7 @@ struct EditProductRequest: APIRequestBody {
                 "value": priceValue,
                 "currency": priceCurrency
             ],
-            "meta": meta ?? NSNull()
+            "meta": meta ?? [:]
         ]
     }
 }

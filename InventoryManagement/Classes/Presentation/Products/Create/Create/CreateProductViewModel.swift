@@ -99,7 +99,7 @@ extension CreateProductViewModel {
             initialDetails: initialDetailsData,
             didCreateNewBarcode: input.didCreateNewBarcode
         )
-        let metaFields = makeMetaFields(
+        let metaFieldsElements = makeMetaFieldsElements(
             initialDetails: initialDetailsData,
             didCreatedNewField: input.didCreatedNewField
         )
@@ -116,6 +116,7 @@ extension CreateProductViewModel {
             count: count,
             barcode: barcode,
             price: price,
+            metaFieldsElements: metaFieldsElements,
             relate: initialDetailsData.map { $0.relate })
         
         return Output(
@@ -131,7 +132,8 @@ extension CreateProductViewModel {
             elements: makeElements(
                 generalElement: generalElement,
                 barcode: barcode,
-                saveEnable: saveEnable
+                saveEnable: saveEnable,
+                metaFieldsElements: metaFieldsElements
             ),
             activity: activity.asDriver()
         )
@@ -158,7 +160,7 @@ private extension CreateProductViewModel {
         let barcode: String
         let priceValue: Double
         let priceCurrency: PriceCurrency
-        let meta: [String: Any]?
+        let metaFields: [CPTableMetaFieldElement]?
         let relate: [String: Any]?
     }
     
@@ -196,6 +198,9 @@ private extension CreateProductViewModel {
                 
                 func request() -> Single<Void> {
                     let requestResult: Single<RequestResult> = {
+                        let metaFields = data.metaFields ?? []
+                        let meta = ProductMetaFieldsMapper().json(fields: metaFields.map { $0.metaField })
+                        
                         switch source {
                         case .scan:
                             return self.productsManager
@@ -206,7 +211,7 @@ private extension CreateProductViewModel {
                                     barcode: data.barcode,
                                     priceValue: data.priceValue,
                                     priceCurrency: data.priceCurrency.rawValue,
-                                    meta: data.meta,
+                                    meta: meta,
                                     relate: data.relate,
                                     creationMethod: .scan
                                 )
@@ -219,7 +224,7 @@ private extension CreateProductViewModel {
                                     barcode: data.barcode,
                                     priceValue: data.priceValue,
                                     priceCurrency: data.priceCurrency.rawValue,
-                                    meta: data.meta,
+                                    meta: meta,
                                     relate: data.relate,
                                     creationMethod: .manual
                                 )
@@ -233,7 +238,7 @@ private extension CreateProductViewModel {
                                     barcode: data.barcode,
                                     priceValue: data.priceValue,
                                     priceCurrency: data.priceCurrency.rawValue,
-                                    meta: data.meta
+                                    meta: meta
                                 )
                         }
                     }()
@@ -272,11 +277,12 @@ private extension CreateProductViewModel {
         count: Driver<Int?>,
         barcode: Driver<Barcode?>,
         price: Driver<Price?>,
+        metaFieldsElements: Driver<[CPTableMetaFieldElement]>,
         relate: Driver<[String: Any]?>
     ) -> Driver<SaveData> {
         Driver
-            .combineLatest(title, images, count, barcode, price, relate)
-            .compactMap { title, images, count, barcode, price, relate -> SaveData? in
+            .combineLatest(title, images, count, barcode, price, metaFieldsElements, relate)
+            .compactMap { title, images, count, barcode, price, metaFields, relate -> SaveData? in
                 guard let title, !images.isEmpty, let count, let barcode, let price else { return nil }
                 
                 return SaveData(
@@ -286,7 +292,7 @@ private extension CreateProductViewModel {
                     barcode: barcode.value,
                     priceValue: price.value,
                     priceCurrency: price.currency,
-                    meta: nil,
+                    metaFields: metaFields,
                     relate: relate
                 )
             }
@@ -295,20 +301,26 @@ private extension CreateProductViewModel {
     func makeElements(
         generalElement: Driver<CPTableGeneralElement>,
         barcode: Driver<Barcode?>,
-        saveEnable: Driver<Bool>
+        saveEnable: Driver<Bool>,
+        metaFieldsElements: Driver<[CPTableMetaFieldElement]>
     ) -> Driver<[CreateProductTableElement]> {
         Driver
-            .combineLatest(generalElement, barcode, saveEnable)
-            .map { generalElement, barcode, saveEnable -> [CreateProductTableElement] in
-                [
-                    .general(generalElement),
-                    .addFields,
-                    {
-                        guard let barcode else { return .addBarcode }
-                        return .barcode(barcode)
-                    }(),
-                    .save(saveEnable)
-                ]
+            .combineLatest(generalElement, barcode, saveEnable, metaFieldsElements)
+            .map { generalElement, barcode, saveEnable, metaFields -> [CreateProductTableElement] in
+                var elements: [CreateProductTableElement] = [.general(generalElement)]
+                
+                elements.append(contentsOf: metaFields.map { .metaField($0) })
+                elements.append(.addFields)
+                
+                if let barcode {
+                    elements.append(.barcode(barcode))
+                } else {
+                    elements.append(.addBarcode)
+                }
+                
+                elements.append(.save(saveEnable))
+                
+                return elements
             }
     }
     
@@ -501,31 +513,33 @@ private extension CreateProductViewModel {
             .merge(initial, createNew)
     }
     
-    func makeMetaFields(
+    func makeMetaFieldsElements(
         initialDetails: Driver<DetailsData>,
         didCreatedNewField: Signal<ProductMetaField>
-    ) -> Driver<[ProductMetaField]> {
+    ) -> Driver<[CPTableMetaFieldElement]> {
         initialDetails
             .map { $0.meta }
-            .flatMapLatest { initialMetaFields -> Driver<[ProductMetaField]> in
+            .flatMapLatest { initialMetaFields -> Driver<[CPTableMetaFieldElement]> in
                 enum Action {
                     case newField(ProductMetaField)
                 }
                 
-                let newField = didCreatedNewField
+                let newFieldAction = didCreatedNewField
                     .map { Action.newField($0) }
                     .asDriver(onErrorDriveWith: .never())
                 
-                let action = Driver.merge(newField)
+                let action = Driver.merge(newFieldAction)
+                
+                let initialMetaFieldsElements = initialMetaFields.compactMap { CPTableMetaFieldElement(metaField: $0) }
                 
                 return action
-                    .scan(initialMetaFields) { fields, action -> [ProductMetaField] in
+                    .scan(initialMetaFieldsElements) { fields, action -> [CPTableMetaFieldElement] in
                         switch action {
                         case .newField(let field):
-                            return fields + [field]
+                            return fields + [CPTableMetaFieldElement(metaField: field)].compactMap { $0 }
                         }
                     }
-                    .startWith(initialMetaFields)
+                    .startWith(initialMetaFieldsElements)
             }
     }
     
@@ -639,5 +653,100 @@ private extension CreateProductViewModel.DetailsData {
         priceCurrency = product.price.currency
         meta = product.meta
         relate = nil
+    }
+}
+
+// MARK: Additional
+private extension CPTableMetaFieldElement {
+    init?(metaField: ProductMetaField) {
+        if let field = metaField as? SmallTextBoxField {
+            let element = CPTSmallTextBoxFieldElement(field: field)
+            self = .smallTextBox(element)
+        } else if let field = metaField as? LargeTextBoxField {
+            let element = CPTLargeTextBoxFieldElement(field: field)
+            self = .largeTextBox(element)
+        } else if let field = metaField as? RoundNumberField {
+            let element = CPTRoundNumberFieldElement(field: field)
+            self = .roundNumber(element)
+        } else if let field = metaField as? DecimalNumberField {
+            let element = CPTDecimalNumberFieldElement(field: field)
+            self = .decimalNumber(element)
+        } else if let field = metaField as? CheckboxField {
+            let element = CPTCheckboxFieldElement(field: field)
+            self = .checkBox(element)
+        } else if let field = metaField as? DateField {
+            let element = CPTDateFieldElement(field: field)
+            self = .date(element)
+        } else if let field = metaField as? PhoneNumberField {
+            let element = CPTPhoneNumberFieldElement(field: field)
+            self = .phoneNumber(element)
+        } else if let field = metaField as? WebLinkField {
+            let element = CPTWebLinkFieldElement(field: field)
+            self = .webLink(element)
+        } else if let field = metaField as? EmailField {
+            let element = CPTEmailFieldElement(field: field)
+            self = .email(element)
+        } else {
+            return nil
+        }
+    }
+    
+    var metaField: ProductMetaField {
+        switch self {
+        case .smallTextBox(let element):
+            return SmallTextBoxField(
+                id: element.id,
+                name: element.name,
+                text: element.text
+            )
+        case .largeTextBox(let element):
+            return LargeTextBoxField(
+                id: element.id,
+                name: element.name,
+                text: element.text
+            )
+        case .roundNumber(let element):
+            return RoundNumberField(
+                id: element.id,
+                name: element.name,
+                number: element.number
+            )
+        case .decimalNumber(let element):
+            return DecimalNumberField(
+                id: element.id,
+                name: element.name,
+                number: element.number
+            )
+        case .checkBox(let element):
+            return CheckboxField(
+                id: element.id,
+                name: element.name,
+                value: element.value
+            )
+        case .date(let element):
+            return DateField(
+                id: element.id,
+                name: element.name,
+                date: element.date
+            )
+        case .phoneNumber(let element):
+            return PhoneNumberField(
+                id: element.id,
+                name: element.name,
+                phoneNumber: element.phoneNumber
+            )
+        case .webLink(let element):
+            return WebLinkField(
+                id: element.id,
+                name: element.name,
+                link: element.link
+            )
+        case .email(let element):
+            return EmailField(
+                id: element.id,
+                name: element.name,
+                email: element.email
+            )
+        }
     }
 }

@@ -25,7 +25,13 @@ final class CPTableBarcodeCell: UITableViewCell {
 // MARK: Public
 extension CPTableBarcodeCell {
     func setup(barcode: Barcode) {
-        barcodeView.image = BarcodeImageGenerator().generate(from: barcode)
+        DispatchQueue.global().async {
+            let image = BarcodeImageGenerator().generate(from: barcode)
+            
+            DispatchQueue.main.async { [weak self] in
+                self?.barcodeView.image = image
+            }
+        }
     }
 }
 

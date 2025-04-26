@@ -213,7 +213,7 @@ struct DecimalNumberField: ProductMetaField {
     }
 }
 
-// MARK: DecimalNumber
+// MARK: CheckboxField
 struct CheckboxField: ProductMetaField {
     let id: String
     let name: String
@@ -251,7 +251,7 @@ struct CheckboxField: ProductMetaField {
     }
 }
 
-// MARK: Date
+// MARK: DateField
 struct DateField: ProductMetaField {
     let id: String
     let name: String

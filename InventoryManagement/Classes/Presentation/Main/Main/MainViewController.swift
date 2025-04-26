@@ -62,6 +62,12 @@ final class MainViewController: UIViewController {
             })
             .disposed(by: disposeBag)
         
+        mainView.tabView.addButton.rx.tap
+            .bind(to: Binder(self) { base, void in
+                base.openAddActionSheet()
+            })
+            .disposed(by: disposeBag)
+        
         if requestReview {
             RequestReview.request()
         }
@@ -74,5 +80,37 @@ extension MainViewController {
         let vc = MainViewController(requestReview: requestReview)
         vc.navigationItem.backButtonTitle = " "
         return NavigationController(rootViewController: vc)
+    }
+}
+
+// MARK: Private
+private extension MainViewController {
+    func openAddActionSheet() {
+        let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        
+        let scanBarcodeAction = UIAlertAction(title: "Main.ScanBarcode".localized, style: .default) { [weak self] action in
+            guard let self else { return }
+            
+            CreateProductAssembly().scan(from: self)
+        }
+        actionSheet.addAction(scanBarcodeAction)
+        
+        let addManuallyAction = UIAlertAction(title: "Main.AddManually".localized, style: .default) { [weak self] action in
+            guard let self else { return }
+            
+            CreateProductAssembly().manually(from: self)
+        }
+        actionSheet.addAction(addManuallyAction)
+        
+        let addFolderAction = UIAlertAction(title: "Main.AddFolder".localized, style: .default) { [weak self] action in
+            let vc = CreateFolderViewController.create()
+            self?.present(vc, animated: false)
+        }
+        actionSheet.addAction(addFolderAction)
+        
+        let cancelAction = UIAlertAction(title: "Cancel".localized, style: .cancel)
+        actionSheet.addAction(cancelAction)
+        
+        present(actionSheet, animated: true)
     }
 }

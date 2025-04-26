@@ -169,6 +169,15 @@
 		DE8AED5A2DBA514D00E2E1CF /* WhereMoveFoldersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8AED592DBA514D00E2E1CF /* WhereMoveFoldersViewController.swift */; };
 		DE8AED5C2DBA515200E2E1CF /* WhereMoveFoldersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8AED5B2DBA515200E2E1CF /* WhereMoveFoldersViewModel.swift */; };
 		DE8AED612DBBAC4E00E2E1CF /* DuplicateProductRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8AED602DBBAC4E00E2E1CF /* DuplicateProductRequest.swift */; };
+		DE8AED652DBCD95400E2E1CF /* CPTSmallTextBoxFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8AED642DBCD95400E2E1CF /* CPTSmallTextBoxFieldCell.swift */; };
+		DE8AED672DBCD95E00E2E1CF /* CPTLargeTextBoxFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8AED662DBCD95E00E2E1CF /* CPTLargeTextBoxFieldCell.swift */; };
+		DE8AED692DBCD97B00E2E1CF /* CPTRoundNumberFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8AED682DBCD97B00E2E1CF /* CPTRoundNumberFieldCell.swift */; };
+		DE8AED6B2DBCD9A100E2E1CF /* CPTDecimalNumberFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8AED6A2DBCD9A100E2E1CF /* CPTDecimalNumberFieldCell.swift */; };
+		DE8AED6D2DBCD9AB00E2E1CF /* CPTCheckboxFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8AED6C2DBCD9AB00E2E1CF /* CPTCheckboxFieldCell.swift */; };
+		DE8AED6F2DBCD9BA00E2E1CF /* CPTDateFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8AED6E2DBCD9BA00E2E1CF /* CPTDateFieldCell.swift */; };
+		DE8AED712DBCD9C200E2E1CF /* CPTPhoneNumberFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8AED702DBCD9C200E2E1CF /* CPTPhoneNumberFieldCell.swift */; };
+		DE8AED732DBCD9CA00E2E1CF /* CPTWebLinkFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8AED722DBCD9CA00E2E1CF /* CPTWebLinkFieldCell.swift */; };
+		DE8AED752DBCD9D600E2E1CF /* CPTEmailFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8AED742DBCD9D600E2E1CF /* CPTEmailFieldCell.swift */; };
 		DEA35B9F2DB69FB400D8D20A /* ProfileStatistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA35B9E2DB69FB400D8D20A /* ProfileStatistics.swift */; };
 		DEA35BA12DB6A45300D8D20A /* ObtainProfileStatisticsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA35BA02DB6A45300D8D20A /* ObtainProfileStatisticsRequest.swift */; };
 		DEA35BA42DB6A52D00D8D20A /* ItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA35BA32DB6A52D00D8D20A /* ItemsViewController.swift */; };
@@ -413,6 +422,15 @@
 		DE8AED592DBA514D00E2E1CF /* WhereMoveFoldersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhereMoveFoldersViewController.swift; sourceTree = "<group>"; };
 		DE8AED5B2DBA515200E2E1CF /* WhereMoveFoldersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhereMoveFoldersViewModel.swift; sourceTree = "<group>"; };
 		DE8AED602DBBAC4E00E2E1CF /* DuplicateProductRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DuplicateProductRequest.swift; sourceTree = "<group>"; };
+		DE8AED642DBCD95400E2E1CF /* CPTSmallTextBoxFieldCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPTSmallTextBoxFieldCell.swift; sourceTree = "<group>"; };
+		DE8AED662DBCD95E00E2E1CF /* CPTLargeTextBoxFieldCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPTLargeTextBoxFieldCell.swift; sourceTree = "<group>"; };
+		DE8AED682DBCD97B00E2E1CF /* CPTRoundNumberFieldCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPTRoundNumberFieldCell.swift; sourceTree = "<group>"; };
+		DE8AED6A2DBCD9A100E2E1CF /* CPTDecimalNumberFieldCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPTDecimalNumberFieldCell.swift; sourceTree = "<group>"; };
+		DE8AED6C2DBCD9AB00E2E1CF /* CPTCheckboxFieldCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPTCheckboxFieldCell.swift; sourceTree = "<group>"; };
+		DE8AED6E2DBCD9BA00E2E1CF /* CPTDateFieldCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPTDateFieldCell.swift; sourceTree = "<group>"; };
+		DE8AED702DBCD9C200E2E1CF /* CPTPhoneNumberFieldCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPTPhoneNumberFieldCell.swift; sourceTree = "<group>"; };
+		DE8AED722DBCD9CA00E2E1CF /* CPTWebLinkFieldCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPTWebLinkFieldCell.swift; sourceTree = "<group>"; };
+		DE8AED742DBCD9D600E2E1CF /* CPTEmailFieldCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPTEmailFieldCell.swift; sourceTree = "<group>"; };
 		DEA35B9E2DB69FB400D8D20A /* ProfileStatistics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileStatistics.swift; sourceTree = "<group>"; };
 		DEA35BA02DB6A45300D8D20A /* ObtainProfileStatisticsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObtainProfileStatisticsRequest.swift; sourceTree = "<group>"; };
 		DEA35BA32DB6A52D00D8D20A /* ItemsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsViewController.swift; sourceTree = "<group>"; };
@@ -1462,6 +1480,15 @@
 				DEE230B82DAF98D4008DD773 /* CPTableBarcodeCell.swift */,
 				DEE230BA2DAF9DD0008DD773 /* CPTableAddBarcodeCell.swift */,
 				DEE230BC2DAFB9C7008DD773 /* CPTableSaveCell.swift */,
+				DE8AED642DBCD95400E2E1CF /* CPTSmallTextBoxFieldCell.swift */,
+				DE8AED662DBCD95E00E2E1CF /* CPTLargeTextBoxFieldCell.swift */,
+				DE8AED682DBCD97B00E2E1CF /* CPTRoundNumberFieldCell.swift */,
+				DE8AED6A2DBCD9A100E2E1CF /* CPTDecimalNumberFieldCell.swift */,
+				DE8AED6C2DBCD9AB00E2E1CF /* CPTCheckboxFieldCell.swift */,
+				DE8AED6E2DBCD9BA00E2E1CF /* CPTDateFieldCell.swift */,
+				DE8AED702DBCD9C200E2E1CF /* CPTPhoneNumberFieldCell.swift */,
+				DE8AED722DBCD9CA00E2E1CF /* CPTWebLinkFieldCell.swift */,
+				DE8AED742DBCD9D600E2E1CF /* CPTEmailFieldCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -1718,6 +1745,7 @@
 				DE0AA75C2DA4F318005DFC44 /* TabView.swift in Sources */,
 				DE522C542DB0E164007C6BD6 /* CreateMetaFieldViewController.swift in Sources */,
 				DE8AED452DB92EB100E2E1CF /* DemoProductView.swift in Sources */,
+				DE8AED652DBCD95400E2E1CF /* CPTSmallTextBoxFieldCell.swift in Sources */,
 				DE0AA7612DA4F318005DFC44 /* UIEdgeInsets+Extension.swift in Sources */,
 				DEA35BC12DB79B6200D8D20A /* ITProductCell.swift in Sources */,
 				DEE230BF2DAFDC17008DD773 /* EditProductRequest.swift in Sources */,
@@ -1730,6 +1758,7 @@
 				DEA35BE32DB8E98D00D8D20A /* FolderProductsView.swift in Sources */,
 				DE0AA8A02DA53537005DFC44 /* SettingsView.swift in Sources */,
 				DE522C592DB0EC8D007C6BD6 /* CreateMetaFieldViewModel.swift in Sources */,
+				DE8AED732DBCD9CA00E2E1CF /* CPTWebLinkFieldCell.swift in Sources */,
 				DEA35BF12DB8F3E100D8D20A /* FoldersCollectionCell.swift in Sources */,
 				DEA35BD52DB7F52900D8D20A /* ITLastAddedCollectionCell.swift in Sources */,
 				DEC48D772DA8F0E400AC1B3D /* CreateProductViewModel.swift in Sources */,
@@ -1741,6 +1770,7 @@
 				DE1E60D72DA6603F006CF764 /* ObtainProductDetailsRequest.swift in Sources */,
 				DEDD65342DAD061D00867482 /* CPPCollectionPhotoCell.swift in Sources */,
 				DE0AA89C2DA53527005DFC44 /* SettingsViewController.swift in Sources */,
+				DE8AED672DBCD95E00E2E1CF /* CPTLargeTextBoxFieldCell.swift in Sources */,
 				DE8AED432DB92EAD00E2E1CF /* DemoProductViewModel.swift in Sources */,
 				DEA35BBB2DB79B3500D8D20A /* ITStatisticsCell.swift in Sources */,
 				DEA35BCF2DB7ECB600D8D20A /* ITFoldersCollectionCell.swift in Sources */,
@@ -1753,6 +1783,7 @@
 				DE8AED4E2DB9FD6B00E2E1CF /* DPTableGeneralCell.swift in Sources */,
 				DEDD653E2DAD67B000867482 /* CPGeneralInputView.swift in Sources */,
 				DE0AA7732DA4F318005DFC44 /* UIDevice+Extension.swift in Sources */,
+				DE8AED6F2DBCD9BA00E2E1CF /* CPTDateFieldCell.swift in Sources */,
 				DE8AED5C2DBA515200E2E1CF /* WhereMoveFoldersViewModel.swift in Sources */,
 				DE0AA7752DA4F318005DFC44 /* ProfileManager.swift in Sources */,
 				DE522C5F2DB0EEF2007C6BD6 /* CreateRNField.swift in Sources */,
@@ -1775,6 +1806,7 @@
 				DE0AA7822DA4F318005DFC44 /* GlobalDefinitions.swift in Sources */,
 				DE0AA8A62DA536AE005DFC44 /* SettingsTableElement.swift in Sources */,
 				DE0AA7862DA4F318005DFC44 /* String+Extension.swift in Sources */,
+				DE8AED6B2DBCD9A100E2E1CF /* CPTDecimalNumberFieldCell.swift in Sources */,
 				DE1E60C92DA64EF5006CF764 /* PageInfo.swift in Sources */,
 				DEE48BCF2DA7DB37002CD05A /* DetectBarcodeImage.swift in Sources */,
 				DE0AA88F2DA5059C005DFC44 /* OWelcomeView.swift in Sources */,
@@ -1811,6 +1843,7 @@
 				DE0AA7A32DA4F318005DFC44 /* ScreenSize.swift in Sources */,
 				DE0AA7A72DA4F318005DFC44 /* SignError.swift in Sources */,
 				DE0AA7AB2DA4F318005DFC44 /* ObservableRetrySingle.swift in Sources */,
+				DE8AED6D2DBCD9AB00E2E1CF /* CPTCheckboxFieldCell.swift in Sources */,
 				DE1E60EC2DA66A7A006CF764 /* CreateFolderRequest.swift in Sources */,
 				DE0AA8AF2DA53784005DFC44 /* STLinkButton.swift in Sources */,
 				DEE48BC22DA79ED7002CD05A /* ScannerView.swift in Sources */,
@@ -1834,15 +1867,18 @@
 				DEE230B92DAF98D4008DD773 /* CPTableBarcodeCell.swift in Sources */,
 				DEE230C12DAFDCEF008DD773 /* DeleteProductRequest.swift in Sources */,
 				DE0AA7C62DA4F318005DFC44 /* PaygateInfoCell.swift in Sources */,
+				DE8AED752DBCD9D600E2E1CF /* CPTEmailFieldCell.swift in Sources */,
 				DEA35BB52DB75CEF00D8D20A /* ITTitleCell.swift in Sources */,
 				DE0AA7D02DA4F318005DFC44 /* PaygateActionsView.swift in Sources */,
 				DE0AA7D32DA4F318005DFC44 /* PaygateEnableTrialButton.swift in Sources */,
 				DE0AA8792DA4FBCA005DFC44 /* UIApplication+Extension.swift in Sources */,
+				DE8AED712DBCD9C200E2E1CF /* CPTPhoneNumberFieldCell.swift in Sources */,
 				DEA35BB92DB79B2100D8D20A /* ITDemoProductCell.swift in Sources */,
 				DE0AA8912DA50C95005DFC44 /* Onstruction1View.swift in Sources */,
 				DE1E61062DA68D42006CF764 /* SearchTableCell.swift in Sources */,
 				DE1E60D12DA659DC006CF764 /* ProductScanBarcodeResult.swift in Sources */,
 				DE522C5B2DB0EE6E007C6BD6 /* CreateSTBField.swift in Sources */,
+				DE8AED692DBCD97B00E2E1CF /* CPTRoundNumberFieldCell.swift in Sources */,
 				DE0AA7E12DA4F318005DFC44 /* UITapGestureRecognizer+Extension.swift in Sources */,
 				DE0AA7E32DA4F318005DFC44 /* NumberLaunches.swift in Sources */,
 				DEA35BBF2DB79B5200D8D20A /* ITLastAddedCell.swift in Sources */,

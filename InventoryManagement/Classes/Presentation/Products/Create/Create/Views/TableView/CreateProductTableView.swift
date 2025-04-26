@@ -134,6 +134,45 @@ extension CreateProductTableView: UITableViewDataSource {
             let cell = dequeueReusableCell(withIdentifier: String(describing: CPTableSaveCell.self), for: indexPath) as! CPTableSaveCell
             cell.setup(enable: enable)
             return cell
+        case .metaField(let element):
+            switch element {
+            case .smallTextBox(let element):
+                let cell = dequeueReusableCell(withIdentifier: String(describing: CPTSmallTextBoxFieldCell.self), for: indexPath) as! CPTSmallTextBoxFieldCell
+                cell.setup(element: element)
+                return cell
+            case .largeTextBox(let element):
+                let cell = dequeueReusableCell(withIdentifier: String(describing: CPTLargeTextBoxFieldCell.self), for: indexPath) as! CPTLargeTextBoxFieldCell
+                cell.setup(element: element)
+                return cell
+            case .roundNumber(let element):
+                let cell = dequeueReusableCell(withIdentifier: String(describing: CPTRoundNumberFieldCell.self), for: indexPath) as! CPTRoundNumberFieldCell
+                cell.setup(element: element)
+                return cell
+            case .decimalNumber(let element):
+                let cell = dequeueReusableCell(withIdentifier: String(describing: CPTDecimalNumberFieldCell.self), for: indexPath) as! CPTDecimalNumberFieldCell
+                cell.setup(element: element)
+                return cell
+            case .checkBox(let element):
+                let cell = dequeueReusableCell(withIdentifier: String(describing: CPTCheckboxFieldCell.self), for: indexPath) as! CPTCheckboxFieldCell
+                cell.setup(element: element)
+                return cell
+            case .date(let element):
+                let cell = dequeueReusableCell(withIdentifier: String(describing: CPTDateFieldCell.self), for: indexPath) as! CPTDateFieldCell
+                cell.setup(element: element)
+                return cell
+            case .phoneNumber(let element):
+                let cell = dequeueReusableCell(withIdentifier: String(describing: CPTPhoneNumberFieldCell.self), for: indexPath) as! CPTPhoneNumberFieldCell
+                cell.setup(element: element)
+                return cell
+            case .webLink(let element):
+                let cell = dequeueReusableCell(withIdentifier: String(describing: CPTWebLinkFieldCell.self), for: indexPath) as! CPTWebLinkFieldCell
+                cell.setup(element: element)
+                return cell
+            case .email(let element):
+                let cell = dequeueReusableCell(withIdentifier: String(describing: CPTEmailFieldCell.self), for: indexPath) as! CPTEmailFieldCell
+                cell.setup(element: element)
+                return cell
+            }
         }
     }
 }
@@ -166,6 +205,15 @@ private extension CreateProductTableView {
         register(CPTableBarcodeCell.self, forCellReuseIdentifier: String(describing: CPTableBarcodeCell.self))
         register(CPTableAddBarcodeCell.self, forCellReuseIdentifier: String(describing: CPTableAddBarcodeCell.self))
         register(CPTableSaveCell.self, forCellReuseIdentifier: String(describing: CPTableSaveCell.self))
+        register(CPTSmallTextBoxFieldCell.self, forCellReuseIdentifier: String(describing: CPTSmallTextBoxFieldCell.self))
+        register(CPTLargeTextBoxFieldCell.self, forCellReuseIdentifier: String(describing: CPTLargeTextBoxFieldCell.self))
+        register(CPTRoundNumberFieldCell.self, forCellReuseIdentifier: String(describing: CPTRoundNumberFieldCell.self))
+        register(CPTDecimalNumberFieldCell.self, forCellReuseIdentifier: String(describing: CPTDecimalNumberFieldCell.self))
+        register(CPTCheckboxFieldCell.self, forCellReuseIdentifier: String(describing: CPTCheckboxFieldCell.self))
+        register(CPTDateFieldCell.self, forCellReuseIdentifier: String(describing: CPTDateFieldCell.self))
+        register(CPTPhoneNumberFieldCell.self, forCellReuseIdentifier: String(describing: CPTPhoneNumberFieldCell.self))
+        register(CPTWebLinkFieldCell.self, forCellReuseIdentifier: String(describing: CPTWebLinkFieldCell.self))
+        register(CPTEmailFieldCell.self, forCellReuseIdentifier: String(describing: CPTEmailFieldCell.self))
         
         dataSource = self
         delegate = self

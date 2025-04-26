@@ -73,6 +73,9 @@
 "Main.Transactions" = "Transactions";
 "Main.Search" = "Search";
 "Main.Settings" = "Settings";
+"Main.ScanBarcode" = "Scan barcode";
+"Main.AddManually" = "Add manually";
+"Main.AddFolder" = "Add folder";
 
 // MARK: Settings
 "Settings.Title" = "Settings";
@@ -106,6 +109,13 @@
 "CreateProduct.General.Input.Price.Euro" = "Euro";
 "CreateProduct.AddFields.Title" = "Add more fields";
 "CreateProduct.AddBarcode.Title" = "Add barcode";
+"CreateProduct.MetaFields.STB.Placeholder" = "Enter your text hear";
+"CreateProduct.MetaFields.LTB.Placeholder" = "Enter your text hear";
+"CreateProduct.MetaFields.RN.Placeholder" = "Enter your number hear";
+"CreateProduct.MetaFields.DN.Placeholder" = "Enter your number hear";
+"CreateProduct.MetaFields.PhoneNumber.Placeholder" = "Enter phone number";
+"CreateProduct.MetaFields.WebLink.Placeholder" = "Enter link";
+"CreateProduct.MetaFields.Email.Placeholder" = "Enter email";
 
 // MARK: MetaFields
 "MetaFields.STB" = "Small Text Box";

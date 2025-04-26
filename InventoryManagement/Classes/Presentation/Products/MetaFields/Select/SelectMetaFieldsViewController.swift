@@ -67,7 +67,11 @@ private extension SelectMetaFieldsViewController {
     func action(_ action: SelectMetaFieldsViewModel.Action) {
         switch action {
         case .createField(let field):
-            let vc = CreateMetaFieldViewController.make(field: field, created: created)
+            let vc = CreateMetaFieldViewController.make(field: field, created: { [weak self] field in
+                self?.navigationController?.dismiss(animated: true) { [weak self] in
+                    self?.created(field)
+                }
+            })
             navigationController?.pushViewController(vc, animated: true)
         }
     }

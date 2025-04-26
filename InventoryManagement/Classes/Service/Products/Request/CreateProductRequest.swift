@@ -50,7 +50,7 @@ struct CreateProductRequest: APIRequestBody {
                 "value": priceValue,
                 "currency": priceCurrency
             ],
-            "meta": meta ?? NSNull(),
+            "meta": meta ?? [:],
             "relate": relate ?? NSNull(),
             "creation_method": {
                 switch creationMethod {
