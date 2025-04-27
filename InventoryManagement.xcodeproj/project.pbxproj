@@ -230,6 +230,17 @@
 		DEDD65402DAD692200867482 /* CPGeneralTitleField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDD653F2DAD692200867482 /* CPGeneralTitleField.swift */; };
 		DEDD65422DAD727000867482 /* CPGeneralCountField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDD65412DAD727000867482 /* CPGeneralCountField.swift */; };
 		DEDD65442DAD793300867482 /* CPGeneralPriceField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDD65432DAD793300867482 /* CPGeneralPriceField.swift */; };
+		DEDF50212DBE183A00464935 /* TransactionsFiltersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDF50202DBE183A00464935 /* TransactionsFiltersViewController.swift */; };
+		DEDF50232DBE183F00464935 /* TransactionsFiltersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDF50222DBE183F00464935 /* TransactionsFiltersViewModel.swift */; };
+		DEDF50252DBE184300464935 /* TransactionsFiltersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDF50242DBE184300464935 /* TransactionsFiltersView.swift */; };
+		DEDF50292DBE1A3400464935 /* TransactionsFiltersCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDF50282DBE1A3400464935 /* TransactionsFiltersCollectionView.swift */; };
+		DEDF502B2DBE1A3F00464935 /* TransactionsFiltersCollectionElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDF502A2DBE1A3F00464935 /* TransactionsFiltersCollectionElement.swift */; };
+		DEDF502E2DBE1A6800464935 /* TFTransactionTypesTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDF502D2DBE1A6800464935 /* TFTransactionTypesTitleCell.swift */; };
+		DEDF50302DBE1A7A00464935 /* TFTransactionTypeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDF502F2DBE1A7A00464935 /* TFTransactionTypeCell.swift */; };
+		DEDF50322DBE1A9600464935 /* TFSortCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDF50312DBE1A9600464935 /* TFSortCell.swift */; };
+		DEDF50352DBE25E900464935 /* TransactionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDF50342DBE25E900464935 /* TransactionsViewController.swift */; };
+		DEDF50372DBE25ED00464935 /* TransactionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDF50362DBE25ED00464935 /* TransactionsViewModel.swift */; };
+		DEDF50392DBE25F100464935 /* TransactionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDF50382DBE25F100464935 /* TransactionsView.swift */; };
 		DEE230B72DAF9572008DD773 /* CPTableAddFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE230B62DAF9572008DD773 /* CPTableAddFieldCell.swift */; };
 		DEE230B92DAF98D4008DD773 /* CPTableBarcodeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE230B82DAF98D4008DD773 /* CPTableBarcodeCell.swift */; };
 		DEE230BB2DAF9DD0008DD773 /* CPTableAddBarcodeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE230BA2DAF9DD0008DD773 /* CPTableAddBarcodeCell.swift */; };
@@ -483,6 +494,17 @@
 		DEDD653F2DAD692200867482 /* CPGeneralTitleField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPGeneralTitleField.swift; sourceTree = "<group>"; };
 		DEDD65412DAD727000867482 /* CPGeneralCountField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPGeneralCountField.swift; sourceTree = "<group>"; };
 		DEDD65432DAD793300867482 /* CPGeneralPriceField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPGeneralPriceField.swift; sourceTree = "<group>"; };
+		DEDF50202DBE183A00464935 /* TransactionsFiltersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsFiltersViewController.swift; sourceTree = "<group>"; };
+		DEDF50222DBE183F00464935 /* TransactionsFiltersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsFiltersViewModel.swift; sourceTree = "<group>"; };
+		DEDF50242DBE184300464935 /* TransactionsFiltersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsFiltersView.swift; sourceTree = "<group>"; };
+		DEDF50282DBE1A3400464935 /* TransactionsFiltersCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsFiltersCollectionView.swift; sourceTree = "<group>"; };
+		DEDF502A2DBE1A3F00464935 /* TransactionsFiltersCollectionElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsFiltersCollectionElement.swift; sourceTree = "<group>"; };
+		DEDF502D2DBE1A6800464935 /* TFTransactionTypesTitleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TFTransactionTypesTitleCell.swift; sourceTree = "<group>"; };
+		DEDF502F2DBE1A7A00464935 /* TFTransactionTypeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TFTransactionTypeCell.swift; sourceTree = "<group>"; };
+		DEDF50312DBE1A9600464935 /* TFSortCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TFSortCell.swift; sourceTree = "<group>"; };
+		DEDF50342DBE25E900464935 /* TransactionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsViewController.swift; sourceTree = "<group>"; };
+		DEDF50362DBE25ED00464935 /* TransactionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsViewModel.swift; sourceTree = "<group>"; };
+		DEDF50382DBE25F100464935 /* TransactionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsView.swift; sourceTree = "<group>"; };
 		DEE230B62DAF9572008DD773 /* CPTableAddFieldCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPTableAddFieldCell.swift; sourceTree = "<group>"; };
 		DEE230B82DAF98D4008DD773 /* CPTableBarcodeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPTableBarcodeCell.swift; sourceTree = "<group>"; };
 		DEE230BA2DAF9DD0008DD773 /* CPTableAddBarcodeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPTableAddBarcodeCell.swift; sourceTree = "<group>"; };
@@ -826,6 +848,7 @@
 		DE0AA6EB2DA4F318005DFC44 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				DEDF501E2DBE17CE00464935 /* Transactions */,
 				DEA35BE42DB8F27100D8D20A /* Folders */,
 				DE1E60F72DA68025006CF764 /* Products */,
 				DE0AA6602DA4F318005DFC44 /* Main */,
@@ -1542,6 +1565,64 @@
 			path = Input;
 			sourceTree = "<group>";
 		};
+		DEDF501E2DBE17CE00464935 /* Transactions */ = {
+			isa = PBXGroup;
+			children = (
+				DEDF50332DBE25E100464935 /* Transactions */,
+				DEDF501F2DBE17D800464935 /* Filters */,
+			);
+			path = Transactions;
+			sourceTree = "<group>";
+		};
+		DEDF501F2DBE17D800464935 /* Filters */ = {
+			isa = PBXGroup;
+			children = (
+				DEDF50262DBE1A2000464935 /* Views */,
+				DEDF50202DBE183A00464935 /* TransactionsFiltersViewController.swift */,
+				DEDF50222DBE183F00464935 /* TransactionsFiltersViewModel.swift */,
+				DEDF50242DBE184300464935 /* TransactionsFiltersView.swift */,
+			);
+			path = Filters;
+			sourceTree = "<group>";
+		};
+		DEDF50262DBE1A2000464935 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				DEDF50272DBE1A2600464935 /* CollectionView */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		DEDF50272DBE1A2600464935 /* CollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				DEDF502C2DBE1A4200464935 /* Views */,
+				DEDF50282DBE1A3400464935 /* TransactionsFiltersCollectionView.swift */,
+				DEDF502A2DBE1A3F00464935 /* TransactionsFiltersCollectionElement.swift */,
+			);
+			path = CollectionView;
+			sourceTree = "<group>";
+		};
+		DEDF502C2DBE1A4200464935 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				DEDF502D2DBE1A6800464935 /* TFTransactionTypesTitleCell.swift */,
+				DEDF502F2DBE1A7A00464935 /* TFTransactionTypeCell.swift */,
+				DEDF50312DBE1A9600464935 /* TFSortCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		DEDF50332DBE25E100464935 /* Transactions */ = {
+			isa = PBXGroup;
+			children = (
+				DEDF50342DBE25E900464935 /* TransactionsViewController.swift */,
+				DEDF50362DBE25ED00464935 /* TransactionsViewModel.swift */,
+				DEDF50382DBE25F100464935 /* TransactionsView.swift */,
+			);
+			path = Transactions;
+			sourceTree = "<group>";
+		};
 		DEE230C42DB01A05008DD773 /* Transactions */ = {
 			isa = PBXGroup;
 			children = (
@@ -1757,6 +1838,7 @@
 				DEDD65362DAD062600867482 /* CPPCollectionAddCell.swift in Sources */,
 				DEA35BE32DB8E98D00D8D20A /* FolderProductsView.swift in Sources */,
 				DE0AA8A02DA53537005DFC44 /* SettingsView.swift in Sources */,
+				DEDF50302DBE1A7A00464935 /* TFTransactionTypeCell.swift in Sources */,
 				DE522C592DB0EC8D007C6BD6 /* CreateMetaFieldViewModel.swift in Sources */,
 				DE8AED732DBCD9CA00E2E1CF /* CPTWebLinkFieldCell.swift in Sources */,
 				DEA35BF12DB8F3E100D8D20A /* FoldersCollectionCell.swift in Sources */,
@@ -1774,6 +1856,7 @@
 				DE8AED432DB92EAD00E2E1CF /* DemoProductViewModel.swift in Sources */,
 				DEA35BBB2DB79B3500D8D20A /* ITStatisticsCell.swift in Sources */,
 				DEA35BCF2DB7ECB600D8D20A /* ITFoldersCollectionCell.swift in Sources */,
+				DEDF502B2DBE1A3F00464935 /* TransactionsFiltersCollectionElement.swift in Sources */,
 				DE0AA76E2DA4F318005DFC44 /* PaygateInteractor.swift in Sources */,
 				DE1E61082DA69CB4006CF764 /* SearchEmptyView.swift in Sources */,
 				DE0AA7722DA4F318005DFC44 /* ContentError.swift in Sources */,
@@ -1817,6 +1900,7 @@
 				DE522C562DB0E16D007C6BD6 /* CreateMetaFieldView.swift in Sources */,
 				DEA35B9F2DB69FB400D8D20A /* ProfileStatistics.swift in Sources */,
 				DEA35BF62DB9004800D8D20A /* CreateFolderViewModel.swift in Sources */,
+				DEDF50352DBE25E900464935 /* TransactionsViewController.swift in Sources */,
 				DE0AA7882DA4F318005DFC44 /* IAPProduct.swift in Sources */,
 				DE0AA8AB2DA536C2005DFC44 /* STLinksCell.swift in Sources */,
 				DE0AA78B2DA4F318005DFC44 /* PaddingLabel.swift in Sources */,
@@ -1860,6 +1944,7 @@
 				DE8AED522DBA4C5B00E2E1CF /* ProductMenuActionSheet.swift in Sources */,
 				DE1E60CF2DA65811006CF764 /* ScanBarcodeRequest.swift in Sources */,
 				DE0AA7B72DA4F318005DFC44 /* RequestReview.swift in Sources */,
+				DEDF50372DBE25ED00464935 /* TransactionsViewModel.swift in Sources */,
 				DE0AA7B82DA4F318005DFC44 /* PurchaseValidationObserver.swift in Sources */,
 				DE0AA7C22DA4F318005DFC44 /* GradientView.swift in Sources */,
 				DE0AA7C32DA4F318005DFC44 /* Collection+Extension.swift in Sources */,
@@ -1875,7 +1960,9 @@
 				DE8AED712DBCD9C200E2E1CF /* CPTPhoneNumberFieldCell.swift in Sources */,
 				DEA35BB92DB79B2100D8D20A /* ITDemoProductCell.swift in Sources */,
 				DE0AA8912DA50C95005DFC44 /* Onstruction1View.swift in Sources */,
+				DEDF502E2DBE1A6800464935 /* TFTransactionTypesTitleCell.swift in Sources */,
 				DE1E61062DA68D42006CF764 /* SearchTableCell.swift in Sources */,
+				DEDF50212DBE183A00464935 /* TransactionsFiltersViewController.swift in Sources */,
 				DE1E60D12DA659DC006CF764 /* ProductScanBarcodeResult.swift in Sources */,
 				DE522C5B2DB0EE6E007C6BD6 /* CreateSTBField.swift in Sources */,
 				DE8AED692DBCD97B00E2E1CF /* CPTRoundNumberFieldCell.swift in Sources */,
@@ -1913,6 +2000,7 @@
 				DE0AA7FD2DA4F318005DFC44 /* Weak.swift in Sources */,
 				DEA35BF42DB9004400D8D20A /* CreateFolderViewController.swift in Sources */,
 				DEE230B72DAF9572008DD773 /* CPTableAddFieldCell.swift in Sources */,
+				DEDF50252DBE184300464935 /* TransactionsFiltersView.swift in Sources */,
 				DE0AA8062DA4F318005DFC44 /* SceneDelegate.swift in Sources */,
 				DE0AA8092DA4F318005DFC44 /* PaygateInfoView.swift in Sources */,
 				DE8AED492DB9FB1A00E2E1CF /* DemoProductTableView.swift in Sources */,
@@ -1924,6 +2012,7 @@
 				DE0AA8242DA4F318005DFC44 /* XOREncryption.swift in Sources */,
 				DE1E61012DA68ABD006CF764 /* SearchField.swift in Sources */,
 				DEE230CC2DB01B70008DD773 /* TransactionItem.swift in Sources */,
+				DEDF50392DBE25F100464935 /* TransactionsView.swift in Sources */,
 				DE522C512DB0D7FF007C6BD6 /* SMFTableCell.swift in Sources */,
 				DEA35BA62DB6A53400D8D20A /* ItemsViewModel.swift in Sources */,
 				DEE48BC82DA7A55D002CD05A /* ScannerViewModel.swift in Sources */,
@@ -1952,6 +2041,7 @@
 				DEDD65282DAD058E00867482 /* CreateProductTableElement.swift in Sources */,
 				DE522C752DB131C7007C6BD6 /* CreateDateButton.swift in Sources */,
 				DE0AA85F2DA4F318005DFC44 /* SplashViewModel.swift in Sources */,
+				DEDF50322DBE1A9600464935 /* TFSortCell.swift in Sources */,
 				DE0AA8632DA4F318005DFC44 /* Appearance.swift in Sources */,
 				DEA35BE12DB8E98400D8D20A /* FolderProductsViewModel.swift in Sources */,
 				DE1E61042DA68D3B006CF764 /* SearchTableView.swift in Sources */,
@@ -1966,6 +2056,8 @@
 				DE0AA8952DA50D62005DFC44 /* OAccountView.swift in Sources */,
 				DE0AA86C2DA4F318005DFC44 /* OnboardingViewController.swift in Sources */,
 				DE1E60FE2DA6803C006CF764 /* SearchView.swift in Sources */,
+				DEDF50232DBE183F00464935 /* TransactionsFiltersViewModel.swift in Sources */,
+				DEDF50292DBE1A3400464935 /* TransactionsFiltersCollectionView.swift in Sources */,
 				DE0AA86D2DA4F318005DFC44 /* IAPError.swift in Sources */,
 				DE0AA86F2DA4F318005DFC44 /* SplashViewController.swift in Sources */,
 				DE0AA8732DA4F318005DFC44 /* PaddingTextField.swift in Sources */,

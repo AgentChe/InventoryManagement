@@ -228,3 +228,11 @@
 
 // MARK: WhereMoveFolders
 "WhereMoveFolders.Title" = "Where to move?";
+
+// MARK: TransactionsFilters
+"TransactionsFilters.Title" = "Filters";
+"TransactionsFilters.TransactionTypesTitle" = "Transaction types";
+"TransactionsFilters.Sort" = "Sort by";
+
+// MARK: Transactions
+"Transactions.Title" = "Transactions";

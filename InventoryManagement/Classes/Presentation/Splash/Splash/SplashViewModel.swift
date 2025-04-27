@@ -17,6 +17,7 @@ final class SplashViewModel {
     
     private lazy var sessionManager = SessionManager()
     private lazy var profileManager = ProfileManager()
+    private lazy var transactionsManager = TransactionsManager()
     
     private lazy var observableRetrySingle = ObservableRetrySingle()
 }
@@ -33,17 +34,18 @@ extension SplashViewModel {
     
     func configure(input: Input) -> Output {
         let login = login(didSDKConfigured: input.didSDKConfigured)
+        let library = makeLibrary(login: login)
         
         return Output(
-            route: makeRoute(login: login)
+            route: makeRoute(library: library)
         )
     }
 }
 
 // MARK: Private
 private extension SplashViewModel {
-    func makeRoute(login: Signal<Void>) -> Driver<Route> {
-        login
+    func makeRoute(library: Signal<Void>) -> Driver<Route> {
+        library
             .compactMap { [weak self] void -> Route? in
                 guard let self else { return nil }
                 
@@ -54,6 +56,32 @@ private extension SplashViewModel {
                 return .main
             }
             .asDriver(onErrorDriveWith: .never())
+    }
+    
+    func makeLibrary(login: Signal<Void>) -> Signal<Void> {
+        login
+            .flatMapLatest { [weak self] void -> Signal<Void> in
+                guard let self else { return .never() }
+                
+                func source() -> Single<Void> {
+                    let transactionsFilters = transactionsManager
+                        .obtainFilters(forceUpdate: true)
+                        .mapToVoid()
+                    
+                    return transactionsFilters
+                }
+                
+                func trigger(error: Error) -> Observable<Void> {
+                    tryAgain?(error) ?? .empty()
+                }
+                
+                return observableRetrySingle
+                    .retry(
+                        source: { source() },
+                        trigger: { trigger(error: $0) }
+                    )
+                    .asSignal(onErrorSignalWith: .never())
+            }
     }
     
     func login(didSDKConfigured: Signal<Void>) -> Signal<Void> {

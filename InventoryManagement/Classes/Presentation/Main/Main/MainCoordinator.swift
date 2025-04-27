@@ -9,7 +9,7 @@ import UIKit
 
 final class MainCoordinator {
     private lazy var itemsVC = ItemsViewController.make()
-    private lazy var transactionsVC = UIViewController()
+    private lazy var transactionsVC = TransactionsViewController.make()
     private lazy var searchVC = SearchViewController.make()
     private lazy var settingsVC = SettingsViewController.make()
     

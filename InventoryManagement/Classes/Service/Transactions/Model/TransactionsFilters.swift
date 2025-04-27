@@ -5,7 +5,7 @@
 //  Created by Андрей Чернышев on 16.04.2025.
 //
 
-struct TransactionsFilters {
+struct TransactionsFilters: Codable {
     let filters: [String]
     let sort: [String]
 }
