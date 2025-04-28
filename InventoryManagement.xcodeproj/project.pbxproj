@@ -133,6 +133,11 @@
 		DE1E61042DA68D3B006CF764 /* SearchTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1E61032DA68D3B006CF764 /* SearchTableView.swift */; };
 		DE1E61062DA68D42006CF764 /* SearchTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1E61052DA68D42006CF764 /* SearchTableCell.swift */; };
 		DE1E61082DA69CB4006CF764 /* SearchEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1E61072DA69CB4006CF764 /* SearchEmptyView.swift */; };
+		DE2478222DBF751700F7F48F /* TransactionsFilterButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2478212DBF751700F7F48F /* TransactionsFilterButton.swift */; };
+		DE2478252DBF790400F7F48F /* TSFiltersCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2478242DBF790400F7F48F /* TSFiltersCollectionView.swift */; };
+		DE2478272DBF791400F7F48F /* TSFiltersCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2478262DBF791400F7F48F /* TSFiltersCollectionCell.swift */; };
+		DE24782A2DBF7D5500F7F48F /* TransactionsItemsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2478292DBF7D5500F7F48F /* TransactionsItemsTableView.swift */; };
+		DE24782C2DBF7D5A00F7F48F /* TransactionsItemsTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE24782B2DBF7D5A00F7F48F /* TransactionsItemsTableCell.swift */; };
 		DE522C3D2DB0D05C007C6BD6 /* ObtainTransactionsFiltersRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE522C3C2DB0D05C007C6BD6 /* ObtainTransactionsFiltersRequest.swift */; };
 		DE522C3F2DB0D095007C6BD6 /* ObtainTransactionsItemsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE522C3E2DB0D095007C6BD6 /* ObtainTransactionsItemsRequest.swift */; };
 		DE522C442DB0D3F7007C6BD6 /* SelectMetaFieldsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE522C432DB0D3F7007C6BD6 /* SelectMetaFieldsView.swift */; };
@@ -397,6 +402,11 @@
 		DE1E61032DA68D3B006CF764 /* SearchTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableView.swift; sourceTree = "<group>"; };
 		DE1E61052DA68D42006CF764 /* SearchTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableCell.swift; sourceTree = "<group>"; };
 		DE1E61072DA69CB4006CF764 /* SearchEmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchEmptyView.swift; sourceTree = "<group>"; };
+		DE2478212DBF751700F7F48F /* TransactionsFilterButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsFilterButton.swift; sourceTree = "<group>"; };
+		DE2478242DBF790400F7F48F /* TSFiltersCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSFiltersCollectionView.swift; sourceTree = "<group>"; };
+		DE2478262DBF791400F7F48F /* TSFiltersCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSFiltersCollectionCell.swift; sourceTree = "<group>"; };
+		DE2478292DBF7D5500F7F48F /* TransactionsItemsTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsItemsTableView.swift; sourceTree = "<group>"; };
+		DE24782B2DBF7D5A00F7F48F /* TransactionsItemsTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsItemsTableCell.swift; sourceTree = "<group>"; };
 		DE522C3C2DB0D05C007C6BD6 /* ObtainTransactionsFiltersRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObtainTransactionsFiltersRequest.swift; sourceTree = "<group>"; };
 		DE522C3E2DB0D095007C6BD6 /* ObtainTransactionsItemsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObtainTransactionsItemsRequest.swift; sourceTree = "<group>"; };
 		DE522C432DB0D3F7007C6BD6 /* SelectMetaFieldsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectMetaFieldsView.swift; sourceTree = "<group>"; };
@@ -1166,6 +1176,34 @@
 			path = TableView;
 			sourceTree = "<group>";
 		};
+		DE2478202DBF74CC00F7F48F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				DE2478282DBF7D4900F7F48F /* Items */,
+				DE2478232DBF78ED00F7F48F /* Filters */,
+				DE2478212DBF751700F7F48F /* TransactionsFilterButton.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		DE2478232DBF78ED00F7F48F /* Filters */ = {
+			isa = PBXGroup;
+			children = (
+				DE2478242DBF790400F7F48F /* TSFiltersCollectionView.swift */,
+				DE2478262DBF791400F7F48F /* TSFiltersCollectionCell.swift */,
+			);
+			path = Filters;
+			sourceTree = "<group>";
+		};
+		DE2478282DBF7D4900F7F48F /* Items */ = {
+			isa = PBXGroup;
+			children = (
+				DE2478292DBF7D5500F7F48F /* TransactionsItemsTableView.swift */,
+				DE24782B2DBF7D5A00F7F48F /* TransactionsItemsTableCell.swift */,
+			);
+			path = Items;
+			sourceTree = "<group>";
+		};
 		DE522C402DB0D3D5007C6BD6 /* MetaFields */ = {
 			isa = PBXGroup;
 			children = (
@@ -1616,6 +1654,7 @@
 		DEDF50332DBE25E100464935 /* Transactions */ = {
 			isa = PBXGroup;
 			children = (
+				DE2478202DBF74CC00F7F48F /* Views */,
 				DEDF50342DBE25E900464935 /* TransactionsViewController.swift */,
 				DEDF50362DBE25ED00464935 /* TransactionsViewModel.swift */,
 				DEDF50382DBE25F100464935 /* TransactionsView.swift */,
@@ -1835,6 +1874,7 @@
 				DEA35BDF2DB8E97F00D8D20A /* FolderProductsViewController.swift in Sources */,
 				DE1E60F22DA66D98006CF764 /* ManageFolderRequest.swift in Sources */,
 				DEE230BD2DAFB9C7008DD773 /* CPTableSaveCell.swift in Sources */,
+				DE24782A2DBF7D5500F7F48F /* TransactionsItemsTableView.swift in Sources */,
 				DEDD65362DAD062600867482 /* CPPCollectionAddCell.swift in Sources */,
 				DEA35BE32DB8E98D00D8D20A /* FolderProductsView.swift in Sources */,
 				DE0AA8A02DA53537005DFC44 /* SettingsView.swift in Sources */,
@@ -1868,6 +1908,7 @@
 				DE0AA7732DA4F318005DFC44 /* UIDevice+Extension.swift in Sources */,
 				DE8AED6F2DBCD9BA00E2E1CF /* CPTDateFieldCell.swift in Sources */,
 				DE8AED5C2DBA515200E2E1CF /* WhereMoveFoldersViewModel.swift in Sources */,
+				DE2478252DBF790400F7F48F /* TSFiltersCollectionView.swift in Sources */,
 				DE0AA7752DA4F318005DFC44 /* ProfileManager.swift in Sources */,
 				DE522C5F2DB0EEF2007C6BD6 /* CreateRNField.swift in Sources */,
 				DE1E60CD2DA64F69006CF764 /* Page.swift in Sources */,
@@ -1931,6 +1972,7 @@
 				DE1E60EC2DA66A7A006CF764 /* CreateFolderRequest.swift in Sources */,
 				DE0AA8AF2DA53784005DFC44 /* STLinkButton.swift in Sources */,
 				DEE48BC22DA79ED7002CD05A /* ScannerView.swift in Sources */,
+				DE24782C2DBF7D5A00F7F48F /* TransactionsItemsTableCell.swift in Sources */,
 				DEA35BEB2DB8F28600D8D20A /* FoldersView.swift in Sources */,
 				DE0AA7AC2DA4F318005DFC44 /* SplashView.swift in Sources */,
 				DE0AA88C2DA50418005DFC44 /* RequestResult.swift in Sources */,
@@ -1972,6 +2014,7 @@
 				DEE230C32DAFDF5C008DD773 /* FolderMoveRequest.swift in Sources */,
 				DE0AA7E42DA4F318005DFC44 /* UIColor+Extension.swift in Sources */,
 				DE1E60DB2DA662AE006CF764 /* UploadImageRequest.swift in Sources */,
+				DE2478272DBF791400F7F48F /* TSFiltersCollectionCell.swift in Sources */,
 				DEE48BCD2DA7B6B9002CD05A /* ScannerCameraPreviewView.swift in Sources */,
 				DEA35BBD2DB79B4600D8D20A /* ITFoldersCell.swift in Sources */,
 				DEC48D742DA8F0D500AC1B3D /* CreateProductViewController.swift in Sources */,
@@ -2011,6 +2054,7 @@
 				DE0AA8202DA4F318005DFC44 /* TryAgainView.swift in Sources */,
 				DE0AA8242DA4F318005DFC44 /* XOREncryption.swift in Sources */,
 				DE1E61012DA68ABD006CF764 /* SearchField.swift in Sources */,
+				DE2478222DBF751700F7F48F /* TransactionsFilterButton.swift in Sources */,
 				DEE230CC2DB01B70008DD773 /* TransactionItem.swift in Sources */,
 				DEDF50392DBE25F100464935 /* TransactionsView.swift in Sources */,
 				DE522C512DB0D7FF007C6BD6 /* SMFTableCell.swift in Sources */,

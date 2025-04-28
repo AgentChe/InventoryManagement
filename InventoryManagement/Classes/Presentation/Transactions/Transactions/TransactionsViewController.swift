@@ -27,12 +27,50 @@ final class TransactionsViewController: UIViewController {
         
         let output = viewModel.configure(input: TransactionsViewModel.Input(
             didTapFilters: mainView.filtersButton.rx.tap.asSignal(),
-            didSelectFilters: didSelectFiltersTrigger.asSignal()
+            didSelectFilters: didSelectFiltersTrigger.asSignal(),
+            didScrollToBottom: mainView.tableView.didScrollToBottom,
+            didTapDeleteFilterType: mainView.filtersCollectionView.didTapDeleteFilterType
         ))
         
         output.action
             .drive(Binder(self) { base, action in
                 base.action(action)
+            })
+            .disposed(by: disposeBag)
+        
+        output.hasSelectedFilters
+            .drive(Binder(mainView) { base, hasSelectedFilters in
+                base.setup(hasSelectedFilters: hasSelectedFilters)
+            })
+            .disposed(by: disposeBag)
+        
+        Driver
+            .combineLatest(output.isEmpty, output.firstPageActivity)
+            .drive(Binder(mainView) { base, args in
+                let (isEmpty, isLoading) = args
+                
+                isLoading ? base.centerPreloader.startAnimating() : base.centerPreloader.stopAnimating()
+                
+                base.tableView.isHidden = isLoading || isEmpty
+            })
+            .disposed(by: disposeBag)
+        
+        output.paginationActivity
+            .drive(Binder(mainView) { base, activity in
+                base.tableView.contentInset.bottom = activity ? 48.scale : 16.scale
+                activity ? base.bottomPreloader.startAnimating() : base.bottomPreloader.stopAnimating()
+            })
+            .disposed(by: disposeBag)
+        
+        output.elements
+            .drive(Binder(mainView.tableView) { base, elements in
+                base.setup(elements: elements)
+            })
+            .disposed(by: disposeBag)
+        
+        output.selectedFiltersElements
+            .drive(Binder(mainView.filtersCollectionView) { base, elements in
+                base.setup(elements: elements)
             })
             .disposed(by: disposeBag)
     }

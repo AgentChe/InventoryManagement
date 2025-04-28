@@ -40,7 +40,6 @@ extension TransactionItem {
             let type = json["transaction_type"] as? String,
             let timestamp = json["transaction_date"] as? TimeInterval,
             let productId = json["product_id"] as? String,
-            let folderId = json["folder"] as? String,
             let title = json["title"] as? String,
             let barcode = json["barcode"] as? String,
             let count = json["count"] as? Int
@@ -48,9 +47,9 @@ extension TransactionItem {
         
         self.id = id
         self.type = type
-        self.date = Date(timeIntervalSince1970: timestamp)
+        self.date = Date(timeIntervalSince1970: timestamp / 1000)
         self.productId = productId
-        self.folderId = folderId
+        self.folderId = json["folder"] as? String
         self.title = title
         self.barcode = barcode
         self.count = count
