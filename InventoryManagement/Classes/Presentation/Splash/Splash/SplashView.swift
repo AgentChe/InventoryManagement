@@ -26,7 +26,7 @@ final class SplashView: UIView {
 // MARK: Private
 private extension SplashView {
     func initialize() {
-        backgroundColor = Appearance.main200
+        backgroundColor = Appearance.mono100
     }
 }
 
@@ -34,10 +34,10 @@ private extension SplashView {
 private extension SplashView {
     func makeConstraints() {
         NSLayoutConstraint.activate([
-            imageView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            imageView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            imageView.topAnchor.constraint(equalTo: topAnchor),
-            imageView.bottomAnchor.constraint(equalTo: bottomAnchor)
+            imageView.centerXAnchor.constraint(equalTo: centerXAnchor),
+            imageView.centerYAnchor.constraint(equalTo: centerYAnchor),
+            imageView.widthAnchor.constraint(equalToConstant: 128.scale),
+            imageView.heightAnchor.constraint(equalToConstant: 128.scale)
         ])
         
         NSLayoutConstraint.activate([
@@ -50,7 +50,6 @@ private extension SplashView {
 
 // MARK: Lazy initialization
 private extension SplashView {
-    // TODO: image
     func makeImageView() -> UIImageView {
         let view = UIImageView()
         view.contentMode = .scaleAspectFill
@@ -63,7 +62,7 @@ private extension SplashView {
     
     func makePreloaderLabel() -> UILabel {
         let attrs = TextAttributes()
-            .textColor(Appearance.mono100)
+            .textColor(Appearance.main200)
             .font(Fonts.Quicksand.regular(size: 17.scale))
             .lineHeight(23.scale)
             .textAlignment(.center)
