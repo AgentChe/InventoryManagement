@@ -22,7 +22,7 @@ final class GlobalDefinitions {
     static let contactUsUrl = URL(string: "https://sergei-mobile.com/contact.html")!
     
     enum Paygate {
-        static let yearly = "inventory.yearly"
-        static let weekly = "inventory.weekly"
+        static let yearly = "inventory.yearly1"
+        static let weekly = "inventory.weekly1"
     }
 }
