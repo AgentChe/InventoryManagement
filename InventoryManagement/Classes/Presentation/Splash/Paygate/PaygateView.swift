@@ -57,8 +57,8 @@ private extension PaygateView {
 private extension PaygateView {
     func makeConstraints() {
         NSLayoutConstraint.activate([
-            imageView.widthAnchor.constraint(equalToConstant: 379.scale),
-            imageView.heightAnchor.constraint(equalToConstant: 253.scale),
+            imageView.widthAnchor.constraint(equalToConstant: ScreenSize.isIphoneXFamily ? 379.scale : 219.scale),
+            imageView.heightAnchor.constraint(equalToConstant: ScreenSize.isIphoneXFamily ? 253.scale : 146.scale),
             imageView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
             imageView.centerXAnchor.constraint(equalTo: centerXAnchor)
         ])
@@ -134,7 +134,7 @@ private extension PaygateView {
         
         NSLayoutConstraint.activate([
             actionsView.centerXAnchor.constraint(equalTo: centerXAnchor),
-            actionsView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor)
+            actionsView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: ScreenSize.isIphoneXFamily ? 0 : -8.scale)
         ])
         
         NSLayoutConstraint.activate([

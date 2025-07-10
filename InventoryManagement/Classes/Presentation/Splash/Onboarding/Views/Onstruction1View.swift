@@ -45,8 +45,8 @@ private extension Onstruction1View {
 private extension Onstruction1View {
     func makeConstraints() {
         NSLayoutConstraint.activate([
-            imageView.widthAnchor.constraint(equalToConstant: 410.scale),
-            imageView.heightAnchor.constraint(equalToConstant: 410.scale),
+            imageView.widthAnchor.constraint(equalToConstant: ScreenSize.isIphoneXFamily ? 410.scale : 250.scale),
+            imageView.heightAnchor.constraint(equalToConstant: ScreenSize.isIphoneXFamily ? 410.scale : 250.scale),
             imageView.centerXAnchor.constraint(equalTo: centerXAnchor),
             imageView.topAnchor.constraint(equalTo: topAnchor, constant: 130.scale)
         ])

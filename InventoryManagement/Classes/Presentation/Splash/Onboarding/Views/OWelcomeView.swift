@@ -45,8 +45,8 @@ private extension OWelcomeView {
 private extension OWelcomeView {
     func makeConstraints() {
         NSLayoutConstraint.activate([
-            imageView.widthAnchor.constraint(equalToConstant: 469.scale),
-            imageView.heightAnchor.constraint(equalToConstant: 469.scale),
+            imageView.widthAnchor.constraint(equalToConstant: ScreenSize.isIphoneXFamily ? 469.scale : 250.scale),
+            imageView.heightAnchor.constraint(equalToConstant: ScreenSize.isIphoneXFamily ? 469.scale : 250.scale),
             imageView.centerXAnchor.constraint(equalTo: centerXAnchor),
             imageView.topAnchor.constraint(equalTo: topAnchor, constant: 78.scale)
         ])
