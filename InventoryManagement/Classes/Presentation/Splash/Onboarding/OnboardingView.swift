@@ -15,8 +15,8 @@ final class OnboardingView: UIView {
         case account
     }
     
-    private lazy var slidesViews: [Slide: UIView] = [
-        .welcome: OWelcomeView { [weak self] in 
+    private lazy var slidesViews: [Slide: OSlideView] = [
+        .welcome: OWelcomeView { [weak self] in
             self?.scroll(from: .welcome, to: .instruction1)
         },
         .instruction1: Onstruction1View { [weak self] in
@@ -61,6 +61,8 @@ private extension OnboardingView {
         if let view = slidesViews[.welcome] {
             view.frame.origin = CGPoint.zero
             addSubview(view)
+            
+            view.moveToThis()
         }
     }
     
@@ -77,6 +79,7 @@ private extension OnboardingView {
             currentView.frame.origin = CGPoint(x: -bounds.size.width, y: 0)
             scrollToView.frame.origin = CGPoint(x: 0, y: 0)
         }, completion: { result in
+            scrollToView.moveToThis()
             currentView.removeFromSuperview()
         })
     }

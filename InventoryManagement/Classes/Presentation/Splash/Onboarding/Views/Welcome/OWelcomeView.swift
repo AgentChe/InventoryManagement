@@ -1,17 +1,20 @@
 //
-//  Onstruction2View.swift
+//  OWelcomeView.swift
 //  InventoryManagement
 //
 //  Created by Андрей Чернышев on 08.04.2025.
 //
 
 import UIKit
+import RiveRuntime
 
-final class Onstruction2View: UIView {
-    lazy var imageView = makeImageView()
+final class OWelcomeView: OSlideView {
+    lazy var animationView = makeAnimationView()
     lazy var titleLabel = makeTitleLabel()
     lazy var subTitleLabel = makeSubTitleLabel()
     lazy var continueButton = makeContinueButton()
+    
+    private lazy var animationVM = RiveViewModel(fileName: "Onboarding.Welcome")
     
     private let onContinue: () -> Void
     
@@ -27,10 +30,16 @@ final class Onstruction2View: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    override func moveToThis() {
+        super.moveToThis()
+        
+        animationVM.setView(animationView)
+    }
 }
 
 // MARK: Private
-private extension Onstruction2View {
+private extension OWelcomeView {
     func initialize() {
         backgroundColor = Appearance.custom250_242_242
     }
@@ -42,19 +51,19 @@ private extension Onstruction2View {
 }
 
 // MARK: Make constraints
-private extension Onstruction2View {
+private extension OWelcomeView {
     func makeConstraints() {
         NSLayoutConstraint.activate([
-            imageView.widthAnchor.constraint(equalToConstant: ScreenSize.isIphoneXFamily ? 524.scale : 270.scale),
-            imageView.heightAnchor.constraint(equalToConstant: ScreenSize.isIphoneXFamily ? 456.scale : 241.scale),
-            imageView.centerXAnchor.constraint(equalTo: centerXAnchor),
-            imageView.topAnchor.constraint(equalTo: topAnchor, constant: 74.scale)
+            animationView.widthAnchor.constraint(equalToConstant: ScreenSize.isIphoneXFamily ? 469.scale : 250.scale),
+            animationView.heightAnchor.constraint(equalToConstant: ScreenSize.isIphoneXFamily ? 469.scale : 250.scale),
+            animationView.centerXAnchor.constraint(equalTo: centerXAnchor),
+            animationView.topAnchor.constraint(equalTo: topAnchor, constant: 78.scale)
         ])
         
         NSLayoutConstraint.activate([
             titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16.scale),
             titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16.scale),
-            titleLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 27.scale)
+            titleLabel.topAnchor.constraint(equalTo: animationView.bottomAnchor, constant: 12.scale)
         ])
         
         NSLayoutConstraint.activate([
@@ -73,11 +82,10 @@ private extension Onstruction2View {
 }
 
 // MARK: Lazy initialization
-private extension Onstruction2View {
-    func makeImageView() -> UIImageView {
-        let view = UIImageView()
-        view.contentMode = .scaleAspectFit
-        view.image = UIImage(named: "Onboarding.Instruction2")
+private extension OWelcomeView {
+    func makeAnimationView() -> RiveView {
+        let view = RiveView()
+        view.backgroundColor = UIColor.clear
         view.translatesAutoresizingMaskIntoConstraints = false
         addSubview(view)
         return view
@@ -91,7 +99,7 @@ private extension Onstruction2View {
             .textAlignment(.left)
         
         let view = UILabel()
-        view.attributedText = "Onboarding.Instruction2.Title".localized.attributed(with: attrs)
+        view.attributedText = "Onboarding.Welcome.Title".localized.attributed(with: attrs)
         view.numberOfLines = 0
         view.translatesAutoresizingMaskIntoConstraints = false
         addSubview(view)
@@ -106,7 +114,7 @@ private extension Onstruction2View {
             .textAlignment(.left)
         
         let view = UILabel()
-        view.attributedText = "Onboarding.Instruction2.SubTitle".localized.attributed(with: attrs)
+        view.attributedText = "Onboarding.Welcome.SubTitle".localized.attributed(with: attrs)
         view.numberOfLines = 0
         view.translatesAutoresizingMaskIntoConstraints = false
         addSubview(view)

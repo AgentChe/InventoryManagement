@@ -592,7 +592,7 @@ private extension CreateProductViewModel {
                         .scan(barcode: barcode.value)
                         .map { result -> DetailsData in
                             guard let result else { throw ContentError(.notContent) }
-                            return DetailsData(scanResult: result)
+                            return DetailsData(scanResult: result, code: barcode.value)
                         }
                 }
                 
@@ -646,11 +646,11 @@ private extension CreateProductViewModel.DetailsData {
         relate = nil
     }
     
-    init(scanResult: ProductScanBarcodeResult) {
+    init(scanResult: ProductScanBarcodeResult, code: String) {
         title = scanResult.title
         images = scanResult.images
         count = nil
-        barcode = scanResult.barcode
+        barcode = scanResult.barcode.isEmpty ? code : scanResult.barcode
         priceValue = scanResult.price?.value
         priceCurrency = scanResult.price?.currency ?? .dollar
         meta = []

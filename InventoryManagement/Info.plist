@@ -12,7 +12,21 @@
 				<string>inventorymanagement</string>
 			</array>
 		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>fb1253024183033999</string>
+			</array>
+		</dict>
 	</array>
+	<key>FacebookAppID</key>
+	<string>1253024183033999</string>
+	<key>FacebookClientToken</key>
+	<string>7e7d6a2171a2b827fc7ac764ec28c798</string>
+	<key>FacebookDisplayName</key>
+	<string>Inventory Management</string>
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSAllowsArbitraryLoads</key>

@@ -7,6 +7,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 target 'InventoryManagement' do
   pod 'Kingfisher'
   pod 'Toast-Swift'
+  pod 'RiveRuntime'
   
   pod 'RxSwift'
   pod 'RxCocoa'
@@ -18,6 +19,7 @@ target 'InventoryManagement' do
   pod 'OtterScaleiOS', :git => "https://github.com/AgentChe/OtterScaleiOS.git"
   
   pod 'Amplitude-iOS'
+  pod 'FBSDKCoreKit'
 end
 
 post_install do |installer|

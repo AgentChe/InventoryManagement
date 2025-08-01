@@ -163,6 +163,7 @@
 		DE522C732DB12CF4007C6BD6 /* CreateDateTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE522C722DB12CF4007C6BD6 /* CreateDateTypeView.swift */; };
 		DE522C752DB131C7007C6BD6 /* CreateDateButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE522C742DB131C7007C6BD6 /* CreateDateButton.swift */; };
 		DE522C772DB15041007C6BD6 /* ProductMetaField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE522C762DB15041007C6BD6 /* ProductMetaField.swift */; };
+		DE66AE392E3B64B200886B58 /* OSlideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE66AE382E3B64B200886B58 /* OSlideView.swift */; };
 		DE8AED412DB92EA700E2E1CF /* DemoProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8AED402DB92EA700E2E1CF /* DemoProductViewController.swift */; };
 		DE8AED432DB92EAD00E2E1CF /* DemoProductViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8AED422DB92EAD00E2E1CF /* DemoProductViewModel.swift */; };
 		DE8AED452DB92EB100E2E1CF /* DemoProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8AED442DB92EB100E2E1CF /* DemoProductView.swift */; };
@@ -223,6 +224,10 @@
 		DEC48D742DA8F0D500AC1B3D /* CreateProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC48D732DA8F0D500AC1B3D /* CreateProductViewController.swift */; };
 		DEC48D772DA8F0E400AC1B3D /* CreateProductViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC48D762DA8F0E400AC1B3D /* CreateProductViewModel.swift */; };
 		DEC48D792DA8F0E800AC1B3D /* CreateProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC48D782DA8F0E800AC1B3D /* CreateProductView.swift */; };
+		DECC9E572E3CE0A10039B5A1 /* Onboarding.Welcome.riv in Resources */ = {isa = PBXBuildFile; fileRef = DECC9E562E3CE0A10039B5A1 /* Onboarding.Welcome.riv */; };
+		DECC9E5B2E3CE0E00039B5A1 /* Onboarding.Instruction2.riv in Resources */ = {isa = PBXBuildFile; fileRef = DECC9E5A2E3CE0E00039B5A1 /* Onboarding.Instruction2.riv */; };
+		DECC9E5D2E3CE2F40039B5A1 /* FacebookManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DECC9E5C2E3CE2F40039B5A1 /* FacebookManager.swift */; };
+		DECC9E612E3CE7100039B5A1 /* Onboarding.Instruction1.riv in Resources */ = {isa = PBXBuildFile; fileRef = DECC9E602E3CE7100039B5A1 /* Onboarding.Instruction1.riv */; };
 		DEDD65262DAD058500867482 /* CreateProductTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDD65252DAD058500867482 /* CreateProductTableView.swift */; };
 		DEDD65282DAD058E00867482 /* CreateProductTableElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDD65272DAD058E00867482 /* CreateProductTableElement.swift */; };
 		DEDD652B2DAD05A100867482 /* CPTableGeneralCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDD652A2DAD05A100867482 /* CPTableGeneralCell.swift */; };
@@ -432,6 +437,7 @@
 		DE522C722DB12CF4007C6BD6 /* CreateDateTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateDateTypeView.swift; sourceTree = "<group>"; };
 		DE522C742DB131C7007C6BD6 /* CreateDateButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateDateButton.swift; sourceTree = "<group>"; };
 		DE522C762DB15041007C6BD6 /* ProductMetaField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductMetaField.swift; sourceTree = "<group>"; };
+		DE66AE382E3B64B200886B58 /* OSlideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSlideView.swift; sourceTree = "<group>"; };
 		DE8AED402DB92EA700E2E1CF /* DemoProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoProductViewController.swift; sourceTree = "<group>"; };
 		DE8AED422DB92EAD00E2E1CF /* DemoProductViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoProductViewModel.swift; sourceTree = "<group>"; };
 		DE8AED442DB92EB100E2E1CF /* DemoProductView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoProductView.swift; sourceTree = "<group>"; };
@@ -492,6 +498,10 @@
 		DEC48D732DA8F0D500AC1B3D /* CreateProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateProductViewController.swift; sourceTree = "<group>"; };
 		DEC48D762DA8F0E400AC1B3D /* CreateProductViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateProductViewModel.swift; sourceTree = "<group>"; };
 		DEC48D782DA8F0E800AC1B3D /* CreateProductView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateProductView.swift; sourceTree = "<group>"; };
+		DECC9E562E3CE0A10039B5A1 /* Onboarding.Welcome.riv */ = {isa = PBXFileReference; lastKnownFileType = file; path = Onboarding.Welcome.riv; sourceTree = "<group>"; };
+		DECC9E5A2E3CE0E00039B5A1 /* Onboarding.Instruction2.riv */ = {isa = PBXFileReference; lastKnownFileType = file; path = Onboarding.Instruction2.riv; sourceTree = "<group>"; };
+		DECC9E5C2E3CE2F40039B5A1 /* FacebookManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacebookManager.swift; sourceTree = "<group>"; };
+		DECC9E602E3CE7100039B5A1 /* Onboarding.Instruction1.riv */ = {isa = PBXFileReference; lastKnownFileType = file; path = Onboarding.Instruction1.riv; sourceTree = "<group>"; };
 		DEDD65252DAD058500867482 /* CreateProductTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateProductTableView.swift; sourceTree = "<group>"; };
 		DEDD65272DAD058E00867482 /* CreateProductTableElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateProductTableElement.swift; sourceTree = "<group>"; };
 		DEDD652A2DAD05A100867482 /* CPTableGeneralCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPTableGeneralCell.swift; sourceTree = "<group>"; };
@@ -627,6 +637,7 @@
 			isa = PBXGroup;
 			children = (
 				DE0AA5932DA4F318005DFC44 /* AmplitudeManager.swift */,
+				DECC9E5C2E3CE2F40039B5A1 /* FacebookManager.swift */,
 			);
 			path = Analytics;
 			sourceTree = "<group>";
@@ -980,10 +991,11 @@
 		DE0AA88D2DA50593005DFC44 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				DE66AE3B2E3B65C900886B58 /* Instruction2 */,
+				DE66AE3A2E3B658300886B58 /* Instruction1 */,
+				DE66AE372E3B646800886B58 /* Welcome */,
 				DE0AA8962DA50DE1005DFC44 /* Account */,
-				DE0AA88E2DA5059C005DFC44 /* OWelcomeView.swift */,
-				DE0AA8902DA50C95005DFC44 /* Onstruction1View.swift */,
-				DE0AA8922DA50D01005DFC44 /* Onstruction2View.swift */,
+				DE66AE382E3B64B200886B58 /* OSlideView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1287,6 +1299,33 @@
 				DE522C742DB131C7007C6BD6 /* CreateDateButton.swift */,
 			);
 			path = Date;
+			sourceTree = "<group>";
+		};
+		DE66AE372E3B646800886B58 /* Welcome */ = {
+			isa = PBXGroup;
+			children = (
+				DECC9E562E3CE0A10039B5A1 /* Onboarding.Welcome.riv */,
+				DE0AA88E2DA5059C005DFC44 /* OWelcomeView.swift */,
+			);
+			path = Welcome;
+			sourceTree = "<group>";
+		};
+		DE66AE3A2E3B658300886B58 /* Instruction1 */ = {
+			isa = PBXGroup;
+			children = (
+				DECC9E602E3CE7100039B5A1 /* Onboarding.Instruction1.riv */,
+				DE0AA8902DA50C95005DFC44 /* Onstruction1View.swift */,
+			);
+			path = Instruction1;
+			sourceTree = "<group>";
+		};
+		DE66AE3B2E3B65C900886B58 /* Instruction2 */ = {
+			isa = PBXGroup;
+			children = (
+				DECC9E5A2E3CE0E00039B5A1 /* Onboarding.Instruction2.riv */,
+				DE0AA8922DA50D01005DFC44 /* Onstruction2View.swift */,
+			);
+			path = Instruction2;
 			sourceTree = "<group>";
 		};
 		DE8AED3F2DB92E9B00E2E1CF /* DemoProduct */ = {
@@ -1745,6 +1784,7 @@
 				DE0AA5562DA4F0BD005DFC44 /* Frameworks */,
 				DE0AA5572DA4F0BD005DFC44 /* Resources */,
 				6094D93FF24526CDAF6D0EE7 /* [CP] Embed Pods Frameworks */,
+				E072102BEA197CA3E16E46A6 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1797,11 +1837,14 @@
 				DE0AA87F2DA50005005DFC44 /* Quicksand-Regular.ttf in Resources */,
 				DE0AA8802DA50005005DFC44 /* Quicksand-Medium.ttf in Resources */,
 				DE0AA8812DA50005005DFC44 /* Quicksand-Bold.ttf in Resources */,
+				DECC9E612E3CE7100039B5A1 /* Onboarding.Instruction1.riv in Resources */,
+				DECC9E5B2E3CE0E00039B5A1 /* Onboarding.Instruction2.riv in Resources */,
 				DE0AA8822DA50005005DFC44 /* Quicksand-SemiBold.ttf in Resources */,
 				DE0AA8872DA5006F005DFC44 /* SF-Pro-Text-Bold.otf in Resources */,
 				DE0AA8882DA5006F005DFC44 /* SF-Pro-Text-Semibold.otf in Resources */,
 				DE0AA8892DA5006F005DFC44 /* SF-Pro-Text-Regular.otf in Resources */,
 				DE0AA57E2DA4F0C2005DFC44 /* Assets.xcassets in Resources */,
+				DECC9E572E3CE0A10039B5A1 /* Onboarding.Welcome.riv in Resources */,
 				DE0AA5802DA4F0C2005DFC44 /* LaunchScreen.storyboard in Resources */,
 				DE0AA5902DA4F311005DFC44 /* Localizable.strings in Resources */,
 			);
@@ -1851,6 +1894,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-InventoryManagement/Pods-InventoryManagement-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E072102BEA197CA3E16E46A6 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-InventoryManagement/Pods-InventoryManagement-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-InventoryManagement/Pods-InventoryManagement-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-InventoryManagement/Pods-InventoryManagement-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -1965,6 +2029,7 @@
 				DEE48BD52DA7F3B2002CD05A /* BarcodeImageGenerator.swift in Sources */,
 				DE0AA7A22DA4F318005DFC44 /* TextAttributes.swift in Sources */,
 				DE1E60EE2DA66AF3006CF764 /* Folder.swift in Sources */,
+				DECC9E5D2E3CE2F40039B5A1 /* FacebookManager.swift in Sources */,
 				DEA35BC82DB7AB7E00D8D20A /* ITStatisticsItemView.swift in Sources */,
 				DE1E60DF2DA66407006CF764 /* Product.swift in Sources */,
 				DEA35BD12DB7ECBC00D8D20A /* ITFoldersCollectionAddCell.swift in Sources */,
@@ -2029,6 +2094,7 @@
 				DEA35BAE2DB75C6F00D8D20A /* ItemsTableElement.swift in Sources */,
 				DE522C692DB0EF19007C6BD6 /* CreateWebLinkField.swift in Sources */,
 				DE522C612DB0EEFB007C6BD6 /* CreateDNField.swift in Sources */,
+				DE66AE392E3B64B200886B58 /* OSlideView.swift in Sources */,
 				DEE48BC42DA7A07E002CD05A /* ScannerControlsView.swift in Sources */,
 				DEA35BF82DB9004C00D8D20A /* CreateFolderView.swift in Sources */,
 				DE0AA7F02DA4F318005DFC44 /* TakePhoto.swift in Sources */,
@@ -2142,11 +2208,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 3;
-				DEVELOPMENT_TEAM = "";
-				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 4X5YS65338;
+				DEVELOPMENT_TEAM = 2GY8CB289H;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = InventoryManagement/Info.plist;
@@ -2163,10 +2227,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0.2;
-				PRODUCT_BUNDLE_IDENTIFIER = com.sp.inventory;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sp.inventory.dev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Inventory AppStore";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -2184,11 +2247,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 3;
-				DEVELOPMENT_TEAM = "";
-				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 4X5YS65338;
+				DEVELOPMENT_TEAM = 2GY8CB289H;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = InventoryManagement/Info.plist;
@@ -2205,10 +2266,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0.2;
-				PRODUCT_BUNDLE_IDENTIFIER = com.sp.inventory;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sp.inventory.dev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Inventory AppStore";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;

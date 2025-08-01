@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class OAccountView: UIView {
+final class OAccountView: OSlideView {
     lazy var imageView = makeImageView()
     lazy var titleLabel = makeTitleLabel()
     lazy var subTitleLabel = makeSubTitleLabel()

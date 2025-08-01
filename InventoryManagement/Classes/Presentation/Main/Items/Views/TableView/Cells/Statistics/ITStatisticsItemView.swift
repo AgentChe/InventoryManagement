@@ -56,7 +56,7 @@ extension ITStatisticsItemView {
             if totalPrice.value.truncatingRemainder(dividingBy: 1) == 0 {
                 return String(format: "%.0f", totalPrice.value)
             } else {
-                return String(totalPrice.value)
+                return String(format: "%.2f", totalPrice.value)
             }
         }()
         

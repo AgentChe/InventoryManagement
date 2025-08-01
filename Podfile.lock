@@ -1,8 +1,15 @@
 PODS:
   - Alamofire (5.10.2)
   - Amplitude-iOS (4.10.0)
+  - FBAEMKit (18.0.0):
+    - FBSDKCoreKit_Basics (= 18.0.0)
+  - FBSDKCoreKit (18.0.0):
+    - FBAEMKit (= 18.0.0)
+    - FBSDKCoreKit_Basics (= 18.0.0)
+  - FBSDKCoreKit_Basics (18.0.0)
   - Kingfisher (8.3.1)
   - OtterScaleiOS (1.26)
+  - RiveRuntime (6.11.0)
   - RxCocoa (6.9.0):
     - RxRelay (= 6.9.0)
     - RxSwift (= 6.9.0)
@@ -15,8 +22,10 @@ PODS:
 DEPENDENCIES:
   - Alamofire
   - Amplitude-iOS
+  - FBSDKCoreKit
   - Kingfisher
   - OtterScaleiOS (from `https://github.com/AgentChe/OtterScaleiOS.git`)
+  - RiveRuntime
   - RxCocoa
   - RxSwift
   - SwiftyStoreKit
@@ -26,7 +35,11 @@ SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - Alamofire
     - Amplitude-iOS
+    - FBAEMKit
+    - FBSDKCoreKit
+    - FBSDKCoreKit_Basics
     - Kingfisher
+    - RiveRuntime
     - RxCocoa
     - RxRelay
     - RxSwift
@@ -45,14 +58,18 @@ CHECKOUT OPTIONS:
 SPEC CHECKSUMS:
   Alamofire: 7193b3b92c74a07f85569e1a6c4f4237291e7496
   Amplitude-iOS: 7d8cdc3408ba35c2e68368fc7c692cd104606b94
+  FBAEMKit: e34530df538b8eb8aeb53c35867715ba6c63ef0c
+  FBSDKCoreKit: d3f479a69127acebb1c6aad91c1a33907bcf6c2f
+  FBSDKCoreKit_Basics: 017b6dc2a1862024815a8229e75661e627ac1e29
   Kingfisher: 3204d23de16b5ea53541c44ca5a8efb55741dec3
   OtterScaleiOS: 7797bb943c69572cd25a6118939ddb7c4684f03c
+  RiveRuntime: 9f45abc39a04c4b79caa602c20f16ff9f4d1d9cd
   RxCocoa: ac16414696ae706516be3e1ab00fcce5bdc9be8a
   RxRelay: 6b0c930e5cef57d5fe2032571e5e65b78e3cbdb1
   RxSwift: 31649ace6aceeb422e16ff71c60804f9c3281ed9
   SwiftyStoreKit: 6b9c08810269f030586dac1fae8e75871a82e84a
   Toast-Swift: 7a03a532afe3a560d4044bc7c237e2864d295173
 
-PODFILE CHECKSUM: 7caa6039bb1b68662376e667d1dfc1858e86534b
+PODFILE CHECKSUM: 6feb80817fa530c49adfaf5968f57c2f24e05251
 
 COCOAPODS: 1.16.2
