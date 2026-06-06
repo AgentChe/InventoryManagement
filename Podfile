@@ -18,7 +18,6 @@ target 'InventoryManagement' do
 
   pod 'OtterScaleiOS', :git => "https://github.com/AgentChe/OtterScaleiOS.git"
   
-  pod 'Amplitude-iOS'
   pod 'FBSDKCoreKit'
 end
 

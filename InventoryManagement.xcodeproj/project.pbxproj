@@ -57,7 +57,6 @@
 		DE0AA7F22DA4F318005DFC44 /* UIView+RxExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0AA5AD2DA4F318005DFC44 /* UIView+RxExtension.swift */; };
 		DE0AA7F72DA4F318005DFC44 /* Scalable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0AA5BF2DA4F318005DFC44 /* Scalable.swift */; };
 		DE0AA7FB2DA4F318005DFC44 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0AA65E2DA4F318005DFC44 /* MainViewController.swift */; };
-		DE0AA7FC2DA4F318005DFC44 /* AmplitudeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0AA5932DA4F318005DFC44 /* AmplitudeManager.swift */; };
 		DE0AA7FD2DA4F318005DFC44 /* Weak.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0AA5C22DA4F318005DFC44 /* Weak.swift */; };
 		DE0AA8062DA4F318005DFC44 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0AA5C82DA4F318005DFC44 /* SceneDelegate.swift */; };
 		DE0AA8092DA4F318005DFC44 /* PaygateInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0AA6DA2DA4F318005DFC44 /* PaygateInfoView.swift */; };
@@ -284,7 +283,6 @@
 		DE0AA5732DA4F0C2005DFC44 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DE0AA5742DA4F0C2005DFC44 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DE0AA58A2DA4F311005DFC44 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		DE0AA5932DA4F318005DFC44 /* AmplitudeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmplitudeManager.swift; sourceTree = "<group>"; };
 		DE0AA5962DA4F318005DFC44 /* ChoosePhotoFromGallery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoosePhotoFromGallery.swift; sourceTree = "<group>"; };
 		DE0AA5972DA4F318005DFC44 /* RequestReview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestReview.swift; sourceTree = "<group>"; };
 		DE0AA5982DA4F318005DFC44 /* RxActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxActivityIndicator.swift; sourceTree = "<group>"; };
@@ -636,7 +634,6 @@
 		DE0AA5952DA4F318005DFC44 /* Analytics */ = {
 			isa = PBXGroup;
 			children = (
-				DE0AA5932DA4F318005DFC44 /* AmplitudeManager.swift */,
 				DECC9E5C2E3CE2F40039B5A1 /* FacebookManager.swift */,
 			);
 			path = Analytics;
@@ -1883,9 +1880,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-InventoryManagement/Pods-InventoryManagement-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-InventoryManagement/Pods-InventoryManagement-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1900,9 +1901,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-InventoryManagement/Pods-InventoryManagement-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-InventoryManagement/Pods-InventoryManagement-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -2099,7 +2104,6 @@
 				DE0AA7FB2DA4F318005DFC44 /* MainViewController.swift in Sources */,
 				DE522C632DB0EF03007C6BD6 /* CreateCheckboxField.swift in Sources */,
 				DEDD653B2DAD65BB00867482 /* CPPhotoView.swift in Sources */,
-				DE0AA7FC2DA4F318005DFC44 /* AmplitudeManager.swift in Sources */,
 				DEA35BB32DB75CE700D8D20A /* ITUnlockAccessCell.swift in Sources */,
 				DE1E60FC2DA68036006CF764 /* SearchViewModel.swift in Sources */,
 				DE0AA7FD2DA4F318005DFC44 /* Weak.swift in Sources */,
@@ -2202,7 +2206,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 4X5YS65338;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
@@ -2220,7 +2224,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.3;
+				MARKETING_VERSION = 1.0.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.sp.inventory;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -2244,7 +2248,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 4X5YS65338;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
@@ -2262,7 +2266,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.3;
+				MARKETING_VERSION = 1.0.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.sp.inventory;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

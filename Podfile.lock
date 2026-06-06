@@ -1,6 +1,5 @@
 PODS:
   - Alamofire (5.10.2)
-  - Amplitude-iOS (4.10.0)
   - FBAEMKit (18.0.0):
     - FBSDKCoreKit_Basics (= 18.0.0)
   - FBSDKCoreKit (18.0.0):
@@ -21,7 +20,6 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire
-  - Amplitude-iOS
   - FBSDKCoreKit
   - Kingfisher
   - OtterScaleiOS (from `https://github.com/AgentChe/OtterScaleiOS.git`)
@@ -34,7 +32,6 @@ DEPENDENCIES:
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - Alamofire
-    - Amplitude-iOS
     - FBAEMKit
     - FBSDKCoreKit
     - FBSDKCoreKit_Basics
@@ -57,7 +54,6 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   Alamofire: 7193b3b92c74a07f85569e1a6c4f4237291e7496
-  Amplitude-iOS: 7d8cdc3408ba35c2e68368fc7c692cd104606b94
   FBAEMKit: e34530df538b8eb8aeb53c35867715ba6c63ef0c
   FBSDKCoreKit: d3f479a69127acebb1c6aad91c1a33907bcf6c2f
   FBSDKCoreKit_Basics: 017b6dc2a1862024815a8229e75661e627ac1e29
@@ -70,6 +66,6 @@ SPEC CHECKSUMS:
   SwiftyStoreKit: 6b9c08810269f030586dac1fae8e75871a82e84a
   Toast-Swift: 7a03a532afe3a560d4044bc7c237e2864d295173
 
-PODFILE CHECKSUM: 6feb80817fa530c49adfaf5968f57c2f24e05251
+PODFILE CHECKSUM: 455465ace3d82ded6521301b4e553544b2a9344c
 
 COCOAPODS: 1.16.2
